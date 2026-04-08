@@ -99,7 +99,7 @@ make help
 make install-dev
 ```
 
-This installs the packages listed in `config/requirements.txt`.
+This installs the packages listed in `config/requirements.txt` into `.venv`.
 
 #### Check Python Syntax
 

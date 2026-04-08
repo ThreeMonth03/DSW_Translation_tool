@@ -8,17 +8,29 @@ import argparse
 from dsw_translation_tool import TranslationWorkflowService
 
 
-def main() -> None:
-    parser = argparse.ArgumentParser(description="PO translation workflow using a folder tree.")
-    parser.add_argument("--po", default="files/knowledge-models-common-dsw-knowledge-model-zh_Hant.po")
+def build_argument_parser() -> argparse.ArgumentParser:
+    """Build the CLI argument parser."""
+
+    parser = argparse.ArgumentParser(
+        description="PO translation workflow using a folder tree.",
+    )
+    parser.add_argument(
+        "--po",
+        default="files/knowledge-models-common-dsw-knowledge-model-zh_Hant.po",
+    )
     parser.add_argument("--json", default="files/dsw_root_2.7.0.km")
     parser.add_argument("--tree-dir", default="output/tree")
     parser.add_argument("--final-po", default="output/final_translated.po")
     parser.add_argument("--report-out", default="output/final_report.json")
     parser.add_argument("--source-lang", default="en")
     parser.add_argument("--target-lang", default="zh_Hant")
-    args = parser.parse_args()
+    return parser
 
+
+def main() -> None:
+    """Run the optional end-to-end workflow CLI."""
+
+    args = build_argument_parser().parse_args()
     workflow = TranslationWorkflowService(
         source_lang=args.source_lang,
         target_lang=args.target_lang,
@@ -31,8 +43,9 @@ def main() -> None:
         out_dir=args.tree_dir,
         preserve_existing_translations=True,
     )
+    manifest = export_result.manifest or {"nodes": {}}
     print(
-        f"Exported {len(export_result['manifest']['nodes'])} folders to {args.tree_dir}. "
+        f"Exported {len(manifest['nodes'])} folders to {args.tree_dir}. "
         "Edit each folder's translation.md target-language blocks, then press Enter to continue."
     )
     input()
@@ -43,7 +56,7 @@ def main() -> None:
         original_po_path=args.po,
         out_po_path=args.final_po,
     )
-    print(f"Wrote PO file to {build_result['outPo']}")
+    print(f"Wrote PO file to {build_result.output_po}")
 
     print("Step 3: Validating the generated PO file...")
     report = workflow.validate_po_against_model(args.final_po, args.json)

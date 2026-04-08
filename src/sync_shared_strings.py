@@ -5,11 +5,18 @@ from __future__ import annotations
 
 import argparse
 import time
+from argparse import Namespace
 
 from dsw_translation_tool import SharedStringSynchronizer, TranslationTreeRepository
 
 
-def run_sync(args) -> None:
+def run_sync(args: Namespace) -> None:
+    """Run one shared-string synchronization pass.
+
+    Args:
+        args: Parsed CLI arguments.
+    """
+
     repository = TranslationTreeRepository(
         source_lang=args.source_lang,
         target_lang=args.target_lang,
@@ -31,23 +38,30 @@ def run_sync(args) -> None:
     if result.output_po:
         print(f"  Output PO      : {result.output_po}")
 
-    if result.conflicts:
+    if not result.conflicts:
+        return
+
+    print()
+    print("First 5 Conflict Group(s)")
+    print()
+    for index, conflict in enumerate(result.conflicts[:5], start=1):
+        preview = ", ".join(repr(value) for value in conflict.translations[:3])
+        if len(conflict.translations) > 3:
+            preview += ", ..."
+        print(f"{index:02d}. {conflict.msgid}")
+        print(f"    References   : {len(conflict.references)}")
+        print(f"    Translations : {preview}")
         print()
-        print("First 5 Conflict Group(s)")
-        print()
-        for index, conflict in enumerate(result.conflicts[:5], start=1):
-            preview = ", ".join(repr(value) for value in conflict.translations[:3])
-            if len(conflict.translations) > 3:
-                preview += ", ..."
-            print(f"{index:02d}. {conflict.msgid}")
-            print(f"    References   : {len(conflict.references)}")
-            print(f"    Translations : {preview}")
-            print()
 
 
-def main() -> None:
+def build_argument_parser() -> argparse.ArgumentParser:
+    """Build the CLI argument parser."""
+
     parser = argparse.ArgumentParser(
-        description="Sync repeated/shared source strings across a translation tree and optionally rebuild PO.",
+        description=(
+            "Sync repeated/shared source strings across a translation tree "
+            "and optionally rebuild PO."
+        ),
     )
     parser.add_argument("--tree-dir", default="output/tree")
     parser.add_argument(
@@ -79,8 +93,13 @@ def main() -> None:
         default=10,
         help="Watch interval in seconds. Used only with --watch.",
     )
-    args = parser.parse_args()
+    return parser
 
+
+def main() -> None:
+    """Run the shared-string synchronization CLI."""
+
+    args = build_argument_parser().parse_args()
     if not args.watch:
         run_sync(args)
         return

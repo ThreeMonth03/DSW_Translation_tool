@@ -8,6 +8,7 @@ from pathlib import Path
 from .models import (
     PoBlock,
     PoReference,
+    SharedStringCandidate,
     SharedStringConflict,
     SharedStringSyncResult,
     TranslationFieldState,
@@ -17,10 +18,20 @@ from .tree import TranslationTreeRepository
 
 
 class SharedStringSynchronizer:
-    """Keeps repeated source strings aligned across the translation tree."""
+    """Keep repeated source strings aligned across the translation tree.
 
-    def __init__(self, tree_repository: TranslationTreeRepository):
+    Args:
+        tree_repository: Repository used to read and write tree folders.
+        po_writer: Optional PO writer used when generating an updated PO file.
+    """
+
+    def __init__(
+        self,
+        tree_repository: TranslationTreeRepository,
+        po_writer: PoCatalogWriter | None = None,
+    ):
         self.tree_repository = tree_repository
+        self.po_writer = po_writer or PoCatalogWriter()
 
     def sync(
         self,
@@ -29,9 +40,20 @@ class SharedStringSynchronizer:
         out_po_path: str | None = None,
         group_by: str = "shared-block",
     ) -> SharedStringSyncResult:
+        """Synchronize repeated translation groups across the tree.
+
+        Args:
+            tree_dir: Translation tree directory.
+            original_po_path: Original PO file used as the grouping source.
+            out_po_path: Optional output PO path to refresh after sync.
+            group_by: Grouping strategy for shared strings.
+
+        Returns:
+            Summary of the synchronization run.
+        """
+
         blocks = PoCatalogParser(original_po_path).parse_blocks()
         scan_result = self.tree_repository.scan(tree_dir)
-        folders_by_uuid = scan_result["foldersByUuid"]
         groups = self._build_groups(blocks, group_by=group_by)
 
         pending_writes = {}
@@ -43,36 +65,21 @@ class SharedStringSynchronizer:
             if len(references) < 2:
                 continue
 
-            candidates = self._collect_candidates(references, folders_by_uuid)
+            candidates = self._collect_candidates(
+                references=references,
+                folders_by_uuid=scan_result.folders_by_uuid,
+            )
             if not candidates:
                 continue
 
-            canonical_text = candidates[0]["translation"]
-            unique_translations = {candidate["translation"] for candidate in candidates}
-            if len(unique_translations) > 1:
-                conflicts.append(
-                    SharedStringConflict(
-                        msgid=candidates[0]["source"],
-                        references=tuple(references),
-                        translations=tuple(sorted(unique_translations)),
-                    )
-                )
-
-            group_updates = 0
-            for reference in references:
-                snapshot = folders_by_uuid.get(reference.uuid)
-                if snapshot is None or reference.field not in snapshot.fields:
-                    continue
-                current_state = snapshot.fields[reference.field]
-                if current_state.target_text == canonical_text:
-                    continue
-                snapshot.fields[reference.field] = TranslationFieldState(
-                    source_text=current_state.source_text,
-                    target_text=canonical_text,
-                )
-                pending_writes[reference.uuid] = snapshot
-                group_updates += 1
-
+            canonical_text = candidates[0].translation
+            conflicts.extend(self._collect_conflicts(references, candidates))
+            group_updates = self._apply_group_updates(
+                references=references,
+                canonical_text=canonical_text,
+                folders_by_uuid=scan_result.folders_by_uuid,
+                pending_writes=pending_writes,
+            )
             if group_updates:
                 groups_updated += 1
                 fields_updated += group_updates
@@ -82,23 +89,30 @@ class SharedStringSynchronizer:
 
         output_po = None
         if out_po_path:
-            refreshed_translations = self.tree_repository.scan(tree_dir)["translations"]
+            refreshed_translations = self.tree_repository.scan(tree_dir).translations
             output_po = self._write_output_po(
                 original_po_path=original_po_path,
                 out_po_path=out_po_path,
                 translations=refreshed_translations,
             )
 
+        scanned_group_count = sum(1 for references in groups.values() if len(references) > 1)
         return SharedStringSyncResult(
-            groups_scanned=sum(1 for references in groups.values() if len(references) > 1),
+            groups_scanned=scanned_group_count,
             groups_updated=groups_updated,
             fields_updated=fields_updated,
             conflicts=tuple(conflicts),
             output_po=output_po,
         )
 
-    def _build_groups(self, blocks: list[PoBlock], group_by: str) -> dict[tuple, list[PoReference]]:
-        groups: dict[tuple, list[PoReference]] = defaultdict(list)
+    def _build_groups(
+        self,
+        blocks: list[PoBlock],
+        group_by: str,
+    ) -> dict[tuple[object, ...], list[PoReference]]:
+        """Build shared-string groups according to the selected strategy."""
+
+        groups: dict[tuple[object, ...], list[PoReference]] = defaultdict(list)
         for block in blocks:
             if not block.msgid:
                 continue
@@ -107,9 +121,25 @@ class SharedStringSynchronizer:
         return groups
 
     @staticmethod
-    def _build_group_key(block: PoBlock, group_by: str) -> tuple:
+    def _build_group_key(block: PoBlock, group_by: str) -> tuple[object, ...]:
+        """Build the grouping key for one PO block.
+
+        Args:
+            block: PO block being grouped.
+            group_by: Selected grouping strategy.
+
+        Returns:
+            Tuple key used for group aggregation.
+
+        Raises:
+            ValueError: If the grouping strategy is unsupported.
+        """
+
         if group_by == "shared-block":
-            return ("shared-block", tuple((reference.uuid, reference.field) for reference in block.references))
+            return (
+                "shared-block",
+                tuple((reference.uuid, reference.field) for reference in block.references),
+            )
         if group_by == "msgid":
             return ("msgid", block.msgid)
         if group_by == "msgid-field":
@@ -118,8 +148,13 @@ class SharedStringSynchronizer:
         raise ValueError(f"Unsupported grouping mode: {group_by}")
 
     @staticmethod
-    def _collect_candidates(references, folders_by_uuid) -> list[dict]:
-        candidates = []
+    def _collect_candidates(
+        references: list[PoReference],
+        folders_by_uuid,
+    ) -> list[SharedStringCandidate]:
+        """Collect non-empty candidate translations for one group."""
+
+        candidates: list[SharedStringCandidate] = []
         for reference in references:
             snapshot = folders_by_uuid.get(reference.uuid)
             if snapshot is None:
@@ -128,33 +163,81 @@ class SharedStringSynchronizer:
             if state is None or not state.target_text.strip():
                 continue
             candidates.append(
-                {
-                    "reference": reference,
-                    "translation": state.target_text,
-                    "source": state.source_text,
-                    "modifiedAt": snapshot.modified_at,
-                    "path": snapshot.path,
-                }
+                SharedStringCandidate(
+                    reference=reference,
+                    translation=state.target_text,
+                    source=state.source_text,
+                    modified_at=snapshot.modified_at,
+                    path=snapshot.path,
+                )
             )
 
         candidates.sort(
             key=lambda candidate: (
-                candidate["modifiedAt"],
-                candidate["path"],
-                candidate["reference"].uuid,
-                candidate["reference"].field,
+                candidate.modified_at,
+                candidate.path,
+                candidate.reference.uuid,
+                candidate.reference.field,
             ),
             reverse=True,
         )
         return candidates
 
     @staticmethod
+    def _collect_conflicts(
+        references: list[PoReference],
+        candidates: list[SharedStringCandidate],
+    ) -> list[SharedStringConflict]:
+        """Build conflict records when a group has multiple non-empty values."""
+
+        unique_translations = {candidate.translation for candidate in candidates}
+        if len(unique_translations) <= 1:
+            return []
+        return [
+            SharedStringConflict(
+                msgid=candidates[0].source,
+                references=tuple(references),
+                translations=tuple(sorted(unique_translations)),
+            )
+        ]
+
+    @staticmethod
+    def _apply_group_updates(
+        references: list[PoReference],
+        canonical_text: str,
+        folders_by_uuid,
+        pending_writes,
+    ) -> int:
+        """Apply one canonical translation to the entire group."""
+
+        updates = 0
+        for reference in references:
+            snapshot = folders_by_uuid.get(reference.uuid)
+            if snapshot is None or reference.field not in snapshot.fields:
+                continue
+            current_state = snapshot.fields[reference.field]
+            if current_state.target_text == canonical_text:
+                continue
+            snapshot.fields[reference.field] = TranslationFieldState(
+                source_text=current_state.source_text,
+                target_text=canonical_text,
+            )
+            pending_writes[reference.uuid] = snapshot
+            updates += 1
+        return updates
+
     def _write_output_po(
+        self,
         original_po_path: str,
         out_po_path: str,
         translations: dict[tuple[str, str], str],
     ) -> str:
-        po_content = PoCatalogWriter.rewrite_translations(original_po_path, translations)
+        """Write the refreshed PO file after synchronization."""
+
+        po_content = self.po_writer.rewrite_translations(
+            original_po_path,
+            translations,
+        )
         output_file = Path(out_po_path)
         output_file.parent.mkdir(parents=True, exist_ok=True)
         output_file.write_text(po_content, encoding="utf-8")
