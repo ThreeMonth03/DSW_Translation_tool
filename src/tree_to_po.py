@@ -1,14 +1,15 @@
 #!/usr/bin/env python3
+"""Convert a translation tree back into a PO file."""
+
+from __future__ import annotations
+
 import argparse
-import os
 
-from tree_utils import parse_po_file, rewrite_po_translations, validate_translation_tree
+from dsw_translation_tool import TranslationWorkflowService
 
 
-def main():
-    parser = argparse.ArgumentParser(
-        description="Convert a translation folder tree back to PO format.",
-    )
+def main() -> None:
+    parser = argparse.ArgumentParser(description="Convert a translation folder tree back to PO format.")
     parser.add_argument("--tree-dir", default="output/tree", help="Path to the translation folder tree.")
     parser.add_argument(
         "--original-po",
@@ -16,26 +17,24 @@ def main():
         help="Path to the original PO file used as the structural template.",
     )
     parser.add_argument("--out-po", default="output/final_translated.po", help="Output PO file path.")
+    parser.add_argument("--source-lang", default="en")
     parser.add_argument("--target-lang", default="zh_Hant")
     args = parser.parse_args()
 
-    po_entries = parse_po_file(args.original_po)
-    tree_validation = validate_translation_tree(args.tree_dir, po_entries, target_lang=args.target_lang)
-    if tree_validation["errors"]:
-        preview = "\n".join(tree_validation["errors"][:50])
-        raise ValueError(f"Translation tree validation failed:\n{preview}")
-
-    po_content = rewrite_po_translations(args.original_po, tree_validation["translations"])
-
-    out_dir = os.path.dirname(args.out_po)
-    if out_dir:
-        os.makedirs(out_dir, exist_ok=True)
-    with open(args.out_po, "w", encoding="utf-8") as handle:
-        handle.write(po_content)
+    workflow = TranslationWorkflowService(
+        source_lang=args.source_lang,
+        target_lang=args.target_lang,
+    )
+    result = workflow.build_po_from_tree(
+        tree_dir=args.tree_dir,
+        original_po_path=args.original_po,
+        out_po_path=args.out_po,
+    )
 
     print(
-        f"Generated PO file: {args.out_po} "
-        f"({len(tree_validation['nodeDirs'])} folders scanned, {len(tree_validation['translations'])} translation files)"
+        f"Generated PO file: {result['outPo']} "
+        f"({len(result['validation']['nodeDirs'])} folders scanned, "
+        f"{len(result['validation']['translations'])} translation files)"
     )
 
 

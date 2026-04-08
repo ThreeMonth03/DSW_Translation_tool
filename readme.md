@@ -1,12 +1,124 @@
 ## Usage
 
-### Export Translation Tree
+### For Translators
+
+This section is for people who only need to translate content.
+You do not need to understand the Python code in this repository.
+
+#### 1. Prepare The Latest Source Files
+
+Make sure the latest PO and KM files are placed under `files/`.
+
+- The PO file can be downloaded from:
+  `https://localize.ds-wizard.org/projects/knowledge-models/common-dsw-knowledge-model/zh_Hant/`
+- The KM file can be exported from your local DSW instance.
+
+#### 2. Prepare The Translation Tree
 
 ```shell
-python3 src/po_json_tree.py \
-  --po files/knowledge-models-common-dsw-knowledge-model-zh_Hant.po \
-  --json files/dsw_root_2.7.0.km \
-  --out-dir output/tree
+make export-tree
+```
+
+This prepares the folder tree under `output/tree`.
+
+#### 3. Open The Translation Tree
+
+After the tree has been prepared, go to `output/tree`.
+
+- Each folder represents one node in the knowledge model.
+- Each folder contains `_uuid.txt`.
+- If the node has translatable content, it also contains `translation.md`.
+
+#### 4. Edit Only `translation.md`
+
+Open `translation.md` and edit only the `Translation (zh_Hant)` blocks.
+
+- Do not change the UUID.
+- Do not rename folders.
+- Do not edit the `Source (en)` blocks unless you are intentionally fixing source text.
+
+Each file keeps fields in a stable order such as:
+
+- `title`
+- `label`
+- `text`
+- `advice`
+
+#### 5. Check What Is Still Untranslated
+
+```shell
+make status
+```
+
+This shows:
+
+- which folders still have untranslated fields
+- the first few untranslated fields in tree order
+
+#### 6. Sync Repeated English Strings And Refresh The Final PO
+
+```shell
+make sync
+```
+
+This updates other nodes that share the same original PO translation block and refreshes `output/final_translated.po`.
+
+If you want this to keep running every 10 seconds while you work:
+
+```shell
+make sync-watch
+```
+
+If you prefer, you can also rebuild the final PO manually:
+
+```shell
+make tree-to-po
+```
+
+#### 7. Upload The Final PO
+
+When translation is finished, upload `output/final_translated.po` to:
+
+`https://localize.ds-wizard.org/projects/knowledge-models/common-dsw-knowledge-model/zh_Hant/`
+
+If needed, ask the developer or project maintainer to run final validation before upload.
+
+### For Developers
+
+This section is for maintaining the tooling and preparing final deliverables.
+
+#### Show Available Targets
+
+```shell
+make help
+```
+
+#### Install Dev Tools
+
+```shell
+make install-dev
+```
+
+This installs the packages listed in `config/requirements.txt`.
+
+#### Check Python Syntax
+
+```shell
+make compile
+```
+
+This checks whether the Python files under `src/` can be compiled successfully.
+
+#### Run Lint
+
+```shell
+make lint
+```
+
+#### Export Translation Tree
+
+```shell
+make export-tree
 ```
 
 This writes a folder tree that mirrors the knowledge-model structure.
@@ -18,54 +130,31 @@ This writes a folder tree that mirrors the knowledge-model structure.
 - Inside `translation.md`, each field is shown in a stable order such as `title -> label -> text -> advice`.
 - The export root also contains `_translation_tree.json` for validation and re-import.
 - Re-running export preserves existing translations by default.
-- Use `--force` only when you intentionally want to rebuild the tree from the supplied PO. It will show a warning and require typing `yes`.
+
+If you intentionally want to rebuild the tree from the supplied PO and discard current tree content:
 
 ```shell
-python3 src/po_json_tree.py \
-  --po files/knowledge-models-common-dsw-knowledge-model-zh_Hant.po \
-  --json files/dsw_root_2.7.0.km \
-  --out-dir output/tree \
-  --force
+make export-tree-force
 ```
 
-### Generate PO From Translation Tree
+This will show a warning and require typing `yes`.
+
+#### Build PO From Translation Tree
 
 ```shell
-python3 src/tree_to_po.py \
-  --tree-dir output/tree \
-  --original-po files/knowledge-models-common-dsw-knowledge-model-zh_Hant.po \
-  --out-po output/final_translated.po
+make tree-to-po
 ```
 
-### Check Translation Progress
+#### Validate Final Output
 
 ```shell
-python3 src/translation_status.py --tree-dir output/tree
+make validate
 ```
 
-This scans the exported tree and reports:
-
-- folders that still contain untranslated fields
-- the first `k` untranslated fields in DFS folder order (`k = 5` by default)
-
-### Check Output
+#### Optional Final Round-Trip Workflow
 
 ```shell
-python3 src/po_json_tree.py \
-  --po output/final_translated.po \
-  --json files/dsw_root_2.7.0.json \
-  --report-out output/final_report.json
-```
-
-### Optional Final Round-Trip Workflow
-
-```shell
-python3 src/translate_workflow.py \
-  --po files/knowledge-models-common-dsw-knowledge-model-zh_Hant.po \
-  --json files/dsw_root_2.7.0.km \
-  --tree-dir output/tree \
-  --final-po output/final_translated.po \
-  --report-out output/final_report.json
+make workflow
 ```
 
 This is only for a final smoke test or a full round-trip check.

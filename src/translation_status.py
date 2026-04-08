@@ -1,30 +1,37 @@
 #!/usr/bin/env python3
+"""Report untranslated fields from an exported translation tree."""
+
+from __future__ import annotations
+
 import argparse
 import json
+from dataclasses import asdict
 
-from tree_utils import collect_translation_status
+from dsw_translation_tool import TranslationWorkflowService
 
 
-def build_pending_items(folders):
-    items = []
+def build_pending_items(folders) -> list[dict[str, str]]:
+    items: list[dict[str, str]] = []
     for folder in folders:
-        for field in folder["untranslatedFields"]:
-            items.append({
-                "path": folder["path"],
-                "uuid": folder["uuid"],
-                "field": field,
-            })
+        for field in folder.untranslated_fields:
+            items.append(
+                {
+                    "path": folder.path,
+                    "uuid": folder.uuid,
+                    "field": field,
+                }
+            )
     return items
 
 
-def print_pending_item(index, item):
+def print_pending_item(index: int, item: dict[str, str]) -> None:
     print(f"{index:02d}. {item['field']}")
     print(f"    Folder : {item['path']}")
     print(f"    UUID   : {item['uuid']}")
     print()
 
 
-def main():
+def main() -> None:
     parser = argparse.ArgumentParser(
         description="Report untranslated fields for an exported translation folder tree.",
     )
@@ -38,20 +45,16 @@ def main():
         default=5,
         help="Show the first k untranslated fields in DFS folder order. Use 0 to show all.",
     )
-    parser.add_argument(
-        "--json-out",
-        default=None,
-        help="Optional path to write the full untranslated report as JSON.",
-    )
+    parser.add_argument("--json-out", default=None, help="Optional path to write the full report as JSON.")
     args = parser.parse_args()
 
-    status = collect_translation_status(
-        args.tree_dir,
+    workflow = TranslationWorkflowService(
         source_lang=args.source_lang,
         target_lang=args.target_lang,
     )
+    status = workflow.collect_status(args.tree_dir)
     summary = status["summary"]
-    pending_folders = [folder for folder in status["folders"] if folder["untranslatedFields"]]
+    pending_folders = [folder for folder in status["folders"] if folder.untranslated_fields]
     pending_items = build_pending_items(pending_folders)
 
     print("Untranslated Summary")
@@ -74,7 +77,7 @@ def main():
             json.dump(
                 {
                     "summary": summary,
-                    "pendingFolders": pending_folders,
+                    "pendingFolders": [asdict(folder) for folder in pending_folders],
                     "pendingItems": pending_items,
                 },
                 handle,
