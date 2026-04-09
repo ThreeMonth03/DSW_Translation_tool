@@ -115,6 +115,18 @@ This checks whether the Python files under `src/` can be compiled successfully.
 make lint
 ```
 
+#### Run Unit Tests
+
+```shell
+make test
+```
+
+This runs the pytest suite for:
+
+- PO to tree export coverage
+- tree to PO round-trip integrity
+- shared-string synchronization behavior
+
 #### Export Translation Tree
 
 ```shell
