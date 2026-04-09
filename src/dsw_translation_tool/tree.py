@@ -12,7 +12,9 @@ from .constants import (
     FIELD_EXPORT_ORDER,
     MANIFEST_NAME,
     MAX_SEGMENT_TEXT_LENGTH,
+    TRANSLATION_BACKUP_FILENAME,
     TRANSLATION_FILENAME,
+    TREE_BACKUP_DIRNAME,
     UUID_FILENAME,
 )
 from .model import DswModelService
@@ -121,51 +123,258 @@ class TranslationMarkdownDocument:
             Parsed translation fields keyed by field name.
         """
 
-        lines = Path(markdown_path).read_text(encoding="utf-8").split("\n")
-        fields: dict[str, dict[str, str]] = {}
-        current_field: str | None = None
-        current_role: str | None = None
-        in_block = False
-        block_lines: list[str] = []
+        markdown_text = Path(markdown_path).read_text(encoding="utf-8")
+        return self.parse_text(markdown_text, markdown_path)
 
-        for line in lines:
-            stripped = line.strip()
+    def parse_text(
+        self,
+        markdown_text: str,
+        markdown_path: str,
+    ) -> dict[str, TranslationFieldState]:
+        """Parse markdown text and validate its template structure.
 
-            if in_block:
-                if stripped.startswith("~~~"):
-                    role_map = fields.setdefault(current_field or "", {})
-                    role_map[current_role or ""] = "\n".join(block_lines)
-                    in_block = False
-                    block_lines = []
-                else:
-                    block_lines.append(line)
+        Args:
+            markdown_text: Markdown content to parse.
+            markdown_path: Source path used in error messages.
+
+        Returns:
+            Parsed translation fields keyed by field name.
+
+        Raises:
+            ValueError: If the document structure is invalid.
+        """
+
+        lines = markdown_text.split("\n")
+        if lines and lines[-1] == "":
+            lines = lines[:-1]
+
+        index = self._consume_header(lines, markdown_path)
+        fields: dict[str, TranslationFieldState] = {}
+
+        while index < len(lines):
+            if not lines[index].strip():
+                index += 1
                 continue
 
-            if stripped.startswith("## "):
-                current_field = stripped[3:].strip()
-                current_role = None
-                fields.setdefault(current_field, {})
-                continue
+            field_line = lines[index]
+            if not field_line.startswith("## "):
+                self._raise_parse_error(
+                    markdown_path,
+                    index + 1,
+                    "Unexpected content outside a fenced translation block.",
+                )
+            field_name = field_line[3:].strip()
+            if not field_name:
+                self._raise_parse_error(
+                    markdown_path,
+                    index + 1,
+                    "Field heading is missing its field name.",
+                )
+            if field_name in fields:
+                self._raise_parse_error(
+                    markdown_path,
+                    index + 1,
+                    f"Duplicate field section detected for `{field_name}`.",
+                )
+            index += 1
+            index = self._consume_blank_lines(lines, index)
 
-            if stripped.startswith("### Source ("):
-                current_role = "source"
-                continue
-
-            if stripped.startswith("### Translation ("):
-                current_role = "target"
-                continue
-
-            if stripped.startswith("~~~") and current_field and current_role:
-                in_block = True
-                block_lines = []
-
-        return {
-            field: TranslationFieldState(
-                source_text=values.get("source", ""),
-                target_text=values.get("target", ""),
+            index = self._expect_exact_line(
+                lines=lines,
+                index=index,
+                expected=f"### Source ({self.source_lang})",
+                markdown_path=markdown_path,
+                message=f"Missing source heading for `{field_name}`.",
             )
-            for field, values in fields.items()
-        }
+            index = self._consume_blank_lines(lines, index)
+            source_text, index = self._consume_fenced_block(
+                lines=lines,
+                index=index,
+                markdown_path=markdown_path,
+                field_name=field_name,
+                role_label="source",
+            )
+            index = self._consume_blank_lines(lines, index)
+
+            index = self._expect_exact_line(
+                lines=lines,
+                index=index,
+                expected=f"### Translation ({self.target_lang})",
+                markdown_path=markdown_path,
+                message=f"Missing translation heading for `{field_name}`.",
+            )
+            index = self._consume_blank_lines(lines, index)
+            target_text, index = self._consume_fenced_block(
+                lines=lines,
+                index=index,
+                markdown_path=markdown_path,
+                field_name=field_name,
+                role_label="translation",
+            )
+            index = self._consume_blank_lines(lines, index)
+
+            fields[field_name] = TranslationFieldState(
+                source_text=source_text,
+                target_text=target_text,
+            )
+
+        return fields
+
+    def _consume_header(
+        self,
+        lines: list[str],
+        markdown_path: str,
+    ) -> int:
+        """Consume and validate the fixed `translation.md` header.
+
+        Args:
+            lines: Markdown lines without the trailing newline sentinel.
+            markdown_path: Source path used in error messages.
+
+        Returns:
+            Index of the first line after the header.
+        """
+
+        expected_prefixes = (
+            "# Translation",
+            "- UUID: `",
+            "- Event Type: `",
+            f"- Edit only the `Translation ({self.target_lang})` blocks below.",
+        )
+        index = 0
+
+        index = self._expect_exact_line(
+            lines=lines,
+            index=index,
+            expected=expected_prefixes[0],
+            markdown_path=markdown_path,
+            message="Missing translation document title.",
+        )
+        index = self._consume_blank_lines(lines, index)
+
+        for expected_prefix in expected_prefixes[1:3]:
+            index = self._expect_prefixed_line(
+                lines=lines,
+                index=index,
+                prefix=expected_prefix,
+                markdown_path=markdown_path,
+                message="Missing translation document metadata header.",
+            )
+            index = self._consume_blank_lines(lines, index)
+        index = self._expect_exact_line(
+            lines=lines,
+            index=index,
+            expected=expected_prefixes[3],
+            markdown_path=markdown_path,
+            message="Missing translator guidance line.",
+        )
+        return self._consume_blank_lines(lines, index)
+
+    @staticmethod
+    def _consume_blank_lines(lines: list[str], index: int) -> int:
+        """Skip blank lines and return the next non-blank index."""
+
+        while index < len(lines) and not lines[index].strip():
+            index += 1
+        return index
+
+    def _expect_exact_line(
+        self,
+        lines: list[str],
+        index: int,
+        expected: str,
+        markdown_path: str,
+        message: str,
+    ) -> int:
+        """Require an exact line match and advance the parser."""
+
+        if index >= len(lines):
+            self._raise_parse_error(markdown_path, len(lines), message)
+        if lines[index] != expected:
+            self._raise_parse_error(markdown_path, index + 1, message)
+        return index + 1
+
+    def _expect_prefixed_line(
+        self,
+        lines: list[str],
+        index: int,
+        prefix: str,
+        markdown_path: str,
+        message: str,
+    ) -> int:
+        """Require a line prefix match and advance the parser."""
+
+        if index >= len(lines):
+            self._raise_parse_error(markdown_path, len(lines), message)
+        if not lines[index].startswith(prefix):
+            self._raise_parse_error(markdown_path, index + 1, message)
+        return index + 1
+
+    def _consume_fenced_block(
+        self,
+        lines: list[str],
+        index: int,
+        markdown_path: str,
+        field_name: str,
+        role_label: str,
+    ) -> tuple[str, int]:
+        """Consume one fenced `~~~text` block.
+
+        Args:
+            lines: Markdown lines being parsed.
+            index: Current parser index.
+            markdown_path: Source path used in error messages.
+            field_name: Field currently being parsed.
+            role_label: Human-readable role label for error messages.
+
+        Returns:
+            Parsed block text and the next index after the closing fence.
+        """
+
+        index = self._expect_exact_line(
+            lines=lines,
+            index=index,
+            expected="~~~text",
+            markdown_path=markdown_path,
+            message=(
+                f"Missing opening fence for `{field_name}` {role_label} block."
+            ),
+        )
+        block_lines: list[str] = []
+        while index < len(lines):
+            current_line = lines[index]
+            stripped = current_line.strip()
+            if stripped == "~~~":
+                return "\n".join(block_lines), index + 1
+            if stripped.startswith("~~~"):
+                self._raise_parse_error(
+                    markdown_path,
+                    index + 1,
+                    (
+                        f"Broken fence detected inside `{field_name}` "
+                        f"{role_label} block."
+                    ),
+                )
+            block_lines.append(current_line)
+            index += 1
+
+        self._raise_parse_error(
+            markdown_path,
+            len(lines),
+            f"Unclosed fence for `{field_name}` {role_label} block.",
+        )
+
+    @staticmethod
+    def _raise_parse_error(
+        markdown_path: str,
+        line_number: int,
+        message: str,
+    ) -> None:
+        """Raise a consistent translation markdown parse error."""
+
+        raise ValueError(
+            f"{markdown_path}: line {line_number}: {message}"
+        )
 
 
 class TranslationTreeRepository:
@@ -301,6 +510,7 @@ class TranslationTreeRepository:
             Parsed scan result for the tree.
         """
 
+        self._heal_tree_from_manifest(tree_dir)
         node_dirs: dict[str, str] = {}
         translations: dict[tuple[str, str], str] = {}
         duplicate_uuids: list[tuple[str, str, str]] = []
@@ -419,13 +629,13 @@ class TranslationTreeRepository:
 
         if snapshot.translation_path is None:
             return
-        snapshot.translation_path.write_text(
-            self.document.render(
-                entity_uuid=snapshot.entity_uuid,
-                event_type=snapshot.event_type,
-                fields=snapshot.fields,
-            ),
-            encoding="utf-8",
+        tree_root = self._resolve_tree_root_for_snapshot(snapshot)
+        self._write_translation_markdown(
+            tree_dir=str(tree_root),
+            translation_path=snapshot.translation_path,
+            entity_uuid=snapshot.entity_uuid,
+            event_type=snapshot.event_type,
+            fields=snapshot.fields,
         )
 
     def _load_existing_snapshots(
@@ -483,6 +693,8 @@ class TranslationTreeRepository:
             folder_path=Path(current_root),
             filenames=filenames,
             translation_path=translation_path,
+            tree_dir=tree_dir,
+            entity_uuid=entity_uuid,
         )
         return TreeFolderSnapshot(
             entity_uuid=entity_uuid,
@@ -498,12 +710,144 @@ class TranslationTreeRepository:
         folder_path: Path,
         filenames: list[str],
         translation_path: Path,
+        tree_dir: str,
+        entity_uuid: str,
     ) -> dict[str, TranslationFieldState]:
         """Read either `translation.md` or the legacy split text files."""
 
         if translation_path.exists():
-            return self.document.parse(str(translation_path))
+            return self._parse_translation_markdown(
+                translation_path=translation_path,
+                tree_dir=tree_dir,
+                entity_uuid=entity_uuid,
+            )
         return self._scan_legacy_split_files(folder_path, filenames)
+
+    def _parse_translation_markdown(
+        self,
+        translation_path: Path,
+        tree_dir: str,
+        entity_uuid: str,
+    ) -> dict[str, TranslationFieldState]:
+        """Parse one translation markdown file with backup recovery.
+
+        Args:
+            translation_path: Markdown file path to parse.
+            tree_dir: Translation tree root directory.
+            entity_uuid: UUID represented by the markdown file.
+
+        Returns:
+            Parsed field states from the markdown file.
+
+        Raises:
+            ValueError: If the markdown file is invalid.
+        """
+
+        markdown_text = translation_path.read_text(encoding="utf-8")
+        try:
+            fields = self.document.parse_text(markdown_text, str(translation_path))
+        except ValueError as error:
+            backup_path = self._restore_translation_backup(
+                translation_path=translation_path,
+                tree_dir=tree_dir,
+                entity_uuid=entity_uuid,
+            )
+            if backup_path is not None:
+                raise ValueError(
+                    "Invalid translation file was restored from the last "
+                    f"known-good backup.\nFile: {translation_path}\n"
+                    f"Backup: {backup_path}\nReason: {error}"
+                ) from error
+            raise ValueError(
+                "Invalid translation file and no valid backup was available.\n"
+                f"File: {translation_path}\nReason: {error}"
+            ) from error
+        self._write_backup_text(
+            tree_dir=tree_dir,
+            entity_uuid=entity_uuid,
+            markdown_text=markdown_text,
+        )
+        return fields
+
+    def _restore_translation_backup(
+        self,
+        translation_path: Path,
+        tree_dir: str,
+        entity_uuid: str,
+    ) -> Path | None:
+        """Restore one invalid translation file from its last good backup.
+
+        Args:
+            translation_path: Invalid translation markdown path.
+            tree_dir: Translation tree root directory.
+            entity_uuid: UUID represented by the markdown file.
+
+        Returns:
+            Backup path when restoration succeeded, otherwise `None`.
+        """
+
+        for backup_path in self._candidate_backup_paths(
+            tree_dir=tree_dir,
+            entity_uuid=entity_uuid,
+            translation_path=translation_path,
+        ):
+            if not backup_path.exists():
+                continue
+            backup_text = backup_path.read_text(encoding="utf-8")
+            self.document.parse_text(backup_text, str(backup_path))
+            translation_path.parent.mkdir(parents=True, exist_ok=True)
+            translation_path.write_text(backup_text, encoding="utf-8")
+            self._write_backup_text(
+                tree_dir=tree_dir,
+                entity_uuid=entity_uuid,
+                markdown_text=backup_text,
+            )
+            return backup_path
+        return None
+
+    def _heal_tree_from_manifest(self, tree_dir: str) -> None:
+        """Restore missing node folders and files from manifest and backups.
+
+        Args:
+            tree_dir: Translation tree root directory.
+
+        Raises:
+            ValueError: If a missing translation file cannot be restored.
+        """
+
+        manifest = self.read_existing_manifest(tree_dir)
+        if not manifest:
+            return
+
+        for entity_uuid, node in manifest.get("nodes", {}).items():
+            folder_path = Path(tree_dir) / node["path"]
+            folder_path.mkdir(parents=True, exist_ok=True)
+            self._ensure_uuid_file(folder_path=folder_path, entity_uuid=entity_uuid)
+            if not node.get("fields"):
+                continue
+            translation_path = folder_path / TRANSLATION_FILENAME
+            if translation_path.exists():
+                continue
+            restored_path = self._restore_translation_backup(
+                translation_path=translation_path,
+                tree_dir=tree_dir,
+                entity_uuid=entity_uuid,
+            )
+            if restored_path is None:
+                raise ValueError(
+                    "Missing translation file and no valid backup was available.\n"
+                    f"File: {translation_path}"
+                )
+
+    @staticmethod
+    def _ensure_uuid_file(folder_path: Path, entity_uuid: str) -> None:
+        """Ensure that `_uuid.txt` exists and matches the manifest UUID."""
+
+        uuid_path = folder_path / UUID_FILENAME
+        current_value = uuid_path.read_text(encoding="utf-8").strip() if uuid_path.exists() else None
+        if current_value == entity_uuid:
+            return
+        uuid_path.write_text(entity_uuid, encoding="utf-8")
 
     def _build_validation_errors(
         self,
@@ -666,13 +1010,12 @@ class TranslationTreeRepository:
         )
         if translation_fields:
             translation_path = absolute_path / TRANSLATION_FILENAME
-            translation_path.write_text(
-                self.document.render(
-                    entity_uuid=node.entity_uuid,
-                    event_type=node.event_type,
-                    fields=translation_fields,
-                ),
-                encoding="utf-8",
+            self._write_translation_markdown(
+                tree_dir=out_dir,
+                translation_path=translation_path,
+                entity_uuid=node.entity_uuid,
+                event_type=node.event_type,
+                fields=translation_fields,
             )
 
         manifest["nodes"][node.entity_uuid] = {
@@ -748,6 +1091,116 @@ class TranslationTreeRepository:
             sanitized = sanitized.replace(source, replacement)
         sanitized = re.sub(r"\s+", " ", sanitized).strip(" .")
         return sanitized or "Untitled"
+
+    def _resolve_tree_root_for_snapshot(self, snapshot: TreeFolderSnapshot) -> Path:
+        """Resolve the translation tree root for one persisted snapshot.
+
+        Args:
+            snapshot: Snapshot being written back to disk.
+
+        Returns:
+            Resolved tree root path for the snapshot.
+        """
+
+        if snapshot.translation_path is None:
+            raise ValueError(
+                f"Snapshot {snapshot.entity_uuid} does not have a translation file."
+            )
+        manifest_root = self._find_tree_root(snapshot.translation_path.parent)
+        if manifest_root is not None:
+            return manifest_root
+
+        tree_root = snapshot.translation_path.parent
+        for _ in Path(snapshot.path).parts:
+            tree_root = tree_root.parent
+        return tree_root
+
+    @staticmethod
+    def _find_tree_root(start_path: Path) -> Path | None:
+        """Find the nearest ancestor that contains the tree manifest."""
+
+        for candidate in (start_path, *start_path.parents):
+            if (candidate / MANIFEST_NAME).exists():
+                return candidate
+        return None
+
+    def _backup_root(self, tree_dir: str | Path) -> Path:
+        """Return the central backup root for one translation tree."""
+
+        tree_path = Path(tree_dir)
+        return tree_path.parent / TREE_BACKUP_DIRNAME / tree_path.name
+
+    def _central_backup_path(self, tree_dir: str | Path, entity_uuid: str) -> Path:
+        """Return the central backup path for one node translation file."""
+
+        return self._backup_root(tree_dir) / f"{entity_uuid}.{TRANSLATION_FILENAME}.bak"
+
+    @staticmethod
+    def _legacy_backup_path(translation_path: Path) -> Path:
+        """Return the legacy in-folder backup path for one translation file."""
+
+        return translation_path.parent / TRANSLATION_BACKUP_FILENAME
+
+    def _candidate_backup_paths(
+        self,
+        tree_dir: str,
+        entity_uuid: str,
+        translation_path: Path,
+    ) -> tuple[Path, ...]:
+        """Return backup locations to try when restoring a translation file."""
+
+        return (
+            self._central_backup_path(tree_dir, entity_uuid),
+            self._legacy_backup_path(translation_path),
+        )
+
+    def _write_backup_text(
+        self,
+        tree_dir: str,
+        entity_uuid: str,
+        markdown_text: str,
+    ) -> None:
+        """Write one central translation backup file.
+
+        Args:
+            tree_dir: Translation tree root directory.
+            entity_uuid: UUID represented by the markdown file.
+            markdown_text: Valid markdown content to persist as backup.
+        """
+
+        backup_path = self._central_backup_path(tree_dir, entity_uuid)
+        backup_path.parent.mkdir(parents=True, exist_ok=True)
+        backup_path.write_text(markdown_text, encoding="utf-8")
+
+    def _write_translation_markdown(
+        self,
+        tree_dir: str,
+        translation_path: Path,
+        entity_uuid: str,
+        event_type: str | None,
+        fields: dict[str, TranslationFieldState],
+    ) -> None:
+        """Write one translation markdown file and refresh its backup.
+
+        Args:
+            tree_dir: Translation tree root directory.
+            translation_path: Destination translation markdown path.
+            entity_uuid: UUID stored in the document header.
+            event_type: Event type stored in the document header.
+            fields: Translation fields to render and persist.
+        """
+
+        markdown_text = self.document.render(
+            entity_uuid=entity_uuid,
+            event_type=event_type,
+            fields=fields,
+        )
+        translation_path.write_text(markdown_text, encoding="utf-8")
+        self._write_backup_text(
+            tree_dir=tree_dir,
+            entity_uuid=entity_uuid,
+            markdown_text=markdown_text,
+        )
 
     @staticmethod
     def _truncate_path_text(

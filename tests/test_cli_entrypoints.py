@@ -2,6 +2,10 @@
 
 from __future__ import annotations
 
+import shutil
+from argparse import Namespace
+
+import sync_shared_strings
 from tests.helpers import (
     apply_sync_seed_translations_to_tree,
     apply_translation_map_to_tree,
@@ -10,7 +14,10 @@ from tests.helpers import (
     build_empty_msgstr_translation_map,
     build_entry_map,
     build_non_empty_msgstr_translation_map,
+    corrupt_translation_by_appending_outside_fence,
+    corrupt_translation_by_breaking_final_fence,
     export_tree_for_test,
+    find_first_translatable_snapshot,
     parse_po_entries,
     populate_tree_with_stress_translations,
     run_cli_script,
@@ -678,3 +685,314 @@ def test_sync_shared_strings_cli_changes_only_originally_empty_msgstr_blocks(
     assert report["missingEntities"] == 0
     assert report["missingFields"] == 0
     assert report["mismatches"] == 0
+
+
+def test_tree_to_po_cli_restores_file_when_text_is_written_outside_fence(
+    repo_root,
+    workflow,
+    po_path,
+    model_path,
+    workspace,
+) -> None:
+    """Verify that tree-to-PO restores the last good file after fence leakage.
+
+    Args:
+        repo_root: Repository root fixture.
+        workflow: Workflow service fixture.
+        po_path: Fixture PO file path.
+        model_path: Fixture KM file path.
+        workspace: Per-test temporary workspace fixture.
+    """
+
+    tree_dir = workspace / "tree"
+    output_po = workspace / "invalid-outside-fence.po"
+
+    export_tree_for_test(
+        workflow=workflow,
+        po_path=po_path,
+        model_path=model_path,
+        tree_dir=tree_dir,
+    )
+    snapshot = find_first_translatable_snapshot(workflow=workflow, tree_dir=tree_dir)
+    assert snapshot.translation_path is not None
+    original_text = corrupt_translation_by_appending_outside_fence(
+        snapshot.translation_path
+    )
+
+    result = run_cli_script(
+        repo_root,
+        "src/tree_to_po.py",
+        "--tree-dir",
+        str(tree_dir),
+        "--original-po",
+        str(po_path),
+        "--out-po",
+        str(output_po),
+    )
+
+    assert result.returncode != 0
+    assert "restored from the last known-good backup" in result.stderr
+    assert str(snapshot.translation_path) in result.stderr
+    assert output_po.exists() is False
+    assert snapshot.translation_path.read_text(encoding="utf-8") == original_text
+
+
+def test_sync_cli_restores_file_when_fence_structure_is_broken(
+    repo_root,
+    workflow,
+    po_path,
+    model_path,
+    workspace,
+) -> None:
+    """Verify that sync restores the last good file after a broken fence.
+
+    Args:
+        repo_root: Repository root fixture.
+        workflow: Workflow service fixture.
+        po_path: Fixture PO file path.
+        model_path: Fixture KM file path.
+        workspace: Per-test temporary workspace fixture.
+    """
+
+    tree_dir = workspace / "tree"
+    output_po = workspace / "invalid-broken-fence.po"
+    diff_path = workspace / "invalid-broken-fence.diff"
+
+    export_tree_for_test(
+        workflow=workflow,
+        po_path=po_path,
+        model_path=model_path,
+        tree_dir=tree_dir,
+    )
+    snapshot = find_first_translatable_snapshot(workflow=workflow, tree_dir=tree_dir)
+    assert snapshot.translation_path is not None
+    original_text = corrupt_translation_by_breaking_final_fence(
+        snapshot.translation_path
+    )
+
+    result = run_cli_script(
+        repo_root,
+        "src/sync_shared_strings.py",
+        "--tree-dir",
+        str(tree_dir),
+        "--original-po",
+        str(po_path),
+        "--out-po",
+        str(output_po),
+        "--diff-out",
+        str(diff_path),
+    )
+
+    assert result.returncode != 0
+    assert "restored from the last known-good backup" in result.stderr
+    assert str(snapshot.translation_path) in result.stderr
+    assert output_po.exists() is False
+    assert diff_path.exists() is False
+    assert snapshot.translation_path.read_text(encoding="utf-8") == original_text
+
+
+def test_tree_to_po_cli_restores_deleted_translation_file_and_succeeds(
+    repo_root,
+    workflow,
+    po_path,
+    model_path,
+    workspace,
+) -> None:
+    """Verify that tree-to-PO restores a deleted translation file from backup.
+
+    Args:
+        repo_root: Repository root fixture.
+        workflow: Workflow service fixture.
+        po_path: Fixture PO file path.
+        model_path: Fixture KM file path.
+        workspace: Per-test temporary workspace fixture.
+    """
+
+    tree_dir = workspace / "tree"
+    output_po = workspace / "restored-missing-translation.po"
+
+    export_tree_for_test(
+        workflow=workflow,
+        po_path=po_path,
+        model_path=model_path,
+        tree_dir=tree_dir,
+    )
+    snapshot = find_first_translatable_snapshot(workflow=workflow, tree_dir=tree_dir)
+    assert snapshot.translation_path is not None
+    original_text = snapshot.translation_path.read_text(encoding="utf-8")
+    snapshot.translation_path.unlink()
+
+    result = run_cli_script(
+        repo_root,
+        "src/tree_to_po.py",
+        "--tree-dir",
+        str(tree_dir),
+        "--original-po",
+        str(po_path),
+        "--out-po",
+        str(output_po),
+    )
+
+    assert result.returncode == 0, result.stderr or result.stdout
+    assert output_po.read_bytes() == po_path.read_bytes()
+    assert snapshot.translation_path.exists()
+    assert snapshot.translation_path.read_text(encoding="utf-8") == original_text
+
+
+def test_sync_cli_restores_deleted_uuid_file_and_succeeds(
+    repo_root,
+    workflow,
+    po_path,
+    model_path,
+    workspace,
+) -> None:
+    """Verify that sync restores a deleted `_uuid.txt` file from manifest.
+
+    Args:
+        repo_root: Repository root fixture.
+        workflow: Workflow service fixture.
+        po_path: Fixture PO file path.
+        model_path: Fixture KM file path.
+        workspace: Per-test temporary workspace fixture.
+    """
+
+    tree_dir = workspace / "tree"
+    output_po = workspace / "restored-missing-uuid.po"
+    diff_path = workspace / "restored-missing-uuid.diff"
+
+    export_tree_for_test(
+        workflow=workflow,
+        po_path=po_path,
+        model_path=model_path,
+        tree_dir=tree_dir,
+    )
+    snapshot = find_first_translatable_snapshot(workflow=workflow, tree_dir=tree_dir)
+    assert snapshot.translation_path is not None
+    uuid_path = snapshot.translation_path.parent / "_uuid.txt"
+    uuid_path.unlink()
+
+    result = run_cli_script(
+        repo_root,
+        "src/sync_shared_strings.py",
+        "--tree-dir",
+        str(tree_dir),
+        "--original-po",
+        str(po_path),
+        "--out-po",
+        str(output_po),
+        "--diff-out",
+        str(diff_path),
+    )
+
+    assert result.returncode == 0, result.stderr or result.stdout
+    assert output_po.read_bytes() == po_path.read_bytes()
+    assert uuid_path.exists()
+    assert uuid_path.read_text(encoding="utf-8") == snapshot.entity_uuid
+    assert diff_path.exists()
+    assert diff_path.read_text(encoding="utf-8") == ""
+
+
+def test_sync_cli_restores_deleted_node_folder_and_succeeds(
+    repo_root,
+    workflow,
+    po_path,
+    model_path,
+    workspace,
+) -> None:
+    """Verify that sync restores a deleted translatable node folder.
+
+    Args:
+        repo_root: Repository root fixture.
+        workflow: Workflow service fixture.
+        po_path: Fixture PO file path.
+        model_path: Fixture KM file path.
+        workspace: Per-test temporary workspace fixture.
+    """
+
+    tree_dir = workspace / "tree"
+    output_po = workspace / "restored-missing-folder.po"
+    diff_path = workspace / "restored-missing-folder.diff"
+
+    export_tree_for_test(
+        workflow=workflow,
+        po_path=po_path,
+        model_path=model_path,
+        tree_dir=tree_dir,
+    )
+    snapshot = find_first_translatable_snapshot(workflow=workflow, tree_dir=tree_dir)
+    assert snapshot.translation_path is not None
+    folder_path = snapshot.translation_path.parent
+    original_text = snapshot.translation_path.read_text(encoding="utf-8")
+    shutil.rmtree(folder_path)
+
+    result = run_cli_script(
+        repo_root,
+        "src/sync_shared_strings.py",
+        "--tree-dir",
+        str(tree_dir),
+        "--original-po",
+        str(po_path),
+        "--out-po",
+        str(output_po),
+        "--diff-out",
+        str(diff_path),
+    )
+
+    assert result.returncode == 0, result.stderr or result.stdout
+    assert output_po.read_bytes() == po_path.read_bytes()
+    assert folder_path.exists()
+    assert (folder_path / "_uuid.txt").read_text(encoding="utf-8") == snapshot.entity_uuid
+    assert (folder_path / "translation.md").read_text(encoding="utf-8") == original_text
+    assert diff_path.exists()
+    assert diff_path.read_text(encoding="utf-8") == ""
+
+
+def test_sync_watch_reports_errors_without_exiting_the_loop(
+    monkeypatch,
+    capsys,
+) -> None:
+    """Verify that watch mode reports sync errors and continues running.
+
+    Args:
+        monkeypatch: Pytest monkeypatch fixture.
+        capsys: Pytest output capture fixture.
+    """
+
+    args = Namespace(
+        tree_dir="unused-tree",
+        original_po="unused.po",
+        out_po="unused-final.po",
+        diff_out="unused.diff",
+        source_lang="en",
+        target_lang="zh_Hant",
+        group_by="shared-block",
+        watch=True,
+        interval=0,
+    )
+    run_calls: list[int] = []
+
+    class _Parser:
+        def parse_args(self) -> Namespace:
+            return args
+
+    def fake_run_sync(_: Namespace) -> None:
+        run_calls.append(1)
+        if len(run_calls) == 1:
+            raise ValueError("broken translation.md was restored")
+        raise KeyboardInterrupt
+
+    monkeypatch.setattr(sync_shared_strings, "build_argument_parser", lambda: _Parser())
+    monkeypatch.setattr(sync_shared_strings, "run_sync", fake_run_sync)
+    monkeypatch.setattr(sync_shared_strings.time, "sleep", lambda _: None)
+    monkeypatch.setattr(
+        sync_shared_strings.time,
+        "strftime",
+        lambda _: "2026-04-09 18:00:00",
+    )
+
+    sync_shared_strings.main()
+
+    captured = capsys.readouterr()
+    assert run_calls == [1, 1]
+    assert "[sync] Error: broken translation.md was restored" in captured.out
+    assert "Stopped shared-string watch mode." in captured.out

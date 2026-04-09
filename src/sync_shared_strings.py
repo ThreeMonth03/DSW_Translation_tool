@@ -114,14 +114,19 @@ def main() -> None:
     """Run the shared-string synchronization CLI."""
 
     args = build_argument_parser().parse_args()
-    if not args.watch:
-        run_sync(args)
-        return
-
     try:
+        if not args.watch:
+            try:
+                run_sync(args)
+            except ValueError as error:
+                raise SystemExit(str(error)) from error
+            return
         while True:
             print(f"[sync] Running at {time.strftime('%Y-%m-%d %H:%M:%S')}")
-            run_sync(args)
+            try:
+                run_sync(args)
+            except ValueError as error:
+                print(f"[sync] Error: {error}")
             print()
             time.sleep(args.interval)
     except KeyboardInterrupt:

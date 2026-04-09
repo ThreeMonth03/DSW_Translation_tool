@@ -15,6 +15,7 @@ from dsw_translation_tool.models import (
     PoEntry,
     SharedStringSyncResult,
     TranslationFieldState,
+    TreeFolderSnapshot,
     TreeScanResult,
     WorkflowContext,
 )
@@ -301,6 +302,69 @@ def run_cli_script(repo_root: Path, script_path: str, *args: str) -> subprocess.
         capture_output=True,
         text=True,
     )
+
+
+def find_first_translatable_snapshot(
+    workflow: TranslationWorkflowService,
+    tree_dir: Path,
+) -> TreeFolderSnapshot:
+    """Return the first tree snapshot that contains translatable fields.
+
+    Args:
+        workflow: Workflow service under test.
+        tree_dir: Translation tree directory.
+
+    Returns:
+        First snapshot that has at least one translation field.
+
+    Raises:
+        AssertionError: If no translatable snapshot exists.
+    """
+
+    scan_result = workflow.tree_repository.scan(str(tree_dir))
+    for snapshot in scan_result.folders_by_uuid.values():
+        if snapshot.fields and snapshot.translation_path is not None:
+            return snapshot
+    raise AssertionError("No translatable tree snapshot was found")
+
+
+def corrupt_translation_by_appending_outside_fence(translation_path: Path) -> str:
+    """Append translator text outside fences to simulate an invalid edit.
+
+    Args:
+        translation_path: Translation markdown file to corrupt.
+
+    Returns:
+        Original unmodified file content.
+    """
+
+    original_text = translation_path.read_text(encoding="utf-8")
+    corrupted_text = original_text + "\n這段文字被寫在 fence 外面\n"
+    translation_path.write_text(corrupted_text, encoding="utf-8")
+    return original_text
+
+
+def corrupt_translation_by_breaking_final_fence(translation_path: Path) -> str:
+    """Break the final fence in a translation markdown file.
+
+    Args:
+        translation_path: Translation markdown file to corrupt.
+
+    Returns:
+        Original unmodified file content.
+
+    Raises:
+        AssertionError: If no closing fence was found to corrupt.
+    """
+
+    original_text = translation_path.read_text(encoding="utf-8")
+    lines = original_text.split("\n")
+    for index in range(len(lines) - 1, -1, -1):
+        if lines[index] == "~~~":
+            lines[index] = "~~~~"
+            translation_path.write_text("\n".join(lines), encoding="utf-8")
+            return original_text
+    raise AssertionError("No closing fence was found to corrupt")
 
 
 def build_stress_translation(
