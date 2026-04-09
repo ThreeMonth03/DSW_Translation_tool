@@ -19,9 +19,15 @@ def build_argument_parser() -> argparse.ArgumentParser:
         default="files/knowledge-models-common-dsw-knowledge-model-zh_Hant.po",
     )
     parser.add_argument("--json", default="files/dsw_root_2.7.0.km")
-    parser.add_argument("--tree-dir", default="output/tree")
-    parser.add_argument("--final-po", default="output/final_translated.po")
-    parser.add_argument("--report-out", default="output/final_report.json")
+    parser.add_argument("--tree-dir", default="translation/zh_Hant/tree")
+    parser.add_argument(
+        "--final-po",
+        default="translation/zh_Hant/builds/final_translated.po",
+    )
+    parser.add_argument(
+        "--report-out",
+        default="translation/zh_Hant/reports/final_report.json",
+    )
     parser.add_argument("--source-lang", default="en")
     parser.add_argument("--target-lang", default="zh_Hant")
     return parser

@@ -1,8 +1,6 @@
-output/*
 **/*.pyc
 **/.venv
 .pytest_cache
 .tmp
 .codex
-**/.translation.md.bak
-**/.tree_backups
+output/

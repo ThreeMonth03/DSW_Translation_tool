@@ -20,7 +20,7 @@ def build_argument_parser() -> argparse.ArgumentParser:
     )
     parser.add_argument(
         "--tree-dir",
-        default="output/tree",
+        default="translation/zh_Hant/tree",
         help="Path to the translation folder tree.",
     )
     parser.add_argument(
@@ -30,7 +30,7 @@ def build_argument_parser() -> argparse.ArgumentParser:
     )
     parser.add_argument(
         "--out-po",
-        default="output/final_translated.po",
+        default="translation/zh_Hant/builds/final_translated.po",
         help="Output PO file path.",
     )
     parser.add_argument("--source-lang", default="en")

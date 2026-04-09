@@ -1,0 +1,19 @@
+# Translation
+
+- UUID: `17172079-ddce-40a7-b93a-f86dc6611452`
+- Event Type: `EditAnswerEvent`
+- Edit only the `Translation (zh_Hant)` blocks below.
+
+## label
+
+### Source (en)
+
+~~~text
+No
+~~~
+
+### Translation (zh_Hant)
+
+~~~text
+不
+~~~

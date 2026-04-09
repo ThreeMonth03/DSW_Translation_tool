@@ -51,7 +51,7 @@ def build_argument_parser() -> argparse.ArgumentParser:
     parser = argparse.ArgumentParser(
         description="Report untranslated fields for an exported translation folder tree.",
     )
-    parser.add_argument("--tree-dir", default="output/tree")
+    parser.add_argument("--tree-dir", default="translation/zh_Hant/tree")
     parser.add_argument("--source-lang", default="en")
     parser.add_argument("--target-lang", default="zh_Hant")
     parser.add_argument(
