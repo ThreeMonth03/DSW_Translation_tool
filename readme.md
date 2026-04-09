@@ -61,7 +61,9 @@ This shows:
 make sync
 ```
 
-This updates other nodes that share the same original PO translation block and refreshes `output/final_translated.po`.
+This updates other nodes that share the same original PO translation block,
+refreshes `output/final_translated.po`, and also refreshes
+`output/final_translated.diff` so you can review what changed.
 
 If you want this to keep running every 10 seconds while you work:
 
@@ -69,11 +71,7 @@ If you want this to keep running every 10 seconds while you work:
 make sync-watch
 ```
 
-If you prefer, you can also rebuild the final PO manually:
-
-```shell
-make tree-to-po
-```
+This keeps refreshing both the final PO and the diff file on each sync pass.
 
 #### 7. Upload The Final PO
 
@@ -156,6 +154,17 @@ This will show a warning and require typing `yes`.
 ```shell
 make tree-to-po
 ```
+
+#### Review PO Differences
+
+```shell
+make review-po
+```
+
+This compares `output/final_translated.po` with the original PO template and
+writes a unified diff to `output/final_translated.diff`.
+
+Use this when you want to confirm that only `msgstr` values changed.
 
 #### Validate Final Output
 

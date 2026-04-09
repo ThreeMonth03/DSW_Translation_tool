@@ -301,3 +301,315 @@ def run_cli_script(repo_root: Path, script_path: str, *args: str) -> subprocess.
         capture_output=True,
         text=True,
     )
+
+
+def build_stress_translation(
+    uuid: str,
+    field: str,
+    source_text: str,
+    ordinal: int,
+) -> str:
+    """Build a deterministic stress-test translation string.
+
+    Args:
+        uuid: Node UUID for the translated field.
+        field: Field name being translated.
+        source_text: Source-language text currently stored in the tree.
+        ordinal: Stable ordinal number used to keep translations unique.
+
+    Returns:
+        A multiline translation string containing characters that must be
+        escaped correctly in PO output.
+    """
+
+    first_line = next(
+        (line.strip() for line in source_text.splitlines() if line.strip()),
+        "",
+    )
+    preview = first_line[:24]
+    return (
+        f"[STRESS {ordinal:04d}] {uuid[:8]}:{field}\n"
+        f'preview="{preview}"\n'
+        "symbols=quote:\" backslash:\\ tab:\t marker:end"
+    )
+
+
+def populate_tree_with_stress_translations(
+    workflow: TranslationWorkflowService,
+    tree_dir: Path,
+) -> dict[tuple[str, str], str]:
+    """Populate every translatable tree field with a stress-test translation.
+
+    Args:
+        workflow: Workflow service under test.
+        tree_dir: Translation tree directory.
+
+    Returns:
+        Mapping from `(uuid, field)` to the generated stress-test translation.
+    """
+
+    scan_result = workflow.tree_repository.scan(str(tree_dir))
+    expected_translations: dict[tuple[str, str], str] = {}
+    ordinal = 0
+
+    for uuid, snapshot in scan_result.folders_by_uuid.items():
+        if not snapshot.fields:
+            continue
+        for field, state in snapshot.fields.items():
+            ordinal += 1
+            translation = build_stress_translation(
+                uuid=uuid,
+                field=field,
+                source_text=state.source_text,
+                ordinal=ordinal,
+            )
+            snapshot.fields[field] = TranslationFieldState(
+                source_text=state.source_text,
+                target_text=translation,
+            )
+            expected_translations[(uuid, field)] = translation
+        workflow.tree_repository.write_snapshot(snapshot)
+
+    return expected_translations
+
+
+def build_block_stress_translation(block: PoBlock, ordinal: int) -> str:
+    """Build one deterministic stress translation for a whole PO block.
+
+    Args:
+        block: PO block receiving a generated translation.
+        ordinal: Stable ordinal number used to keep translations unique.
+
+    Returns:
+        A multiline translation string shared by all references in the block.
+    """
+
+    first_line = next(
+        (line.strip() for line in block.msgid.splitlines() if line.strip()),
+        "",
+    )
+    preview = first_line[:24]
+    return (
+        f"[BLOCK {ordinal:04d}] refs={len(block.references)}\n"
+        f'preview="{preview}"\n'
+        "symbols=quote:\" backslash:\\ tab:\t marker:end"
+    )
+
+
+def build_empty_msgstr_translation_map(
+    blocks: list[PoBlock],
+) -> dict[tuple[str, str], str]:
+    """Build translations only for PO blocks whose original `msgstr` is empty.
+
+    Args:
+        blocks: Parsed PO blocks from the original PO file.
+
+    Returns:
+        Mapping from `(uuid, field)` to generated translations for originally
+        untranslated entries only.
+    """
+
+    return build_block_translation_map(
+        blocks=blocks,
+        include_originally_empty=True,
+        multi_reference_only=False,
+    )
+
+
+def build_non_empty_msgstr_translation_map(
+    blocks: list[PoBlock],
+    multi_reference_only: bool = False,
+) -> dict[tuple[str, str], str]:
+    """Build translations for PO blocks whose original `msgstr` is non-empty.
+
+    Args:
+        blocks: Parsed PO blocks from the original PO file.
+        multi_reference_only: Whether to target only shared blocks.
+
+    Returns:
+        Mapping from `(uuid, field)` to generated translations for originally
+        translated entries.
+    """
+
+    return build_block_translation_map(
+        blocks=blocks,
+        include_originally_empty=False,
+        multi_reference_only=multi_reference_only,
+    )
+
+
+def build_block_translation_map(
+    blocks: list[PoBlock],
+    include_originally_empty: bool,
+    multi_reference_only: bool,
+) -> dict[tuple[str, str], str]:
+    """Build a deterministic translation map for a selected block subset.
+
+    Args:
+        blocks: Parsed PO blocks from the original PO file.
+        include_originally_empty: Whether to target empty `msgstr` blocks.
+        multi_reference_only: Whether to target only shared blocks.
+
+    Returns:
+        Mapping from `(uuid, field)` to generated translations for the selected
+        blocks.
+    """
+
+    translations: dict[tuple[str, str], str] = {}
+    ordinal = 0
+    for block in blocks:
+        if multi_reference_only and len(block.references) < 2:
+            continue
+        if include_originally_empty and block.msgstr != "":
+            continue
+        if not include_originally_empty and block.msgstr == "":
+            continue
+        ordinal += 1
+        translation = build_block_stress_translation(block, ordinal)
+        for reference in block.references:
+            translations[(reference.uuid, reference.field)] = translation
+    return translations
+
+
+def apply_translation_map_to_tree(
+    workflow: TranslationWorkflowService,
+    tree_dir: Path,
+    translations_by_key: dict[tuple[str, str], str],
+) -> None:
+    """Apply a translation map directly to the tree.
+
+    Args:
+        workflow: Workflow service under test.
+        tree_dir: Translation tree directory.
+        translations_by_key: Mapping from `(uuid, field)` to translated text.
+    """
+
+    scan_result = workflow.tree_repository.scan(str(tree_dir))
+    snapshots_to_write: set[str] = set()
+
+    for (uuid, field), target_text in translations_by_key.items():
+        snapshot = scan_result.folders_by_uuid[uuid]
+        current_state = snapshot.fields[field]
+        snapshot.fields[field] = TranslationFieldState(
+            source_text=current_state.source_text,
+            target_text=target_text,
+        )
+        snapshots_to_write.add(uuid)
+
+    for uuid in snapshots_to_write:
+        workflow.tree_repository.write_snapshot(scan_result.folders_by_uuid[uuid])
+
+
+def apply_sync_seed_translations_to_tree(
+    workflow: TranslationWorkflowService,
+    tree_dir: Path,
+    blocks: list[PoBlock],
+    translations_by_key: dict[tuple[str, str], str],
+) -> None:
+    """Seed the tree for sync tests while preserving shared-block propagation.
+
+    For targeted multi-reference blocks, only the first reference is populated
+    and the remaining references are left blank so that `sync` must propagate
+    the shared translation. Untargeted blocks are left unchanged.
+
+    Args:
+        workflow: Workflow service under test.
+        tree_dir: Translation tree directory.
+        blocks: Parsed PO blocks from the original PO file.
+        translations_by_key: Mapping from `(uuid, field)` to translated text.
+    """
+
+    scan_result = workflow.tree_repository.scan(str(tree_dir))
+    snapshots_to_write: set[str] = set()
+
+    for block in blocks:
+        block_keys = [(reference.uuid, reference.field) for reference in block.references]
+        if not any(key in translations_by_key for key in block_keys):
+            continue
+
+        references = list(block.references)
+        first_reference = references[0]
+        first_key = (first_reference.uuid, first_reference.field)
+        translation = translations_by_key[first_key]
+
+        first_snapshot = scan_result.folders_by_uuid[first_reference.uuid]
+        first_state = first_snapshot.fields[first_reference.field]
+        first_snapshot.fields[first_reference.field] = TranslationFieldState(
+            source_text=first_state.source_text,
+            target_text=translation,
+        )
+        snapshots_to_write.add(first_reference.uuid)
+
+        for reference in references[1:]:
+            sibling_snapshot = scan_result.folders_by_uuid[reference.uuid]
+            sibling_state = sibling_snapshot.fields[reference.field]
+            sibling_snapshot.fields[reference.field] = TranslationFieldState(
+                source_text=sibling_state.source_text,
+                target_text="",
+            )
+            snapshots_to_write.add(reference.uuid)
+
+    for uuid in snapshots_to_write:
+        workflow.tree_repository.write_snapshot(scan_result.folders_by_uuid[uuid])
+
+
+def assert_only_empty_msgstr_blocks_changed(
+    original_po_path: Path,
+    generated_po_path: Path,
+    translations_by_key: dict[tuple[str, str], str],
+) -> None:
+    """Assert that generated PO differs from the original only in empty msgstrs.
+
+    Args:
+        original_po_path: Original PO template path.
+        generated_po_path: Generated PO file path.
+        translations_by_key: Expected translations for originally empty blocks.
+    """
+
+    assert_only_expected_msgstr_blocks_changed(
+        original_po_path=original_po_path,
+        generated_po_path=generated_po_path,
+        translations_by_key=translations_by_key,
+    )
+
+
+def assert_only_expected_msgstr_blocks_changed(
+    original_po_path: Path,
+    generated_po_path: Path,
+    translations_by_key: dict[tuple[str, str], str],
+) -> None:
+    """Assert that only expected `msgstr` blocks changed between two PO files.
+
+    Args:
+        original_po_path: Original PO template path.
+        generated_po_path: Generated PO file path.
+        translations_by_key: Expected per-reference translations for changed
+            blocks only.
+    """
+
+    original_blocks = parse_po_blocks(original_po_path)
+    generated_blocks = parse_po_blocks(generated_po_path)
+
+    assert len(generated_blocks) == len(original_blocks)
+    for original_block, generated_block in zip(
+        original_blocks,
+        generated_blocks,
+        strict=True,
+    ):
+        original_refs = tuple(reference.comment for reference in original_block.references)
+        generated_refs = tuple(reference.comment for reference in generated_block.references)
+        assert generated_refs == original_refs
+        assert generated_block.msgid == original_block.msgid
+        assert generated_block.is_fuzzy == original_block.is_fuzzy
+
+        expected_values = {
+            translations_by_key[(reference.uuid, reference.field)]
+            for reference in original_block.references
+            if (reference.uuid, reference.field) in translations_by_key
+        }
+        if not expected_values:
+            assert generated_block.msgstr == original_block.msgstr
+            continue
+
+        assert len(expected_values) == 1
+        assert generated_block.msgstr == next(iter(expected_values))

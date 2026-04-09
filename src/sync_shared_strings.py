@@ -27,6 +27,13 @@ def run_sync(args: Namespace) -> None:
         out_po_path=args.out_po,
         group_by=args.group_by,
     )
+    review = None
+    if result.output_po and args.diff_out:
+        review = workflow.review_po_changes(
+            original_po_path=args.original_po,
+            generated_po_path=result.output_po,
+            diff_out_path=args.diff_out,
+        )
 
     print("Shared String Sync")
     print(f"  Group mode     : {args.group_by}")
@@ -36,6 +43,9 @@ def run_sync(args: Namespace) -> None:
     print(f"  Conflicts      : {len(result.conflicts)}")
     if result.output_po:
         print(f"  Output PO      : {result.output_po}")
+    if review is not None:
+        print(f"  Output diff    : {args.diff_out}")
+        print(f"  Msgstr only    : {review.msgstr_only}")
 
     if not result.conflicts:
         return
@@ -72,6 +82,11 @@ def build_argument_parser() -> argparse.ArgumentParser:
         "--out-po",
         default="output/final_translated.po",
         help="Optional output PO path to refresh after sync.",
+    )
+    parser.add_argument(
+        "--diff-out",
+        default="output/final_translated.diff",
+        help="Optional unified diff output path for reviewing PO changes.",
     )
     parser.add_argument("--source-lang", default="en")
     parser.add_argument("--target-lang", default="zh_Hant")
