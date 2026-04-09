@@ -23,7 +23,15 @@ def test_tree_to_po_splits_shared_block_when_one_translation_diverges(
     po_blocks,
     workspace,
 ) -> None:
-    """Changing one shared reference should split, not corrupt, the PO block."""
+    """Verify that one diverging shared reference splits the PO block safely.
+
+    Args:
+        workflow: Workflow service fixture.
+        po_path: Fixture PO file path.
+        model_path: Fixture KM file path.
+        po_blocks: Parsed PO blocks fixture.
+        workspace: Per-test temporary workspace fixture.
+    """
 
     tree_dir = workspace / "tree"
     output_po = workspace / "split.po"
@@ -84,7 +92,16 @@ def test_shared_string_sync_propagates_translation_across_matching_nodes(
     po_entries,
     workspace,
 ) -> None:
-    """Sync should fill sibling references in the same shared block."""
+    """Verify that shared-string sync propagates translations to siblings.
+
+    Args:
+        workflow: Workflow service fixture.
+        po_path: Fixture PO file path.
+        model_path: Fixture KM file path.
+        po_blocks: Parsed PO blocks fixture.
+        po_entries: Flattened PO entries fixture.
+        workspace: Per-test temporary workspace fixture.
+    """
 
     tree_dir = workspace / "tree"
     output_po = workspace / "synced.po"

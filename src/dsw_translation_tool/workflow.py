@@ -7,8 +7,16 @@ from pathlib import Path
 from typing import Any
 
 from .model import DswModelService
-from .models import ModelInfo, PoBuildResult, PoEntry, TranslationStatusReport, WorkflowContext
+from .models import (
+    ModelInfo,
+    PoBuildResult,
+    PoEntry,
+    SharedStringSyncResult,
+    TranslationStatusReport,
+    WorkflowContext,
+)
 from .po import PoCatalogParser, PoCatalogWriter
+from .sync import SharedStringSynchronizer
 from .tree import TranslationTreeRepository
 
 
@@ -21,6 +29,7 @@ class TranslationWorkflowService:
         tree_repository: Optional injected translation tree repository.
         model_service: Optional injected model service class or instance.
         po_writer: Optional injected PO writer.
+        synchronizer: Optional injected shared-string synchronizer.
     """
 
     def __init__(
@@ -30,6 +39,7 @@ class TranslationWorkflowService:
         tree_repository: TranslationTreeRepository | None = None,
         model_service: DswModelService | None = None,
         po_writer: PoCatalogWriter | None = None,
+        synchronizer: SharedStringSynchronizer | None = None,
     ):
         self.source_lang = source_lang
         self.target_lang = target_lang
@@ -39,6 +49,10 @@ class TranslationWorkflowService:
         )
         self.model_service = model_service or DswModelService()
         self.po_writer = po_writer or PoCatalogWriter()
+        self.synchronizer = synchronizer or SharedStringSynchronizer(
+            tree_repository=self.tree_repository,
+            po_writer=self.po_writer,
+        )
 
     def build_tree_context(self, po_path: str, model_path: str) -> WorkflowContext:
         """Build the in-memory workflow context for a PO/KM pair.
@@ -190,6 +204,32 @@ class TranslationWorkflowService:
         """
 
         return self.tree_repository.collect_status(tree_dir)
+
+    def sync_shared_strings(
+        self,
+        tree_dir: str,
+        original_po_path: str,
+        out_po_path: str | None = None,
+        group_by: str = "shared-block",
+    ) -> SharedStringSyncResult:
+        """Synchronize repeated translation groups across an exported tree.
+
+        Args:
+            tree_dir: Translation tree directory.
+            original_po_path: Original PO file used as the grouping source.
+            out_po_path: Optional destination path for the refreshed PO file.
+            group_by: Grouping strategy used to define shared-string sets.
+
+        Returns:
+            Summary of the shared-string synchronization run.
+        """
+
+        return self.synchronizer.sync(
+            tree_dir=tree_dir,
+            original_po_path=original_po_path,
+            out_po_path=out_po_path,
+            group_by=group_by,
+        )
 
     @staticmethod
     def _parse_po_entries(po_path: str) -> list[PoEntry]:

@@ -12,7 +12,15 @@ def test_untouched_tree_roundtrip_rebuilds_byte_identical_po(
     po_entries,
     workspace,
 ) -> None:
-    """Untouched export/import should rebuild the exact same PO bytes."""
+    """Verify that untouched export/import rebuilds identical PO bytes.
+
+    Args:
+        workflow: Workflow service fixture.
+        po_path: Fixture PO file path.
+        model_path: Fixture KM file path.
+        po_entries: Flattened PO entries fixture.
+        workspace: Per-test temporary workspace fixture.
+    """
 
     tree_dir = workspace / "tree"
     output_po = workspace / "roundtrip.po"

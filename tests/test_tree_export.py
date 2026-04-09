@@ -18,7 +18,15 @@ def test_export_tree_contains_all_expected_translation_fields(
     po_entries,
     workspace,
 ) -> None:
-    """Exported tree should preserve every PO translation field."""
+    """Verify that tree export preserves every PO translation field.
+
+    Args:
+        workflow: Workflow service fixture.
+        po_path: Fixture PO file path.
+        model_path: Fixture KM file path.
+        po_entries: Flattened PO entries fixture.
+        workspace: Per-test temporary workspace fixture.
+    """
 
     entry_map = build_entry_map(po_entries)
     expected_fields = build_expected_fields_by_uuid(po_entries)

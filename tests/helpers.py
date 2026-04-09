@@ -3,12 +3,21 @@
 from __future__ import annotations
 
 import os
+import subprocess
+import sys
 import time
 from collections import defaultdict
 from pathlib import Path
 
-from dsw_translation_tool import SharedStringSynchronizer, TranslationWorkflowService
-from dsw_translation_tool.models import PoBlock, PoEntry, TranslationFieldState, TreeScanResult
+from dsw_translation_tool import TranslationWorkflowService
+from dsw_translation_tool.models import (
+    PoBlock,
+    PoEntry,
+    SharedStringSyncResult,
+    TranslationFieldState,
+    TreeScanResult,
+    WorkflowContext,
+)
 from dsw_translation_tool.po import PoCatalogParser
 
 
@@ -78,7 +87,7 @@ def export_tree_for_test(
     po_path: Path,
     model_path: Path,
     tree_dir: Path,
-):
+) -> WorkflowContext:
     """Export a fresh translation tree for a test case.
 
     Args:
@@ -239,7 +248,7 @@ def run_shared_string_sync(
     tree_dir: Path,
     original_po_path: Path,
     output_po_path: Path,
-):
+) -> SharedStringSyncResult:
     """Run shared-string synchronization for a tree.
 
     Args:
@@ -252,8 +261,7 @@ def run_shared_string_sync(
         Shared-string sync result.
     """
 
-    synchronizer = SharedStringSynchronizer(workflow.tree_repository)
-    return synchronizer.sync(
+    return workflow.sync_shared_strings(
         tree_dir=str(tree_dir),
         original_po_path=str(original_po_path),
         out_po_path=str(output_po_path),
@@ -272,3 +280,24 @@ def future_timestamp(offset_seconds: float = 1.0) -> float:
     """
 
     return time.time() + offset_seconds
+
+
+def run_cli_script(repo_root: Path, script_path: str, *args: str) -> subprocess.CompletedProcess[str]:
+    """Run one CLI script under the current Python interpreter.
+
+    Args:
+        repo_root: Repository root directory used as the process cwd.
+        script_path: Repository-relative path to the Python CLI script.
+        *args: Additional CLI arguments.
+
+    Returns:
+        Completed process result with captured stdout and stderr.
+    """
+
+    return subprocess.run(
+        [sys.executable, script_path, *args],
+        cwd=repo_root,
+        check=False,
+        capture_output=True,
+        text=True,
+    )

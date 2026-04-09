@@ -33,28 +33,50 @@ def sanitize_test_name(name: str) -> str:
 
 @pytest.fixture(scope="session")
 def repo_root() -> Path:
-    """Return the repository root directory."""
+    """Return the repository root directory.
+
+    Returns:
+        Repository root path.
+    """
 
     return REPO_ROOT
 
 
 @pytest.fixture(scope="session")
 def po_path(repo_root: Path) -> Path:
-    """Return the fixture PO file path."""
+    """Return the fixture PO file path.
+
+    Args:
+        repo_root: Repository root fixture.
+
+    Returns:
+        Absolute PO file path used by tests.
+    """
 
     return repo_root / "files" / "knowledge-models-common-dsw-knowledge-model-zh_Hant.po"
 
 
 @pytest.fixture(scope="session")
 def model_path(repo_root: Path) -> Path:
-    """Return the fixture KM file path."""
+    """Return the fixture KM file path.
+
+    Args:
+        repo_root: Repository root fixture.
+
+    Returns:
+        Absolute KM file path used by tests.
+    """
 
     return repo_root / "files" / "dsw_root_2.7.0.km"
 
 
 @pytest.fixture(scope="session")
 def workflow() -> Any:
-    """Return the workflow service under test."""
+    """Return the workflow service under test.
+
+    Returns:
+        Configured workflow service instance.
+    """
 
     from dsw_translation_tool import TranslationWorkflowService
 
@@ -63,7 +85,14 @@ def workflow() -> Any:
 
 @pytest.fixture(scope="session")
 def po_parser(po_path: Path) -> Any:
-    """Return a parser for the fixture PO file."""
+    """Return a parser for the fixture PO file.
+
+    Args:
+        po_path: Fixture PO file path.
+
+    Returns:
+        PO catalog parser for the fixture file.
+    """
 
     from dsw_translation_tool.po import PoCatalogParser
 
@@ -72,21 +101,42 @@ def po_parser(po_path: Path) -> Any:
 
 @pytest.fixture(scope="session")
 def po_blocks(po_parser: Any):
-    """Return parsed PO blocks for the fixture PO file."""
+    """Return parsed PO blocks for the fixture PO file.
+
+    Args:
+        po_parser: Fixture PO parser.
+
+    Returns:
+        Parsed PO blocks grouped by message block.
+    """
 
     return po_parser.parse_blocks()
 
 
 @pytest.fixture(scope="session")
 def po_entries(po_parser: Any):
-    """Return flattened PO entries for the fixture PO file."""
+    """Return flattened PO entries for the fixture PO file.
+
+    Args:
+        po_parser: Fixture PO parser.
+
+    Returns:
+        Flattened `(uuid, field)` PO entries.
+    """
 
     return po_parser.parse_entries()
 
 
 @pytest.fixture(scope="session", autouse=True)
 def managed_tmp_root(repo_root: Path) -> Iterator[Path]:
-    """Create and clean the repository-local `.tmp` test workspace."""
+    """Create and clean the repository-local `.tmp` test workspace.
+
+    Args:
+        repo_root: Repository root fixture.
+
+    Yields:
+        Root path for repository-local test workspaces.
+    """
 
     temp_root = repo_root / ".tmp"
     shutil.rmtree(temp_root, ignore_errors=True)
@@ -97,7 +147,15 @@ def managed_tmp_root(repo_root: Path) -> Iterator[Path]:
 
 @pytest.fixture()
 def workspace(managed_tmp_root: Path, request: pytest.FixtureRequest) -> Iterator[Path]:
-    """Create one per-test workspace under the managed `.tmp` directory."""
+    """Create one per-test workspace under the managed `.tmp` directory.
+
+    Args:
+        managed_tmp_root: Shared temporary workspace root.
+        request: Pytest request object for the current test.
+
+    Yields:
+        Fresh per-test workspace path.
+    """
 
     workspace_dir = managed_tmp_root / sanitize_test_name(request.node.name)
     shutil.rmtree(workspace_dir, ignore_errors=True)
