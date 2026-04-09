@@ -1,0 +1,6 @@
+output/*
+**/*.pyc
+**/.venv
+.pytest_cache
+.tmp
+.codex

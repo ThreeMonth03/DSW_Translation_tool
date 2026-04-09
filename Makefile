@@ -16,7 +16,7 @@ STATUS_LIMIT ?= 5
 SYNC_GROUP ?= shared-block
 SYNC_INTERVAL ?= 10
 
-.PHONY: help venv install-dev compile lint export-tree export-tree-force status sync sync-watch tree-to-po validate workflow
+.PHONY: help venv install-dev compile lint test export-tree export-tree-force status sync sync-watch tree-to-po validate workflow
 
 venv: $(VENV_PYTHON)
 
@@ -30,6 +30,7 @@ help:
 	'  install-dev       Install local dev dependencies from config/requirements.txt' \
 	'  compile           Run Python syntax compilation checks' \
 	'  lint              Run ruff lint checks' \
+	'  test              Run pytest test coverage for export/import/sync flows' \
 	'  export-tree       Export PO + model into $(TREE_DIR)' \
 	'  export-tree-force Force rebuild $(TREE_DIR) after confirmation' \
 	'  status            Show untranslated fields from $(TREE_DIR)' \
@@ -43,10 +44,13 @@ install-dev: venv
 	$(PIP) install -r config/requirements.txt
 
 compile: venv
-	$(PYTHON) -m py_compile src/*.py src/dsw_translation_tool/*.py
+	$(PYTHON) -m py_compile src/*.py src/dsw_translation_tool/*.py tests/*.py
 
 lint: venv
-	$(PYTHON) -m ruff check --config config/ruff.toml src
+	$(PYTHON) -m ruff check --config config/ruff.toml src tests
+
+test: venv
+	$(PYTHON) -m pytest tests
 
 export-tree: venv
 	$(PYTHON) src/po_json_tree.py \

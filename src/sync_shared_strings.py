@@ -7,7 +7,7 @@ import argparse
 import time
 from argparse import Namespace
 
-from dsw_translation_tool import SharedStringSynchronizer, TranslationTreeRepository
+from dsw_translation_tool import TranslationWorkflowService
 
 
 def run_sync(args: Namespace) -> None:
@@ -17,12 +17,11 @@ def run_sync(args: Namespace) -> None:
         args: Parsed CLI arguments.
     """
 
-    repository = TranslationTreeRepository(
+    workflow = TranslationWorkflowService(
         source_lang=args.source_lang,
         target_lang=args.target_lang,
     )
-    synchronizer = SharedStringSynchronizer(repository)
-    result = synchronizer.sync(
+    result = workflow.sync_shared_strings(
         tree_dir=args.tree_dir,
         original_po_path=args.original_po,
         out_po_path=args.out_po,
