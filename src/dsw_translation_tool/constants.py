@@ -23,6 +23,8 @@ RELATED_NAME_UUID_FIELDS = ("targetUuid", "resourcePageUuid")
 MANIFEST_NAME = "_translation_tree.json"
 UUID_FILENAME = "_uuid.txt"
 TRANSLATION_FILENAME = "translation.md"
+TRANSLATION_BACKUP_FILENAME = ".translation.md.bak"
+TREE_BACKUP_DIRNAME = ".tree_backups"
 
 MAX_SEGMENT_TEXT_LENGTH = 72
 FIELD_EXPORT_ORDER = ("title", "label", "text", "advice", "description", "name", "url")

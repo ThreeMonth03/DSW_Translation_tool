@@ -42,15 +42,18 @@ def main() -> None:
     """Run the tree-to-PO CLI."""
 
     args = build_argument_parser().parse_args()
-    workflow = TranslationWorkflowService(
-        source_lang=args.source_lang,
-        target_lang=args.target_lang,
-    )
-    result = workflow.build_po_from_tree(
-        tree_dir=args.tree_dir,
-        original_po_path=args.original_po,
-        out_po_path=args.out_po,
-    )
+    try:
+        workflow = TranslationWorkflowService(
+            source_lang=args.source_lang,
+            target_lang=args.target_lang,
+        )
+        result = workflow.build_po_from_tree(
+            tree_dir=args.tree_dir,
+            original_po_path=args.original_po,
+            out_po_path=args.out_po,
+        )
+    except ValueError as error:
+        raise SystemExit(str(error)) from error
 
     print(
         f"Generated PO file: {result.output_po} "

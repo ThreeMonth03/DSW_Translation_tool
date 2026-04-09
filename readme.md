@@ -28,6 +28,7 @@ After the tree has been prepared, go to `output/tree`.
 - Each folder represents one node in the knowledge model.
 - Each folder contains `_uuid.txt`.
 - If the node has translatable content, it also contains `translation.md`.
+- The tool keeps hidden backups under `output/.tree_backups/`, outside the tree.
 
 #### 4. Edit Only `translation.md`
 
@@ -36,6 +37,7 @@ Open `translation.md` and edit only the `Translation (zh_Hant)` blocks.
 - Do not change the UUID.
 - Do not rename folders.
 - Do not edit the `Source (en)` blocks unless you are intentionally fixing source text.
+- Do not type translated text outside the `~~~text` fences.
 
 Each file keeps fields in a stable order such as:
 
@@ -61,7 +63,17 @@ This shows:
 make sync
 ```
 
-This updates other nodes that share the same original PO translation block and refreshes `output/final_translated.po`.
+This updates other nodes that share the same original PO translation block,
+refreshes `output/final_translated.po`, and also refreshes
+`output/final_translated.diff` so you can review what changed.
+
+If a fence is broken or text is typed outside the fenced translation blocks,
+the command stops, reports the broken file, and restores that file from its
+last known-good backup.
+
+If a translator accidentally deletes `translation.md`, `_uuid.txt`, or even a
+whole node folder, the tool attempts to restore it automatically from the tree
+manifest and the hidden backup store before continuing.
 
 If you want this to keep running every 10 seconds while you work:
 
@@ -69,11 +81,9 @@ If you want this to keep running every 10 seconds while you work:
 make sync-watch
 ```
 
-If you prefer, you can also rebuild the final PO manually:
-
-```shell
-make tree-to-po
-```
+This keeps refreshing both the final PO and the diff file on each sync pass.
+When a file is corrupt, watch mode reports the error, restores the last valid
+file when possible, and keeps running for the next pass.
 
 #### 7. Upload The Final PO
 
@@ -156,6 +166,20 @@ This will show a warning and require typing `yes`.
 ```shell
 make tree-to-po
 ```
+
+This also stops and restores the affected `translation.md` if a fence is
+broken or text appears outside fenced translation blocks.
+
+#### Review PO Differences
+
+```shell
+make review-po
+```
+
+This compares `output/final_translated.po` with the original PO template and
+writes a unified diff to `output/final_translated.diff`.
+
+Use this when you want to confirm that only `msgstr` values changed.
 
 #### Validate Final Output
 

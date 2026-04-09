@@ -360,3 +360,32 @@ class SharedStringSyncResult:
     fields_updated: int
     conflicts: tuple[SharedStringConflict, ...]
     output_po: str | None = None
+
+
+@dataclass(frozen=True)
+class PoDiffReviewResult:
+    """Summary of differences between an original and generated PO file.
+
+    Args:
+        total_blocks: Total message-block count in the original PO file.
+        changed_blocks: Number of blocks with any semantic change.
+        changed_msgstr_blocks: Number of blocks whose `msgstr` changed.
+        changed_msgid_blocks: Number of blocks whose `msgid` changed.
+        changed_reference_blocks: Number of blocks whose `#:` references changed.
+        changed_fuzzy_blocks: Number of blocks whose fuzzy flag changed.
+        inserted_blocks: Number of extra blocks in the generated PO file.
+        deleted_blocks: Number of missing blocks in the generated PO file.
+        msgstr_only: Whether all semantic changes were limited to `msgstr`.
+        diff_text: Unified diff text for the whole file.
+    """
+
+    total_blocks: int
+    changed_blocks: int
+    changed_msgstr_blocks: int
+    changed_msgid_blocks: int
+    changed_reference_blocks: int
+    changed_fuzzy_blocks: int
+    inserted_blocks: int
+    deleted_blocks: int
+    msgstr_only: bool
+    diff_text: str

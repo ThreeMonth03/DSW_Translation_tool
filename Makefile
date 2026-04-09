@@ -10,13 +10,15 @@ TREE_DIR ?= output/tree
 FINAL_PO ?= output/final_translated.po
 REPORT ?= output/final_report.json
 TREE_JSON ?= output/tree_snapshot.json
+REVIEW_DIFF ?= output/final_translated.diff
+REVIEW_FLAGS ?=
 SOURCE_LANG ?= en
 TARGET_LANG ?= zh_Hant
 STATUS_LIMIT ?= 5
 SYNC_GROUP ?= shared-block
 SYNC_INTERVAL ?= 10
 
-.PHONY: help venv install-dev compile lint test export-tree export-tree-force status sync sync-watch tree-to-po validate workflow
+.PHONY: help venv install-dev compile lint test export-tree export-tree-force status sync sync-watch tree-to-po review-po validate workflow
 
 venv: $(VENV_PYTHON)
 
@@ -34,9 +36,10 @@ help:
 	'  export-tree       Export PO + model into $(TREE_DIR)' \
 	'  export-tree-force Force rebuild $(TREE_DIR) after confirmation' \
 	'  status            Show untranslated fields from $(TREE_DIR)' \
-	'  sync              Sync shared strings and refresh $(FINAL_PO)' \
+	'  sync              Sync shared strings and refresh $(FINAL_PO) + $(REVIEW_DIFF)' \
 	'  sync-watch        Sync every $(SYNC_INTERVAL)s until stopped' \
 	'  tree-to-po        Build $(FINAL_PO) from $(TREE_DIR)' \
+	'  review-po         Review how $(FINAL_PO) differs from $(PO)' \
 	'  validate          Validate $(FINAL_PO) against $(MODEL)' \
 	'  workflow          Run the optional end-to-end smoke workflow'
 
@@ -81,6 +84,7 @@ sync: venv
 		--tree-dir $(TREE_DIR) \
 		--original-po $(PO) \
 		--out-po $(FINAL_PO) \
+		--diff-out $(REVIEW_DIFF) \
 		--source-lang $(SOURCE_LANG) \
 		--target-lang $(TARGET_LANG) \
 		--group-by $(SYNC_GROUP)
@@ -90,6 +94,7 @@ sync-watch: venv
 		--tree-dir $(TREE_DIR) \
 		--original-po $(PO) \
 		--out-po $(FINAL_PO) \
+		--diff-out $(REVIEW_DIFF) \
 		--source-lang $(SOURCE_LANG) \
 		--target-lang $(TARGET_LANG) \
 		--group-by $(SYNC_GROUP) \
@@ -101,6 +106,15 @@ tree-to-po: venv
 		--tree-dir $(TREE_DIR) \
 		--original-po $(PO) \
 		--out-po $(FINAL_PO) \
+		--source-lang $(SOURCE_LANG) \
+		--target-lang $(TARGET_LANG)
+
+review-po: venv
+	$(PYTHON) src/review_po_changes.py \
+		--original-po $(PO) \
+		--generated-po $(FINAL_PO) \
+		--diff-out $(REVIEW_DIFF) \
+		$(REVIEW_FLAGS) \
 		--source-lang $(SOURCE_LANG) \
 		--target-lang $(TARGET_LANG)
 

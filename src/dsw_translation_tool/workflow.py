@@ -10,12 +10,14 @@ from .model import DswModelService
 from .models import (
     ModelInfo,
     PoBuildResult,
+    PoDiffReviewResult,
     PoEntry,
     SharedStringSyncResult,
     TranslationStatusReport,
     WorkflowContext,
 )
 from .po import PoCatalogParser, PoCatalogWriter
+from .review import PoDiffReviewer
 from .sync import SharedStringSynchronizer
 from .tree import TranslationTreeRepository
 
@@ -29,6 +31,7 @@ class TranslationWorkflowService:
         tree_repository: Optional injected translation tree repository.
         model_service: Optional injected model service class or instance.
         po_writer: Optional injected PO writer.
+        reviewer: Optional injected PO diff reviewer.
         synchronizer: Optional injected shared-string synchronizer.
     """
 
@@ -39,6 +42,7 @@ class TranslationWorkflowService:
         tree_repository: TranslationTreeRepository | None = None,
         model_service: DswModelService | None = None,
         po_writer: PoCatalogWriter | None = None,
+        reviewer: PoDiffReviewer | None = None,
         synchronizer: SharedStringSynchronizer | None = None,
     ):
         self.source_lang = source_lang
@@ -49,6 +53,7 @@ class TranslationWorkflowService:
         )
         self.model_service = model_service or DswModelService()
         self.po_writer = po_writer or PoCatalogWriter()
+        self.reviewer = reviewer or PoDiffReviewer()
         self.synchronizer = synchronizer or SharedStringSynchronizer(
             tree_repository=self.tree_repository,
             po_writer=self.po_writer,
@@ -230,6 +235,33 @@ class TranslationWorkflowService:
             out_po_path=out_po_path,
             group_by=group_by,
         )
+
+    def review_po_changes(
+        self,
+        original_po_path: str,
+        generated_po_path: str,
+        diff_out_path: str | None = None,
+    ) -> PoDiffReviewResult:
+        """Review semantic and textual differences between two PO files.
+
+        Args:
+            original_po_path: Original PO template path.
+            generated_po_path: Generated PO file path to review.
+            diff_out_path: Optional destination path for unified diff output.
+
+        Returns:
+            Structured diff-review result.
+        """
+
+        review = self.reviewer.review(
+            original_po_path=original_po_path,
+            generated_po_path=generated_po_path,
+        )
+        if diff_out_path:
+            diff_file = Path(diff_out_path)
+            diff_file.parent.mkdir(parents=True, exist_ok=True)
+            diff_file.write_text(review.diff_text, encoding="utf-8")
+        return review
 
     @staticmethod
     def _parse_po_entries(po_path: str) -> list[PoEntry]:
