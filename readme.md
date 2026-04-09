@@ -5,7 +5,17 @@
 This section is for people who only need to translate content.
 You do not need to understand the Python code in this repository.
 
-#### 1. Prepare The Latest Source Files
+#### 1. Install The Tooling Once
+
+When using this repository for the first time, run:
+
+```shell
+make install-dev
+```
+
+This creates `.venv` if needed and installs the required Python packages into it.
+
+#### 2. Prepare The Latest Source Files
 
 Make sure the latest PO and KM files are placed under `files/`.
 
@@ -13,7 +23,7 @@ Make sure the latest PO and KM files are placed under `files/`.
   `https://localize.ds-wizard.org/projects/knowledge-models/common-dsw-knowledge-model/zh_Hant/`
 - The KM file can be exported from your local DSW instance.
 
-#### 2. Prepare The Translation Tree
+#### 3. Prepare The Translation Tree
 
 ```shell
 make export-tree
@@ -21,7 +31,7 @@ make export-tree
 
 This prepares the folder tree under `output/tree`.
 
-#### 3. Open The Translation Tree
+#### 4. Open The Translation Tree
 
 After the tree has been prepared, go to `output/tree`.
 
@@ -30,7 +40,7 @@ After the tree has been prepared, go to `output/tree`.
 - If the node has translatable content, it also contains `translation.md`.
 - The tool keeps hidden backups under `output/.tree_backups/`, outside the tree.
 
-#### 4. Edit Only `translation.md`
+#### 5. Edit Only `translation.md`
 
 Open `translation.md` and edit only the `Translation (zh_Hant)` blocks.
 
@@ -46,7 +56,7 @@ Each file keeps fields in a stable order such as:
 - `text`
 - `advice`
 
-#### 5. Check What Is Still Untranslated
+#### 6. Check What Is Still Untranslated
 
 ```shell
 make status
@@ -57,7 +67,7 @@ This shows:
 - which folders still have untranslated fields
 - the first few untranslated fields in tree order
 
-#### 6. Sync Repeated English Strings And Refresh The Final PO
+#### 7. Sync Repeated English Strings And Refresh The Final PO
 
 ```shell
 make sync
@@ -85,7 +95,7 @@ This keeps refreshing both the final PO and the diff file on each sync pass.
 When a file is corrupt, watch mode reports the error, restores the last valid
 file when possible, and keeps running for the next pass.
 
-#### 7. Upload The Final PO
+#### 8. Upload The Final PO
 
 When translation is finished, upload `output/final_translated.po` to:
 
