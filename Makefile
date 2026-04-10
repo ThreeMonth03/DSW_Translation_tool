@@ -6,19 +6,20 @@ PIP := $(PYTHON) -m pip
 
 PO ?= files/knowledge-models-common-dsw-knowledge-model-zh_Hant.po
 MODEL ?= files/dsw_root_2.7.0.km
-TREE_DIR ?= output/tree
-FINAL_PO ?= output/final_translated.po
-REPORT ?= output/final_report.json
-TREE_JSON ?= output/tree_snapshot.json
-REVIEW_DIFF ?= output/final_translated.diff
-REVIEW_FLAGS ?=
 SOURCE_LANG ?= en
 TARGET_LANG ?= zh_Hant
+OUTPUT_ROOT ?= translation/$(TARGET_LANG)
+TREE_DIR ?= $(OUTPUT_ROOT)/tree
+FINAL_PO ?= $(OUTPUT_ROOT)/builds/final_translated.po
+REPORT ?= $(OUTPUT_ROOT)/reports/final_report.json
+TREE_JSON ?= $(OUTPUT_ROOT)/reports/tree_snapshot.json
+REVIEW_DIFF ?= $(OUTPUT_ROOT)/reviews/final_translated.diff
+REVIEW_FLAGS ?=
 STATUS_LIMIT ?= 5
 SYNC_GROUP ?= shared-block
 SYNC_INTERVAL ?= 10
 
-.PHONY: help venv install-dev compile lint test export-tree export-tree-force status sync sync-watch tree-to-po review-po validate workflow
+.PHONY: help venv install-dev compile lint test test-infra test-translation export-tree export-tree-force status sync sync-watch tree-to-po review-po validate workflow
 
 venv: $(VENV_PYTHON)
 
@@ -32,7 +33,9 @@ help:
 	'  install-dev       Install local dev dependencies from config/requirements.txt' \
 	'  compile           Run Python syntax compilation checks' \
 	'  lint              Run ruff lint checks' \
-	'  test              Run pytest test coverage for export/import/sync flows' \
+	'  test              Run all pytest suites' \
+	'  test-infra        Run infrastructure/CLI pytest suites' \
+	'  test-translation  Run translation consistency pytest suites' \
 	'  export-tree       Export PO + model into $(TREE_DIR)' \
 	'  export-tree-force Force rebuild $(TREE_DIR) after confirmation' \
 	'  status            Show untranslated fields from $(TREE_DIR)' \
@@ -47,13 +50,18 @@ install-dev: venv
 	$(PIP) install -r config/requirements.txt
 
 compile: venv
-	$(PYTHON) -m py_compile src/*.py src/dsw_translation_tool/*.py tests/*.py
+	$(PYTHON) -m compileall -q src tests
 
 lint: venv
 	$(PYTHON) -m ruff check --config config/ruff.toml src tests
 
-test: venv
-	$(PYTHON) -m pytest tests
+test: test-infra test-translation
+
+test-infra: venv
+	$(PYTHON) -m pytest tests/infra
+
+test-translation: venv
+	$(PYTHON) -m pytest tests/translation
 
 export-tree: venv
 	$(PYTHON) src/po_json_tree.py \

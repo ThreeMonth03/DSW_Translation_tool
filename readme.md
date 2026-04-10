@@ -5,32 +5,85 @@
 This section is for people who only need to translate content.
 You do not need to understand the Python code in this repository.
 
-#### 1. Prepare The Latest Source Files
+#### 1. Install The Tooling Once
 
-Make sure the latest PO and KM files are placed under `files/`.
+When using this repository for the first time, run:
+
+```shell
+make install-dev
+```
+
+This creates `.venv` if needed and installs the required Python packages into it.
+
+#### 2. Refresh The Translation Tree From Latest Files (Optional)
+
+Most translators can skip this step, because the collaboration tree is usually
+prepared in advance.
+
+If you need to rebuild the tree structure from the latest source files, first
+make sure the latest PO and KM files are placed under `files/`.
 
 - The PO file can be downloaded from:
   `https://localize.ds-wizard.org/projects/knowledge-models/common-dsw-knowledge-model/zh_Hant/`
 - The KM file can be exported from your local DSW instance.
 
-#### 2. Prepare The Translation Tree
+Then run:
 
 ```shell
-make export-tree
+make export-tree-force
 ```
 
-This prepares the folder tree under `output/tree`.
+This rebuilds the collaboration tree under `translation/zh_Hant/tree` from the
+contents of `files/` and discards current tree content after confirmation.
+
+This step prepares the tree only. It does not refresh the generated PO or diff
+outputs. Those are refreshed later by `make sync`, `make tree-to-po`, or
+`make review-po`.
 
 #### 3. Open The Translation Tree
 
-After the tree has been prepared, go to `output/tree`.
+After the tree has been prepared, go to `translation/zh_Hant/tree`.
 
 - Each folder represents one node in the knowledge model.
 - Each folder contains `_uuid.txt`.
 - If the node has translatable content, it also contains `translation.md`.
-- The tool keeps hidden backups under `output/.tree_backups/`, outside the tree.
+- Local tree backups are stored separately under `translation/zh_Hant/backups/tree`.
+- Backup files are machine-managed local safety copies and are not part of code review.
 
-#### 4. Edit Only `translation.md`
+#### 4. Start `make sync` Or `make sync-watch`
+
+Before you start translating heavily in a fresh clone, run one of these:
+
+```shell
+make sync
+```
+
+or:
+
+```shell
+make sync-watch
+```
+
+This seeds the local backup store under `translation/zh_Hant/backups/tree`,
+refreshes `translation/zh_Hant/builds/final_translated.po`, and also refreshes
+`translation/zh_Hant/reviews/final_translated.diff`.
+
+It also updates other nodes that share the same original PO translation block.
+
+If a fence is broken or text is typed outside the fenced translation blocks,
+the command stops, reports the broken file, and restores that file from its
+last known-good backup.
+
+If a translator accidentally deletes `translation.md`, `_uuid.txt`, or even a
+whole node folder, the tool attempts to restore it automatically from the tree
+manifest and the backup store before continuing.
+
+If you use `make sync-watch`, it keeps refreshing both the final PO and the diff
+file on each sync pass while you work. When a file is corrupt, watch mode reports
+the error, restores the last valid file when possible, and keeps running for the
+next pass.
+
+#### 5. Edit Only `translation.md`
 
 Open `translation.md` and edit only the `Translation (zh_Hant)` blocks.
 
@@ -46,7 +99,7 @@ Each file keeps fields in a stable order such as:
 - `text`
 - `advice`
 
-#### 5. Check What Is Still Untranslated
+#### 6. Check What Is Still Untranslated
 
 ```shell
 make status
@@ -57,41 +110,51 @@ This shows:
 - which folders still have untranslated fields
 - the first few untranslated fields in tree order
 
-#### 6. Sync Repeated English Strings And Refresh The Final PO
+#### 7. Run Translation Tests And Open A PR
+
+Before running translation tests, make sure the generated PO and diff outputs
+are up to date. If you are not already running `make sync-watch`, refresh them
+with either:
 
 ```shell
 make sync
 ```
 
-This updates other nodes that share the same original PO translation block,
-refreshes `output/final_translated.po`, and also refreshes
-`output/final_translated.diff` so you can review what changed.
-
-If a fence is broken or text is typed outside the fenced translation blocks,
-the command stops, reports the broken file, and restores that file from its
-last known-good backup.
-
-If a translator accidentally deletes `translation.md`, `_uuid.txt`, or even a
-whole node folder, the tool attempts to restore it automatically from the tree
-manifest and the hidden backup store before continuing.
-
-If you want this to keep running every 10 seconds while you work:
+or:
 
 ```shell
 make sync-watch
 ```
 
-This keeps refreshing both the final PO and the diff file on each sync pass.
-When a file is corrupt, watch mode reports the error, restores the last valid
-file when possible, and keeps running for the next pass.
+Then run:
 
-#### 7. Upload The Final PO
+```shell
+make test-translation
+```
 
-When translation is finished, upload `output/final_translated.po` to:
+This verifies that:
+
+- `translation/zh_Hant/tree` is structurally valid
+- the checked-in tree and generated PO are still in sync
+- the checked-in diff matches the current PO review
+
+In normal translation work, `make test-translation` should pass after
+`make sync` or `make sync-watch`.
+
+If the tests pass, open a pull request with your translation changes.
+
+If the tests do not pass, please notify the developer or project maintainer
+and report the problem instead of trying to work around it manually.
+
+#### 8. Upload The Final PO (Optional)
+
+After the translation pull request has been merged, you can optionally upload
+`translation/zh_Hant/builds/final_translated.po` manually to:
 
 `https://localize.ds-wizard.org/projects/knowledge-models/common-dsw-knowledge-model/zh_Hant/`
 
-If needed, ask the developer or project maintainer to run final validation before upload.
+If needed, ask the developer or project maintainer to run final validation
+before upload.
 
 ### For Developers
 
@@ -133,9 +196,20 @@ make test
 
 This runs the pytest suite for:
 
-- PO to tree export coverage
-- tree to PO round-trip integrity
-- shared-string synchronization behavior
+- infrastructure and CLI behavior
+- translation tree and PO consistency
+
+#### Run Infrastructure Unit Tests
+
+```shell
+make test-infra
+```
+
+#### Run Translation Unit Tests
+
+```shell
+make test-translation
+```
 
 #### Export Translation Tree
 
@@ -176,8 +250,9 @@ broken or text appears outside fenced translation blocks.
 make review-po
 ```
 
-This compares `output/final_translated.po` with the original PO template and
-writes a unified diff to `output/final_translated.diff`.
+This compares `translation/zh_Hant/builds/final_translated.po` with the original PO
+template and writes a unified diff to
+`translation/zh_Hant/reviews/final_translated.diff`.
 
 Use this when you want to confirm that only `msgstr` values changed.
 
@@ -195,3 +270,13 @@ make workflow
 
 This is only for a final smoke test or a full round-trip check.
 You do not need to run it while translation is still in progress.
+
+### Output Layout
+
+The repository now keeps collaboration files and generated files under:
+
+- `translation/zh_Hant/tree`
+- `translation/zh_Hant/builds`
+- `translation/zh_Hant/reviews`
+- `translation/zh_Hant/reports`
+- `translation/zh_Hant/backups` for local machine-managed safety copies

@@ -28,5 +28,8 @@ jobs:
       - name: Run linter
         run: make lint
 
-      - name: Run unit tests
-        run: make test
+      - name: Run infrastructure unit tests
+        run: make test-infra
+
+      - name: Run translation unit tests
+        run: make test-translation

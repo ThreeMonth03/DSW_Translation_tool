@@ -71,6 +71,48 @@ def model_path(repo_root: Path) -> Path:
 
 
 @pytest.fixture(scope="session")
+def collaboration_tree_dir(repo_root: Path) -> Path:
+    """Return the checked-in collaboration tree directory.
+
+    Args:
+        repo_root: Repository root fixture.
+
+    Returns:
+        Absolute collaboration tree path under `translation/`.
+    """
+
+    return repo_root / "translation" / "zh_Hant" / "tree"
+
+
+@pytest.fixture(scope="session")
+def collaboration_final_po_path(repo_root: Path) -> Path:
+    """Return the checked-in generated PO path for collaboration output.
+
+    Args:
+        repo_root: Repository root fixture.
+
+    Returns:
+        Absolute generated PO path to validate.
+    """
+
+    return repo_root / "translation" / "zh_Hant" / "builds" / "final_translated.po"
+
+
+@pytest.fixture(scope="session")
+def collaboration_diff_path(repo_root: Path) -> Path:
+    """Return the checked-in generated diff path for collaboration output.
+
+    Args:
+        repo_root: Repository root fixture.
+
+    Returns:
+        Absolute generated diff path to validate.
+    """
+
+    return repo_root / "translation" / "zh_Hant" / "reviews" / "final_translated.diff"
+
+
+@pytest.fixture(scope="session")
 def workflow() -> Any:
     """Return the workflow service under test.
 

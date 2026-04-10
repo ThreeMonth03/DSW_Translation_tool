@@ -25,12 +25,12 @@ def build_argument_parser() -> argparse.ArgumentParser:
     )
     parser.add_argument(
         "--generated-po",
-        default="output/final_translated.po",
+        default="translation/zh_Hant/builds/final_translated.po",
         help="Path to the generated PO file being reviewed.",
     )
     parser.add_argument(
         "--diff-out",
-        default="output/final_translated.diff",
+        default="translation/zh_Hant/reviews/final_translated.diff",
         help="Path to write the unified diff output.",
     )
     parser.add_argument("--source-lang", default="en")

@@ -2,6 +2,7 @@
 
 from __future__ import annotations
 
+import json
 import os
 import subprocess
 import sys
@@ -10,6 +11,12 @@ from collections import defaultdict
 from pathlib import Path
 
 from dsw_translation_tool import TranslationWorkflowService
+from dsw_translation_tool.constants import (
+    MANIFEST_NAME,
+    TRANSLATION_FILENAME,
+    TREE_BACKUP_DIRNAME,
+    UUID_FILENAME,
+)
 from dsw_translation_tool.models import (
     PoBlock,
     PoEntry,
@@ -59,6 +66,115 @@ def build_expected_fields_by_uuid(
     for entry in entries:
         expected_fields[entry.uuid].add(entry.field)
     return expected_fields
+
+
+def read_tree_manifest(tree_dir: Path) -> dict[str, object]:
+    """Read the collaboration tree manifest from disk.
+
+    Args:
+        tree_dir: Translation tree root directory.
+
+    Returns:
+        Parsed manifest dictionary.
+
+    Raises:
+        AssertionError: If the manifest file is missing.
+    """
+
+    manifest_path = tree_dir / MANIFEST_NAME
+    assert manifest_path.exists(), f"Missing tree manifest: {manifest_path}"
+    return json.loads(manifest_path.read_text(encoding="utf-8"))
+
+
+def inspect_translation_tree_disk_state(
+    workflow: TranslationWorkflowService,
+    tree_dir: Path,
+) -> tuple[dict[str, object], dict[tuple[str, str], TranslationFieldState]]:
+    """Inspect the checked-in tree without auto-healing missing files.
+
+    This helper intentionally reads the on-disk tree directly instead of using
+    repository `scan()` so that accidental deletions, malformed fences, or
+    unsynchronized edits are surfaced by the test suite.
+
+    Args:
+        workflow: Workflow service under test.
+        tree_dir: Translation tree directory to inspect.
+
+    Returns:
+        Parsed manifest and flattened translation field states.
+    """
+
+    assert tree_dir.is_dir(), f"Missing collaboration tree directory: {tree_dir}"
+    manifest = read_tree_manifest(tree_dir)
+    expected_nodes = manifest.get("nodes", {})
+    assert isinstance(expected_nodes, dict), "Tree manifest nodes must be a dictionary"
+
+    actual_uuid_dirs: dict[str, str] = {}
+    for uuid_path in sorted(tree_dir.rglob(UUID_FILENAME)):
+        entity_uuid = uuid_path.read_text(encoding="utf-8").strip()
+        relative_folder = str(uuid_path.parent.relative_to(tree_dir))
+        assert entity_uuid not in actual_uuid_dirs, (
+            "Duplicate UUID folder detected for "
+            f"{entity_uuid}: {actual_uuid_dirs[entity_uuid]} and {relative_folder}"
+        )
+        actual_uuid_dirs[entity_uuid] = relative_folder
+
+    assert set(actual_uuid_dirs) == set(expected_nodes), (
+        "Tree folder UUID set does not match manifest.\n"
+        f"Missing: {sorted(set(expected_nodes) - set(actual_uuid_dirs))[:20]}\n"
+        f"Unexpected: {sorted(set(actual_uuid_dirs) - set(expected_nodes))[:20]}"
+    )
+
+    field_states: dict[tuple[str, str], TranslationFieldState] = {}
+    document = workflow.tree_repository.document
+    for entity_uuid, node in sorted(expected_nodes.items()):
+        assert isinstance(node, dict), f"Manifest node for {entity_uuid} must be a dictionary"
+        relative_path = node["path"]
+        folder_path = tree_dir / relative_path
+        assert folder_path.is_dir(), f"Missing node folder: {folder_path}"
+
+        uuid_path = folder_path / UUID_FILENAME
+        assert uuid_path.exists(), f"Missing UUID file: {uuid_path}"
+        assert uuid_path.read_text(encoding="utf-8").strip() == entity_uuid
+
+        expected_fields = tuple(node.get("fields", ()))
+        translation_path = folder_path / TRANSLATION_FILENAME
+        if not expected_fields:
+            assert not translation_path.exists(), (
+                "Non-translatable node unexpectedly has translation markdown: "
+                f"{translation_path}"
+            )
+            continue
+
+        assert translation_path.exists(), f"Missing translation markdown: {translation_path}"
+        parsed_fields = document.parse(str(translation_path))
+        assert set(parsed_fields) == set(expected_fields), (
+            f"Field set mismatch in {translation_path}: "
+            f"expected {sorted(expected_fields)}, got {sorted(parsed_fields)}"
+        )
+
+        for field_name, state in parsed_fields.items():
+            key = (entity_uuid, field_name)
+            assert key not in field_states, f"Duplicate tree field detected: {key}"
+            field_states[key] = state
+
+    return manifest, field_states
+
+
+def expected_backup_path_for_uuid(tree_dir: Path, entity_uuid: str) -> Path:
+    """Return the expected central backup path for one tree UUID.
+
+    Args:
+        tree_dir: Translation tree root directory.
+        entity_uuid: UUID represented by the translation markdown.
+
+    Returns:
+        Expected central backup path.
+    """
+
+    return tree_dir.parent / TREE_BACKUP_DIRNAME / tree_dir.name / (
+        f"{entity_uuid}.{TRANSLATION_FILENAME}.bak"
+    )
 
 
 def find_markdown_fence_collisions(entries: list[PoEntry]) -> list[str]:

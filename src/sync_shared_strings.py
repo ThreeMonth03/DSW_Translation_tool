@@ -72,7 +72,7 @@ def build_argument_parser() -> argparse.ArgumentParser:
             "and optionally rebuild PO."
         ),
     )
-    parser.add_argument("--tree-dir", default="output/tree")
+    parser.add_argument("--tree-dir", default="translation/zh_Hant/tree")
     parser.add_argument(
         "--original-po",
         default="files/knowledge-models-common-dsw-knowledge-model-zh_Hant.po",
@@ -80,12 +80,12 @@ def build_argument_parser() -> argparse.ArgumentParser:
     )
     parser.add_argument(
         "--out-po",
-        default="output/final_translated.po",
+        default="translation/zh_Hant/builds/final_translated.po",
         help="Optional output PO path to refresh after sync.",
     )
     parser.add_argument(
         "--diff-out",
-        default="output/final_translated.diff",
+        default="translation/zh_Hant/reviews/final_translated.diff",
         help="Optional unified diff output path for reviewing PO changes.",
     )
     parser.add_argument("--source-lang", default="en")
