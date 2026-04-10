@@ -13,6 +13,7 @@ from tests.helpers import (
     inspect_translation_tree_disk_state,
     parse_po_blocks,
     parse_po_entries,
+    read_translation_markdown_header,
     read_tree_manifest,
 )
 
@@ -44,6 +45,27 @@ def test_collaboration_tree_disk_state_matches_expected_uuid_field_mapping(
     for key, state in field_states.items():
         entry = source_entry_map[key]
         assert state.source_text == entry.msgid
+
+
+def test_collaboration_translation_markdown_headers_match_manifest_metadata(
+    collaboration_tree_dir,
+) -> None:
+    """Verify that checked-in translation headers match manifest metadata.
+
+    Args:
+        collaboration_tree_dir: Checked-in collaboration tree directory.
+    """
+
+    manifest = read_tree_manifest(collaboration_tree_dir)
+    for entity_uuid, node in manifest["nodes"].items():
+        if not node.get("fields"):
+            continue
+        translation_path = collaboration_tree_dir / node["path"] / "translation.md"
+        header_uuid, header_event_type = read_translation_markdown_header(
+            translation_path
+        )
+        assert header_uuid == entity_uuid
+        assert header_event_type == node.get("eventType")
 
 
 def test_collaboration_tree_and_generated_po_stay_in_sync(

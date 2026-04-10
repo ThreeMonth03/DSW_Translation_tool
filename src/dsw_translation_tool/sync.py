@@ -52,8 +52,15 @@ class SharedStringSynchronizer:
             Summary of the synchronization run.
         """
 
-        blocks = PoCatalogParser(original_po_path).parse_blocks()
-        scan_result = self.tree_repository.scan(tree_dir)
+        parser = PoCatalogParser(original_po_path)
+        blocks = parser.parse_blocks()
+        entries = parser.parse_entries()
+        tree_validation = self.tree_repository.validate(tree_dir, entries)
+        if tree_validation.errors:
+            preview = "\n".join(tree_validation.errors[:50])
+            raise ValueError(f"Translation tree validation failed:\n{preview}")
+
+        scan_result = tree_validation.scan_result
         groups = self._build_groups(blocks, group_by=group_by)
 
         pending_writes = {}
@@ -152,7 +159,13 @@ class SharedStringSynchronizer:
         references: list[PoReference],
         folders_by_uuid,
     ) -> list[SharedStringCandidate]:
-        """Collect non-empty candidate translations for one group."""
+        """Collect candidate translations for one group.
+
+        Candidates are ordered by per-field edit time so that synchronization
+        follows the most recently edited field rather than the newest file.
+        Blank translations are included intentionally so a deliberately-cleared
+        field can also win when it is the latest edit.
+        """
 
         candidates: list[SharedStringCandidate] = []
         for reference in references:
@@ -160,14 +173,17 @@ class SharedStringSynchronizer:
             if snapshot is None:
                 continue
             state = snapshot.fields.get(reference.field)
-            if state is None or not state.target_text.strip():
+            if state is None:
                 continue
             candidates.append(
                 SharedStringCandidate(
                     reference=reference,
                     translation=state.target_text,
                     source=state.source_text,
-                    modified_at=snapshot.modified_at,
+                    modified_at=snapshot.field_modified_at.get(
+                        reference.field,
+                        snapshot.modified_at,
+                    ),
                     path=snapshot.path,
                 )
             )
@@ -190,7 +206,11 @@ class SharedStringSynchronizer:
     ) -> list[SharedStringConflict]:
         """Build conflict records when a group has multiple non-empty values."""
 
-        unique_translations = {candidate.translation for candidate in candidates}
+        unique_translations = {
+            candidate.translation
+            for candidate in candidates
+            if candidate.translation.strip()
+        }
         if len(unique_translations) <= 1:
             return []
         return [

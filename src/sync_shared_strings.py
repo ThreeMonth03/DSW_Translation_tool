@@ -6,8 +6,12 @@ from __future__ import annotations
 import argparse
 import time
 from argparse import Namespace
+from pathlib import Path
 
 from dsw_translation_tool import TranslationWorkflowService
+
+DEFAULT_OUT_PO = "translation/zh_Hant/builds/final_translated.po"
+DEFAULT_DIFF_OUT = "translation/zh_Hant/reviews/final_translated.diff"
 
 
 def run_sync(args: Namespace) -> None:
@@ -27,12 +31,13 @@ def run_sync(args: Namespace) -> None:
         out_po_path=args.out_po,
         group_by=args.group_by,
     )
+    diff_out = resolve_diff_out_path(args)
     review = None
-    if result.output_po and args.diff_out:
+    if result.output_po and diff_out:
         review = workflow.review_po_changes(
             original_po_path=args.original_po,
             generated_po_path=result.output_po,
-            diff_out_path=args.diff_out,
+            diff_out_path=diff_out,
         )
 
     print("Shared String Sync")
@@ -44,7 +49,7 @@ def run_sync(args: Namespace) -> None:
     if result.output_po:
         print(f"  Output PO      : {result.output_po}")
     if review is not None:
-        print(f"  Output diff    : {args.diff_out}")
+        print(f"  Output diff    : {diff_out}")
         print(f"  Msgstr only    : {review.msgstr_only}")
 
     if not result.conflicts:
@@ -80,12 +85,12 @@ def build_argument_parser() -> argparse.ArgumentParser:
     )
     parser.add_argument(
         "--out-po",
-        default="translation/zh_Hant/builds/final_translated.po",
+        default=DEFAULT_OUT_PO,
         help="Optional output PO path to refresh after sync.",
     )
     parser.add_argument(
         "--diff-out",
-        default="translation/zh_Hant/reviews/final_translated.diff",
+        default=None,
         help="Optional unified diff output path for reviewing PO changes.",
     )
     parser.add_argument("--source-lang", default="en")
@@ -108,6 +113,24 @@ def build_argument_parser() -> argparse.ArgumentParser:
         help="Watch interval in seconds. Used only with --watch.",
     )
     return parser
+
+
+def resolve_diff_out_path(args: Namespace) -> str | None:
+    """Resolve the diff output path for one sync run.
+
+    Args:
+        args: Parsed CLI arguments.
+
+    Returns:
+        Diff output path or `None` when no review file should be written.
+    """
+
+    if args.diff_out:
+        return args.diff_out
+    if args.out_po == DEFAULT_OUT_PO:
+        return DEFAULT_DIFF_OUT
+    output_po = Path(args.out_po)
+    return str(output_po.with_suffix(".diff"))
 
 
 def main() -> None:
