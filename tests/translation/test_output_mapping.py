@@ -10,8 +10,8 @@ from tests.helpers import (
     build_entry_map,
     corrupt_translation_by_appending_outside_fence,
     corrupt_translation_by_breaking_final_fence,
-    expected_backup_path_for_uuid,
     inspect_translation_tree_disk_state,
+    parse_po_blocks,
     parse_po_entries,
     read_tree_manifest,
 )
@@ -162,60 +162,64 @@ def test_collaboration_generated_diff_matches_current_po_review(
     )
 
 
-def test_collaboration_tree_has_complete_and_current_backups(
-    collaboration_tree_dir,
-) -> None:
-    """Verify that every checked-in translation markdown has a matching backup.
-
-    The checked-in backup set should stay in lockstep with `translation/tree` so PRs
-    do not merge a collaboration tree that cannot be restored safely.
+def _po_block_skeleton(block) -> tuple[tuple[str, ...], str, bool]:
+    """Return the non-translation identity of one PO block.
 
     Args:
-        collaboration_tree_dir: Checked-in collaboration tree directory.
+        block: Parsed PO block.
+
+    Returns:
+        Tuple containing references, `msgid`, and fuzzy status.
     """
 
-    manifest = read_tree_manifest(collaboration_tree_dir)
-    expected_backup_paths: dict[str, str] = {}
+    return (
+        tuple(reference.comment for reference in block.references),
+        block.msgid,
+        block.is_fuzzy,
+    )
 
-    for entity_uuid, node in manifest["nodes"].items():
-        if not node.get("fields"):
-            continue
-        translation_path = collaboration_tree_dir / node["path"] / "translation.md"
-        backup_path = expected_backup_path_for_uuid(
-            collaboration_tree_dir,
-            entity_uuid,
-        )
-        expected_backup_paths[entity_uuid] = str(backup_path.relative_to(
-            collaboration_tree_dir.parent.parent
-        ))
 
-        assert backup_path.exists(), (
-            "Missing checked-in translation backup.\n"
-            f"File: {translation_path}\n"
-            f"Expected backup: {backup_path}"
-        )
-        assert backup_path.read_text(encoding="utf-8") == translation_path.read_text(
-            encoding="utf-8"
-        ), (
-            "Checked-in backup is stale and no longer matches translation.md.\n"
-            f"File: {translation_path}\n"
-            f"Backup: {backup_path}\n"
-            "Run `make sync`, `make tree-to-po`, or another write path that "
-            "refreshes backups before opening the PR."
-        )
+def test_collaboration_generated_po_preserves_translation_block_count(
+    po_path,
+    collaboration_final_po_path,
+) -> None:
+    """Verify that generated collaboration PO keeps the original block count.
 
-    backup_root = collaboration_tree_dir.parent / "backups" / collaboration_tree_dir.name
-    assert backup_root.is_dir(), f"Missing collaboration backup directory: {backup_root}"
+    This protects shared PO blocks from being silently split into extra
+    translation strings in the checked-in collaboration output.
 
-    actual_backup_uuids = {
-        backup_path.name.removesuffix(".translation.md.bak")
-        for backup_path in backup_root.glob("*.translation.md.bak")
-    }
-    expected_backup_uuids = set(expected_backup_paths)
-    assert actual_backup_uuids == expected_backup_uuids, (
-        "Checked-in backup set does not match translatable tree nodes.\n"
-        f"Missing backups: {sorted(expected_backup_uuids - actual_backup_uuids)[:20]}\n"
-        f"Unexpected backups: {sorted(actual_backup_uuids - expected_backup_uuids)[:20]}"
+    Args:
+        po_path: Fixture PO file path.
+        collaboration_final_po_path: Checked-in generated PO path.
+    """
+
+    assert collaboration_final_po_path.exists(), (
+        "Missing generated collaboration PO file: "
+        f"{collaboration_final_po_path}\n"
+        "Run `make sync` or `make tree-to-po` before running translation tests."
+    )
+
+    source_blocks = parse_po_blocks(po_path)
+    generated_blocks = parse_po_blocks(collaboration_final_po_path)
+
+    assert len(generated_blocks) == len(source_blocks), (
+        "Generated collaboration PO does not preserve the original translation "
+        "string count.\n"
+        f"Source PO blocks: {len(source_blocks)}\n"
+        f"Generated PO blocks: {len(generated_blocks)}\n"
+        "This usually means a shared PO block was split unexpectedly.\n"
+        "Run `make sync` and check whether conflicting translations were "
+        "introduced into nodes that originally shared one PO block."
+    )
+    assert [
+        _po_block_skeleton(block) for block in generated_blocks
+    ] == [
+        _po_block_skeleton(block) for block in source_blocks
+    ], (
+        "Generated collaboration PO changed non-translation content.\n"
+        "Only `msgstr` values are allowed to differ from the source PO.\n"
+        "Check for changed references, `msgid`, fuzzy flags, block order, or "
+        "unexpected shared-block splitting."
     )
 
 

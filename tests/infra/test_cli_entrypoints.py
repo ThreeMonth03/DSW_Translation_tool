@@ -16,6 +16,7 @@ from tests.helpers import (
     build_non_empty_msgstr_translation_map,
     corrupt_translation_by_appending_outside_fence,
     corrupt_translation_by_breaking_final_fence,
+    expected_backup_path_for_uuid,
     export_tree_for_test,
     find_first_translatable_snapshot,
     parse_po_entries,
@@ -74,6 +75,62 @@ def test_tree_to_po_cli_generates_expected_po(
 
     rebuilt_entries = parse_po_entries(output_po)
     assert len(rebuilt_entries) == len(po_entries)
+
+
+def test_sync_cli_seeds_local_backups_for_tree_without_tracked_backup_files(
+    repo_root,
+    workflow,
+    po_path,
+    collaboration_tree_dir,
+    workspace,
+) -> None:
+    """Verify that sync recreates local backups from a clean collaboration tree.
+
+    Args:
+        repo_root: Repository root fixture.
+        workflow: Workflow service fixture.
+        po_path: Fixture PO file path.
+        collaboration_tree_dir: Checked-in collaboration tree directory.
+        workspace: Per-test temporary workspace fixture.
+    """
+
+    tree_dir = workspace / "tree"
+    output_po = workspace / "seeded-backups.po"
+    diff_path = workspace / "seeded-backups.diff"
+    shutil.copytree(collaboration_tree_dir, tree_dir)
+
+    backup_root = tree_dir.parent / "backups" / tree_dir.name
+    shutil.rmtree(backup_root, ignore_errors=True)
+
+    manifest = workflow.tree_repository.read_existing_manifest(str(tree_dir))
+    assert manifest is not None
+    entity_uuid, node = next(
+        (entity_uuid, node)
+        for entity_uuid, node in manifest["nodes"].items()
+        if node.get("fields")
+    )
+    translation_path = tree_dir / node["path"] / "translation.md"
+    backup_path = expected_backup_path_for_uuid(tree_dir, entity_uuid)
+    assert backup_path.exists() is False
+
+    result = run_cli_script(
+        repo_root,
+        "src/sync_shared_strings.py",
+        "--tree-dir",
+        str(tree_dir),
+        "--original-po",
+        str(po_path),
+        "--out-po",
+        str(output_po),
+        "--diff-out",
+        str(diff_path),
+    )
+
+    assert result.returncode == 0, result.stderr or result.stdout
+    assert backup_path.exists()
+    assert backup_path.read_text(encoding="utf-8") == translation_path.read_text(
+        encoding="utf-8"
+    )
 
 
 def test_tree_to_po_cli_preserves_unicode_line_separator_in_msgstr(

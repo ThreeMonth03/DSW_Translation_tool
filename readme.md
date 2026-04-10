@@ -47,9 +47,43 @@ After the tree has been prepared, go to `translation/zh_Hant/tree`.
 - Each folder represents one node in the knowledge model.
 - Each folder contains `_uuid.txt`.
 - If the node has translatable content, it also contains `translation.md`.
-- Tree backups are stored separately under `translation/zh_Hant/backups/tree`.
+- Local tree backups are stored separately under `translation/zh_Hant/backups/tree`.
+- Backup files are machine-managed local safety copies and are not part of code review.
 
-#### 4. Edit Only `translation.md`
+#### 4. Start `make sync` Or `make sync-watch`
+
+Before you start translating heavily in a fresh clone, run one of these:
+
+```shell
+make sync
+```
+
+or:
+
+```shell
+make sync-watch
+```
+
+This seeds the local backup store under `translation/zh_Hant/backups/tree`,
+refreshes `translation/zh_Hant/builds/final_translated.po`, and also refreshes
+`translation/zh_Hant/reviews/final_translated.diff`.
+
+It also updates other nodes that share the same original PO translation block.
+
+If a fence is broken or text is typed outside the fenced translation blocks,
+the command stops, reports the broken file, and restores that file from its
+last known-good backup.
+
+If a translator accidentally deletes `translation.md`, `_uuid.txt`, or even a
+whole node folder, the tool attempts to restore it automatically from the tree
+manifest and the backup store before continuing.
+
+If you use `make sync-watch`, it keeps refreshing both the final PO and the diff
+file on each sync pass while you work. When a file is corrupt, watch mode reports
+the error, restores the last valid file when possible, and keeps running for the
+next pass.
+
+#### 5. Edit Only `translation.md`
 
 Open `translation.md` and edit only the `Translation (zh_Hant)` blocks.
 
@@ -65,7 +99,7 @@ Each file keeps fields in a stable order such as:
 - `text`
 - `advice`
 
-#### 5. Check What Is Still Untranslated
+#### 6. Check What Is Still Untranslated
 
 ```shell
 make status
@@ -76,38 +110,11 @@ This shows:
 - which folders still have untranslated fields
 - the first few untranslated fields in tree order
 
-#### 6. Sync Repeated English Strings And Refresh The Final PO
-
-```shell
-make sync
-```
-
-This updates other nodes that share the same original PO translation block,
-refreshes `translation/zh_Hant/builds/final_translated.po`, and also refreshes
-`translation/zh_Hant/reviews/final_translated.diff` so you can review what changed.
-
-If a fence is broken or text is typed outside the fenced translation blocks,
-the command stops, reports the broken file, and restores that file from its
-last known-good backup.
-
-If a translator accidentally deletes `translation.md`, `_uuid.txt`, or even a
-whole node folder, the tool attempts to restore it automatically from the tree
-manifest and the backup store before continuing.
-
-If you want this to keep running every 10 seconds while you work:
-
-```shell
-make sync-watch
-```
-
-This keeps refreshing both the final PO and the diff file on each sync pass.
-When a file is corrupt, watch mode reports the error, restores the last valid
-file when possible, and keeps running for the next pass.
-
 #### 7. Run Translation Tests And Open A PR
 
-Before running translation tests, make sure you have already refreshed the
-generated PO and diff outputs with either:
+Before running translation tests, make sure the generated PO and diff outputs
+are up to date. If you are not already running `make sync-watch`, refresh them
+with either:
 
 ```shell
 make sync
@@ -130,7 +137,6 @@ This verifies that:
 - `translation/zh_Hant/tree` is structurally valid
 - the checked-in tree and generated PO are still in sync
 - the checked-in diff matches the current PO review
-- every checked-in `translation.md` has a matching backup
 
 In normal translation work, `make test-translation` should pass after
 `make sync` or `make sync-watch`.
@@ -273,4 +279,4 @@ The repository now keeps collaboration files and generated files under:
 - `translation/zh_Hant/builds`
 - `translation/zh_Hant/reviews`
 - `translation/zh_Hant/reports`
-- `translation/zh_Hant/backups`
+- `translation/zh_Hant/backups` for local machine-managed safety copies
