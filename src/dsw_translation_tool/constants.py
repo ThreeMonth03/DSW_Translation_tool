@@ -25,6 +25,7 @@ UUID_FILENAME = "_uuid.txt"
 TRANSLATION_FILENAME = "translation.md"
 TRANSLATION_BACKUP_FILENAME = ".translation.md.bak"
 TREE_BACKUP_DIRNAME = "backups"
+FIELD_STATE_FILENAME = ".field-state.json"
 
 MAX_SEGMENT_TEXT_LENGTH = 72
 FIELD_EXPORT_ORDER = ("title", "label", "text", "advice", "description", "name", "url")

@@ -114,6 +114,7 @@ class TreeFolderSnapshot:
         translation_path: Path to the `translation.md` file.
         modified_at: Last-modified timestamp used for sync precedence.
         fields: Parsed translation fields found in the folder.
+        field_modified_at: Per-field edit timestamps used for sync precedence.
     """
 
     entity_uuid: str
@@ -122,6 +123,7 @@ class TreeFolderSnapshot:
     translation_path: Path | None
     modified_at: float
     fields: dict[str, TranslationFieldState] = field(default_factory=dict)
+    field_modified_at: dict[str, float] = field(default_factory=dict)
 
 
 @dataclass(frozen=True)
