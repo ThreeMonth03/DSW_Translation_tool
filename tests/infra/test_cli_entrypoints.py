@@ -15,13 +15,17 @@ from tests.helpers import (
     build_entry_map,
     build_non_empty_msgstr_translation_map,
     corrupt_translation_by_appending_outside_fence,
+    corrupt_translation_by_appending_to_event_type_header,
     corrupt_translation_by_breaking_final_fence,
+    corrupt_translation_by_renaming_first_field_heading,
     expected_backup_path_for_uuid,
     export_tree_for_test,
     find_first_translatable_snapshot,
+    future_timestamp,
     parse_po_blocks,
     parse_po_entries,
     populate_tree_with_stress_translations,
+    read_translation_markdown_header,
     run_cli_script,
     select_multi_reference_block,
     update_tree_field,
@@ -99,7 +103,7 @@ def test_sync_cli_seeds_local_backups_for_tree_without_tracked_backup_files(
     repo_root,
     workflow,
     po_path,
-    collaboration_tree_dir,
+    model_path,
     workspace,
 ) -> None:
     """Verify that sync recreates local backups from a clean collaboration tree.
@@ -108,14 +112,19 @@ def test_sync_cli_seeds_local_backups_for_tree_without_tracked_backup_files(
         repo_root: Repository root fixture.
         workflow: Workflow service fixture.
         po_path: Fixture PO file path.
-        collaboration_tree_dir: Checked-in collaboration tree directory.
+        model_path: Fixture KM file path.
         workspace: Per-test temporary workspace fixture.
     """
 
     tree_dir = workspace / "tree"
     output_po = workspace / "seeded-backups.po"
     diff_path = workspace / "seeded-backups.diff"
-    shutil.copytree(collaboration_tree_dir, tree_dir)
+    export_tree_for_test(
+        workflow=workflow,
+        po_path=po_path,
+        model_path=model_path,
+        tree_dir=tree_dir,
+    )
 
     backup_root = tree_dir.parent / "backups" / tree_dir.name
     shutil.rmtree(backup_root, ignore_errors=True)
@@ -252,6 +261,12 @@ def test_sync_shared_strings_cli_updates_tree_and_outputs_synced_po(
         entries=po_entries,
     )
     _, available_keys = select_multi_reference_block(po_blocks, scan_result)
+    header_metadata_before = {
+        key: read_translation_markdown_header(
+            scan_result.folders_by_uuid[key[0]].translation_path
+        )
+        for key in available_keys
+    }
 
     chosen_uuid, chosen_field = available_keys[0]
     custom_translation = f"[CLI_SYNC_TEST] {chosen_uuid[:8]}:{chosen_field}"
@@ -295,6 +310,11 @@ def test_sync_shared_strings_cli_updates_tree_and_outputs_synced_po(
     synced_scan = workflow.tree_repository.scan(str(tree_dir))
     for uuid, field in available_keys:
         assert synced_scan.folders_by_uuid[uuid].fields[field].target_text == custom_translation
+        translation_path = synced_scan.folders_by_uuid[uuid].translation_path
+        assert translation_path is not None
+        assert read_translation_markdown_header(translation_path) == header_metadata_before[
+            (uuid, field)
+        ]
 
     rebuilt_entries = build_entry_map(parse_po_entries(output_po))
     for uuid, field in available_keys:
@@ -304,6 +324,197 @@ def test_sync_shared_strings_cli_updates_tree_and_outputs_synced_po(
     assert report["missingEntities"] == 0
     assert report["missingFields"] == 0
     assert report["mismatches"] == 0
+
+
+def test_sync_shared_strings_cli_uses_latest_non_empty_field_edit(
+    repo_root,
+    workflow,
+    po_path,
+    model_path,
+    po_blocks,
+    po_entries,
+    workspace,
+) -> None:
+    """Verify that sync propagates the latest non-empty field edit in a group.
+
+    Args:
+        repo_root: Repository root fixture.
+        workflow: Workflow service fixture.
+        po_path: Fixture PO file path.
+        model_path: Fixture KM file path.
+        po_blocks: Parsed PO blocks fixture.
+        po_entries: Flattened PO entries fixture.
+        workspace: Per-test temporary workspace fixture.
+    """
+
+    tree_dir = workspace / "tree"
+    output_po = workspace / "cli-sync-latest-non-empty.po"
+    seed_po = workspace / "seed.po"
+
+    export_tree_for_test(
+        workflow=workflow,
+        po_path=po_path,
+        model_path=model_path,
+        tree_dir=tree_dir,
+    )
+    seed_result = run_cli_script(
+        repo_root,
+        "src/sync_shared_strings.py",
+        "--tree-dir",
+        str(tree_dir),
+        "--original-po",
+        str(po_path),
+        "--out-po",
+        str(seed_po),
+    )
+    assert seed_result.returncode == 0, seed_result.stderr or seed_result.stdout
+
+    scan_result = validate_tree(
+        workflow=workflow,
+        tree_dir=tree_dir,
+        entries=po_entries,
+    )
+    _, available_keys = select_multi_reference_block(po_blocks, scan_result)
+    first_key, second_key = available_keys[:2]
+
+    older_translation = f"[OLDER] {first_key[0][:8]}:{first_key[1]}"
+    newer_translation = f"[NEWER] {second_key[0][:8]}:{second_key[1]}"
+    update_tree_field(
+        workflow=workflow,
+        scan_result=scan_result,
+        uuid=first_key[0],
+        field=first_key[1],
+        target_text=older_translation,
+        modified_at=future_timestamp(1.0),
+    )
+    update_tree_field(
+        workflow=workflow,
+        scan_result=scan_result,
+        uuid=second_key[0],
+        field=second_key[1],
+        target_text=newer_translation,
+        modified_at=future_timestamp(2.0),
+    )
+
+    result = run_cli_script(
+        repo_root,
+        "src/sync_shared_strings.py",
+        "--tree-dir",
+        str(tree_dir),
+        "--original-po",
+        str(po_path),
+        "--out-po",
+        str(output_po),
+    )
+
+    assert result.returncode == 0, result.stderr or result.stdout
+    synced_entries = build_entry_map(parse_po_entries(output_po))
+    for uuid, field in available_keys:
+        assert synced_entries[(uuid, field)].msgstr == newer_translation
+
+
+def test_sync_shared_strings_cli_uses_latest_blank_field_edit(
+    repo_root,
+    workflow,
+    po_path,
+    model_path,
+    po_blocks,
+    po_entries,
+    workspace,
+) -> None:
+    """Verify that sync can propagate a latest blank field edit across a group.
+
+    Args:
+        repo_root: Repository root fixture.
+        workflow: Workflow service fixture.
+        po_path: Fixture PO file path.
+        model_path: Fixture KM file path.
+        po_blocks: Parsed PO blocks fixture.
+        po_entries: Flattened PO entries fixture.
+        workspace: Per-test temporary workspace fixture.
+    """
+
+    tree_dir = workspace / "tree"
+    output_po = workspace / "cli-sync-latest-blank.po"
+    seed_po = workspace / "seed.po"
+    baseline_po = workspace / "baseline.po"
+
+    export_tree_for_test(
+        workflow=workflow,
+        po_path=po_path,
+        model_path=model_path,
+        tree_dir=tree_dir,
+    )
+    seed_result = run_cli_script(
+        repo_root,
+        "src/sync_shared_strings.py",
+        "--tree-dir",
+        str(tree_dir),
+        "--original-po",
+        str(po_path),
+        "--out-po",
+        str(seed_po),
+    )
+    assert seed_result.returncode == 0, seed_result.stderr or seed_result.stdout
+
+    scan_result = validate_tree(
+        workflow=workflow,
+        tree_dir=tree_dir,
+        entries=po_entries,
+    )
+    _, available_keys = select_multi_reference_block(po_blocks, scan_result)
+    first_key, second_key = available_keys[:2]
+    baseline_translation = f"[BASELINE] {first_key[0][:8]}:{first_key[1]}"
+
+    update_tree_field(
+        workflow=workflow,
+        scan_result=scan_result,
+        uuid=first_key[0],
+        field=first_key[1],
+        target_text=baseline_translation,
+        modified_at=future_timestamp(1.0),
+    )
+    baseline_result = run_cli_script(
+        repo_root,
+        "src/sync_shared_strings.py",
+        "--tree-dir",
+        str(tree_dir),
+        "--original-po",
+        str(po_path),
+        "--out-po",
+        str(baseline_po),
+    )
+    assert baseline_result.returncode == 0, baseline_result.stderr or baseline_result.stdout
+
+    refreshed_scan = validate_tree(
+        workflow=workflow,
+        tree_dir=tree_dir,
+        entries=po_entries,
+    )
+    update_tree_field(
+        workflow=workflow,
+        scan_result=refreshed_scan,
+        uuid=second_key[0],
+        field=second_key[1],
+        target_text="",
+        modified_at=future_timestamp(2.0),
+    )
+
+    result = run_cli_script(
+        repo_root,
+        "src/sync_shared_strings.py",
+        "--tree-dir",
+        str(tree_dir),
+        "--original-po",
+        str(po_path),
+        "--out-po",
+        str(output_po),
+    )
+
+    assert result.returncode == 0, result.stderr or result.stdout
+    synced_entries = build_entry_map(parse_po_entries(output_po))
+    for uuid, field in available_keys:
+        assert synced_entries[(uuid, field)].msgstr == ""
 
 
 def test_sync_shared_strings_cli_preserves_unicode_line_separator_when_syncing(
@@ -947,6 +1158,116 @@ def test_sync_cli_restores_file_when_fence_structure_is_broken(
     assert output_po.exists() is False
     assert diff_path.exists() is False
     assert snapshot.translation_path.read_text(encoding="utf-8") == original_text
+
+
+def test_sync_cli_restores_file_when_event_type_header_is_corrupted(
+    repo_root,
+    workflow,
+    po_path,
+    model_path,
+    workspace,
+) -> None:
+    """Verify that sync restores the last good file after header corruption.
+
+    Args:
+        repo_root: Repository root fixture.
+        workflow: Workflow service fixture.
+        po_path: Fixture PO file path.
+        model_path: Fixture KM file path.
+        workspace: Per-test temporary workspace fixture.
+    """
+
+    tree_dir = workspace / "tree"
+    output_po = workspace / "invalid-event-type-header.po"
+    diff_path = workspace / "invalid-event-type-header.diff"
+
+    export_tree_for_test(
+        workflow=workflow,
+        po_path=po_path,
+        model_path=model_path,
+        tree_dir=tree_dir,
+    )
+    snapshot = find_first_translatable_snapshot(workflow=workflow, tree_dir=tree_dir)
+    assert snapshot.translation_path is not None
+    original_text = corrupt_translation_by_appending_to_event_type_header(
+        snapshot.translation_path
+    )
+
+    result = run_cli_script(
+        repo_root,
+        "src/sync_shared_strings.py",
+        "--tree-dir",
+        str(tree_dir),
+        "--original-po",
+        str(po_path),
+        "--out-po",
+        str(output_po),
+        "--diff-out",
+        str(diff_path),
+    )
+
+    assert result.returncode != 0
+    assert "restored from the last known-good backup" in result.stderr
+    assert "Malformed Event Type metadata header." in result.stderr
+    assert str(snapshot.translation_path) in result.stderr
+    assert output_po.exists() is False
+    assert diff_path.exists() is False
+    assert snapshot.translation_path.read_text(encoding="utf-8") == original_text
+
+
+def test_sync_cli_rejects_renamed_field_heading_before_group_sync(
+    repo_root,
+    workflow,
+    po_path,
+    model_path,
+    workspace,
+) -> None:
+    """Verify that sync rejects invalid field headings before propagating.
+
+    Args:
+        repo_root: Repository root fixture.
+        workflow: Workflow service fixture.
+        po_path: Fixture PO file path.
+        model_path: Fixture KM file path.
+        workspace: Per-test temporary workspace fixture.
+    """
+
+    tree_dir = workspace / "tree"
+    output_po = workspace / "invalid-field-heading.po"
+    diff_path = workspace / "invalid-field-heading.diff"
+
+    export_tree_for_test(
+        workflow=workflow,
+        po_path=po_path,
+        model_path=model_path,
+        tree_dir=tree_dir,
+    )
+    snapshot = find_first_translatable_snapshot(workflow=workflow, tree_dir=tree_dir)
+    assert snapshot.translation_path is not None
+    original_text = corrupt_translation_by_renaming_first_field_heading(
+        snapshot.translation_path
+    )
+
+    result = run_cli_script(
+        repo_root,
+        "src/sync_shared_strings.py",
+        "--tree-dir",
+        str(tree_dir),
+        "--original-po",
+        str(po_path),
+        "--out-po",
+        str(output_po),
+        "--diff-out",
+        str(diff_path),
+    )
+
+    assert result.returncode != 0
+    assert "Translation tree validation failed:" in result.stderr
+    assert "Missing translation block:" in result.stderr
+    assert str(snapshot.translation_path) in result.stderr
+    assert output_po.exists() is False
+    assert diff_path.exists() is False
+    assert snapshot.translation_path.read_text(encoding="utf-8") != original_text
 
 
 def test_tree_to_po_cli_restores_deleted_translation_file_and_succeeds(

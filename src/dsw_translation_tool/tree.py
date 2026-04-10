@@ -10,6 +10,7 @@ from typing import Any, Iterable
 
 from .constants import (
     FIELD_EXPORT_ORDER,
+    FIELD_STATE_FILENAME,
     MANIFEST_NAME,
     MAX_SEGMENT_TEXT_LENGTH,
     TRANSLATION_BACKUP_FILENAME,
@@ -237,8 +238,6 @@ class TranslationMarkdownDocument:
 
         expected_prefixes = (
             "# Translation",
-            "- UUID: `",
-            "- Event Type: `",
             f"- Edit only the `Translation ({self.target_lang})` blocks below.",
         )
         index = 0
@@ -252,19 +251,26 @@ class TranslationMarkdownDocument:
         )
         index = self._consume_blank_lines(lines, index)
 
-        for expected_prefix in expected_prefixes[1:3]:
-            index = self._expect_prefixed_line(
-                lines=lines,
-                index=index,
-                prefix=expected_prefix,
-                markdown_path=markdown_path,
-                message="Missing translation document metadata header.",
-            )
-            index = self._consume_blank_lines(lines, index)
+        index = self._expect_pattern_line(
+            lines=lines,
+            index=index,
+            pattern=r"- UUID: `[^`]+`",
+            markdown_path=markdown_path,
+            message="Malformed UUID metadata header.",
+        )
+        index = self._consume_blank_lines(lines, index)
+        index = self._expect_pattern_line(
+            lines=lines,
+            index=index,
+            pattern=r"- Event Type: `[^`]*`",
+            markdown_path=markdown_path,
+            message="Malformed Event Type metadata header.",
+        )
+        index = self._consume_blank_lines(lines, index)
         index = self._expect_exact_line(
             lines=lines,
             index=index,
-            expected=expected_prefixes[3],
+            expected=expected_prefixes[1],
             markdown_path=markdown_path,
             message="Missing translator guidance line.",
         )
@@ -294,19 +300,19 @@ class TranslationMarkdownDocument:
             self._raise_parse_error(markdown_path, index + 1, message)
         return index + 1
 
-    def _expect_prefixed_line(
+    def _expect_pattern_line(
         self,
         lines: list[str],
         index: int,
-        prefix: str,
+        pattern: str,
         markdown_path: str,
         message: str,
     ) -> int:
-        """Require a line prefix match and advance the parser."""
+        """Require a regex full-match and advance the parser."""
 
         if index >= len(lines):
             self._raise_parse_error(markdown_path, len(lines), message)
-        if not lines[index].startswith(prefix):
+        if re.fullmatch(pattern, lines[index]) is None:
             self._raise_parse_error(markdown_path, index + 1, message)
         return index + 1
 
@@ -511,6 +517,7 @@ class TranslationTreeRepository:
         """
 
         self._heal_tree_from_manifest(tree_dir)
+        manifest = self.read_existing_manifest(tree_dir)
         node_dirs: dict[str, str] = {}
         translations: dict[tuple[str, str], str] = {}
         duplicate_uuids: list[tuple[str, str, str]] = []
@@ -521,6 +528,7 @@ class TranslationTreeRepository:
                 current_root=current_root,
                 tree_dir=tree_dir,
                 filenames=filenames,
+                manifest=manifest,
             )
             if snapshot.entity_uuid in node_dirs:
                 duplicate_uuids.append(
@@ -537,8 +545,10 @@ class TranslationTreeRepository:
                 translations[(snapshot.entity_uuid, field)] = state.target_text
             folders_by_uuid[snapshot.entity_uuid] = snapshot
 
+        self._refresh_field_state(tree_dir, folders_by_uuid)
+
         return TreeScanResult(
-            manifest=self.read_existing_manifest(tree_dir),
+            manifest=manifest,
             node_dirs=node_dirs,
             translations=translations,
             duplicate_uuids=tuple(duplicate_uuids),
@@ -678,6 +688,7 @@ class TranslationTreeRepository:
         current_root: str,
         tree_dir: str,
         filenames: list[str],
+        manifest: dict[str, Any] | None,
     ) -> TreeFolderSnapshot:
         """Build one folder snapshot from a tree directory."""
 
@@ -699,11 +710,40 @@ class TranslationTreeRepository:
         return TreeFolderSnapshot(
             entity_uuid=entity_uuid,
             path=os.path.relpath(current_root, tree_dir),
-            event_type=None,
+            event_type=self._manifest_event_type(
+                manifest=manifest,
+                entity_uuid=entity_uuid,
+            ),
             translation_path=translation_path if translation_path.exists() else None,
             modified_at=modified_at,
             fields=fields,
         )
+
+    @staticmethod
+    def _manifest_event_type(
+        manifest: dict[str, Any] | None,
+        entity_uuid: str,
+    ) -> str | None:
+        """Return the manifest event type for one tree UUID.
+
+        Args:
+            manifest: Parsed tree manifest, if available.
+            entity_uuid: UUID stored in the current node folder.
+
+        Returns:
+            Event type from the manifest when present, otherwise `None`.
+        """
+
+        if manifest is None:
+            return None
+        nodes = manifest.get("nodes", {})
+        if not isinstance(nodes, dict):
+            return None
+        node = nodes.get(entity_uuid)
+        if not isinstance(node, dict):
+            return None
+        event_type = node.get("eventType")
+        return event_type if isinstance(event_type, str) else None
 
     def _read_folder_fields(
         self,
@@ -1129,6 +1169,135 @@ class TranslationTreeRepository:
 
         tree_path = Path(tree_dir)
         return tree_path.parent / TREE_BACKUP_DIRNAME / tree_path.name
+
+    def _field_state_path(self, tree_dir: str | Path) -> Path:
+        """Return the per-field local state file for one translation tree."""
+
+        return self._backup_root(tree_dir) / FIELD_STATE_FILENAME
+
+    def _load_field_state(
+        self,
+        tree_dir: str | Path,
+    ) -> dict[str, dict[str, dict[str, Any]]]:
+        """Load per-field edit timestamps from the local state file.
+
+        Args:
+            tree_dir: Translation tree root directory.
+
+        Returns:
+            Nested state keyed by UUID and field name.
+        """
+
+        state_path = self._field_state_path(tree_dir)
+        if not state_path.exists():
+            return {}
+        data = json.loads(state_path.read_text(encoding="utf-8"))
+        if not isinstance(data, dict):
+            return {}
+        normalized_state: dict[str, dict[str, dict[str, Any]]] = {}
+        for entity_uuid, fields in data.items():
+            if not isinstance(entity_uuid, str) or not isinstance(fields, dict):
+                continue
+            normalized_fields: dict[str, dict[str, Any]] = {}
+            for field_name, field_state in fields.items():
+                if not isinstance(field_name, str) or not isinstance(field_state, dict):
+                    continue
+                normalized_fields[field_name] = field_state
+            normalized_state[entity_uuid] = normalized_fields
+        return normalized_state
+
+    def _save_field_state(
+        self,
+        tree_dir: str | Path,
+        state: dict[str, dict[str, dict[str, Any]]],
+    ) -> None:
+        """Persist per-field edit timestamps to the local state file.
+
+        Args:
+            tree_dir: Translation tree root directory.
+            state: Nested state keyed by UUID and field name.
+        """
+
+        state_path = self._field_state_path(tree_dir)
+        state_path.parent.mkdir(parents=True, exist_ok=True)
+        state_path.write_text(
+            json.dumps(state, ensure_ascii=False, indent=2, sort_keys=True),
+            encoding="utf-8",
+        )
+
+    def _refresh_field_state(
+        self,
+        tree_dir: str,
+        folders_by_uuid: dict[str, TreeFolderSnapshot],
+    ) -> None:
+        """Refresh local per-field edit metadata from the current tree state.
+
+        Args:
+            tree_dir: Translation tree root directory.
+            folders_by_uuid: Parsed folder snapshots keyed by UUID.
+        """
+
+        state = self._load_field_state(tree_dir)
+        changed = False
+        active_uuids = set(folders_by_uuid)
+
+        for entity_uuid, snapshot in folders_by_uuid.items():
+            snapshot.field_modified_at = {}
+            if not snapshot.fields:
+                if entity_uuid in state:
+                    del state[entity_uuid]
+                    changed = True
+                continue
+
+            field_state = state.get(entity_uuid)
+            if not isinstance(field_state, dict):
+                field_state = {}
+                state[entity_uuid] = field_state
+                changed = True
+
+            current_fields = set(snapshot.fields)
+            stale_fields = set(field_state) - current_fields
+            if stale_fields:
+                for field_name in stale_fields:
+                    del field_state[field_name]
+                changed = True
+
+            for field_name, translation_state in snapshot.fields.items():
+                recorded_state = field_state.get(field_name)
+                recorded_target = None
+                recorded_edited_at = snapshot.modified_at
+
+                if isinstance(recorded_state, dict):
+                    recorded_target = recorded_state.get("targetText")
+                    try:
+                        recorded_edited_at = float(recorded_state.get("editedAt"))
+                    except (TypeError, ValueError):
+                        recorded_edited_at = snapshot.modified_at
+
+                if recorded_target != translation_state.target_text:
+                    recorded_edited_at = snapshot.modified_at
+                    field_state[field_name] = {
+                        "targetText": translation_state.target_text,
+                        "editedAt": recorded_edited_at,
+                    }
+                    changed = True
+                elif not isinstance(recorded_state, dict):
+                    field_state[field_name] = {
+                        "targetText": translation_state.target_text,
+                        "editedAt": recorded_edited_at,
+                    }
+                    changed = True
+
+                snapshot.field_modified_at[field_name] = recorded_edited_at
+
+        stale_uuids = set(state) - active_uuids
+        if stale_uuids:
+            for entity_uuid in stale_uuids:
+                del state[entity_uuid]
+            changed = True
+
+        if changed:
+            self._save_field_state(tree_dir, state)
 
     def _central_backup_path(self, tree_dir: str | Path, entity_uuid: str) -> Path:
         """Return the central backup path for one node translation file."""

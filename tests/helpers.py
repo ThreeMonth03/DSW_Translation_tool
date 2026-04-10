@@ -4,6 +4,7 @@ from __future__ import annotations
 
 import json
 import os
+import re
 import subprocess
 import sys
 import time
@@ -27,6 +28,9 @@ from dsw_translation_tool.models import (
     WorkflowContext,
 )
 from dsw_translation_tool.po import PoCatalogParser
+
+HEADER_UUID_PATTERN = re.compile(r"^- UUID: `(?P<uuid>[^`]+)`$")
+HEADER_EVENT_TYPE_PATTERN = re.compile(r"^- Event Type: `(?P<event_type>[^`]*)`$")
 
 
 def build_entry_map(entries: list[PoEntry]) -> dict[tuple[str, str], PoEntry]:
@@ -147,6 +151,21 @@ def inspect_translation_tree_disk_state(
             continue
 
         assert translation_path.exists(), f"Missing translation markdown: {translation_path}"
+        header_uuid, header_event_type = read_translation_markdown_header(
+            translation_path
+        )
+        assert header_uuid == entity_uuid, (
+            "Translation markdown UUID header does not match the manifest.\n"
+            f"File: {translation_path}\n"
+            f"Header UUID: {header_uuid}\n"
+            f"Manifest UUID: {entity_uuid}"
+        )
+        assert header_event_type == node.get("eventType"), (
+            "Translation markdown Event Type header does not match the manifest.\n"
+            f"File: {translation_path}\n"
+            f"Header Event Type: {header_event_type!r}\n"
+            f"Manifest Event Type: {node.get('eventType')!r}"
+        )
         parsed_fields = document.parse(str(translation_path))
         assert set(parsed_fields) == set(expected_fields), (
             f"Field set mismatch in {translation_path}: "
@@ -159,6 +178,40 @@ def inspect_translation_tree_disk_state(
             field_states[key] = state
 
     return manifest, field_states
+
+
+def read_translation_markdown_header(translation_path: Path) -> tuple[str, str | None]:
+    """Read UUID and event-type metadata from one translation markdown file.
+
+    Args:
+        translation_path: Translation markdown path to inspect.
+
+    Returns:
+        Tuple of `(uuid, event_type)` parsed from the fixed markdown header.
+
+    Raises:
+        AssertionError: If the metadata header is missing or malformed.
+    """
+
+    lines = translation_path.read_text(encoding="utf-8").splitlines()
+    assert len(lines) >= 4, f"Translation markdown header is incomplete: {translation_path}"
+
+    uuid_match = HEADER_UUID_PATTERN.match(lines[2])
+    assert uuid_match is not None, (
+        "Translation markdown UUID header is malformed.\n"
+        f"File: {translation_path}\n"
+        f"Line: {lines[2]!r}"
+    )
+
+    event_type_match = HEADER_EVENT_TYPE_PATTERN.match(lines[3])
+    assert event_type_match is not None, (
+        "Translation markdown Event Type header is malformed.\n"
+        f"File: {translation_path}\n"
+        f"Line: {lines[3]!r}"
+    )
+
+    event_type = event_type_match.group("event_type")
+    return uuid_match.group("uuid"), (event_type or None)
 
 
 def expected_backup_path_for_uuid(tree_dir: Path, entity_uuid: str) -> Path:
@@ -483,6 +536,60 @@ def corrupt_translation_by_breaking_final_fence(translation_path: Path) -> str:
     raise AssertionError("No closing fence was found to corrupt")
 
 
+def corrupt_translation_by_appending_to_event_type_header(
+    translation_path: Path,
+    suffix: str = "dwwwd",
+) -> str:
+    """Append junk text to the event-type metadata header.
+
+    Args:
+        translation_path: Translation markdown file to corrupt.
+        suffix: Suffix appended after the closing backtick.
+
+    Returns:
+        Original unmodified file content.
+
+    Raises:
+        AssertionError: If the event-type metadata line is missing.
+    """
+
+    original_text = translation_path.read_text(encoding="utf-8")
+    lines = original_text.split("\n")
+    for index, line in enumerate(lines):
+        if line.startswith("- Event Type: `"):
+            lines[index] = f"{line}{suffix}"
+            translation_path.write_text("\n".join(lines), encoding="utf-8")
+            return original_text
+    raise AssertionError("No event-type metadata line was found to corrupt")
+
+
+def corrupt_translation_by_renaming_first_field_heading(
+    translation_path: Path,
+    suffix: str = "dsf",
+) -> str:
+    """Rename the first `## field` heading to an invalid field name.
+
+    Args:
+        translation_path: Translation markdown file to corrupt.
+        suffix: Suffix appended to the first field heading.
+
+    Returns:
+        Original unmodified file content.
+
+    Raises:
+        AssertionError: If no field heading was found to corrupt.
+    """
+
+    original_text = translation_path.read_text(encoding="utf-8")
+    lines = original_text.split("\n")
+    for index, line in enumerate(lines):
+        if line.startswith("## "):
+            lines[index] = f"{line}{suffix}"
+            translation_path.write_text("\n".join(lines), encoding="utf-8")
+            return original_text
+    raise AssertionError("No field heading was found to corrupt")
+
+
 def build_stress_translation(
     uuid: str,
     field: str,
@@ -701,11 +808,16 @@ def apply_sync_seed_translations_to_tree(
 
     scan_result = workflow.tree_repository.scan(str(tree_dir))
     snapshots_to_write: set[str] = set()
+    mtimes_by_uuid: dict[str, float] = {}
+    base_timestamp = time.time() + 100.0
+    block_offset = 0.0
 
     for block in blocks:
         block_keys = [(reference.uuid, reference.field) for reference in block.references]
         if not any(key in translations_by_key for key in block_keys):
             continue
+
+        block_offset += 10.0
 
         references = list(block.references)
         first_reference = references[0]
@@ -719,6 +831,10 @@ def apply_sync_seed_translations_to_tree(
             target_text=translation,
         )
         snapshots_to_write.add(first_reference.uuid)
+        mtimes_by_uuid[first_reference.uuid] = max(
+            mtimes_by_uuid.get(first_reference.uuid, 0.0),
+            base_timestamp + block_offset + 1.0,
+        )
 
         for reference in references[1:]:
             sibling_snapshot = scan_result.folders_by_uuid[reference.uuid]
@@ -728,9 +844,17 @@ def apply_sync_seed_translations_to_tree(
                 target_text="",
             )
             snapshots_to_write.add(reference.uuid)
+            mtimes_by_uuid[reference.uuid] = max(
+                mtimes_by_uuid.get(reference.uuid, 0.0),
+                base_timestamp + block_offset,
+            )
 
     for uuid in snapshots_to_write:
-        workflow.tree_repository.write_snapshot(scan_result.folders_by_uuid[uuid])
+        snapshot = scan_result.folders_by_uuid[uuid]
+        workflow.tree_repository.write_snapshot(snapshot)
+        if snapshot.translation_path is not None and uuid in mtimes_by_uuid:
+            timestamp = mtimes_by_uuid[uuid]
+            os.utime(snapshot.translation_path, (timestamp, timestamp))
 
 
 def assert_only_empty_msgstr_blocks_changed(
