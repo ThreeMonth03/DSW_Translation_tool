@@ -19,6 +19,7 @@ from tests.helpers import (
     expected_backup_path_for_uuid,
     export_tree_for_test,
     find_first_translatable_snapshot,
+    parse_po_blocks,
     parse_po_entries,
     populate_tree_with_stress_translations,
     run_cli_script,
@@ -26,6 +27,23 @@ from tests.helpers import (
     update_tree_field,
     validate_tree,
 )
+
+
+def _po_block_skeleton(block) -> tuple[tuple[str, ...], str, bool]:
+    """Return the non-translation identity of one PO block.
+
+    Args:
+        block: Parsed PO block.
+
+    Returns:
+        Tuple containing references, `msgid`, and fuzzy status.
+    """
+
+    return (
+        tuple(reference.comment for reference in block.references),
+        block.msgid,
+        block.is_fuzzy,
+    )
 
 
 def test_tree_to_po_cli_generates_expected_po(
@@ -615,6 +633,89 @@ def test_tree_to_po_cli_handles_fully_translated_tree_stress_case(
     assert "\\\\" in raw_po
     assert "\\n" in raw_po
     assert "\\t" in raw_po
+
+    report = workflow.validate_po_against_model(str(output_po), str(model_path))
+    assert report["missingEntities"] == 0
+    assert report["missingFields"] == 0
+    assert report["mismatches"] == 0
+
+
+def test_sync_shared_strings_cli_handles_fully_translated_tree_stress_case(
+    repo_root,
+    workflow,
+    po_path,
+    model_path,
+    po_blocks,
+    po_entries,
+    workspace,
+) -> None:
+    """Verify that sync CLI keeps a fully translated tree fully translated.
+
+    Args:
+        repo_root: Repository root fixture.
+        workflow: Workflow service fixture.
+        po_path: Fixture PO file path.
+        model_path: Fixture KM file path.
+        po_blocks: Parsed PO blocks fixture.
+        po_entries: Flattened PO entries fixture.
+        workspace: Per-test temporary workspace fixture.
+    """
+
+    tree_dir = workspace / "tree"
+    output_po = workspace / "cli-sync-full-tree.po"
+    diff_path = workspace / "cli-sync-full-tree.diff"
+
+    export_tree_for_test(
+        workflow=workflow,
+        po_path=po_path,
+        model_path=model_path,
+        tree_dir=tree_dir,
+    )
+    translations_by_key = build_empty_msgstr_translation_map(
+        po_blocks
+    ) | build_non_empty_msgstr_translation_map(po_blocks)
+    apply_translation_map_to_tree(
+        workflow=workflow,
+        tree_dir=tree_dir,
+        translations_by_key=translations_by_key,
+    )
+
+    result = run_cli_script(
+        repo_root,
+        "src/sync_shared_strings.py",
+        "--tree-dir",
+        str(tree_dir),
+        "--original-po",
+        str(po_path),
+        "--out-po",
+        str(output_po),
+        "--diff-out",
+        str(diff_path),
+    )
+
+    assert result.returncode == 0, result.stderr or result.stdout
+    assert "Shared String Sync" in result.stdout
+    assert output_po.exists()
+    assert diff_path.exists()
+
+    rebuilt_entries = build_entry_map(parse_po_entries(output_po))
+    rebuilt_blocks = parse_po_blocks(output_po)
+    assert len(rebuilt_entries) == len(po_entries)
+    assert set(rebuilt_entries.keys()) == set(translations_by_key.keys())
+    assert all(entry.msgstr != "" for entry in rebuilt_entries.values())
+
+    for key, expected_translation in translations_by_key.items():
+        assert rebuilt_entries[key].msgstr == expected_translation
+    assert [
+        _po_block_skeleton(block) for block in rebuilt_blocks
+    ] == [
+        _po_block_skeleton(block) for block in po_blocks
+    ], (
+        "Sync changed non-translation PO block structure during the fully "
+        "translated stress case.\n"
+        "Shared blocks should remain merged when every member ends up with the "
+        "same translation."
+    )
 
     report = workflow.validate_po_against_model(str(output_po), str(model_path))
     assert report["missingEntities"] == 0
