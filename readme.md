@@ -176,6 +176,31 @@ make install-dev
 
 This installs the packages listed in `config/requirements.txt` into `.venv`.
 
+#### Install Git Hooks
+
+```shell
+make install-hooks
+```
+
+This installs a local `pre-commit` hook so Ruff can fix imports and enforce
+project formatting before each commit.
+
+#### Auto-Format Python Code
+
+```shell
+make format
+```
+
+This runs Ruff autofixes and Ruff formatting for `src/` and `tests/`.
+
+#### Check Formatting
+
+```shell
+make format-check
+```
+
+This verifies that Python files already match the repository formatter rules.
+
 #### Check Python Syntax
 
 ```shell
@@ -189,6 +214,9 @@ This checks whether the Python files under `src/` can be compiled successfully.
 ```shell
 make lint
 ```
+
+This runs Ruff with the repository PEP8-style configuration from
+`config/ruff.toml`.
 
 #### Run Unit Tests
 

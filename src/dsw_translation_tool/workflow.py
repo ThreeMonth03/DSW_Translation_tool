@@ -1,28 +1,28 @@
-"""High-level translation workflow services."""
+"""High-level translation workflow facade services."""
 
 from __future__ import annotations
 
-import json
 from dataclasses import replace
-from pathlib import Path
 from typing import Any
 
-from .model import DswModelService
-from .models import (
-    ModelInfo,
+from .data_models import (
     OutlineBuildResult,
     PoBuildResult,
     PoDiffReviewResult,
-    PoEntry,
     SharedStringSyncResult,
     TranslationStatusReport,
     WorkflowContext,
 )
+from .knowledge_model_service import KnowledgeModelService
 from .outline import TranslationOutlineBuilder
-from .po import PoCatalogParser, PoCatalogWriter
+from .po import PoCatalogWriter
 from .review import PoDiffReviewer
 from .sync import SharedStringSynchronizer
 from .tree import TranslationTreeRepository
+from .workflow_support import (
+    TranslationWorkflowContextBuilder,
+    TranslationWorkflowOutputService,
+)
 
 
 class TranslationWorkflowService:
@@ -37,6 +37,8 @@ class TranslationWorkflowService:
         reviewer: Optional injected PO diff reviewer.
         synchronizer: Optional injected shared-string synchronizer.
         outline_builder: Optional injected outline builder.
+        context_builder: Optional injected workflow-context builder.
+        output_service: Optional injected workflow-output writer service.
     """
 
     def __init__(
@@ -44,11 +46,13 @@ class TranslationWorkflowService:
         source_lang: str = "en",
         target_lang: str = "zh_Hant",
         tree_repository: TranslationTreeRepository | None = None,
-        model_service: DswModelService | None = None,
+        model_service: KnowledgeModelService | None = None,
         po_writer: PoCatalogWriter | None = None,
         reviewer: PoDiffReviewer | None = None,
         synchronizer: SharedStringSynchronizer | None = None,
         outline_builder: TranslationOutlineBuilder | None = None,
+        context_builder: TranslationWorkflowContextBuilder | None = None,
+        output_service: TranslationWorkflowOutputService | None = None,
     ):
         self.source_lang = source_lang
         self.target_lang = target_lang
@@ -56,7 +60,7 @@ class TranslationWorkflowService:
             source_lang=source_lang,
             target_lang=target_lang,
         )
-        self.model_service = model_service or DswModelService()
+        self.model_service = model_service or KnowledgeModelService()
         self.po_writer = po_writer or PoCatalogWriter()
         self.reviewer = reviewer or PoDiffReviewer()
         self.synchronizer = synchronizer or SharedStringSynchronizer(
@@ -65,6 +69,12 @@ class TranslationWorkflowService:
         )
         self.outline_builder = outline_builder or TranslationOutlineBuilder(
             tree_repository=self.tree_repository,
+        )
+        self.context_builder = context_builder or TranslationWorkflowContextBuilder(
+            model_service=self.model_service,
+        )
+        self.output_service = output_service or TranslationWorkflowOutputService(
+            po_writer=self.po_writer,
         )
 
     def build_tree_context(self, po_path: str, model_path: str) -> WorkflowContext:
@@ -78,25 +88,7 @@ class TranslationWorkflowService:
             Workflow context used by export and validation steps.
         """
 
-        po_entries = self._parse_po_entries(po_path)
-        latest_by_uuid, model_info = self.model_service.load_model(model_path)
-        relevant_uuids = self.model_service.build_ancestor_set(
-            latest_by_uuid,
-            {entry.uuid for entry in po_entries},
-        )
-        tree_roots, nodes_map = self.model_service.build_tree(
-            latest_by_uuid,
-            relevant_uuids,
-        )
-        self.model_service.annotate_tree_nodes(po_entries, nodes_map)
-        report = self.model_service.validate_po_entries(po_entries, latest_by_uuid)
-        return WorkflowContext(
-            report=report,
-            model_info=self._normalize_model_info(model_info),
-            roots=tree_roots,
-            entries=po_entries,
-            latest_by_uuid=latest_by_uuid,
-        )
+        return self.context_builder.build(po_path=po_path, model_path=model_path)
 
     def export_tree(
         self,
@@ -146,9 +138,10 @@ class TranslationWorkflowService:
             Validation report dictionary.
         """
 
-        po_entries = self._parse_po_entries(po_path)
-        latest_by_uuid, _ = self.model_service.load_model(model_path)
-        return self.model_service.validate_po_entries(po_entries, latest_by_uuid)
+        return self.context_builder.validate_po_against_model(
+            po_path=po_path,
+            model_path=model_path,
+        )
 
     def write_report(self, report: dict[str, Any], report_path: str) -> None:
         """Write a validation report to disk as JSON.
@@ -158,11 +151,9 @@ class TranslationWorkflowService:
             report_path: Output JSON file path.
         """
 
-        report_file = Path(report_path)
-        report_file.parent.mkdir(parents=True, exist_ok=True)
-        report_file.write_text(
-            json.dumps(report, ensure_ascii=False, indent=2),
-            encoding="utf-8",
+        self.output_service.write_report(
+            report=report,
+            report_path=report_path,
         )
 
     def build_po_from_tree(
@@ -185,25 +176,16 @@ class TranslationWorkflowService:
             ValueError: If tree validation fails.
         """
 
-        po_entries = self._parse_po_entries(original_po_path)
+        po_entries = self.context_builder.parse_po_entries(original_po_path)
         tree_validation = self.tree_repository.validate(tree_dir, po_entries)
         if tree_validation.errors:
             preview = "\n".join(tree_validation.errors[:50])
             raise ValueError(f"Translation tree validation failed:\n{preview}")
 
-        po_content = self.po_writer.rewrite_translations(
-            original_po_path,
-            tree_validation.scan_result.translations,
-        )
-        out_po_file = Path(out_po_path)
-        out_po_file.parent.mkdir(parents=True, exist_ok=True)
-        out_po_file.write_text(po_content, encoding="utf-8")
-
-        return PoBuildResult(
-            po_content=po_content,
-            translations=tree_validation.scan_result.translations,
+        return self.output_service.build_po_result(
+            original_po_path=original_po_path,
+            out_po_path=out_po_path,
             validation=tree_validation,
-            output_po=out_po_file,
         )
 
     def collect_status(self, tree_dir: str) -> TranslationStatusReport:
@@ -298,24 +280,7 @@ class TranslationWorkflowService:
             original_po_path=original_po_path,
             generated_po_path=generated_po_path,
         )
-        if diff_out_path:
-            diff_file = Path(diff_out_path)
-            diff_file.parent.mkdir(parents=True, exist_ok=True)
-            diff_file.write_text(review.diff_text, encoding="utf-8")
-        return review
-
-    @staticmethod
-    def _parse_po_entries(po_path: str) -> list[PoEntry]:
-        """Parse one PO file into flattened `(uuid, field)` entries."""
-
-        return PoCatalogParser(po_path).parse_entries()
-
-    @staticmethod
-    def _normalize_model_info(model_info: ModelInfo) -> ModelInfo:
-        """Normalize model metadata into the shared dataclass."""
-
-        return ModelInfo(
-            id=model_info.id,
-            km_id=model_info.km_id,
-            name=model_info.name,
+        return self.output_service.write_diff_review(
+            review=review,
+            diff_out_path=diff_out_path,
         )

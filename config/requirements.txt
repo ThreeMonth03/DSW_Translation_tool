@@ -1,5 +1,6 @@
 dsw-models @ git+https://github.com/ds-wizard/engine-tools.git@v4.27.0#subdirectory=packages/dsw-models
 pydantic>=2,<3
+pre-commit>=4,<5
 PyYAML==6.0.3
 pytest>=8,<9
 ruff>=0.12,<1.0

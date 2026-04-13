@@ -81,7 +81,9 @@ def collaboration_tree_dir(repo_root: Path) -> Path:
         Absolute collaboration tree path under `translation/`.
     """
 
-    return repo_root / "translation" / "zh_Hant" / "tree"
+    from dsw_translation_tool import DEFAULT_LAYOUT
+
+    return repo_root / DEFAULT_LAYOUT.tree_dir
 
 
 @pytest.fixture(scope="session")
@@ -95,7 +97,9 @@ def collaboration_final_po_path(repo_root: Path) -> Path:
         Absolute generated PO path to validate.
     """
 
-    return repo_root / "translation" / "zh_Hant" / "builds" / "final_translated.po"
+    from dsw_translation_tool import DEFAULT_LAYOUT
+
+    return repo_root / DEFAULT_LAYOUT.final_po_path
 
 
 @pytest.fixture(scope="session")
@@ -109,7 +113,9 @@ def collaboration_diff_path(repo_root: Path) -> Path:
         Absolute generated diff path to validate.
     """
 
-    return repo_root / "translation" / "zh_Hant" / "reviews" / "final_translated.diff"
+    from dsw_translation_tool import DEFAULT_LAYOUT
+
+    return repo_root / DEFAULT_LAYOUT.diff_path
 
 
 @pytest.fixture(scope="session")
@@ -123,7 +129,9 @@ def collaboration_outline_path(repo_root: Path) -> Path:
         Absolute outline markdown path to validate.
     """
 
-    return repo_root / "translation" / "zh_Hant" / "tree" / "outline.md"
+    from dsw_translation_tool import DEFAULT_LAYOUT
+
+    return repo_root / DEFAULT_LAYOUT.outline_path
 
 
 @pytest.fixture(scope="session")
