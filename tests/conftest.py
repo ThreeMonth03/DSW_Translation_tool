@@ -113,6 +113,20 @@ def collaboration_diff_path(repo_root: Path) -> Path:
 
 
 @pytest.fixture(scope="session")
+def collaboration_outline_path(repo_root: Path) -> Path:
+    """Return the checked-in outline markdown path for collaboration output.
+
+    Args:
+        repo_root: Repository root fixture.
+
+    Returns:
+        Absolute outline markdown path to validate.
+    """
+
+    return repo_root / "translation" / "zh_Hant" / "tree" / "outline.md"
+
+
+@pytest.fixture(scope="session")
 def workflow() -> Any:
     """Return the workflow service under test.
 

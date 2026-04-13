@@ -8,6 +8,7 @@ import pytest
 
 from tests.helpers import (
     build_entry_map,
+    build_outline_markdown,
     corrupt_translation_by_appending_outside_fence,
     corrupt_translation_by_breaking_final_fence,
     inspect_translation_tree_disk_state,
@@ -182,6 +183,49 @@ def test_collaboration_generated_diff_matches_current_po_review(
         f"Generated PO: {collaboration_final_po_path}\n"
         "Run `make sync` or `make review-po` to refresh the diff."
     )
+
+
+def test_collaboration_outline_matches_current_tree_progress(
+    workflow,
+    collaboration_tree_dir,
+    collaboration_outline_path,
+) -> None:
+    """Verify that the checked-in outline matches the current tree state.
+
+    Args:
+        workflow: Workflow service fixture.
+        collaboration_tree_dir: Checked-in collaboration tree directory.
+        collaboration_outline_path: Checked-in outline markdown path.
+    """
+
+    assert collaboration_outline_path.exists(), (
+        "Missing collaboration outline markdown file: "
+        f"{collaboration_outline_path}\n"
+        "Run `make sync` before running translation tests."
+    )
+
+    generated_outline_path = collaboration_outline_path.with_name(
+        ".outline.test.generated.md"
+    )
+    try:
+        result = build_outline_markdown(
+            workflow=workflow,
+            tree_dir=collaboration_tree_dir,
+            output_outline_path=generated_outline_path,
+        )
+        recorded_outline = collaboration_outline_path.read_text(encoding="utf-8")
+
+        assert recorded_outline == result.markdown_text, (
+            "Checked-in outline markdown does not match the current tree state.\n"
+            f"Outline file: {collaboration_outline_path}\n"
+            f"Generated file: {generated_outline_path}\n"
+            "Run `make sync` to refresh the outline."
+        )
+        assert "- [x] [layer 1] 0001 Common DSW Knowledge Model" in recorded_outline
+        assert "[KM] [uuid](" in recorded_outline
+        assert "[Q] [translation](" in recorded_outline
+    finally:
+        generated_outline_path.unlink(missing_ok=True)
 
 
 def _po_block_skeleton(block) -> tuple[tuple[str, ...], str, bool]:

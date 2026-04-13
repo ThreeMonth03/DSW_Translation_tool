@@ -2,6 +2,7 @@
 
 from .constants import MANIFEST_NAME, TRANSLATION_FILENAME, UUID_FILENAME, ZERO_UUID
 from .model import DswModelService
+from .outline import TranslationOutlineBuilder
 from .po import PoCatalogParser, PoCatalogWriter
 from .review import PoDiffReviewer
 from .sync import SharedStringSynchronizer
@@ -16,6 +17,7 @@ __all__ = [
     "PoCatalogWriter",
     "SharedStringSynchronizer",
     "TRANSLATION_FILENAME",
+    "TranslationOutlineBuilder",
     "TranslationTreeRepository",
     "TranslationWorkflowService",
     "UUID_FILENAME",

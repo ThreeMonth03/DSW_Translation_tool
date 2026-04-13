@@ -12,6 +12,7 @@ from dsw_translation_tool import TranslationWorkflowService
 
 DEFAULT_OUT_PO = "translation/zh_Hant/builds/final_translated.po"
 DEFAULT_DIFF_OUT = "translation/zh_Hant/reviews/final_translated.diff"
+DEFAULT_OUTLINE_OUT = "translation/zh_Hant/tree/outline.md"
 
 
 def run_sync(args: Namespace) -> None:
@@ -29,6 +30,7 @@ def run_sync(args: Namespace) -> None:
         tree_dir=args.tree_dir,
         original_po_path=args.original_po,
         out_po_path=args.out_po,
+        outline_out_path=resolve_outline_out_path(args),
         group_by=args.group_by,
     )
     diff_out = resolve_diff_out_path(args)
@@ -48,6 +50,8 @@ def run_sync(args: Namespace) -> None:
     print(f"  Conflicts      : {len(result.conflicts)}")
     if result.output_po:
         print(f"  Output PO      : {result.output_po}")
+    if result.output_outline:
+        print(f"  Output outline : {result.output_outline}")
     if review is not None:
         print(f"  Output diff    : {diff_out}")
         print(f"  Msgstr only    : {review.msgstr_only}")
@@ -93,6 +97,11 @@ def build_argument_parser() -> argparse.ArgumentParser:
         default=None,
         help="Optional unified diff output path for reviewing PO changes.",
     )
+    parser.add_argument(
+        "--outline-out",
+        default=None,
+        help="Optional markdown outline output path for tree progress review.",
+    )
     parser.add_argument("--source-lang", default="en")
     parser.add_argument("--target-lang", default="zh_Hant")
     parser.add_argument(
@@ -131,6 +140,23 @@ def resolve_diff_out_path(args: Namespace) -> str | None:
         return DEFAULT_DIFF_OUT
     output_po = Path(args.out_po)
     return str(output_po.with_suffix(".diff"))
+
+
+def resolve_outline_out_path(args: Namespace) -> str | None:
+    """Resolve the outline markdown output path for one sync run.
+
+    Args:
+        args: Parsed CLI arguments.
+
+    Returns:
+        Outline markdown output path or `None`.
+    """
+
+    if args.outline_out:
+        return args.outline_out
+    if args.tree_dir == "translation/zh_Hant/tree":
+        return DEFAULT_OUTLINE_OUT
+    return str(Path(args.tree_dir) / "outline.md")
 
 
 def main() -> None:

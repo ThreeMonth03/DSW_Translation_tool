@@ -36,9 +36,9 @@ make export-tree-force
 This rebuilds the collaboration tree under `translation/zh_Hant/tree` from the
 contents of `files/` and discards current tree content after confirmation.
 
-This step prepares the tree only. It does not refresh the generated PO or diff
-outputs. Those are refreshed later by `make sync`, `make tree-to-po`, or
-`make review-po`.
+This step prepares the tree and refreshes `translation/zh_Hant/tree/outline.md`.
+It does not refresh the generated PO or diff outputs. Those are refreshed later
+by `make sync`, `make tree-to-po`, or `make review-po`.
 
 #### 3. Open The Translation Tree
 
@@ -66,7 +66,8 @@ make sync-watch
 
 This seeds the local backup store under `translation/zh_Hant/backups/tree`,
 refreshes `translation/zh_Hant/builds/final_translated.po`, and also refreshes
-`translation/zh_Hant/reviews/final_translated.diff`.
+`translation/zh_Hant/reviews/final_translated.diff` and
+`translation/zh_Hant/tree/outline.md`.
 
 It also updates other nodes that share the same original PO translation block.
 
@@ -78,10 +79,10 @@ If a translator accidentally deletes `translation.md`, `_uuid.txt`, or even a
 whole node folder, the tool attempts to restore it automatically from the tree
 manifest and the backup store before continuing.
 
-If you use `make sync-watch`, it keeps refreshing both the final PO and the diff
-file on each sync pass while you work. When a file is corrupt, watch mode reports
-the error, restores the last valid file when possible, and keeps running for the
-next pass.
+If you use `make sync-watch`, it keeps refreshing the final PO, diff file, and
+outline file on each sync pass while you work. When a file is corrupt, watch
+mode reports the error, restores the last valid file when possible, and keeps
+running for the next pass.
 
 #### 5. Edit Only `translation.md`
 
@@ -137,6 +138,7 @@ This verifies that:
 - `translation/zh_Hant/tree` is structurally valid
 - the checked-in tree and generated PO are still in sync
 - the checked-in diff matches the current PO review
+- the checked-in outline matches the current tree progress
 
 In normal translation work, `make test-translation` should pass after
 `make sync` or `make sync-watch`.
@@ -223,6 +225,7 @@ This writes a folder tree that mirrors the knowledge-model structure.
 - Nodes that only have `description` use the related `targetUuid` / `resourcePageUuid` node name as the folder label.
 - Every node folder contains `_uuid.txt`.
 - Translatable fields are grouped into a single `translation.md` per folder.
+- The tree root also contains `outline.md` for hierarchy and progress browsing.
 - Inside `translation.md`, each field is shown in a stable order such as `title -> label -> text -> advice`.
 - The export root also contains `_translation_tree.json` for validation and re-import.
 - Re-running export preserves existing translations by default.
