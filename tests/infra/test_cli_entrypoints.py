@@ -2,6 +2,7 @@
 
 from __future__ import annotations
 
+import os
 import shutil
 from argparse import Namespace
 
@@ -97,6 +98,44 @@ def test_tree_to_po_cli_generates_expected_po(
 
     rebuilt_entries = parse_po_entries(output_po)
     assert len(rebuilt_entries) == len(po_entries)
+
+
+def test_export_tree_cli_generates_outline_inside_tree_directory(
+    repo_root,
+    po_path,
+    model_path,
+    workspace,
+) -> None:
+    """Verify that export-tree CLI writes the default outline under the tree.
+
+    Args:
+        repo_root: Repository root fixture.
+        po_path: Fixture PO file path.
+        model_path: Fixture KM file path.
+        workspace: Per-test temporary workspace fixture.
+    """
+
+    tree_dir = workspace / "tree"
+    outline_path = tree_dir / "outline.md"
+
+    result = run_cli_script(
+        repo_root,
+        "src/po_json_tree.py",
+        "--po",
+        str(po_path),
+        "--json",
+        str(model_path),
+        "--out-dir",
+        str(tree_dir),
+    )
+
+    assert result.returncode == 0, result.stderr or result.stdout
+    assert f"Wrote translation tree to {tree_dir}" in result.stdout
+    assert f"Wrote outline markdown to {outline_path}" in result.stdout
+    assert outline_path.exists()
+    outline_text = outline_path.read_text(encoding="utf-8")
+    assert "### Common DSW Knowledge Model" in outline_text
+    assert "[KM] [uuid](" in outline_text
 
 
 def test_sync_cli_seeds_local_backups_for_tree_without_tracked_backup_files(
@@ -249,6 +288,7 @@ def test_sync_shared_strings_cli_updates_tree_and_outputs_synced_po(
     tree_dir = workspace / "tree"
     output_po = workspace / "cli-sync.po"
     diff_path = workspace / "cli-sync.diff"
+    outline_path = workspace / "outline.md"
     export_tree_for_test(
         workflow=workflow,
         po_path=po_path,
@@ -297,14 +337,18 @@ def test_sync_shared_strings_cli_updates_tree_and_outputs_synced_po(
         str(output_po),
         "--diff-out",
         str(diff_path),
+        "--outline-out",
+        str(outline_path),
     )
 
     assert result.returncode == 0, result.stderr or result.stdout
     assert "Shared String Sync" in result.stdout
     assert "Conflicts      : 0" in result.stdout
+    assert f"Output outline : {outline_path}" in result.stdout
     assert f"Output diff    : {diff_path}" in result.stdout
     assert output_po.exists()
     assert diff_path.exists()
+    assert outline_path.exists()
     assert "@@" in diff_path.read_text(encoding="utf-8")
 
     synced_scan = workflow.tree_repository.scan(str(tree_dir))
@@ -319,6 +363,12 @@ def test_sync_shared_strings_cli_updates_tree_and_outputs_synced_po(
     rebuilt_entries = build_entry_map(parse_po_entries(output_po))
     for uuid, field in available_keys:
         assert rebuilt_entries[(uuid, field)].msgstr == custom_translation
+        translation_path = synced_scan.folders_by_uuid[uuid].translation_path
+        assert translation_path is not None
+        relative_link = os.path.relpath(translation_path, outline_path.parent)
+        outline_text = outline_path.read_text(encoding="utf-8")
+        assert uuid[:8] in outline_text
+        assert f"](<{relative_link}>)" in outline_text
 
     report = workflow.validate_po_against_model(str(output_po), str(model_path))
     assert report["missingEntities"] == 0

@@ -90,6 +90,14 @@ def build_argument_parser() -> argparse.ArgumentParser:
         default=None,
         help="Write validation report to this JSON file.",
     )
+    parser.add_argument(
+        "--outline-out",
+        default=None,
+        help=(
+            "Write a tree outline markdown file. Defaults to "
+            "<out-dir>/outline.md when --out-dir is set."
+        ),
+    )
     parser.add_argument("--source-lang", default="en")
     parser.add_argument("--target-lang", default="zh_Hant")
     parser.add_argument(
@@ -127,6 +135,12 @@ def main() -> None:
             f"({len(manifest['nodes'])} folders, "
             f"{len(manifest['rootPaths'])} root folders)"
         )
+        outline_out = args.outline_out or str(Path(args.out_dir) / "outline.md")
+        outline_result = workflow.build_outline_markdown(
+            tree_dir=args.out_dir,
+            out_outline_path=outline_out,
+        )
+        print(f"Wrote outline markdown to {outline_result.output_outline}")
     else:
         context = workflow.build_tree_context(po_path=args.po, model_path=args.json)
 

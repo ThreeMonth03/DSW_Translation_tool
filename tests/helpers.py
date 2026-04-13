@@ -19,6 +19,7 @@ from dsw_translation_tool.constants import (
     UUID_FILENAME,
 )
 from dsw_translation_tool.models import (
+    OutlineBuildResult,
     PoBlock,
     PoEntry,
     SharedStringSyncResult,
@@ -385,6 +386,28 @@ def rebuild_po_from_tree(
     )
     assert result.validation.errors == ()
     return output_po_path
+
+
+def build_outline_markdown(
+    workflow: TranslationWorkflowService,
+    tree_dir: Path,
+    output_outline_path: Path,
+) -> OutlineBuildResult:
+    """Build an outline markdown file for one translation tree.
+
+    Args:
+        workflow: Workflow service under test.
+        tree_dir: Translation tree directory.
+        output_outline_path: Destination outline markdown path.
+
+    Returns:
+        Outline build result.
+    """
+
+    return workflow.build_outline_markdown(
+        tree_dir=str(tree_dir),
+        out_outline_path=str(output_outline_path),
+    )
 
 
 def parse_po_entries(po_path: Path) -> list[PoEntry]:
