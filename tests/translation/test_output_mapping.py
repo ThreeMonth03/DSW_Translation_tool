@@ -62,9 +62,7 @@ def test_collaboration_translation_markdown_headers_match_manifest_metadata(
         if not node.get("fields"):
             continue
         translation_path = collaboration_tree_dir / node["path"] / "translation.md"
-        header_uuid, header_event_type = read_translation_markdown_header(
-            translation_path
-        )
+        header_uuid, header_event_type = read_translation_markdown_header(translation_path)
         assert header_uuid == entity_uuid
         assert header_event_type == node.get("eventType")
 
@@ -162,8 +160,7 @@ def test_collaboration_generated_diff_matches_current_po_review(
     """
 
     assert collaboration_final_po_path.exists(), (
-        "Missing generated collaboration PO file: "
-        f"{collaboration_final_po_path}"
+        f"Missing generated collaboration PO file: {collaboration_final_po_path}"
     )
     assert collaboration_diff_path.exists(), (
         "Missing generated collaboration diff file: "
@@ -204,9 +201,7 @@ def test_collaboration_outline_matches_current_tree_progress(
         "Run `make sync` before running translation tests."
     )
 
-    generated_outline_path = collaboration_outline_path.with_name(
-        ".outline.test.generated.md"
-    )
+    generated_outline_path = collaboration_outline_path.with_name(".outline.test.generated.md")
     try:
         result = build_outline_markdown(
             workflow=workflow,
@@ -277,9 +272,7 @@ def test_collaboration_generated_po_preserves_translation_block_count(
         "Run `make sync` and check whether conflicting translations were "
         "introduced into nodes that originally shared one PO block."
     )
-    assert [
-        _po_block_skeleton(block) for block in generated_blocks
-    ] == [
+    assert [_po_block_skeleton(block) for block in generated_blocks] == [
         _po_block_skeleton(block) for block in source_blocks
     ], (
         "Generated collaboration PO changed non-translation content.\n"
@@ -307,9 +300,7 @@ def test_collaboration_tree_validation_catches_missing_translation_markdown(
 
     manifest = read_tree_manifest(tree_copy)
     entity_uuid, node = next(
-        (entity_uuid, node)
-        for entity_uuid, node in manifest["nodes"].items()
-        if node.get("fields")
+        (entity_uuid, node) for entity_uuid, node in manifest["nodes"].items() if node.get("fields")
     )
     translation_path = tree_copy / node["path"] / "translation.md"
     translation_path.unlink()
@@ -339,9 +330,7 @@ def test_collaboration_tree_validation_catches_missing_node_folder(
 
     manifest = read_tree_manifest(tree_copy)
     _, node = next(
-        (entity_uuid, node)
-        for entity_uuid, node in manifest["nodes"].items()
-        if node.get("fields")
+        (entity_uuid, node) for entity_uuid, node in manifest["nodes"].items() if node.get("fields")
     )
     shutil.rmtree(tree_copy / node["path"])
 
@@ -370,13 +359,9 @@ def test_collaboration_tree_validation_catches_text_outside_fence(
 
     manifest = read_tree_manifest(tree_copy)
     _, node = next(
-        (entity_uuid, node)
-        for entity_uuid, node in manifest["nodes"].items()
-        if node.get("fields")
+        (entity_uuid, node) for entity_uuid, node in manifest["nodes"].items() if node.get("fields")
     )
-    corrupt_translation_by_appending_outside_fence(
-        tree_copy / node["path"] / "translation.md"
-    )
+    corrupt_translation_by_appending_outside_fence(tree_copy / node["path"] / "translation.md")
 
     with pytest.raises(ValueError, match="Unexpected content outside a fenced translation block"):
         inspect_translation_tree_disk_state(
@@ -403,13 +388,9 @@ def test_collaboration_tree_validation_catches_broken_fence(
 
     manifest = read_tree_manifest(tree_copy)
     _, node = next(
-        (entity_uuid, node)
-        for entity_uuid, node in manifest["nodes"].items()
-        if node.get("fields")
+        (entity_uuid, node) for entity_uuid, node in manifest["nodes"].items() if node.get("fields")
     )
-    corrupt_translation_by_breaking_final_fence(
-        tree_copy / node["path"] / "translation.md"
-    )
+    corrupt_translation_by_breaking_final_fence(tree_copy / node["path"] / "translation.md")
 
     with pytest.raises(ValueError, match="Broken fence detected|Unclosed fence"):
         inspect_translation_tree_disk_state(

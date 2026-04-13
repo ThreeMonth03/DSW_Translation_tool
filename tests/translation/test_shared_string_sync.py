@@ -71,10 +71,7 @@ def test_tree_to_po_splits_shared_block_when_one_translation_diverges(
     matching_blocks = []
     covered_keys = set()
     for rebuilt_block in rebuilt_blocks:
-        rebuilt_keys = {
-            (reference.uuid, reference.field)
-            for reference in rebuilt_block.references
-        }
+        rebuilt_keys = {(reference.uuid, reference.field) for reference in rebuilt_block.references}
         if not rebuilt_keys.intersection(original_keys):
             continue
         matching_blocks.append(rebuilt_block)

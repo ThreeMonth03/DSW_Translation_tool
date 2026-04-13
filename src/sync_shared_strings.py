@@ -8,11 +8,17 @@ import time
 from argparse import Namespace
 from pathlib import Path
 
-from dsw_translation_tool import TranslationWorkflowService
+from dsw_translation_tool import (
+    DEFAULT_LAYOUT,
+    DEFAULT_PO_PATH,
+    DEFAULT_SOURCE_LANG,
+    DEFAULT_TARGET_LANG,
+    TranslationWorkflowService,
+)
 
-DEFAULT_OUT_PO = "translation/zh_Hant/builds/final_translated.po"
-DEFAULT_DIFF_OUT = "translation/zh_Hant/reviews/final_translated.diff"
-DEFAULT_OUTLINE_OUT = "translation/zh_Hant/tree/outline.md"
+DEFAULT_OUT_PO = str(DEFAULT_LAYOUT.final_po_path)
+DEFAULT_DIFF_OUT = str(DEFAULT_LAYOUT.diff_path)
+DEFAULT_OUTLINE_OUT = str(DEFAULT_LAYOUT.outline_path)
 
 
 def run_sync(args: Namespace) -> None:
@@ -81,10 +87,10 @@ def build_argument_parser() -> argparse.ArgumentParser:
             "and optionally rebuild PO."
         ),
     )
-    parser.add_argument("--tree-dir", default="translation/zh_Hant/tree")
+    parser.add_argument("--tree-dir", default=str(DEFAULT_LAYOUT.tree_dir))
     parser.add_argument(
         "--original-po",
-        default="files/knowledge-models-common-dsw-knowledge-model-zh_Hant.po",
+        default=str(DEFAULT_PO_PATH),
         help="Original PO file used as the grouping/template source.",
     )
     parser.add_argument(
@@ -102,8 +108,8 @@ def build_argument_parser() -> argparse.ArgumentParser:
         default=None,
         help="Optional markdown outline output path for tree progress review.",
     )
-    parser.add_argument("--source-lang", default="en")
-    parser.add_argument("--target-lang", default="zh_Hant")
+    parser.add_argument("--source-lang", default=DEFAULT_SOURCE_LANG)
+    parser.add_argument("--target-lang", default=DEFAULT_TARGET_LANG)
     parser.add_argument(
         "--group-by",
         choices=("shared-block", "msgid", "msgid-field"),
@@ -154,7 +160,7 @@ def resolve_outline_out_path(args: Namespace) -> str | None:
 
     if args.outline_out:
         return args.outline_out
-    if args.tree_dir == "translation/zh_Hant/tree":
+    if Path(args.tree_dir) == DEFAULT_LAYOUT.tree_dir:
         return DEFAULT_OUTLINE_OUT
     return str(Path(args.tree_dir) / "outline.md")
 

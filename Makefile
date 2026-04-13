@@ -20,7 +20,7 @@ STATUS_LIMIT ?= 5
 SYNC_GROUP ?= shared-block
 SYNC_INTERVAL ?= 10
 
-.PHONY: help venv install-dev compile lint test test-infra test-translation export-tree export-tree-force status sync sync-watch tree-to-po review-po validate workflow
+.PHONY: help venv install-dev install-hooks compile format format-check lint test test-infra test-translation export-tree export-tree-force status sync sync-watch tree-to-po review-po validate workflow
 
 venv: $(VENV_PYTHON)
 
@@ -32,7 +32,10 @@ help:
 	'Available targets:' \
 	'  venv              Create $(VENV_DIR) when it does not exist' \
 	'  install-dev       Install local dev dependencies from config/requirements.txt' \
+	'  install-hooks     Install local git pre-commit hooks' \
 	'  compile           Run Python syntax compilation checks' \
+	'  format            Auto-fix imports/style and format Python files' \
+	'  format-check      Check formatting without modifying files' \
 	'  lint              Run ruff lint checks' \
 	'  test              Run all pytest suites' \
 	'  test-infra        Run infrastructure/CLI pytest suites' \
@@ -50,8 +53,18 @@ help:
 install-dev: venv
 	$(PIP) install -r config/requirements.txt
 
+install-hooks: venv
+	$(PYTHON) -m pre_commit install
+
 compile: venv
 	$(PYTHON) -m compileall -q src tests
+
+format: venv
+	$(PYTHON) -m ruff check --config config/ruff.toml --fix src tests
+	$(PYTHON) -m ruff format --config config/ruff.toml src tests
+
+format-check: venv
+	$(PYTHON) -m ruff format --check --config config/ruff.toml src tests
 
 lint: venv
 	$(PYTHON) -m ruff check --config config/ruff.toml src tests

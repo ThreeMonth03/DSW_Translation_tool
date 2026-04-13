@@ -8,7 +8,13 @@ import json
 from dataclasses import asdict
 from pathlib import Path
 
-from dsw_translation_tool import TranslationWorkflowService
+from dsw_translation_tool import (
+    DEFAULT_MODEL_PATH,
+    DEFAULT_PO_PATH,
+    DEFAULT_SOURCE_LANG,
+    DEFAULT_TARGET_LANG,
+    TranslationWorkflowService,
+)
 
 
 def confirm_force_overwrite(out_dir: str, target_lang: str) -> bool:
@@ -34,9 +40,7 @@ def confirm_force_overwrite(out_dir: str, target_lang: str) -> bool:
     if not manifest and not scan_result.node_dirs:
         return True
 
-    non_empty_translations = sum(
-        1 for value in scan_result.translations.values() if value.strip()
-    )
+    non_empty_translations = sum(1 for value in scan_result.translations.values() if value.strip())
     print(
         "WARNING: --force will discard the current translation tree content "
         "in the target directory."
@@ -44,9 +48,7 @@ def confirm_force_overwrite(out_dir: str, target_lang: str) -> bool:
     print(f"Target directory: {out_dir}")
     print(f"Existing node folders: {len(scan_result.node_dirs)}")
     print(f"Existing non-empty translated fields: {non_empty_translations}")
-    answer = input(
-        "Type 'yes' to overwrite this tree, or anything else to cancel: "
-    ).strip()
+    answer = input("Type 'yes' to overwrite this tree, or anything else to cancel: ").strip()
     if answer != "yes":
         print("Cancelled. Existing translation tree was kept.")
         return False
@@ -62,17 +64,16 @@ def build_argument_parser() -> argparse.ArgumentParser:
 
     parser = argparse.ArgumentParser(
         description=(
-            "Export a DSW PO/model file as a translation folder tree and "
-            "validate PO msgid values."
+            "Export a DSW PO/model file as a translation folder tree and validate PO msgid values."
         ),
     )
     parser.add_argument(
         "--po",
-        default="files/knowledge-models-common-dsw-knowledge-model-zh_Hant.po",
+        default=str(DEFAULT_PO_PATH),
     )
     parser.add_argument(
         "--json",
-        default="files/dsw_root_2.7.0.km",
+        default=str(DEFAULT_MODEL_PATH),
         help="Path to a .km or .json model file.",
     )
     parser.add_argument(
@@ -98,8 +99,8 @@ def build_argument_parser() -> argparse.ArgumentParser:
             "<out-dir>/outline.md when --out-dir is set."
         ),
     )
-    parser.add_argument("--source-lang", default="en")
-    parser.add_argument("--target-lang", default="zh_Hant")
+    parser.add_argument("--source-lang", default=DEFAULT_SOURCE_LANG)
+    parser.add_argument("--target-lang", default=DEFAULT_TARGET_LANG)
     parser.add_argument(
         "--force",
         action="store_true",

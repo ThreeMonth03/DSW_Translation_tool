@@ -13,7 +13,7 @@ from dataclasses import dataclass
 from pathlib import Path
 from typing import Any
 
-from .models import ModelInfo
+from .data_models import ModelInfo
 
 
 @dataclass(frozen=True)
@@ -81,9 +81,7 @@ class DswModelsBundleAdapter:
                     exclude_none=False,
                 )
                 content = dumped_event["content"]
-                effective_parent_uuid = cls._resolve_effective_parent_uuid(
-                    dumped_event
-                )
+                effective_parent_uuid = cls._resolve_effective_parent_uuid(dumped_event)
                 events.append(
                     TypedKnowledgeModelEvent(
                         uuid=str(dumped_event["uuid"]),
@@ -133,10 +131,7 @@ class DswModelsBundleAdapter:
         if not isinstance(value, dict):
             return value
 
-        normalized = {
-            key: cls._normalize_edit_event_fields(item)
-            for key, item in value.items()
-        }
+        normalized = {key: cls._normalize_edit_event_fields(item) for key, item in value.items()}
         if "changed" in normalized and "value" not in normalized:
             normalized["value"] = None
         return normalized

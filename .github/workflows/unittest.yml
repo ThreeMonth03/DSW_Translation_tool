@@ -25,6 +25,9 @@ jobs:
       - name: Compile Python files
         run: make compile
 
+      - name: Check Ruff formatting
+        run: make format-check
+
       - name: Run linter
         run: make lint
 

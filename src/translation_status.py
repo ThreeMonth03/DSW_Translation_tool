@@ -7,8 +7,16 @@ import argparse
 import json
 from dataclasses import asdict
 
-from dsw_translation_tool import TranslationWorkflowService
-from dsw_translation_tool.models import TranslationStatusFolder, TranslationStatusReport
+from dsw_translation_tool import (
+    DEFAULT_LAYOUT,
+    DEFAULT_SOURCE_LANG,
+    DEFAULT_TARGET_LANG,
+    TranslationWorkflowService,
+)
+from dsw_translation_tool.data_models import (
+    TranslationStatusFolder,
+    TranslationStatusReport,
+)
 
 
 def build_pending_items(
@@ -51,9 +59,9 @@ def build_argument_parser() -> argparse.ArgumentParser:
     parser = argparse.ArgumentParser(
         description="Report untranslated fields for an exported translation folder tree.",
     )
-    parser.add_argument("--tree-dir", default="translation/zh_Hant/tree")
-    parser.add_argument("--source-lang", default="en")
-    parser.add_argument("--target-lang", default="zh_Hant")
+    parser.add_argument("--tree-dir", default=str(DEFAULT_LAYOUT.tree_dir))
+    parser.add_argument("--source-lang", default=DEFAULT_SOURCE_LANG)
+    parser.add_argument("--target-lang", default=DEFAULT_TARGET_LANG)
     parser.add_argument(
         "-k",
         "--limit",
@@ -76,9 +84,7 @@ def print_status_report(
     """Print the human-readable status report and return pending items."""
 
     summary = status.summary.to_dict()
-    pending_folders = [
-        folder for folder in status.folders if folder.untranslated_fields
-    ]
+    pending_folders = [folder for folder in status.folders if folder.untranslated_fields]
     pending_items = build_pending_items(pending_folders)
 
     print("Untranslated Summary")
@@ -111,9 +117,7 @@ def main() -> None:
     pending_items = print_status_report(status=status, limit=args.limit)
 
     if args.json_out:
-        pending_folders = [
-            folder for folder in status.folders if folder.untranslated_fields
-        ]
+        pending_folders = [folder for folder in status.folders if folder.untranslated_fields]
         with open(args.json_out, "w", encoding="utf-8") as handle:
             json.dump(
                 {

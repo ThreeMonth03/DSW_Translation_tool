@@ -5,7 +5,7 @@ from __future__ import annotations
 import difflib
 from pathlib import Path
 
-from .models import PoBlock, PoDiffReviewResult
+from .data_models import PoBlock, PoDiffReviewResult
 from .po import PoCatalogParser
 
 
@@ -46,9 +46,7 @@ class PoDiffReviewer:
             generated_block = generated_blocks[index]
             block_changed = False
 
-            if self._reference_tokens(original_block) != self._reference_tokens(
-                generated_block
-            ):
+            if self._reference_tokens(original_block) != self._reference_tokens(generated_block):
                 changed_reference_blocks += 1
                 block_changed = True
             if original_block.msgid != generated_block.msgid:
@@ -100,12 +98,12 @@ class PoDiffReviewer:
     ) -> str:
         """Build unified diff text for two PO files."""
 
-        original_lines = Path(original_po_path).read_text(encoding="utf-8").splitlines(
-            keepends=True
+        original_lines = (
+            Path(original_po_path).read_text(encoding="utf-8").splitlines(keepends=True)
         )
-        generated_lines = Path(generated_po_path).read_text(
-            encoding="utf-8"
-        ).splitlines(keepends=True)
+        generated_lines = (
+            Path(generated_po_path).read_text(encoding="utf-8").splitlines(keepends=True)
+        )
         return "".join(
             difflib.unified_diff(
                 original_lines,
