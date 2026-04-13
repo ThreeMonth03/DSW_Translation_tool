@@ -3,12 +3,14 @@
 from __future__ import annotations
 
 import json
+from dataclasses import replace
 from pathlib import Path
 from typing import Any
 
 from .model import DswModelService
 from .models import (
     ModelInfo,
+    OutlineBuildResult,
     PoBuildResult,
     PoDiffReviewResult,
     PoEntry,
@@ -16,6 +18,7 @@ from .models import (
     TranslationStatusReport,
     WorkflowContext,
 )
+from .outline import TranslationOutlineBuilder
 from .po import PoCatalogParser, PoCatalogWriter
 from .review import PoDiffReviewer
 from .sync import SharedStringSynchronizer
@@ -33,6 +36,7 @@ class TranslationWorkflowService:
         po_writer: Optional injected PO writer.
         reviewer: Optional injected PO diff reviewer.
         synchronizer: Optional injected shared-string synchronizer.
+        outline_builder: Optional injected outline builder.
     """
 
     def __init__(
@@ -44,6 +48,7 @@ class TranslationWorkflowService:
         po_writer: PoCatalogWriter | None = None,
         reviewer: PoDiffReviewer | None = None,
         synchronizer: SharedStringSynchronizer | None = None,
+        outline_builder: TranslationOutlineBuilder | None = None,
     ):
         self.source_lang = source_lang
         self.target_lang = target_lang
@@ -57,6 +62,9 @@ class TranslationWorkflowService:
         self.synchronizer = synchronizer or SharedStringSynchronizer(
             tree_repository=self.tree_repository,
             po_writer=self.po_writer,
+        )
+        self.outline_builder = outline_builder or TranslationOutlineBuilder(
+            tree_repository=self.tree_repository,
         )
 
     def build_tree_context(self, po_path: str, model_path: str) -> WorkflowContext:
@@ -215,6 +223,7 @@ class TranslationWorkflowService:
         tree_dir: str,
         original_po_path: str,
         out_po_path: str | None = None,
+        outline_out_path: str | None = None,
         group_by: str = "shared-block",
     ) -> SharedStringSyncResult:
         """Synchronize repeated translation groups across an exported tree.
@@ -223,17 +232,49 @@ class TranslationWorkflowService:
             tree_dir: Translation tree directory.
             original_po_path: Original PO file used as the grouping source.
             out_po_path: Optional destination path for the refreshed PO file.
+            outline_out_path: Optional destination path for outline markdown.
             group_by: Grouping strategy used to define shared-string sets.
 
         Returns:
             Summary of the shared-string synchronization run.
         """
 
-        return self.synchronizer.sync(
+        result = self.synchronizer.sync(
             tree_dir=tree_dir,
             original_po_path=original_po_path,
             out_po_path=out_po_path,
             group_by=group_by,
+        )
+        if not outline_out_path:
+            return result
+
+        outline_result = self.build_outline_markdown(
+            tree_dir=tree_dir,
+            out_outline_path=outline_out_path,
+        )
+        return replace(
+            result,
+            output_outline=str(outline_result.output_outline),
+        )
+
+    def build_outline_markdown(
+        self,
+        tree_dir: str,
+        out_outline_path: str,
+    ) -> OutlineBuildResult:
+        """Build a markdown outline for the current collaboration tree.
+
+        Args:
+            tree_dir: Translation tree directory.
+            out_outline_path: Destination markdown path.
+
+        Returns:
+            Outline build result.
+        """
+
+        return self.outline_builder.build(
+            tree_dir=tree_dir,
+            output_outline_path=out_outline_path,
         )
 
     def review_po_changes(

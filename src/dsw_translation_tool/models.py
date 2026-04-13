@@ -355,6 +355,7 @@ class SharedStringSyncResult:
         fields_updated: Number of `(uuid, field)` values rewritten.
         conflicts: Conflicting groups encountered during synchronization.
         output_po: Generated PO path when requested.
+        output_outline: Generated outline-markdown path when requested.
     """
 
     groups_scanned: int
@@ -362,6 +363,20 @@ class SharedStringSyncResult:
     fields_updated: int
     conflicts: tuple[SharedStringConflict, ...]
     output_po: str | None = None
+    output_outline: str | None = None
+
+
+@dataclass(frozen=True)
+class OutlineBuildResult:
+    """Result of building a markdown outline for the collaboration tree.
+
+    Args:
+        markdown_text: Generated outline markdown.
+        output_outline: Destination markdown path.
+    """
+
+    markdown_text: str
+    output_outline: Path
 
 
 @dataclass(frozen=True)
