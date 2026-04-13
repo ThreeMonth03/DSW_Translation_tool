@@ -5,7 +5,13 @@ from __future__ import annotations
 
 import argparse
 
-from dsw_translation_tool import TranslationWorkflowService
+from dsw_translation_tool import (
+    DEFAULT_LAYOUT,
+    DEFAULT_PO_PATH,
+    DEFAULT_SOURCE_LANG,
+    DEFAULT_TARGET_LANG,
+    TranslationWorkflowService,
+)
 
 
 def build_argument_parser() -> argparse.ArgumentParser:
@@ -20,21 +26,21 @@ def build_argument_parser() -> argparse.ArgumentParser:
     )
     parser.add_argument(
         "--tree-dir",
-        default="translation/zh_Hant/tree",
+        default=str(DEFAULT_LAYOUT.tree_dir),
         help="Path to the translation folder tree.",
     )
     parser.add_argument(
         "--original-po",
-        default="files/knowledge-models-common-dsw-knowledge-model-zh_Hant.po",
+        default=str(DEFAULT_PO_PATH),
         help="Path to the original PO file used as the structural template.",
     )
     parser.add_argument(
         "--out-po",
-        default="translation/zh_Hant/builds/final_translated.po",
+        default=str(DEFAULT_LAYOUT.final_po_path),
         help="Output PO file path.",
     )
-    parser.add_argument("--source-lang", default="en")
-    parser.add_argument("--target-lang", default="zh_Hant")
+    parser.add_argument("--source-lang", default=DEFAULT_SOURCE_LANG)
+    parser.add_argument("--target-lang", default=DEFAULT_TARGET_LANG)
     return parser
 
 

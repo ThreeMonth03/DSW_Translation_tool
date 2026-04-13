@@ -18,7 +18,7 @@ from dsw_translation_tool.constants import (
     TREE_BACKUP_DIRNAME,
     UUID_FILENAME,
 )
-from dsw_translation_tool.models import (
+from dsw_translation_tool.data_models import (
     OutlineBuildResult,
     PoBlock,
     PoEntry,
@@ -146,15 +146,12 @@ def inspect_translation_tree_disk_state(
         translation_path = folder_path / TRANSLATION_FILENAME
         if not expected_fields:
             assert not translation_path.exists(), (
-                "Non-translatable node unexpectedly has translation markdown: "
-                f"{translation_path}"
+                f"Non-translatable node unexpectedly has translation markdown: {translation_path}"
             )
             continue
 
         assert translation_path.exists(), f"Missing translation markdown: {translation_path}"
-        header_uuid, header_event_type = read_translation_markdown_header(
-            translation_path
-        )
+        header_uuid, header_event_type = read_translation_markdown_header(translation_path)
         assert header_uuid == entity_uuid, (
             "Translation markdown UUID header does not match the manifest.\n"
             f"File: {translation_path}\n"
@@ -226,8 +223,11 @@ def expected_backup_path_for_uuid(tree_dir: Path, entity_uuid: str) -> Path:
         Expected central backup path.
     """
 
-    return tree_dir.parent / TREE_BACKUP_DIRNAME / tree_dir.name / (
-        f"{entity_uuid}.{TRANSLATION_FILENAME}.bak"
+    return (
+        tree_dir.parent
+        / TREE_BACKUP_DIRNAME
+        / tree_dir.name
+        / (f"{entity_uuid}.{TRANSLATION_FILENAME}.bak")
     )
 
 
@@ -246,9 +246,7 @@ def find_markdown_fence_collisions(entries: list[PoEntry]) -> list[str]:
         for role, value in (("msgid", entry.msgid), ("msgstr", entry.msgstr)):
             for line in value.split("\n"):
                 if line.strip().startswith("~~~"):
-                    collisions.append(
-                        f"{entry.uuid}:{entry.field}:{role}:{line.strip()}"
-                    )
+                    collisions.append(f"{entry.uuid}:{entry.field}:{role}:{line.strip()}")
                     break
     return collisions
 
@@ -475,7 +473,9 @@ def future_timestamp(offset_seconds: float = 1.0) -> float:
     return time.time() + offset_seconds
 
 
-def run_cli_script(repo_root: Path, script_path: str, *args: str) -> subprocess.CompletedProcess[str]:
+def run_cli_script(
+    repo_root: Path, script_path: str, *args: str
+) -> subprocess.CompletedProcess[str]:
     """Run one CLI script under the current Python interpreter.
 
     Args:
@@ -640,7 +640,7 @@ def build_stress_translation(
     return (
         f"[STRESS {ordinal:04d}] {uuid[:8]}:{field}\n"
         f'preview="{preview}"\n'
-        "symbols=quote:\" backslash:\\ tab:\t marker:end"
+        'symbols=quote:" backslash:\\ tab:\t marker:end'
     )
 
 
@@ -702,7 +702,7 @@ def build_block_stress_translation(block: PoBlock, ordinal: int) -> str:
     return (
         f"[BLOCK {ordinal:04d}] refs={len(block.references)}\n"
         f'preview="{preview}"\n'
-        "symbols=quote:\" backslash:\\ tab:\t marker:end"
+        'symbols=quote:" backslash:\\ tab:\t marker:end'
     )
 
 

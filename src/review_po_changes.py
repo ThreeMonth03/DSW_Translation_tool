@@ -5,7 +5,13 @@ from __future__ import annotations
 
 import argparse
 
-from dsw_translation_tool import TranslationWorkflowService
+from dsw_translation_tool import (
+    DEFAULT_LAYOUT,
+    DEFAULT_PO_PATH,
+    DEFAULT_SOURCE_LANG,
+    DEFAULT_TARGET_LANG,
+    TranslationWorkflowService,
+)
 
 
 def build_argument_parser() -> argparse.ArgumentParser:
@@ -20,21 +26,21 @@ def build_argument_parser() -> argparse.ArgumentParser:
     )
     parser.add_argument(
         "--original-po",
-        default="files/knowledge-models-common-dsw-knowledge-model-zh_Hant.po",
+        default=str(DEFAULT_PO_PATH),
         help="Path to the original PO file used as the review baseline.",
     )
     parser.add_argument(
         "--generated-po",
-        default="translation/zh_Hant/builds/final_translated.po",
+        default=str(DEFAULT_LAYOUT.final_po_path),
         help="Path to the generated PO file being reviewed.",
     )
     parser.add_argument(
         "--diff-out",
-        default="translation/zh_Hant/reviews/final_translated.diff",
+        default=str(DEFAULT_LAYOUT.diff_path),
         help="Path to write the unified diff output.",
     )
-    parser.add_argument("--source-lang", default="en")
-    parser.add_argument("--target-lang", default="zh_Hant")
+    parser.add_argument("--source-lang", default=DEFAULT_SOURCE_LANG)
+    parser.add_argument("--target-lang", default=DEFAULT_TARGET_LANG)
     parser.add_argument(
         "--fail-on-non-msgstr",
         action="store_true",
