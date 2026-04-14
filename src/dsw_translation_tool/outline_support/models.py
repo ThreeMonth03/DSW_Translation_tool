@@ -19,6 +19,7 @@ class OutlineNode:
         link_target: File path linked from the outline.
         own_translated_fields: Number of translated fields on the node itself.
         own_total_fields: Total translatable field count on the node itself.
+        own_shared_fields: Number of node-local fields that belong to shared PO blocks.
         subtree_translated_fields: Aggregated translated-field count for the subtree.
         subtree_total_fields: Aggregated field count for the subtree.
         children: Child outline nodes in render order.
@@ -31,6 +32,7 @@ class OutlineNode:
     link_target: Path
     own_translated_fields: int
     own_total_fields: int
+    own_shared_fields: int = 0
     subtree_translated_fields: int = 0
     subtree_total_fields: int = 0
     children: list["OutlineNode"] = field(default_factory=list)
@@ -54,6 +56,12 @@ class OutlineNode:
         """Return the markdown checkbox marker."""
 
         return "x" if self.is_self_complete else " "
+
+    @property
+    def is_shared(self) -> bool:
+        """Return whether the node owns at least one shared translation field."""
+
+        return self.own_shared_fields > 0
 
     @property
     def display_label(self) -> str:

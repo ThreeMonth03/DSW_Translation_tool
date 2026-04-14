@@ -99,6 +99,22 @@ def build_argument_parser() -> argparse.ArgumentParser:
             "<out-dir>/outline.md when --out-dir is set."
         ),
     )
+    parser.add_argument(
+        "--shared-blocks-out",
+        default=None,
+        help=(
+            "Write shared-block canonical markdown. Defaults to "
+            "<out-dir>/shared_blocks.md when --out-dir is set."
+        ),
+    )
+    parser.add_argument(
+        "--shared-blocks-outline-out",
+        default=None,
+        help=(
+            "Write shared-block overview markdown. Defaults to "
+            "<out-dir>/shared_blocks_outline.md when --out-dir is set."
+        ),
+    )
     parser.add_argument("--source-lang", default=DEFAULT_SOURCE_LANG)
     parser.add_argument("--target-lang", default=DEFAULT_TARGET_LANG)
     parser.add_argument(
@@ -142,6 +158,25 @@ def main() -> None:
             out_outline_path=outline_out,
         )
         print(f"Wrote outline markdown to {outline_result.output_outline}")
+        shared_blocks_out = args.shared_blocks_out or str(Path(args.out_dir) / "shared_blocks.md")
+        shared_blocks_result = workflow.build_shared_blocks_markdown(
+            tree_dir=args.out_dir,
+            original_po_path=args.po,
+            out_shared_blocks_path=shared_blocks_out,
+        )
+        print(f"Wrote shared-block markdown to {shared_blocks_result.output_shared_blocks}")
+        shared_blocks_outline_out = args.shared_blocks_outline_out or str(
+            Path(args.out_dir) / "shared_blocks_outline.md"
+        )
+        shared_blocks_outline_result = workflow.build_shared_blocks_outline_markdown(
+            tree_dir=args.out_dir,
+            original_po_path=args.po,
+            out_shared_blocks_outline_path=shared_blocks_outline_out,
+        )
+        print(
+            "Wrote shared-block outline markdown to "
+            f"{shared_blocks_outline_result.output_shared_blocks_outline}"
+        )
     else:
         context = workflow.build_tree_context(po_path=args.po, model_path=args.json)
 

@@ -20,6 +20,8 @@ Does it need to be easy to support new tools in a workflow?
 
 ## text
 
+> Shared field: edit this translation in `shared_blocks.md`.
+
 ### Source (en)
 
 ~~~text

@@ -52,6 +52,9 @@ class SharedStringSyncResult:
         conflicts: Conflicting groups encountered during synchronization.
         output_po: Generated PO path when requested.
         output_outline: Generated outline-markdown path when requested.
+        output_shared_blocks: Generated shared-block markdown path when requested.
+        output_shared_blocks_outline: Generated shared-block outline markdown path
+            when requested.
     """
 
     groups_scanned: int
@@ -60,3 +63,5 @@ class SharedStringSyncResult:
     conflicts: tuple[SharedStringConflict, ...]
     output_po: str | None = None
     output_outline: str | None = None
+    output_shared_blocks: str | None = None
+    output_shared_blocks_outline: str | None = None

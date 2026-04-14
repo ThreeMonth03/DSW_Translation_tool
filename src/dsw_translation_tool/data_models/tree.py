@@ -32,6 +32,7 @@ class TreeFolderSnapshot:
         modified_at: Last-modified timestamp used for sync precedence.
         fields: Parsed translation fields found in the folder.
         field_modified_at: Per-field edit timestamps used for sync precedence.
+        shared_fields: Field names whose source of truth is `shared_blocks.md`.
     """
 
     entity_uuid: str
@@ -41,6 +42,7 @@ class TreeFolderSnapshot:
     modified_at: float
     fields: dict[str, TranslationFieldState] = field(default_factory=dict)
     field_modified_at: dict[str, float] = field(default_factory=dict)
+    shared_fields: tuple[str, ...] = ()
 
 
 @dataclass(frozen=True)
@@ -191,3 +193,29 @@ class OutlineBuildResult:
 
     markdown_text: str
     output_outline: Path
+
+
+@dataclass(frozen=True)
+class SharedBlocksBuildResult:
+    """Result of building shared-block collaboration markdown.
+
+    Args:
+        markdown_text: Generated shared-block markdown.
+        output_shared_blocks: Destination markdown path.
+    """
+
+    markdown_text: str
+    output_shared_blocks: Path
+
+
+@dataclass(frozen=True)
+class SharedBlocksOutlineBuildResult:
+    """Result of building shared-block outline markdown.
+
+    Args:
+        markdown_text: Generated shared-block outline markdown.
+        output_shared_blocks_outline: Destination markdown path.
+    """
+
+    markdown_text: str
+    output_shared_blocks_outline: Path

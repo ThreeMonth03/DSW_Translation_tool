@@ -135,6 +135,38 @@ def collaboration_outline_path(repo_root: Path) -> Path:
 
 
 @pytest.fixture(scope="session")
+def collaboration_shared_blocks_path(repo_root: Path) -> Path:
+    """Return the checked-in shared-block markdown path for collaboration output.
+
+    Args:
+        repo_root: Repository root fixture.
+
+    Returns:
+        Absolute shared-block markdown path to validate.
+    """
+
+    from dsw_translation_tool import DEFAULT_LAYOUT
+
+    return repo_root / DEFAULT_LAYOUT.shared_blocks_path
+
+
+@pytest.fixture(scope="session")
+def collaboration_shared_blocks_outline_path(repo_root: Path) -> Path:
+    """Return the checked-in shared-block outline markdown path.
+
+    Args:
+        repo_root: Repository root fixture.
+
+    Returns:
+        Absolute shared-block outline markdown path to validate.
+    """
+
+    from dsw_translation_tool import DEFAULT_LAYOUT
+
+    return repo_root / DEFAULT_LAYOUT.shared_blocks_outline_path
+
+
+@pytest.fixture(scope="session")
 def workflow() -> Any:
     """Return the workflow service under test.
 

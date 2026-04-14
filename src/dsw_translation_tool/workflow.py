@@ -9,6 +9,8 @@ from .data_models import (
     OutlineBuildResult,
     PoBuildResult,
     PoDiffReviewResult,
+    SharedBlocksBuildResult,
+    SharedBlocksOutlineBuildResult,
     SharedStringSyncResult,
     TranslationStatusReport,
     WorkflowContext,
@@ -17,6 +19,7 @@ from .knowledge_model_service import KnowledgeModelService
 from .outline import TranslationOutlineBuilder
 from .po import PoCatalogWriter
 from .review import PoDiffReviewer
+from .shared_blocks import SharedBlocksCatalogBuilder
 from .sync import SharedStringSynchronizer
 from .tree import TranslationTreeRepository
 from .workflow_support import (
@@ -39,6 +42,7 @@ class TranslationWorkflowService:
         outline_builder: Optional injected outline builder.
         context_builder: Optional injected workflow-context builder.
         output_service: Optional injected workflow-output writer service.
+        shared_blocks_builder: Optional injected shared-block markdown builder.
     """
 
     def __init__(
@@ -53,6 +57,7 @@ class TranslationWorkflowService:
         outline_builder: TranslationOutlineBuilder | None = None,
         context_builder: TranslationWorkflowContextBuilder | None = None,
         output_service: TranslationWorkflowOutputService | None = None,
+        shared_blocks_builder: SharedBlocksCatalogBuilder | None = None,
     ):
         self.source_lang = source_lang
         self.target_lang = target_lang
@@ -75,6 +80,11 @@ class TranslationWorkflowService:
         )
         self.output_service = output_service or TranslationWorkflowOutputService(
             po_writer=self.po_writer,
+        )
+        self.shared_blocks_builder = shared_blocks_builder or SharedBlocksCatalogBuilder(
+            tree_repository=self.tree_repository,
+            source_lang=source_lang,
+            target_lang=target_lang,
         )
 
     def build_tree_context(self, po_path: str, model_path: str) -> WorkflowContext:
@@ -116,6 +126,7 @@ class TranslationWorkflowService:
             tree_roots=context.roots,
             latest_by_uuid=context.latest_by_uuid,
             model_name=context.model_info.name,
+            shared_reference_keys=context.shared_reference_keys,
             preserve_existing_translations=preserve_existing_translations,
         )
         return WorkflowContext(
@@ -125,6 +136,7 @@ class TranslationWorkflowService:
             entries=context.entries,
             latest_by_uuid=context.latest_by_uuid,
             manifest=manifest,
+            shared_reference_keys=context.shared_reference_keys,
         )
 
     def validate_po_against_model(self, po_path: str, model_path: str) -> dict[str, Any]:
@@ -206,6 +218,8 @@ class TranslationWorkflowService:
         original_po_path: str,
         out_po_path: str | None = None,
         outline_out_path: str | None = None,
+        shared_blocks_out_path: str | None = None,
+        shared_blocks_outline_out_path: str | None = None,
         group_by: str = "shared-block",
     ) -> SharedStringSyncResult:
         """Synchronize repeated translation groups across an exported tree.
@@ -215,6 +229,10 @@ class TranslationWorkflowService:
             original_po_path: Original PO file used as the grouping source.
             out_po_path: Optional destination path for the refreshed PO file.
             outline_out_path: Optional destination path for outline markdown.
+            shared_blocks_out_path: Optional destination path for shared-block
+                markdown.
+            shared_blocks_outline_out_path: Optional destination path for
+                shared-block overview markdown.
             group_by: Grouping strategy used to define shared-string sets.
 
         Returns:
@@ -225,8 +243,31 @@ class TranslationWorkflowService:
             tree_dir=tree_dir,
             original_po_path=original_po_path,
             out_po_path=out_po_path,
+            shared_blocks_path=shared_blocks_out_path,
             group_by=group_by,
         )
+        if shared_blocks_out_path:
+            shared_blocks_result = self.build_shared_blocks_markdown(
+                tree_dir=tree_dir,
+                original_po_path=original_po_path,
+                out_shared_blocks_path=shared_blocks_out_path,
+            )
+            result = replace(
+                result,
+                output_shared_blocks=str(shared_blocks_result.output_shared_blocks),
+            )
+        if shared_blocks_outline_out_path:
+            shared_blocks_outline_result = self.build_shared_blocks_outline_markdown(
+                tree_dir=tree_dir,
+                original_po_path=original_po_path,
+                out_shared_blocks_outline_path=shared_blocks_outline_out_path,
+            )
+            result = replace(
+                result,
+                output_shared_blocks_outline=str(
+                    shared_blocks_outline_result.output_shared_blocks_outline
+                ),
+            )
         if not outline_out_path:
             return result
 
@@ -237,6 +278,52 @@ class TranslationWorkflowService:
         return replace(
             result,
             output_outline=str(outline_result.output_outline),
+        )
+
+    def build_shared_blocks_markdown(
+        self,
+        tree_dir: str,
+        original_po_path: str,
+        out_shared_blocks_path: str,
+    ) -> SharedBlocksBuildResult:
+        """Build a shared-block markdown source-of-truth for the tree.
+
+        Args:
+            tree_dir: Translation tree directory.
+            original_po_path: Original PO file used as the shared-block source.
+            out_shared_blocks_path: Destination markdown path.
+
+        Returns:
+            Shared-block build result.
+        """
+
+        return self.shared_blocks_builder.build(
+            tree_dir=tree_dir,
+            original_po_path=original_po_path,
+            output_shared_blocks_path=out_shared_blocks_path,
+        )
+
+    def build_shared_blocks_outline_markdown(
+        self,
+        tree_dir: str,
+        original_po_path: str,
+        out_shared_blocks_outline_path: str,
+    ) -> SharedBlocksOutlineBuildResult:
+        """Build a compact shared-block overview markdown file.
+
+        Args:
+            tree_dir: Translation tree directory.
+            original_po_path: Original PO file used as the shared-block source.
+            out_shared_blocks_outline_path: Destination markdown path.
+
+        Returns:
+            Shared-block outline build result.
+        """
+
+        return self.shared_blocks_builder.build_outline(
+            tree_dir=tree_dir,
+            original_po_path=original_po_path,
+            output_shared_blocks_outline_path=out_shared_blocks_outline_path,
         )
 
     def build_outline_markdown(

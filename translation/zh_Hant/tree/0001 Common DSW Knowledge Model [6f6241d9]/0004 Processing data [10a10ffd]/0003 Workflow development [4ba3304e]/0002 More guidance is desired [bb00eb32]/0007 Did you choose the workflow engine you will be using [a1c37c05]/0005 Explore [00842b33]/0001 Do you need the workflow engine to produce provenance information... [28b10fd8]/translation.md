@@ -20,6 +20,8 @@ Do you need the workflow engine to produce provenance information automatically?
 
 ## text
 
+> Shared field: edit this translation in `shared_blocks.md`.
+
 ### Source (en)
 
 ~~~text

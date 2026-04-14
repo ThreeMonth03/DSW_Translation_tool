@@ -78,6 +78,10 @@ class TreeFolderSnapshotBuilder:
             translation_path=translation_path if translation_path.exists() else None,
             modified_at=modified_at,
             fields=fields,
+            shared_fields=self.manifest_shared_fields(
+                manifest=manifest,
+                entity_uuid=entity_uuid,
+            ),
         )
 
     @staticmethod
@@ -105,6 +109,34 @@ class TreeFolderSnapshotBuilder:
             return None
         event_type = node.get("eventType")
         return event_type if isinstance(event_type, str) else None
+
+    @staticmethod
+    def manifest_shared_fields(
+        manifest: dict[str, Any] | None,
+        entity_uuid: str,
+    ) -> tuple[str, ...]:
+        """Return the manifest shared-field tuple for one tree UUID.
+
+        Args:
+            manifest: Parsed tree manifest, if available.
+            entity_uuid: UUID stored in the current node folder.
+
+        Returns:
+            Shared-field names recorded in the manifest.
+        """
+
+        if manifest is None:
+            return ()
+        nodes = manifest.get("nodes", {})
+        if not isinstance(nodes, dict):
+            return ()
+        node = nodes.get(entity_uuid)
+        if not isinstance(node, dict):
+            return ()
+        shared_fields = node.get("sharedFields")
+        if not isinstance(shared_fields, list):
+            return ()
+        return tuple(field for field in shared_fields if isinstance(field, str))
 
     def read_folder_fields(
         self,
