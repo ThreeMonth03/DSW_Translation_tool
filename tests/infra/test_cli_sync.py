@@ -13,6 +13,7 @@ from tests.helpers import (
     build_empty_msgstr_translation_map,
     build_entry_map,
     build_non_empty_msgstr_translation_map,
+    build_shared_blocks_markdown,
     expected_backup_path_for_uuid,
     export_tree_for_test,
     future_timestamp,
@@ -20,6 +21,7 @@ from tests.helpers import (
     parse_po_entries,
     read_translation_markdown_header,
     select_multi_reference_block,
+    update_shared_block_translation,
     update_tree_field,
     validate_tree,
 )
@@ -113,6 +115,8 @@ def test_sync_shared_strings_cli_updates_tree_and_outputs_synced_po(
         output_po_name="cli-sync.po",
         diff_name="cli-sync.diff",
         outline_name="outline.md",
+        shared_blocks_name="shared_blocks.md",
+        shared_blocks_outline_name="shared_blocks_outline.md",
     )
     export_tree_for_test(
         workflow=workflow,
@@ -157,6 +161,8 @@ def test_sync_shared_strings_cli_updates_tree_and_outputs_synced_po(
         output_po_path=artifacts.output_po,
         diff_path=artifacts.diff_path,
         outline_path=artifacts.outline_path,
+        shared_blocks_path=artifacts.shared_blocks_path,
+        shared_blocks_outline_path=artifacts.shared_blocks_outline_path,
     )
 
     assert_cli_success(result)
@@ -169,7 +175,14 @@ def test_sync_shared_strings_cli_updates_tree_and_outputs_synced_po(
     assert artifacts.output_po.exists()
     assert artifacts.diff_path.exists()
     assert artifacts.outline_path.exists()
+    assert artifacts.shared_blocks_path is not None
+    assert artifacts.shared_blocks_outline_path is not None
+    assert artifacts.shared_blocks_path.exists()
+    assert artifacts.shared_blocks_outline_path.exists()
     assert "@@" in artifacts.diff_path.read_text(encoding="utf-8")
+    assert "# Shared Blocks Outline" in artifacts.shared_blocks_outline_path.read_text(
+        encoding="utf-8"
+    )
 
     synced_scan = workflow.tree_repository.scan(str(artifacts.tree_dir))
     for uuid, field in available_keys:
@@ -191,6 +204,107 @@ def test_sync_shared_strings_cli_updates_tree_and_outputs_synced_po(
         assert uuid[:8] in outline_text
         assert f"](<{relative_link}>)" in outline_text
 
+    assert_clean_model_validation(workflow, artifacts.output_po, model_path)
+
+
+def test_sync_cli_uses_shared_blocks_markdown_as_canonical_source(
+    repo_root,
+    workflow,
+    po_path,
+    model_path,
+    po_blocks,
+    po_entries,
+    workspace,
+) -> None:
+    """Verify that shared-block markdown drives synchronization for shared fields.
+
+    Args:
+        repo_root: Repository root fixture.
+        workflow: Workflow service fixture.
+        po_path: Fixture PO file path.
+        model_path: Fixture KM file path.
+        po_blocks: Parsed PO blocks fixture.
+        po_entries: Flattened PO entries fixture.
+        workspace: Per-test temporary workspace fixture.
+    """
+
+    artifacts = CliArtifactPaths.from_workspace(
+        workspace,
+        output_po_name="cli-sync-shared-blocks.po",
+        diff_name="cli-sync-shared-blocks.diff",
+        outline_name="outline.md",
+        shared_blocks_name="shared_blocks.md",
+        shared_blocks_outline_name="shared_blocks_outline.md",
+    )
+    export_tree_for_test(
+        workflow=workflow,
+        po_path=po_path,
+        model_path=model_path,
+        tree_dir=artifacts.tree_dir,
+    )
+    assert artifacts.shared_blocks_path is not None
+    build_shared_blocks_markdown(
+        workflow=workflow,
+        tree_dir=artifacts.tree_dir,
+        original_po_path=po_path,
+        output_shared_blocks_path=artifacts.shared_blocks_path,
+    )
+    scan_result = validate_tree(
+        workflow=workflow,
+        tree_dir=artifacts.tree_dir,
+        entries=po_entries,
+    )
+    block, available_keys = select_multi_reference_block(po_blocks, scan_result)
+    shared_group_key = tuple((reference.uuid, reference.field) for reference in block.references)
+    canonical_translation = f"[SHARED_BLOCKS] {available_keys[0][0][:8]}:{available_keys[0][1]}"
+
+    update_shared_block_translation(
+        shared_blocks_path=artifacts.shared_blocks_path,
+        group_key=shared_group_key,
+        target_text=canonical_translation,
+    )
+    for uuid, field in available_keys:
+        update_tree_field(
+            workflow=workflow,
+            scan_result=scan_result,
+            uuid=uuid,
+            field=field,
+            target_text="",
+        )
+
+    assert artifacts.output_po is not None
+    result = run_sync_cli(
+        repo_root=repo_root,
+        tree_dir=artifacts.tree_dir,
+        original_po_path=po_path,
+        output_po_path=artifacts.output_po,
+        diff_path=artifacts.diff_path,
+        outline_path=artifacts.outline_path,
+        shared_blocks_path=artifacts.shared_blocks_path,
+        shared_blocks_outline_path=artifacts.shared_blocks_outline_path,
+    )
+
+    assert_cli_success(result)
+    assert f"Output shared  : {artifacts.shared_blocks_path}" in result.stdout
+    assert f"Output shared-outline : {artifacts.shared_blocks_outline_path}" in result.stdout
+
+    synced_scan = workflow.tree_repository.scan(str(artifacts.tree_dir))
+    for uuid, field in available_keys:
+        assert synced_scan.folders_by_uuid[uuid].fields[field].target_text == canonical_translation
+
+    synced_entries = build_entry_map(parse_po_entries(artifacts.output_po))
+    for uuid, field in available_keys:
+        assert synced_entries[(uuid, field)].msgstr == canonical_translation
+
+    regenerated_shared_blocks = artifacts.shared_blocks_path.read_text(encoding="utf-8")
+    assert canonical_translation in regenerated_shared_blocks
+    assert artifacts.shared_blocks_outline_path is not None
+    shared_blocks_outline_text = artifacts.shared_blocks_outline_path.read_text(encoding="utf-8")
+    assert "## Untranslated" not in shared_blocks_outline_text
+    assert "## Translated" not in shared_blocks_outline_text
+    assert "shared_blocks.md#translation-zh-hant-group-" in shared_blocks_outline_text
+    assert "- [x] [Group " not in shared_blocks_outline_text
+    assert "- [ ] [Group " not in shared_blocks_outline_text
     assert_clean_model_validation(workflow, artifacts.output_po, model_path)
 
 
@@ -232,6 +346,7 @@ def test_sync_shared_strings_cli_uses_latest_non_empty_field_edit(
         tree_dir=artifacts.tree_dir,
         original_po_path=po_path,
         output_po_path=seed_po,
+        group_by="msgid",
     )
     assert_cli_success(seed_result)
 
@@ -268,6 +383,7 @@ def test_sync_shared_strings_cli_uses_latest_non_empty_field_edit(
         tree_dir=artifacts.tree_dir,
         original_po_path=po_path,
         output_po_path=artifacts.output_po,
+        group_by="msgid",
     )
 
     assert_cli_success(result)
@@ -315,6 +431,7 @@ def test_sync_shared_strings_cli_uses_latest_blank_field_edit(
         tree_dir=artifacts.tree_dir,
         original_po_path=po_path,
         output_po_path=seed_po,
+        group_by="msgid",
     )
     assert_cli_success(seed_result)
 
@@ -340,6 +457,7 @@ def test_sync_shared_strings_cli_uses_latest_blank_field_edit(
         tree_dir=artifacts.tree_dir,
         original_po_path=po_path,
         output_po_path=baseline_po,
+        group_by="msgid",
     )
     assert_cli_success(baseline_result)
 
@@ -363,6 +481,7 @@ def test_sync_shared_strings_cli_uses_latest_blank_field_edit(
         tree_dir=artifacts.tree_dir,
         original_po_path=po_path,
         output_po_path=artifacts.output_po,
+        group_by="msgid",
     )
 
     assert_cli_success(result)

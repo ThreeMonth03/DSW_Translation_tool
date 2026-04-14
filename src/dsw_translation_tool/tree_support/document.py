@@ -6,7 +6,7 @@ import re
 from pathlib import Path
 from typing import Iterable
 
-from ..constants import FIELD_EXPORT_ORDER
+from ..constants import FIELD_EXPORT_ORDER, SHARED_FIELD_NOTE
 from ..data_models import TranslationFieldState
 
 
@@ -48,6 +48,7 @@ class TranslationMarkdownDocument:
         entity_uuid: str,
         event_type: str | None,
         fields: dict[str, TranslationFieldState],
+        shared_fields: Iterable[str] = (),
     ) -> str:
         """Render one node folder into markdown.
 
@@ -55,11 +56,14 @@ class TranslationMarkdownDocument:
             entity_uuid: UUID of the exported node.
             event_type: DSW event type for the node.
             fields: Translation fields to render.
+            shared_fields: Field names whose source of truth is
+                `shared_blocks.md`.
 
         Returns:
             Rendered markdown content for `translation.md`.
         """
 
+        shared_field_set = set(shared_fields)
         lines = [
             "# Translation",
             "",
@@ -71,10 +75,12 @@ class TranslationMarkdownDocument:
 
         for field in self.sort_fields(fields.keys()):
             state = fields[field]
+            field_lines = [f"## {field}", ""]
+            if field in shared_field_set:
+                field_lines.extend([SHARED_FIELD_NOTE, ""])
             lines.extend(
-                [
-                    f"## {field}",
-                    "",
+                field_lines
+                + [
                     f"### Source ({self.source_lang})",
                     "",
                     "~~~text",
@@ -157,6 +163,7 @@ class TranslationMarkdownDocument:
                 )
             index += 1
             index = self._consume_blank_lines(lines, index)
+            index = self._consume_optional_shared_field_note(lines, index)
 
             index = self._expect_exact_line(
                 lines=lines,
@@ -253,6 +260,26 @@ class TranslationMarkdownDocument:
             message="Missing translator guidance line.",
         )
         return self._consume_blank_lines(lines, index)
+
+    def _consume_optional_shared_field_note(
+        self,
+        lines: list[str],
+        index: int,
+    ) -> int:
+        """Consume the optional shared-field guidance line.
+
+        Args:
+            lines: Markdown lines without the trailing newline sentinel.
+            index: Current parser index after a field heading.
+
+        Returns:
+            Updated parser index after skipping the optional note.
+        """
+
+        if index < len(lines) and lines[index].strip() == SHARED_FIELD_NOTE:
+            index += 1
+            index = self._consume_blank_lines(lines, index)
+        return index
 
     @staticmethod
     def _consume_blank_lines(lines: list[str], index: int) -> int:

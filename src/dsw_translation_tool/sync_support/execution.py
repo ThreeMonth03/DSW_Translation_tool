@@ -36,20 +36,24 @@ class SharedStringGroupProcessor:
         self,
         groups: dict[tuple[object, ...], list],
         folders_by_uuid: dict[str, TreeFolderSnapshot],
+        canonical_translations: dict[tuple[tuple[str, str], ...], str] | None = None,
     ) -> SharedStringGroupProcessingResult:
         """Process all shared-string groups against the scanned tree state.
 
         Args:
             groups: Shared-string groups keyed by grouping strategy output.
             folders_by_uuid: Parsed folder snapshots keyed by UUID.
+            canonical_translations: Optional shared-block source-of-truth map
+                keyed by structured `(uuid, field)` tuples.
 
         Returns:
             Aggregated processing result containing writes and counters.
         """
 
         result = SharedStringGroupProcessingResult()
+        canonical_translations = canonical_translations or {}
 
-        for references in groups.values():
+        for group_key, references in groups.items():
             if len(references) < 2:
                 continue
 
@@ -60,8 +64,12 @@ class SharedStringGroupProcessor:
             if not candidates:
                 continue
 
-            canonical_text = candidates[0].translation
-            result.conflicts.extend(self.collect_conflicts(references, candidates))
+            shared_block_key = self.normalize_shared_block_key(group_key)
+            if shared_block_key in canonical_translations:
+                canonical_text = canonical_translations[shared_block_key]
+            else:
+                canonical_text = candidates[0].translation
+                result.conflicts.extend(self.collect_conflicts(references, candidates))
             group_updates = self.apply_group_updates(
                 references=references,
                 canonical_text=canonical_text,
@@ -73,6 +81,36 @@ class SharedStringGroupProcessor:
                 result.fields_updated += group_updates
 
         return result
+
+    @staticmethod
+    def normalize_shared_block_key(
+        group_key: tuple[object, ...],
+    ) -> tuple[tuple[str, str], ...]:
+        """Return the normalized `(uuid, field)` key for shared-block groups.
+
+        Args:
+            group_key: Group key produced by the grouping strategy.
+
+        Returns:
+            Structured `(uuid, field)` tuples for shared-block groups, or an
+            empty tuple for other strategies.
+        """
+
+        if not group_key or group_key[0] != "shared-block":
+            return ()
+        references = group_key[1]
+        if not isinstance(references, tuple):
+            return ()
+        normalized: list[tuple[str, str]] = []
+        for item in references:
+            if (
+                isinstance(item, tuple)
+                and len(item) == 2
+                and isinstance(item[0], str)
+                and isinstance(item[1], str)
+            ):
+                normalized.append((item[0], item[1]))
+        return tuple(normalized)
 
     @staticmethod
     def collect_candidates(

@@ -138,6 +138,7 @@ class TranslationTreeRepository:
         tree_roots: list[TreeNode],
         latest_by_uuid: dict[str, dict[str, Any]],
         model_name: str,
+        shared_reference_keys: frozenset[tuple[str, str]] = frozenset(),
         preserve_existing_translations: bool = True,
     ) -> dict[str, Any]:
         """Export the in-memory tree structure to folders on disk.
@@ -147,6 +148,8 @@ class TranslationTreeRepository:
             tree_roots: Root nodes to export.
             latest_by_uuid: Latest merged KM entities keyed by UUID.
             model_name: Human-readable model name.
+            shared_reference_keys: Shared `(uuid, field)` keys that should be
+                edited in `shared_blocks.md`.
             preserve_existing_translations: Whether to keep existing target
                 text already present in the output tree.
 
@@ -180,6 +183,7 @@ class TranslationTreeRepository:
                 model_name=model_name,
                 manifest=manifest,
                 existing_snapshots=existing_snapshots,
+                shared_reference_keys=shared_reference_keys,
             )
 
         manifest_path = output_dir / MANIFEST_NAME
@@ -298,6 +302,7 @@ class TranslationTreeRepository:
             entity_uuid=snapshot.entity_uuid,
             event_type=snapshot.event_type,
             fields=snapshot.fields,
+            shared_fields=snapshot.shared_fields,
         )
 
     def _load_existing_snapshots(
@@ -382,6 +387,7 @@ class TranslationTreeRepository:
         model_name: str,
         manifest: dict[str, Any],
         existing_snapshots: dict[str, TreeFolderSnapshot],
+        shared_reference_keys: frozenset[tuple[str, str]],
     ) -> None:
         """Write one tree node and recursively write its children."""
 
@@ -402,6 +408,13 @@ class TranslationTreeRepository:
             node=node,
             existing_snapshots=existing_snapshots,
         )
+        shared_fields = tuple(
+            self.document.sort_fields(
+                field
+                for field in translation_fields
+                if (node.entity_uuid, field) in shared_reference_keys
+            )
+        )
         if translation_fields:
             translation_path = absolute_path / TRANSLATION_FILENAME
             self._write_translation_markdown(
@@ -410,11 +423,13 @@ class TranslationTreeRepository:
                 entity_uuid=node.entity_uuid,
                 event_type=node.event_type,
                 fields=translation_fields,
+                shared_fields=shared_fields,
             )
 
         manifest["nodes"][node.entity_uuid] = {
             "path": relative_path,
             "fields": self.document.sort_fields(translation_fields.keys()),
+            "sharedFields": list(shared_fields),
             "eventType": node.event_type,
             "nameSource": name_source,
         }
@@ -429,6 +444,7 @@ class TranslationTreeRepository:
                 model_name=model_name,
                 manifest=manifest,
                 existing_snapshots=existing_snapshots,
+                shared_reference_keys=shared_reference_keys,
             )
 
     def _build_translation_fields(
@@ -473,6 +489,7 @@ class TranslationTreeRepository:
         entity_uuid: str,
         event_type: str | None,
         fields: dict[str, TranslationFieldState],
+        shared_fields: Iterable[str] = (),
     ) -> None:
         """Write one translation markdown file and refresh its backup.
 
@@ -482,12 +499,15 @@ class TranslationTreeRepository:
             entity_uuid: UUID stored in the document header.
             event_type: Event type stored in the document header.
             fields: Translation fields to render and persist.
+            shared_fields: Field names whose source of truth is
+                `shared_blocks.md`.
         """
 
         markdown_text = self.document.render(
             entity_uuid=entity_uuid,
             event_type=event_type,
             fields=fields,
+            shared_fields=shared_fields,
         )
         translation_path.write_text(markdown_text, encoding="utf-8")
         self.backup_store.write_backup_text(

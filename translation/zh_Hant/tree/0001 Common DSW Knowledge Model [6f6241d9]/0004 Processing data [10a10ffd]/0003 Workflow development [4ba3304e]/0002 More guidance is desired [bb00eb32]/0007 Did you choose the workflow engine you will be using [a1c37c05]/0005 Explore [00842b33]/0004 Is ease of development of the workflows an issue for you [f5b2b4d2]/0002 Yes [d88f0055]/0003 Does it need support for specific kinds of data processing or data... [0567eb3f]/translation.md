@@ -20,6 +20,8 @@ Does it need support for specific kinds of data processing or data integration p
 
 ## text
 
+> Shared field: edit this translation in `shared_blocks.md`.
+
 ### Source (en)
 
 ~~~text

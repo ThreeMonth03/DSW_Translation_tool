@@ -20,6 +20,8 @@ Does it need  support for nested workflows?
 
 ## text
 
+> Shared field: edit this translation in `shared_blocks.md`.
+
 ### Source (en)
 
 ~~~text

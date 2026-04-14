@@ -33,7 +33,9 @@ class TranslationWorkflowContextBuilder:
             Workflow context used by export and validation steps.
         """
 
-        po_entries = self.parse_po_entries(po_path)
+        parser = PoCatalogParser(po_path)
+        po_entries = parser.parse_entries()
+        po_blocks = parser.parse_blocks()
         latest_by_uuid, model_info = self.model_service.load_model(model_path)
         relevant_uuids = self.model_service.build_ancestor_set(
             latest_by_uuid,
@@ -51,6 +53,7 @@ class TranslationWorkflowContextBuilder:
             roots=tree_roots,
             entries=po_entries,
             latest_by_uuid=latest_by_uuid,
+            shared_reference_keys=self.build_shared_reference_keys(po_blocks),
         )
 
     def validate_po_against_model(
@@ -84,3 +87,22 @@ class TranslationWorkflowContextBuilder:
         """
 
         return PoCatalogParser(po_path).parse_entries()
+
+    @staticmethod
+    def build_shared_reference_keys(po_blocks: list) -> frozenset[tuple[str, str]]:
+        """Collect all `(uuid, field)` pairs that belong to shared PO blocks.
+
+        Args:
+            po_blocks: Parsed PO blocks grouped by message block.
+
+        Returns:
+            Frozen set of `(uuid, field)` keys contained in multi-reference
+            blocks.
+        """
+
+        return frozenset(
+            (reference.uuid, reference.field)
+            for block in po_blocks
+            if len(block.references) > 1
+            for reference in block.references
+        )

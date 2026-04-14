@@ -12,7 +12,7 @@
 
           [Q] [translation](<0001 Common DSW Knowledge Model [6f6241d9]/0001 Administrative information [1e85da40]/0001 Contributors [73d686bd]/translation.md>)
 
-            - [x] [layer 4] 0001 Name
+            - [x] [layer 4] [shared] 0001 Name
 
               [Q] [translation](<0001 Common DSW Knowledge Model [6f6241d9]/0001 Administrative information [1e85da40]/0001 Contributors [73d686bd]/0001 Name [6155ad47]/translation.md>)
             - [x] [layer 4] 0002 E-mail address
@@ -82,7 +82,7 @@
                 - [x] [layer 5] 0018 Creator of DMP
 
                   [C] [translation](<0001 Common DSW Knowledge Model [6f6241d9]/0001 Administrative information [1e85da40]/0001 Contributors [73d686bd]/0005 Role [829dcda6]/0018 Creator of DMP [21047dec]/translation.md>)
-                - [x] [layer 5] 0019 Other
+                - [x] [layer 5] [shared] 0019 Other
 
                   [C] [translation](<0001 Common DSW Knowledge Model [6f6241d9]/0001 Administrative information [1e85da40]/0001 Contributors [73d686bd]/0005 Role [829dcda6]/0019 Other [e957ecd5]/translation.md>)
         - [x] [layer 3] 0002 Research Project(s)
@@ -121,16 +121,16 @@
 
                   [Q] [translation](<0001 Common DSW Knowledge Model [6f6241d9]/0001 Administrative information [1e85da40]/0002 Research Project(s) [c3dabaaf]/0008 Funding [36a87eac]/0002 Funding status [54ff3b18]/translation.md>)
 
-                    - [ ] [layer 6] 0001 Planned
+                    - [ ] [layer 6] [shared] 0001 Planned
 
                       [A] [translation](<0001 Common DSW Knowledge Model [6f6241d9]/0001 Administrative information [1e85da40]/0002 Research Project(s) [c3dabaaf]/0008 Funding [36a87eac]/0002 Funding status [54ff3b18]/0001 Planned [59ed0193]/translation.md>)
-                    - [x] [layer 6] 0002 Applied
+                    - [x] [layer 6] [shared] 0002 Applied
 
                       [A] [translation](<0001 Common DSW Knowledge Model [6f6241d9]/0001 Administrative information [1e85da40]/0002 Research Project(s) [c3dabaaf]/0008 Funding [36a87eac]/0002 Funding status [54ff3b18]/0002 Applied [85fad342]/translation.md>)
-                    - [x] [layer 6] 0003 Granted
+                    - [x] [layer 6] [shared] 0003 Granted
 
                       [A] [translation](<0001 Common DSW Knowledge Model [6f6241d9]/0001 Administrative information [1e85da40]/0002 Research Project(s) [c3dabaaf]/0008 Funding [36a87eac]/0002 Funding status [54ff3b18]/0003 Granted [dcbeab22]/translation.md>)
-                    - [x] [layer 6] 0004 Rejected
+                    - [x] [layer 6] [shared] 0004 Rejected
 
                       [A] [translation](<0001 Common DSW Knowledge Model [6f6241d9]/0001 Administrative information [1e85da40]/0002 Research Project(s) [c3dabaaf]/0008 Funding [36a87eac]/0002 Funding status [54ff3b18]/0004 Rejected [8c0c9f28]/translation.md>)
                 - [x] [layer 5] 0003 Grant number
@@ -143,7 +143,7 @@
                 - [x] [layer 5] 0001 Title
 
                   [Q] [translation](<0001 Common DSW Knowledge Model [6f6241d9]/0001 Administrative information [1e85da40]/0002 Research Project(s) [c3dabaaf]/0009 Costs [353eeaca]/0001 Title [7098b454]/translation.md>)
-                - [x] [layer 5] 0002 Description
+                - [x] [layer 5] [shared] 0002 Description
 
                   [Q] [translation](<0001 Common DSW Knowledge Model [6f6241d9]/0001 Administrative information [1e85da40]/0002 Research Project(s) [c3dabaaf]/0009 Costs [353eeaca]/0002 Description [b3d9b6ca]/translation.md>)
                 - [ ] [layer 5] 0003 Currency
@@ -182,7 +182,7 @@
                         - [ ] [layer 7] 0001 Please specify the Grant ID
 
                           [Q] [translation](<0001 Common DSW Knowledge Model [6f6241d9]/0001 Administrative information [1e85da40]/0002 Research Project(s) [c3dabaaf]/0009 Costs [353eeaca]/0006 How this cost will be covered [46cd176a]/0001 Funding grant [8e7cd80f]/0001 Please specify the Grant ID [7a6f224d]/translation.md>)
-                    - [x] [layer 6] 0002 Other
+                    - [x] [layer 6] [shared] 0002 Other
 
                       [A] [translation](<0001 Common DSW Knowledge Model [6f6241d9]/0001 Administrative information [1e85da40]/0002 Research Project(s) [c3dabaaf]/0009 Costs [353eeaca]/0006 How this cost will be covered [46cd176a]/0002 Other [2e37f71b]/translation.md>)
 
@@ -193,10 +193,10 @@
 
               [Q] [translation](<0001 Common DSW Knowledge Model [6f6241d9]/0001 Administrative information [1e85da40]/0002 Research Project(s) [c3dabaaf]/0010 Does the project require ethical approval [dbb99f35]/translation.md>)
 
-                - [x] [layer 5] 0001 No
+                - [x] [layer 5] [shared] 0001 No
 
                   [A] [translation](<0001 Common DSW Knowledge Model [6f6241d9]/0001 Administrative information [1e85da40]/0002 Research Project(s) [c3dabaaf]/0010 Does the project require ethical approval [dbb99f35]/0001 No [2eb83683]/translation.md>)
-                - [ ] [layer 5] 0002 Yes
+                - [ ] [layer 5] [shared] 0002 Yes
 
                   [A] [translation](<0001 Common DSW Knowledge Model [6f6241d9]/0001 Administrative information [1e85da40]/0002 Research Project(s) [c3dabaaf]/0010 Does the project require ethical approval [dbb99f35]/0002 Yes [f301ae6e]/translation.md>)
 
@@ -208,16 +208,16 @@
 
                           [Q] [translation](<0001 Common DSW Knowledge Model [6f6241d9]/0001 Administrative information [1e85da40]/0002 Research Project(s) [c3dabaaf]/0010 Does the project require ethical approval [dbb99f35]/0002 Yes [f301ae6e]/0001 Inspectorate Authority [40005844]/0001 Approval status [b3ace89e]/translation.md>)
 
-                            - [ ] [layer 8] 0001 Planned
+                            - [ ] [layer 8] [shared] 0001 Planned
 
                               [A] [translation](<0001 Common DSW Knowledge Model [6f6241d9]/0001 Administrative information [1e85da40]/0002 Research Project(s) [c3dabaaf]/0010 Does the project require ethical approval [dbb99f35]/0002 Yes [f301ae6e]/0001 Inspectorate Authority [40005844]/0001 Approval status [b3ace89e]/0001 Planned [320eb6c2]/translation.md>)
-                            - [x] [layer 8] 0002 Applied
+                            - [x] [layer 8] [shared] 0002 Applied
 
                               [A] [translation](<0001 Common DSW Knowledge Model [6f6241d9]/0001 Administrative information [1e85da40]/0002 Research Project(s) [c3dabaaf]/0010 Does the project require ethical approval [dbb99f35]/0002 Yes [f301ae6e]/0001 Inspectorate Authority [40005844]/0001 Approval status [b3ace89e]/0002 Applied [d0308e38]/translation.md>)
-                            - [x] [layer 8] 0003 Granted
+                            - [x] [layer 8] [shared] 0003 Granted
 
                               [A] [translation](<0001 Common DSW Knowledge Model [6f6241d9]/0001 Administrative information [1e85da40]/0002 Research Project(s) [c3dabaaf]/0010 Does the project require ethical approval [dbb99f35]/0002 Yes [f301ae6e]/0001 Inspectorate Authority [40005844]/0001 Approval status [b3ace89e]/0003 Granted [e0a59549]/translation.md>)
-                            - [x] [layer 8] 0004 Rejected
+                            - [x] [layer 8] [shared] 0004 Rejected
 
                               [A] [translation](<0001 Common DSW Knowledge Model [6f6241d9]/0001 Administrative information [1e85da40]/0002 Research Project(s) [c3dabaaf]/0010 Does the project require ethical approval [dbb99f35]/0002 Yes [f301ae6e]/0001 Inspectorate Authority [40005844]/0001 Approval status [b3ace89e]/0004 Rejected [1f2e2b12]/translation.md>)
                         - [x] [layer 7] 0002 Case number
@@ -227,7 +227,7 @@
 
           [Q] [translation](<0001 Common DSW Knowledge Model [6f6241d9]/0001 Administrative information [1e85da40]/0003 To execute the DMP, is additional specialist expertise required [83c0d09d]/translation.md>)
 
-            - [x] [layer 4] 0001 No
+            - [x] [layer 4] [shared] 0001 No
 
               [A] [translation](<0001 Common DSW Knowledge Model [6f6241d9]/0001 Administrative information [1e85da40]/0003 To execute the DMP, is additional specialist expertise required [83c0d09d]/0001 No [ccdadd45]/translation.md>)
             - [ ] [layer 4] 0002 Yes, trained support staff is available
@@ -251,10 +251,10 @@
 
           [Q] [translation](<0001 Common DSW Knowledge Model [6f6241d9]/0001 Administrative information [1e85da40]/0004 Do you require hardware or software in addition to what is usually... [09c7c989]/translation.md>)
 
-            - [x] [layer 4] 0001 No
+            - [x] [layer 4] [shared] 0001 No
 
               [A] [translation](<0001 Common DSW Knowledge Model [6f6241d9]/0001 Administrative information [1e85da40]/0004 Do you require hardware or software in addition to what is usually... [09c7c989]/0001 No [f4da7f1d]/translation.md>)
-            - [ ] [layer 4] 0002 Yes
+            - [ ] [layer 4] [shared] 0002 Yes
 
               [A] [translation](<0001 Common DSW Knowledge Model [6f6241d9]/0001 Administrative information [1e85da40]/0004 Do you require hardware or software in addition to what is usually... [09c7c989]/0002 Yes [5d0b87a6]/translation.md>)
 
@@ -282,10 +282,10 @@
 
           [Q] [translation](<0001 Common DSW Knowledge Model [6f6241d9]/0002 Re-using data [82fd0cce]/0001 Do you need guidance to find existing data [726e4a24]/translation.md>)
 
-            - [x] [layer 4] 0001 No
+            - [x] [layer 4] [shared] 0001 No
 
               [A] [translation](<0001 Common DSW Knowledge Model [6f6241d9]/0002 Re-using data [82fd0cce]/0001 Do you need guidance to find existing data [726e4a24]/0001 No [5e632b7b]/translation.md>)
-            - [ ] [layer 4] 0002 Yes
+            - [ ] [layer 4] [shared] 0002 Yes
 
               [A] [translation](<0001 Common DSW Knowledge Model [6f6241d9]/0002 Re-using data [82fd0cce]/0001 Do you need guidance to find existing data [726e4a24]/0002 Yes [07f599c3]/translation.md>)
 
@@ -293,10 +293,10 @@
 
                   [Q] [translation](<0001 Common DSW Knowledge Model [6f6241d9]/0002 Re-using data [82fd0cce]/0001 Do you need guidance to find existing data [726e4a24]/0002 Yes [07f599c3]/0001 Will you need existing data from Natural Sciences [d4191666]/translation.md>)
 
-                    - [x] [layer 6] 0001 No
+                    - [x] [layer 6] [shared] 0001 No
 
                       [A] [translation](<0001 Common DSW Knowledge Model [6f6241d9]/0002 Re-using data [82fd0cce]/0001 Do you need guidance to find existing data [726e4a24]/0002 Yes [07f599c3]/0001 Will you need existing data from Natural Sciences [d4191666]/0001 No [c84ecd1d]/translation.md>)
-                    - [ ] [layer 6] 0002 Yes
+                    - [ ] [layer 6] [shared] 0002 Yes
 
                       [A] [translation](<0001 Common DSW Knowledge Model [6f6241d9]/0002 Re-using data [82fd0cce]/0001 Do you need guidance to find existing data [726e4a24]/0002 Yes [07f599c3]/0001 Will you need existing data from Natural Sciences [d4191666]/0002 Yes [ea62d905]/translation.md>)
 
@@ -304,30 +304,30 @@
 
                           [Q] [translation](<0001 Common DSW Knowledge Model [6f6241d9]/0002 Re-using data [82fd0cce]/0001 Do you need guidance to find existing data [726e4a24]/0002 Yes [07f599c3]/0001 Will you need existing data from Natural Sciences [d4191666]/0002 Yes [ea62d905]/0001 Will you need existing data in particle physics [bc7538cd]/translation.md>)
 
-                            - [x] [layer 8] 0001 No
+                            - [x] [layer 8] [shared] 0001 No
 
                               [A] [translation](<0001 Common DSW Knowledge Model [6f6241d9]/0002 Re-using data [82fd0cce]/0001 Do you need guidance to find existing data [726e4a24]/0002 Yes [07f599c3]/0001 Will you need existing data from Natural Sciences [d4191666]/0002 Yes [ea62d905]/0001 Will you need existing data in particle physics [bc7538cd]/0001 No [449acdd1]/translation.md>)
-                            - [ ] [layer 8] 0002 Yes
+                            - [ ] [layer 8] [shared] 0002 Yes
 
                               [A] [translation](<0001 Common DSW Knowledge Model [6f6241d9]/0002 Re-using data [82fd0cce]/0001 Do you need guidance to find existing data [726e4a24]/0002 Yes [07f599c3]/0001 Will you need existing data from Natural Sciences [d4191666]/0002 Yes [ea62d905]/0001 Will you need existing data in particle physics [bc7538cd]/0002 Yes [839c00ed]/translation.md>)
                 - [ ] [layer 5] 0002 Will you need existing data from Engineering and Technology
 
                   [Q] [translation](<0001 Common DSW Knowledge Model [6f6241d9]/0002 Re-using data [82fd0cce]/0001 Do you need guidance to find existing data [726e4a24]/0002 Yes [07f599c3]/0002 Will you need existing data from Engineering and Technology [f2bcb8d2]/translation.md>)
 
-                    - [x] [layer 6] 0001 No
+                    - [x] [layer 6] [shared] 0001 No
 
                       [A] [translation](<0001 Common DSW Knowledge Model [6f6241d9]/0002 Re-using data [82fd0cce]/0001 Do you need guidance to find existing data [726e4a24]/0002 Yes [07f599c3]/0002 Will you need existing data from Engineering and Technology [f2bcb8d2]/0001 No [fb2323f6]/translation.md>)
-                    - [ ] [layer 6] 0002 Yes
+                    - [ ] [layer 6] [shared] 0002 Yes
 
                       [A] [translation](<0001 Common DSW Knowledge Model [6f6241d9]/0002 Re-using data [82fd0cce]/0001 Do you need guidance to find existing data [726e4a24]/0002 Yes [07f599c3]/0002 Will you need existing data from Engineering and Technology [f2bcb8d2]/0002 Yes [a9c82092]/translation.md>)
                 - [ ] [layer 5] 0003 Will you need existing data from Medical and Health Sciences
 
                   [Q] [translation](<0001 Common DSW Knowledge Model [6f6241d9]/0002 Re-using data [82fd0cce]/0001 Do you need guidance to find existing data [726e4a24]/0002 Yes [07f599c3]/0003 Will you need existing data from Medical and Health Sciences [2130427b]/translation.md>)
 
-                    - [x] [layer 6] 0001 No
+                    - [x] [layer 6] [shared] 0001 No
 
                       [A] [translation](<0001 Common DSW Knowledge Model [6f6241d9]/0002 Re-using data [82fd0cce]/0001 Do you need guidance to find existing data [726e4a24]/0002 Yes [07f599c3]/0003 Will you need existing data from Medical and Health Sciences [2130427b]/0001 No [987f34fd]/translation.md>)
-                    - [ ] [layer 6] 0002 Yes
+                    - [ ] [layer 6] [shared] 0002 Yes
 
                       [A] [translation](<0001 Common DSW Knowledge Model [6f6241d9]/0002 Re-using data [82fd0cce]/0001 Do you need guidance to find existing data [726e4a24]/0002 Yes [07f599c3]/0003 Will you need existing data from Medical and Health Sciences [2130427b]/0002 Yes [929cbf88]/translation.md>)
 
@@ -335,50 +335,50 @@
 
                           [Q] [translation](<0001 Common DSW Knowledge Model [6f6241d9]/0002 Re-using data [82fd0cce]/0001 Do you need guidance to find existing data [726e4a24]/0002 Yes [07f599c3]/0003 Will you need existing data from Medical and Health Sciences [2130427b]/0002 Yes [929cbf88]/0001 Will you need existing data for toxicology research [a781badf]/translation.md>)
 
-                            - [x] [layer 8] 0001 No
+                            - [x] [layer 8] [shared] 0001 No
 
                               [A] [translation](<0001 Common DSW Knowledge Model [6f6241d9]/0002 Re-using data [82fd0cce]/0001 Do you need guidance to find existing data [726e4a24]/0002 Yes [07f599c3]/0003 Will you need existing data from Medical and Health Sciences [2130427b]/0002 Yes [929cbf88]/0001 Will you need existing data for toxicology research [a781badf]/0001 No [dc564f07]/translation.md>)
                             - [x] [layer 8] 0002 RDMkit on Toxicology
 
                               [R] [translation](<0001 Common DSW Knowledge Model [6f6241d9]/0002 Re-using data [82fd0cce]/0001 Do you need guidance to find existing data [726e4a24]/0002 Yes [07f599c3]/0003 Will you need existing data from Medical and Health Sciences [2130427b]/0002 Yes [929cbf88]/0001 Will you need existing data for toxicology research [a781badf]/0002 RDMkit on Toxicology [e5762c40]/translation.md>)
-                            - [ ] [layer 8] 0003 Yes
+                            - [ ] [layer 8] [shared] 0003 Yes
 
                               [A] [translation](<0001 Common DSW Knowledge Model [6f6241d9]/0002 Re-using data [82fd0cce]/0001 Do you need guidance to find existing data [726e4a24]/0002 Yes [07f599c3]/0003 Will you need existing data from Medical and Health Sciences [2130427b]/0002 Yes [929cbf88]/0001 Will you need existing data for toxicology research [a781badf]/0003 Yes [f971efd1]/translation.md>)
                 - [ ] [layer 5] 0004 Will you need existing data from Agricultural Sciences
 
                   [Q] [translation](<0001 Common DSW Knowledge Model [6f6241d9]/0002 Re-using data [82fd0cce]/0001 Do you need guidance to find existing data [726e4a24]/0002 Yes [07f599c3]/0004 Will you need existing data from Agricultural Sciences [17464e0f]/translation.md>)
 
-                    - [x] [layer 6] 0001 No
+                    - [x] [layer 6] [shared] 0001 No
 
                       [A] [translation](<0001 Common DSW Knowledge Model [6f6241d9]/0002 Re-using data [82fd0cce]/0001 Do you need guidance to find existing data [726e4a24]/0002 Yes [07f599c3]/0004 Will you need existing data from Agricultural Sciences [17464e0f]/0001 No [4e431c35]/translation.md>)
-                    - [ ] [layer 6] 0002 Yes
+                    - [ ] [layer 6] [shared] 0002 Yes
 
                       [A] [translation](<0001 Common DSW Knowledge Model [6f6241d9]/0002 Re-using data [82fd0cce]/0001 Do you need guidance to find existing data [726e4a24]/0002 Yes [07f599c3]/0004 Will you need existing data from Agricultural Sciences [17464e0f]/0002 Yes [5b97c0ce]/translation.md>)
                 - [ ] [layer 5] 0005 Will you need existing data from Social Sciences
 
                   [Q] [translation](<0001 Common DSW Knowledge Model [6f6241d9]/0002 Re-using data [82fd0cce]/0001 Do you need guidance to find existing data [726e4a24]/0002 Yes [07f599c3]/0005 Will you need existing data from Social Sciences [b19eab58]/translation.md>)
 
-                    - [x] [layer 6] 0001 No
+                    - [x] [layer 6] [shared] 0001 No
 
                       [A] [translation](<0001 Common DSW Knowledge Model [6f6241d9]/0002 Re-using data [82fd0cce]/0001 Do you need guidance to find existing data [726e4a24]/0002 Yes [07f599c3]/0005 Will you need existing data from Social Sciences [b19eab58]/0001 No [cbaf2e83]/translation.md>)
-                    - [ ] [layer 6] 0002 Yes
+                    - [ ] [layer 6] [shared] 0002 Yes
 
                       [A] [translation](<0001 Common DSW Knowledge Model [6f6241d9]/0002 Re-using data [82fd0cce]/0001 Do you need guidance to find existing data [726e4a24]/0002 Yes [07f599c3]/0005 Will you need existing data from Social Sciences [b19eab58]/0002 Yes [bb3a8a14]/translation.md>)
                 - [ ] [layer 5] 0006 Will you need existing data from Humanities
 
                   [Q] [translation](<0001 Common DSW Knowledge Model [6f6241d9]/0002 Re-using data [82fd0cce]/0001 Do you need guidance to find existing data [726e4a24]/0002 Yes [07f599c3]/0006 Will you need existing data from Humanities [849cb43b]/translation.md>)
 
-                    - [x] [layer 6] 0001 No
+                    - [x] [layer 6] [shared] 0001 No
 
                       [A] [translation](<0001 Common DSW Knowledge Model [6f6241d9]/0002 Re-using data [82fd0cce]/0001 Do you need guidance to find existing data [726e4a24]/0002 Yes [07f599c3]/0006 Will you need existing data from Humanities [849cb43b]/0001 No [e2170ce2]/translation.md>)
-                    - [ ] [layer 6] 0002 Yes
+                    - [ ] [layer 6] [shared] 0002 Yes
 
                       [A] [translation](<0001 Common DSW Knowledge Model [6f6241d9]/0002 Re-using data [82fd0cce]/0001 Do you need guidance to find existing data [726e4a24]/0002 Yes [07f599c3]/0006 Will you need existing data from Humanities [849cb43b]/0002 Yes [47c2c317]/translation.md>)
         - [ ] [layer 3] 0002 Is there any pre-existing data
 
           [Q] [translation](<0001 Common DSW Knowledge Model [6f6241d9]/0002 Re-using data [82fd0cce]/0002 Is there any pre-existing data [efc80cc8]/translation.md>)
 
-            - [ ] [layer 4] 0001 No
+            - [ ] [layer 4] [shared] 0001 No
 
               [A] [translation](<0001 Common DSW Knowledge Model [6f6241d9]/0002 Re-using data [82fd0cce]/0002 Is there any pre-existing data [efc80cc8]/0001 No [72cdbc99]/translation.md>)
             - [x] [layer 4] 0002 Google dataset search
@@ -393,7 +393,7 @@
             - [x] [layer 4] 0005 RDMkit on Reusing Data
 
               [R] [translation](<0001 Common DSW Knowledge Model [6f6241d9]/0002 Re-using data [82fd0cce]/0002 Is there any pre-existing data [efc80cc8]/0005 RDMkit on Reusing Data [7e8d2692]/translation.md>)
-            - [ ] [layer 4] 0006 Yes
+            - [ ] [layer 4] [shared] 0006 Yes
 
               [A] [translation](<0001 Common DSW Knowledge Model [6f6241d9]/0002 Re-using data [82fd0cce]/0002 Is there any pre-existing data [efc80cc8]/0006 Yes [2663b978]/translation.md>)
 
@@ -411,7 +411,7 @@
 
                       [Q] [translation](<0001 Common DSW Knowledge Model [6f6241d9]/0002 Re-using data [82fd0cce]/0002 Is there any pre-existing data [efc80cc8]/0006 Yes [2663b978]/0001 What existing openly available standard reference data did you... [fcc51962]/0003 Will you be using this reference data set [58401091]/translation.md>)
 
-                        - [x] [layer 7] 0001 No
+                        - [x] [layer 7] [shared] 0001 No
 
                           [A] [translation](<0001 Common DSW Knowledge Model [6f6241d9]/0002 Re-using data [82fd0cce]/0002 Is there any pre-existing data [efc80cc8]/0006 Yes [2663b978]/0001 What existing openly available standard reference data did you... [fcc51962]/0003 Will you be using this reference data set [58401091]/0001 No [81642493]/translation.md>)
 
@@ -419,26 +419,26 @@
 
                               [Q] [translation](<0001 Common DSW Knowledge Model [6f6241d9]/0002 Re-using data [82fd0cce]/0002 Is there any pre-existing data [efc80cc8]/0006 Yes [2663b978]/0001 What existing openly available standard reference data did you... [fcc51962]/0003 Will you be using this reference data set [58401091]/0001 No [81642493]/0001 Why did you decide not to use this reference data set [d45ad247]/translation.md>)
 
-                                - [ ] [layer 9] 0001 It misses required aspects
+                                - [ ] [layer 9] [shared] 0001 It misses required aspects
 
                                   [A] [translation](<0001 Common DSW Knowledge Model [6f6241d9]/0002 Re-using data [82fd0cce]/0002 Is there any pre-existing data [efc80cc8]/0006 Yes [2663b978]/0001 What existing openly available standard reference data did you... [fcc51962]/0003 Will you be using this reference data set [58401091]/0001 No [81642493]/0001 Why did you decide not to use this reference data set [d45ad247]/0001 It misses required aspects [d961bef5]/translation.md>)
-                                - [ ] [layer 9] 0002 It is not of sufficient quality
+                                - [ ] [layer 9] [shared] 0002 It is not of sufficient quality
 
                                   [A] [translation](<0001 Common DSW Knowledge Model [6f6241d9]/0002 Re-using data [82fd0cce]/0002 Is there any pre-existing data [efc80cc8]/0006 Yes [2663b978]/0001 What existing openly available standard reference data did you... [fcc51962]/0003 Will you be using this reference data set [58401091]/0001 No [81642493]/0001 Why did you decide not to use this reference data set [d45ad247]/0002 It is not of sufficient quality [e2709f59]/translation.md>)
-                                - [ ] [layer 9] 0003 There is another reason
+                                - [ ] [layer 9] [shared] 0003 There is another reason
 
                                   [A] [translation](<0001 Common DSW Knowledge Model [6f6241d9]/0002 Re-using data [82fd0cce]/0002 Is there any pre-existing data [efc80cc8]/0006 Yes [2663b978]/0001 What existing openly available standard reference data did you... [fcc51962]/0003 Will you be using this reference data set [58401091]/0001 No [81642493]/0001 Why did you decide not to use this reference data set [d45ad247]/0003 There is another reason [b79d5eac]/translation.md>)
 
                                     - [x] [layer 10] 0001 Please specify the reason why you will not be using this reference data
 
                                       [Q] [translation](<0001 Common DSW Knowledge Model [6f6241d9]/0002 Re-using data [82fd0cce]/0002 Is there any pre-existing data [efc80cc8]/0006 Yes [2663b978]/0001 What existing openly available standard reference data did you... [fcc51962]/0003 Will you be using this reference data set [58401091]/0001 No [81642493]/0001 Why did you decide not to use this reference data set [d45ad247]/0003 There is another reason [b79d5eac]/0001 Please specify the reason why you will not be using this reference data [fa591173]/translation.md>)
-                                - [ ] [layer 9] 0004 It misses data we need
+                                - [ ] [layer 9] [shared] 0004 It misses data we need
 
                                   [A] [translation](<0001 Common DSW Knowledge Model [6f6241d9]/0002 Re-using data [82fd0cce]/0002 Is there any pre-existing data [efc80cc8]/0006 Yes [2663b978]/0001 What existing openly available standard reference data did you... [fcc51962]/0003 Will you be using this reference data set [58401091]/0001 No [81642493]/0001 Why did you decide not to use this reference data set [d45ad247]/0004 It misses data we need [ebfabb9b]/translation.md>)
-                                - [x] [layer 9] 0005 Its conditions of use do not allow us to use it
+                                - [x] [layer 9] [shared] 0005 Its conditions of use do not allow us to use it
 
                                   [A] [translation](<0001 Common DSW Knowledge Model [6f6241d9]/0002 Re-using data [82fd0cce]/0002 Is there any pre-existing data [efc80cc8]/0006 Yes [2663b978]/0001 What existing openly available standard reference data did you... [fcc51962]/0003 Will you be using this reference data set [58401091]/0001 No [81642493]/0001 Why did you decide not to use this reference data set [d45ad247]/0005 Its conditions of use do not allow us to use it [a5515ccb]/translation.md>)
-                        - [ ] [layer 7] 0002 Yes
+                        - [ ] [layer 7] [shared] 0002 Yes
 
                           [A] [translation](<0001 Common DSW Knowledge Model [6f6241d9]/0002 Re-using data [82fd0cce]/0002 Is there any pre-existing data [efc80cc8]/0006 Yes [2663b978]/0001 What existing openly available standard reference data did you... [fcc51962]/0003 Will you be using this reference data set [58401091]/0002 Yes [8a1937d8]/translation.md>)
 
@@ -446,10 +446,10 @@
 
                               [Q] [translation](<0001 Common DSW Knowledge Model [6f6241d9]/0002 Re-using data [82fd0cce]/0002 Is there any pre-existing data [efc80cc8]/0006 Yes [2663b978]/0001 What existing openly available standard reference data did you... [fcc51962]/0003 Will you be using this reference data set [58401091]/0002 Yes [8a1937d8]/0001 Is the reference database or dataset versioned [10b6548c]/translation.md>)
 
-                                - [x] [layer 9] 0001 No
+                                - [x] [layer 9] [shared] 0001 No
 
                                   [A] [translation](<0001 Common DSW Knowledge Model [6f6241d9]/0002 Re-using data [82fd0cce]/0002 Is there any pre-existing data [efc80cc8]/0006 Yes [2663b978]/0001 What existing openly available standard reference data did you... [fcc51962]/0003 Will you be using this reference data set [58401091]/0002 Yes [8a1937d8]/0001 Is the reference database or dataset versioned [10b6548c]/0001 No [32c9e457]/translation.md>)
-                                - [ ] [layer 9] 0002 Yes
+                                - [ ] [layer 9] [shared] 0002 Yes
 
                                   [A] [translation](<0001 Common DSW Knowledge Model [6f6241d9]/0002 Re-using data [82fd0cce]/0002 Is there any pre-existing data [efc80cc8]/0006 Yes [2663b978]/0001 What existing openly available standard reference data did you... [fcc51962]/0003 Will you be using this reference data set [58401091]/0002 Yes [8a1937d8]/0001 Is the reference database or dataset versioned [10b6548c]/0002 Yes [842007ce]/translation.md>)
 
@@ -471,7 +471,7 @@
                                                 - [x] [layer 13] 0002 I will use a downloaded version
 
                                                   [A] [translation](<0001 Common DSW Knowledge Model [6f6241d9]/0002 Re-using data [82fd0cce]/0002 Is there any pre-existing data [efc80cc8]/0006 Yes [2663b978]/0001 What existing openly available standard reference data did you... [fcc51962]/0003 Will you be using this reference data set [58401091]/0002 Yes [8a1937d8]/0001 Is the reference database or dataset versioned [10b6548c]/0002 Yes [842007ce]/0001 Will you change version if it updates [481d0157]/0001 Will stay with the old version [a4f6a1da]/0001 How will the old version be available [deb9d6b3]/0002 I will use a downloaded version [e6ddd126]/translation.md>)
-                                                - [ ] [layer 13] 0003 The provider keeps old versions around
+                                                - [ ] [layer 13] [shared] 0003 The provider keeps old versions around
 
                                                   [A] [translation](<0001 Common DSW Knowledge Model [6f6241d9]/0002 Re-using data [82fd0cce]/0002 Is there any pre-existing data [efc80cc8]/0006 Yes [2663b978]/0001 What existing openly available standard reference data did you... [fcc51962]/0003 Will you be using this reference data set [58401091]/0002 Yes [8a1937d8]/0001 Is the reference database or dataset versioned [10b6548c]/0002 Yes [842007ce]/0001 Will you change version if it updates [481d0157]/0001 Will stay with the old version [a4f6a1da]/0001 How will the old version be available [deb9d6b3]/0003 The provider keeps old versions around [07f06e60]/translation.md>)
                                         - [x] [layer 11] 0002 New analyses will be done with the new version
@@ -483,24 +483,24 @@
                                     - [ ] [layer 10] 0002 Which version will you use
 
                                       [Q] [translation](<0001 Common DSW Knowledge Model [6f6241d9]/0002 Re-using data [82fd0cce]/0002 Is there any pre-existing data [efc80cc8]/0006 Yes [2663b978]/0001 What existing openly available standard reference data did you... [fcc51962]/0003 Will you be using this reference data set [58401091]/0002 Yes [8a1937d8]/0001 Is the reference database or dataset versioned [10b6548c]/0002 Yes [842007ce]/0002 Which version will you use [f00a28fb]/translation.md>)
-                            - [ ] [layer 8] 0002 What are the conditions of use for this database or dataset
+                            - [ ] [layer 8] [shared] 0002 What are the conditions of use for this database or dataset
 
                               [Q] [translation](<0001 Common DSW Knowledge Model [6f6241d9]/0002 Re-using data [82fd0cce]/0002 Is there any pre-existing data [efc80cc8]/0006 Yes [2663b978]/0001 What existing openly available standard reference data did you... [fcc51962]/0003 Will you be using this reference data set [58401091]/0002 Yes [8a1937d8]/0002 What are the conditions of use for this database or dataset [aee03da5]/translation.md>)
 
-                                - [ ] [layer 9] 0001 They are freely available for any use (public domain or CC0)
+                                - [ ] [layer 9] [shared] 0001 They are freely available for any use (public domain or CC0)
 
                                   [A] [translation](<0001 Common DSW Knowledge Model [6f6241d9]/0002 Re-using data [82fd0cce]/0002 Is there any pre-existing data [efc80cc8]/0006 Yes [2663b978]/0001 What existing openly available standard reference data did you... [fcc51962]/0003 Will you be using this reference data set [58401091]/0002 Yes [8a1937d8]/0002 What are the conditions of use for this database or dataset [aee03da5]/0001 They are freely available for any use (public domain or CC0) [de5d31e0]/translation.md>)
-                                - [ ] [layer 9] 0002 They are freely available with obligation to quote the source (e.g...
+                                - [ ] [layer 9] [shared] 0002 They are freely available with obligation to quote the source (e.g...
 
                                   [A] [translation](<0001 Common DSW Knowledge Model [6f6241d9]/0002 Re-using data [82fd0cce]/0002 Is there any pre-existing data [efc80cc8]/0006 Yes [2663b978]/0001 What existing openly available standard reference data did you... [fcc51962]/0003 Will you be using this reference data set [58401091]/0002 Yes [8a1937d8]/0002 What are the conditions of use for this database or dataset [aee03da5]/0002 They are freely available with obligation to quote the source (e.g... [180bb426]/translation.md>)
-                                - [ ] [layer 9] 0003 They are available under some restrictions, which we will follow in...
+                                - [ ] [layer 9] [shared] 0003 They are available under some restrictions, which we will follow in...
 
                                   [A] [translation](<0001 Common DSW Knowledge Model [6f6241d9]/0002 Re-using data [82fd0cce]/0002 Is there any pre-existing data [efc80cc8]/0006 Yes [2663b978]/0001 What existing openly available standard reference data did you... [fcc51962]/0003 Will you be using this reference data set [58401091]/0002 Yes [8a1937d8]/0002 What are the conditions of use for this database or dataset [aee03da5]/0003 They are available under some restrictions, which we will follow in... [85dcd5ee]/translation.md>)
 
-                                    - [ ] [layer 10] 0001 What conditions
+                                    - [ ] [layer 10] [shared] 0001 What conditions
 
                                       [Q] [translation](<0001 Common DSW Knowledge Model [6f6241d9]/0002 Re-using data [82fd0cce]/0002 Is there any pre-existing data [efc80cc8]/0006 Yes [2663b978]/0001 What existing openly available standard reference data did you... [fcc51962]/0003 Will you be using this reference data set [58401091]/0002 Yes [8a1937d8]/0002 What are the conditions of use for this database or dataset [aee03da5]/0003 They are available under some restrictions, which we will follow in... [85dcd5ee]/0001 What conditions [dce3e924]/translation.md>)
-                                - [ ] [layer 9] 0004 Wikipedia on Copyright
+                                - [ ] [layer 9] [shared] 0004 Wikipedia on Copyright
 
                                   [R] [translation](<0001 Common DSW Knowledge Model [6f6241d9]/0002 Re-using data [82fd0cce]/0002 Is there any pre-existing data [efc80cc8]/0006 Yes [2663b978]/0001 What existing openly available standard reference data did you... [fcc51962]/0003 Will you be using this reference data set [58401091]/0002 Yes [8a1937d8]/0002 What are the conditions of use for this database or dataset [aee03da5]/0004 Wikipedia on Copyright [720e0101]/translation.md>)
                             - [ ] [layer 8] 0003 Name and contact details of the owner of this data
@@ -510,17 +510,17 @@
 
                               [Q] [translation](<0001 Common DSW Knowledge Model [6f6241d9]/0002 Re-using data [82fd0cce]/0002 Is there any pre-existing data [efc80cc8]/0006 Yes [2663b978]/0001 What existing openly available standard reference data did you... [fcc51962]/0003 Will you be using this reference data set [58401091]/0002 Yes [8a1937d8]/0004 Do you know in what format the reference data is available [7b8c75c0]/translation.md>)
 
-                                - [x] [layer 9] 0001 I can directly use it
+                                - [x] [layer 9] [shared] 0001 I can directly use it
 
                                   [A] [translation](<0001 Common DSW Knowledge Model [6f6241d9]/0002 Re-using data [82fd0cce]/0002 Is there any pre-existing data [efc80cc8]/0006 Yes [2663b978]/0001 What existing openly available standard reference data did you... [fcc51962]/0003 Will you be using this reference data set [58401091]/0002 Yes [8a1937d8]/0004 Do you know in what format the reference data is available [7b8c75c0]/0001 I can directly use it [2c2a9b84]/translation.md>)
-                                - [x] [layer 9] 0002 I need to convert it before using
+                                - [x] [layer 9] [shared] 0002 I need to convert it before using
 
                                   [A] [translation](<0001 Common DSW Knowledge Model [6f6241d9]/0002 Re-using data [82fd0cce]/0002 Is there any pre-existing data [efc80cc8]/0006 Yes [2663b978]/0001 What existing openly available standard reference data did you... [fcc51962]/0003 Will you be using this reference data set [58401091]/0002 Yes [8a1937d8]/0004 Do you know in what format the reference data is available [7b8c75c0]/0002 I need to convert it before using [9de86d7b]/translation.md>)
                             - [ ] [layer 8] 0005 How will you make sure the same reference data will be available to...
 
                               [Q] [translation](<0001 Common DSW Knowledge Model [6f6241d9]/0002 Re-using data [82fd0cce]/0002 Is there any pre-existing data [efc80cc8]/0006 Yes [2663b978]/0001 What existing openly available standard reference data did you... [fcc51962]/0003 Will you be using this reference data set [58401091]/0002 Yes [8a1937d8]/0005 How will you make sure the same reference data will be available to... [12762d00]/translation.md>)
 
-                                - [ ] [layer 9] 0001 The provider keeps old versions around
+                                - [ ] [layer 9] [shared] 0001 The provider keeps old versions around
 
                                   [A] [translation](<0001 Common DSW Knowledge Model [6f6241d9]/0002 Re-using data [82fd0cce]/0002 Is there any pre-existing data [efc80cc8]/0006 Yes [2663b978]/0001 What existing openly available standard reference data did you... [fcc51962]/0003 Will you be using this reference data set [58401091]/0002 Yes [8a1937d8]/0005 How will you make sure the same reference data will be available to... [12762d00]/0001 The provider keeps old versions around [b4d8d8b8]/translation.md>)
                                 - [x] [layer 9] 0002 I will keep a copy and make it available with my results
@@ -549,7 +549,7 @@
 
                       [Q] [translation](<0001 Common DSW Knowledge Model [6f6241d9]/0002 Re-using data [82fd0cce]/0002 Is there any pre-existing data [efc80cc8]/0006 Yes [2663b978]/0002 What existing non-reference data sets did you consider re-using [be872000]/0003 Will you be using this non-reference data set [f5e129dc]/translation.md>)
 
-                        - [x] [layer 7] 0001 No
+                        - [x] [layer 7] [shared] 0001 No
 
                           [A] [translation](<0001 Common DSW Knowledge Model [6f6241d9]/0002 Re-using data [82fd0cce]/0002 Is there any pre-existing data [efc80cc8]/0006 Yes [2663b978]/0002 What existing non-reference data sets did you consider re-using [be872000]/0003 Will you be using this non-reference data set [f5e129dc]/0001 No [042540a6]/translation.md>)
 
@@ -557,57 +557,57 @@
 
                               [Q] [translation](<0001 Common DSW Knowledge Model [6f6241d9]/0002 Re-using data [82fd0cce]/0002 Is there any pre-existing data [efc80cc8]/0006 Yes [2663b978]/0002 What existing non-reference data sets did you consider re-using [be872000]/0003 Will you be using this non-reference data set [f5e129dc]/0001 No [042540a6]/0001 Why did you decide not to use this non-reference data set [4e0141ae]/translation.md>)
 
-                                - [ ] [layer 9] 0001 It misses data we need
+                                - [ ] [layer 9] [shared] 0001 It misses data we need
 
                                   [A] [translation](<0001 Common DSW Knowledge Model [6f6241d9]/0002 Re-using data [82fd0cce]/0002 Is there any pre-existing data [efc80cc8]/0006 Yes [2663b978]/0002 What existing non-reference data sets did you consider re-using [be872000]/0003 Will you be using this non-reference data set [f5e129dc]/0001 No [042540a6]/0001 Why did you decide not to use this non-reference data set [4e0141ae]/0001 It misses data we need [c03a5e73]/translation.md>)
-                                - [ ] [layer 9] 0002 It misses required aspects
+                                - [ ] [layer 9] [shared] 0002 It misses required aspects
 
                                   [A] [translation](<0001 Common DSW Knowledge Model [6f6241d9]/0002 Re-using data [82fd0cce]/0002 Is there any pre-existing data [efc80cc8]/0006 Yes [2663b978]/0002 What existing non-reference data sets did you consider re-using [be872000]/0003 Will you be using this non-reference data set [f5e129dc]/0001 No [042540a6]/0001 Why did you decide not to use this non-reference data set [4e0141ae]/0002 It misses required aspects [2d28fbe5]/translation.md>)
-                                - [ ] [layer 9] 0003 It is not of sufficient quality
+                                - [ ] [layer 9] [shared] 0003 It is not of sufficient quality
 
                                   [A] [translation](<0001 Common DSW Knowledge Model [6f6241d9]/0002 Re-using data [82fd0cce]/0002 Is there any pre-existing data [efc80cc8]/0006 Yes [2663b978]/0002 What existing non-reference data sets did you consider re-using [be872000]/0003 Will you be using this non-reference data set [f5e129dc]/0001 No [042540a6]/0001 Why did you decide not to use this non-reference data set [4e0141ae]/0003 It is not of sufficient quality [f3e1e0fc]/translation.md>)
-                                - [x] [layer 9] 0004 Its conditions of use do not allow us to use it
+                                - [x] [layer 9] [shared] 0004 Its conditions of use do not allow us to use it
 
                                   [A] [translation](<0001 Common DSW Knowledge Model [6f6241d9]/0002 Re-using data [82fd0cce]/0002 Is there any pre-existing data [efc80cc8]/0006 Yes [2663b978]/0002 What existing non-reference data sets did you consider re-using [be872000]/0003 Will you be using this non-reference data set [f5e129dc]/0001 No [042540a6]/0001 Why did you decide not to use this non-reference data set [4e0141ae]/0004 Its conditions of use do not allow us to use it [88ae749b]/translation.md>)
-                                - [ ] [layer 9] 0005 There is another reason
+                                - [ ] [layer 9] [shared] 0005 There is another reason
 
                                   [A] [translation](<0001 Common DSW Knowledge Model [6f6241d9]/0002 Re-using data [82fd0cce]/0002 Is there any pre-existing data [efc80cc8]/0006 Yes [2663b978]/0002 What existing non-reference data sets did you consider re-using [be872000]/0003 Will you be using this non-reference data set [f5e129dc]/0001 No [042540a6]/0001 Why did you decide not to use this non-reference data set [4e0141ae]/0005 There is another reason [5c244adb]/translation.md>)
 
                                     - [x] [layer 10] 0001 Please specify the reason why you will not be using this...
 
                                       [Q] [translation](<0001 Common DSW Knowledge Model [6f6241d9]/0002 Re-using data [82fd0cce]/0002 Is there any pre-existing data [efc80cc8]/0006 Yes [2663b978]/0002 What existing non-reference data sets did you consider re-using [be872000]/0003 Will you be using this non-reference data set [f5e129dc]/0001 No [042540a6]/0001 Why did you decide not to use this non-reference data set [4e0141ae]/0005 There is another reason [5c244adb]/0001 Please specify the reason why you will not be using this... [584c3be2]/translation.md>)
-                        - [ ] [layer 7] 0002 Yes
+                        - [ ] [layer 7] [shared] 0002 Yes
 
                           [A] [translation](<0001 Common DSW Knowledge Model [6f6241d9]/0002 Re-using data [82fd0cce]/0002 Is there any pre-existing data [efc80cc8]/0006 Yes [2663b978]/0002 What existing non-reference data sets did you consider re-using [be872000]/0003 Will you be using this non-reference data set [f5e129dc]/0002 Yes [7fc8d3c9]/translation.md>)
 
                             - [ ] [layer 8] 0001 Name and contact details for the rightsholder of this data
 
                               [Q] [translation](<0001 Common DSW Knowledge Model [6f6241d9]/0002 Re-using data [82fd0cce]/0002 Is there any pre-existing data [efc80cc8]/0006 Yes [2663b978]/0002 What existing non-reference data sets did you consider re-using [be872000]/0003 Will you be using this non-reference data set [f5e129dc]/0002 Yes [7fc8d3c9]/0001 Name and contact details for the rightsholder of this data [b141a560]/translation.md>)
-                            - [ ] [layer 8] 0002 What are the conditions of use for this data set
+                            - [ ] [layer 8] [shared] 0002 What are the conditions of use for this data set
 
                               [Q] [translation](<0001 Common DSW Knowledge Model [6f6241d9]/0002 Re-using data [82fd0cce]/0002 Is there any pre-existing data [efc80cc8]/0006 Yes [2663b978]/0002 What existing non-reference data sets did you consider re-using [be872000]/0003 Will you be using this non-reference data set [f5e129dc]/0002 Yes [7fc8d3c9]/0002 What are the conditions of use for this data set [69999c2c]/translation.md>)
 
-                                - [ ] [layer 9] 0001 They are freely available for any use (public domain or CC0)
+                                - [ ] [layer 9] [shared] 0001 They are freely available for any use (public domain or CC0)
 
                                   [A] [translation](<0001 Common DSW Knowledge Model [6f6241d9]/0002 Re-using data [82fd0cce]/0002 Is there any pre-existing data [efc80cc8]/0006 Yes [2663b978]/0002 What existing non-reference data sets did you consider re-using [be872000]/0003 Will you be using this non-reference data set [f5e129dc]/0002 Yes [7fc8d3c9]/0002 What are the conditions of use for this data set [69999c2c]/0001 They are freely available for any use (public domain or CC0) [cb713607]/translation.md>)
-                                - [ ] [layer 9] 0002 They are freely available with obligation to quote the source (e.g...
+                                - [ ] [layer 9] [shared] 0002 They are freely available with obligation to quote the source (e.g...
 
                                   [A] [translation](<0001 Common DSW Knowledge Model [6f6241d9]/0002 Re-using data [82fd0cce]/0002 Is there any pre-existing data [efc80cc8]/0006 Yes [2663b978]/0002 What existing non-reference data sets did you consider re-using [be872000]/0003 Will you be using this non-reference data set [f5e129dc]/0002 Yes [7fc8d3c9]/0002 What are the conditions of use for this data set [69999c2c]/0002 They are freely available with obligation to quote the source (e.g... [a278ac17]/translation.md>)
-                                - [ ] [layer 9] 0003 They are available under some restrictions, which we will follow in...
+                                - [ ] [layer 9] [shared] 0003 They are available under some restrictions, which we will follow in...
 
                                   [A] [translation](<0001 Common DSW Knowledge Model [6f6241d9]/0002 Re-using data [82fd0cce]/0002 Is there any pre-existing data [efc80cc8]/0006 Yes [2663b978]/0002 What existing non-reference data sets did you consider re-using [be872000]/0003 Will you be using this non-reference data set [f5e129dc]/0002 Yes [7fc8d3c9]/0002 What are the conditions of use for this data set [69999c2c]/0003 They are available under some restrictions, which we will follow in... [97dc091d]/translation.md>)
 
-                                    - [ ] [layer 10] 0001 What conditions
+                                    - [ ] [layer 10] [shared] 0001 What conditions
 
                                       [Q] [translation](<0001 Common DSW Knowledge Model [6f6241d9]/0002 Re-using data [82fd0cce]/0002 Is there any pre-existing data [efc80cc8]/0006 Yes [2663b978]/0002 What existing non-reference data sets did you consider re-using [be872000]/0003 Will you be using this non-reference data set [f5e129dc]/0002 Yes [7fc8d3c9]/0002 What are the conditions of use for this data set [69999c2c]/0003 They are available under some restrictions, which we will follow in... [97dc091d]/0001 What conditions [283abe36]/translation.md>)
-                                - [ ] [layer 9] 0004 Wikipedia on Copyright
+                                - [ ] [layer 9] [shared] 0004 Wikipedia on Copyright
 
                                   [R] [translation](<0001 Common DSW Knowledge Model [6f6241d9]/0002 Re-using data [82fd0cce]/0002 Is there any pre-existing data [efc80cc8]/0006 Yes [2663b978]/0002 What existing non-reference data sets did you consider re-using [be872000]/0003 Will you be using this non-reference data set [f5e129dc]/0002 Yes [7fc8d3c9]/0002 What are the conditions of use for this data set [69999c2c]/0004 Wikipedia on Copyright [81667fbe]/translation.md>)
                             - [ ] [layer 8] 0003 Will the rightsholder of this dataset work with you on this study
 
                               [Q] [translation](<0001 Common DSW Knowledge Model [6f6241d9]/0002 Re-using data [82fd0cce]/0002 Is there any pre-existing data [efc80cc8]/0006 Yes [2663b978]/0002 What existing non-reference data sets did you consider re-using [be872000]/0003 Will you be using this non-reference data set [f5e129dc]/0002 Yes [7fc8d3c9]/0003 Will the rightsholder of this dataset work with you on this study [39e0cc7c]/translation.md>)
 
-                                - [x] [layer 9] 0001 No
+                                - [x] [layer 9] [shared] 0001 No
 
                                   [A] [translation](<0001 Common DSW Knowledge Model [6f6241d9]/0002 Re-using data [82fd0cce]/0002 Is there any pre-existing data [efc80cc8]/0006 Yes [2663b978]/0002 What existing non-reference data sets did you consider re-using [be872000]/0003 Will you be using this non-reference data set [f5e129dc]/0002 Yes [7fc8d3c9]/0003 Will the rightsholder of this dataset work with you on this study [39e0cc7c]/0001 No [08fab0f9]/translation.md>)
 
@@ -615,13 +615,13 @@
 
                                       [Q] [translation](<0001 Common DSW Knowledge Model [6f6241d9]/0002 Re-using data [82fd0cce]/0002 Is there any pre-existing data [efc80cc8]/0006 Yes [2663b978]/0002 What existing non-reference data sets did you consider re-using [be872000]/0003 Will you be using this non-reference data set [f5e129dc]/0002 Yes [7fc8d3c9]/0003 Will the rightsholder of this dataset work with you on this study [39e0cc7c]/0001 No [08fab0f9]/0001 Do you need to request access to the data [f59d2d89]/translation.md>)
 
-                                        - [x] [layer 11] 0001 No
+                                        - [x] [layer 11] [shared] 0001 No
 
                                           [A] [translation](<0001 Common DSW Knowledge Model [6f6241d9]/0002 Re-using data [82fd0cce]/0002 Is there any pre-existing data [efc80cc8]/0006 Yes [2663b978]/0002 What existing non-reference data sets did you consider re-using [be872000]/0003 Will you be using this non-reference data set [f5e129dc]/0002 Yes [7fc8d3c9]/0003 Will the rightsholder of this dataset work with you on this study [39e0cc7c]/0001 No [08fab0f9]/0001 Do you need to request access to the data [f59d2d89]/0001 No [d719a2b4]/translation.md>)
-                                        - [ ] [layer 11] 0002 Yes
+                                        - [ ] [layer 11] [shared] 0002 Yes
 
                                           [A] [translation](<0001 Common DSW Knowledge Model [6f6241d9]/0002 Re-using data [82fd0cce]/0002 Is there any pre-existing data [efc80cc8]/0006 Yes [2663b978]/0002 What existing non-reference data sets did you consider re-using [be872000]/0003 Will you be using this non-reference data set [f5e129dc]/0002 Yes [7fc8d3c9]/0003 Will the rightsholder of this dataset work with you on this study [39e0cc7c]/0001 No [08fab0f9]/0001 Do you need to request access to the data [f59d2d89]/0002 Yes [ef89ca6e]/translation.md>)
-                                - [ ] [layer 9] 0002 Yes
+                                - [ ] [layer 9] [shared] 0002 Yes
 
                                   [A] [translation](<0001 Common DSW Knowledge Model [6f6241d9]/0002 Re-using data [82fd0cce]/0002 Is there any pre-existing data [efc80cc8]/0006 Yes [2663b978]/0002 What existing non-reference data sets did you consider re-using [be872000]/0003 Will you be using this non-reference data set [f5e129dc]/0002 Yes [7fc8d3c9]/0003 Will the rightsholder of this dataset work with you on this study [39e0cc7c]/0002 Yes [b0384f48]/translation.md>)
                                 - [ ] [layer 9] 0003 We are rightsholders
@@ -631,10 +631,10 @@
 
                               [Q] [translation](<0001 Common DSW Knowledge Model [6f6241d9]/0002 Re-using data [82fd0cce]/0002 Is there any pre-existing data [efc80cc8]/0006 Yes [2663b978]/0002 What existing non-reference data sets did you consider re-using [be872000]/0003 Will you be using this non-reference data set [f5e129dc]/0002 Yes [7fc8d3c9]/0004 Does the data set include personal data [50864250]/translation.md>)
 
-                                - [x] [layer 9] 0001 No
+                                - [x] [layer 9] [shared] 0001 No
 
                                   [A] [translation](<0001 Common DSW Knowledge Model [6f6241d9]/0002 Re-using data [82fd0cce]/0002 Is there any pre-existing data [efc80cc8]/0006 Yes [2663b978]/0002 What existing non-reference data sets did you consider re-using [be872000]/0003 Will you be using this non-reference data set [f5e129dc]/0002 Yes [7fc8d3c9]/0004 Does the data set include personal data [50864250]/0001 No [381058ff]/translation.md>)
-                                - [ ] [layer 9] 0002 Yes
+                                - [ ] [layer 9] [shared] 0002 Yes
 
                                   [A] [translation](<0001 Common DSW Knowledge Model [6f6241d9]/0002 Re-using data [82fd0cce]/0002 Is there any pre-existing data [efc80cc8]/0006 Yes [2663b978]/0002 What existing non-reference data sets did you consider re-using [be872000]/0003 Will you be using this non-reference data set [f5e129dc]/0002 Yes [7fc8d3c9]/0004 Does the data set include personal data [50864250]/0002 Yes [1bbafc04]/translation.md>)
 
@@ -642,7 +642,7 @@
 
                                       [Q] [translation](<0001 Common DSW Knowledge Model [6f6241d9]/0002 Re-using data [82fd0cce]/0002 Is there any pre-existing data [efc80cc8]/0006 Yes [2663b978]/0002 What existing non-reference data sets did you consider re-using [be872000]/0003 Will you be using this non-reference data set [f5e129dc]/0002 Yes [7fc8d3c9]/0004 Does the data set include personal data [50864250]/0002 Yes [1bbafc04]/0001 What is the legal basis for processing the data under the GDPR [c2da0410]/translation.md>)
 
-                                        - [ ] [layer 11] 0001 Public interest
+                                        - [ ] [layer 11] [shared] 0001 Public interest
 
                                           [A] [translation](<0001 Common DSW Knowledge Model [6f6241d9]/0002 Re-using data [82fd0cce]/0002 Is there any pre-existing data [efc80cc8]/0006 Yes [2663b978]/0002 What existing non-reference data sets did you consider re-using [be872000]/0003 Will you be using this non-reference data set [f5e129dc]/0002 Yes [7fc8d3c9]/0004 Does the data set include personal data [50864250]/0002 Yes [1bbafc04]/0001 What is the legal basis for processing the data under the GDPR [c2da0410]/0001 Public interest [597d2547]/translation.md>)
                                         - [ ] [layer 11] 0002 Consent given by the research subject
@@ -659,7 +659,7 @@
                                                 - [x] [layer 13] 0002 New consent will be needed to cover our usage of the data
 
                                                   [A] [translation](<0001 Common DSW Knowledge Model [6f6241d9]/0002 Re-using data [82fd0cce]/0002 Is there any pre-existing data [efc80cc8]/0006 Yes [2663b978]/0002 What existing non-reference data sets did you consider re-using [be872000]/0003 Will you be using this non-reference data set [f5e129dc]/0002 Yes [7fc8d3c9]/0004 Does the data set include personal data [50864250]/0002 Yes [1bbafc04]/0001 What is the legal basis for processing the data under the GDPR [c2da0410]/0002 Consent given by the research subject [eb17ff9a]/0001 Does the consent cover your data reuse [28e7c4f7]/0002 New consent will be needed to cover our usage of the data [5374139c]/translation.md>)
-                                        - [x] [layer 11] 0003 Other
+                                        - [x] [layer 11] [shared] 0003 Other
 
                                           [A] [translation](<0001 Common DSW Knowledge Model [6f6241d9]/0002 Re-using data [82fd0cce]/0002 Is there any pre-existing data [efc80cc8]/0006 Yes [2663b978]/0002 What existing non-reference data sets did you consider re-using [be872000]/0003 Will you be using this non-reference data set [f5e129dc]/0002 Yes [7fc8d3c9]/0004 Does the data set include personal data [50864250]/0002 Yes [1bbafc04]/0001 What is the legal basis for processing the data under the GDPR [c2da0410]/0003 Other [ef396bbf]/translation.md>)
 
@@ -670,10 +670,10 @@
                                                 - [ ] [layer 13] 0001 We require the processing to fulfil our contract with the data subjects
 
                                                   [A] [translation](<0001 Common DSW Knowledge Model [6f6241d9]/0002 Re-using data [82fd0cce]/0002 Is there any pre-existing data [efc80cc8]/0006 Yes [2663b978]/0002 What existing non-reference data sets did you consider re-using [be872000]/0003 Will you be using this non-reference data set [f5e129dc]/0002 Yes [7fc8d3c9]/0004 Does the data set include personal data [50864250]/0002 Yes [1bbafc04]/0001 What is the legal basis for processing the data under the GDPR [c2da0410]/0003 Other [ef396bbf]/0001 Which [40ea30cc]/0001 We require the processing to fulfil our contract with the data subjects [bfb7a92c]/translation.md>)
-                                                - [x] [layer 13] 0002 Legal requirement
+                                                - [x] [layer 13] [shared] 0002 Legal requirement
 
                                                   [A] [translation](<0001 Common DSW Knowledge Model [6f6241d9]/0002 Re-using data [82fd0cce]/0002 Is there any pre-existing data [efc80cc8]/0006 Yes [2663b978]/0002 What existing non-reference data sets did you consider re-using [be872000]/0003 Will you be using this non-reference data set [f5e129dc]/0002 Yes [7fc8d3c9]/0004 Does the data set include personal data [50864250]/0002 Yes [1bbafc04]/0001 What is the legal basis for processing the data under the GDPR [c2da0410]/0003 Other [ef396bbf]/0001 Which [40ea30cc]/0002 Legal requirement [18db88c7]/translation.md>)
-                                                - [ ] [layer 13] 0003 Vital interest
+                                                - [ ] [layer 13] [shared] 0003 Vital interest
 
                                                   [A] [translation](<0001 Common DSW Knowledge Model [6f6241d9]/0002 Re-using data [82fd0cce]/0002 Is there any pre-existing data [efc80cc8]/0006 Yes [2663b978]/0002 What existing non-reference data sets did you consider re-using [be872000]/0003 Will you be using this non-reference data set [f5e129dc]/0002 Yes [7fc8d3c9]/0004 Does the data set include personal data [50864250]/0002 Yes [1bbafc04]/0001 What is the legal basis for processing the data under the GDPR [c2da0410]/0003 Other [ef396bbf]/0001 Which [40ea30cc]/0003 Vital interest [8caeb960]/translation.md>)
                                                 - [ ] [layer 13] 0004 We have a legitimate interest
@@ -699,10 +699,10 @@
 
                               [Q] [translation](<0001 Common DSW Knowledge Model [6f6241d9]/0002 Re-using data [82fd0cce]/0002 Is there any pre-existing data [efc80cc8]/0006 Yes [2663b978]/0002 What existing non-reference data sets did you consider re-using [be872000]/0003 Will you be using this non-reference data set [f5e129dc]/0002 Yes [7fc8d3c9]/0006 Can you use the data in a format that is available [588e3c1f]/translation.md>)
 
-                                - [x] [layer 9] 0001 I can directly use it
+                                - [x] [layer 9] [shared] 0001 I can directly use it
 
                                   [A] [translation](<0001 Common DSW Knowledge Model [6f6241d9]/0002 Re-using data [82fd0cce]/0002 Is there any pre-existing data [efc80cc8]/0006 Yes [2663b978]/0002 What existing non-reference data sets did you consider re-using [be872000]/0003 Will you be using this non-reference data set [f5e129dc]/0002 Yes [7fc8d3c9]/0006 Can you use the data in a format that is available [588e3c1f]/0001 I can directly use it [4831f187]/translation.md>)
-                                - [x] [layer 9] 0002 I need to convert it before using
+                                - [x] [layer 9] [shared] 0002 I need to convert it before using
 
                                   [A] [translation](<0001 Common DSW Knowledge Model [6f6241d9]/0002 Re-using data [82fd0cce]/0002 Is there any pre-existing data [efc80cc8]/0006 Yes [2663b978]/0002 What existing non-reference data sets did you consider re-using [be872000]/0003 Will you be using this non-reference data set [f5e129dc]/0002 Yes [7fc8d3c9]/0006 Can you use the data in a format that is available [588e3c1f]/0002 I need to convert it before using [3da33836]/translation.md>)
                             - [x] [layer 8] 0007 How will you be accessing the data
@@ -748,10 +748,10 @@
 
                   [Q] [translation](<0001 Common DSW Knowledge Model [6f6241d9]/0002 Re-using data [82fd0cce]/0002 Is there any pre-existing data [efc80cc8]/0006 Yes [2663b978]/0003 Do you need to harmonize different sources of existing data [8cedcf93]/translation.md>)
 
-                    - [x] [layer 6] 0001 No
+                    - [x] [layer 6] [shared] 0001 No
 
                       [A] [translation](<0001 Common DSW Knowledge Model [6f6241d9]/0002 Re-using data [82fd0cce]/0002 Is there any pre-existing data [efc80cc8]/0006 Yes [2663b978]/0003 Do you need to harmonize different sources of existing data [8cedcf93]/0001 No [51b686f1]/translation.md>)
-                    - [ ] [layer 6] 0002 Yes
+                    - [ ] [layer 6] [shared] 0002 Yes
 
                       [A] [translation](<0001 Common DSW Knowledge Model [6f6241d9]/0002 Re-using data [82fd0cce]/0002 Is there any pre-existing data [efc80cc8]/0006 Yes [2663b978]/0003 Do you need to harmonize different sources of existing data [8cedcf93]/0002 Yes [a62a452b]/translation.md>)
 
@@ -759,20 +759,20 @@
 
                           [Q] [translation](<0001 Common DSW Knowledge Model [6f6241d9]/0002 Re-using data [82fd0cce]/0002 Is there any pre-existing data [efc80cc8]/0006 Yes [2663b978]/0003 Do you need to harmonize different sources of existing data [8cedcf93]/0002 Yes [a62a452b]/0001 Will you be making your harmonization results available to others [1d1ac8bb]/translation.md>)
 
-                            - [x] [layer 8] 0001 No
+                            - [x] [layer 8] [shared] 0001 No
 
                               [A] [translation](<0001 Common DSW Knowledge Model [6f6241d9]/0002 Re-using data [82fd0cce]/0002 Is there any pre-existing data [efc80cc8]/0006 Yes [2663b978]/0003 Do you need to harmonize different sources of existing data [8cedcf93]/0002 Yes [a62a452b]/0001 Will you be making your harmonization results available to others [1d1ac8bb]/0001 No [a0665f70]/translation.md>)
-                            - [ ] [layer 8] 0002 Yes
+                            - [ ] [layer 8] [shared] 0002 Yes
 
                               [A] [translation](<0001 Common DSW Knowledge Model [6f6241d9]/0002 Re-using data [82fd0cce]/0002 Is there any pre-existing data [efc80cc8]/0006 Yes [2663b978]/0003 Do you need to harmonize different sources of existing data [8cedcf93]/0002 Yes [a62a452b]/0001 Will you be making your harmonization results available to others [1d1ac8bb]/0002 Yes [ba788639]/translation.md>)
                 - [ ] [layer 5] 0004 Will you be using data that needs to be (re-)made computer readable...
 
                   [Q] [translation](<0001 Common DSW Knowledge Model [6f6241d9]/0002 Re-using data [82fd0cce]/0002 Is there any pre-existing data [efc80cc8]/0006 Yes [2663b978]/0004 Will you be using data that needs to be (re-)made computer readable... [7e77ee02]/translation.md>)
 
-                    - [x] [layer 6] 0001 No
+                    - [x] [layer 6] [shared] 0001 No
 
                       [A] [translation](<0001 Common DSW Knowledge Model [6f6241d9]/0002 Re-using data [82fd0cce]/0002 Is there any pre-existing data [efc80cc8]/0006 Yes [2663b978]/0004 Will you be using data that needs to be (re-)made computer readable... [7e77ee02]/0001 No [d613ee29]/translation.md>)
-                    - [ ] [layer 6] 0002 Yes
+                    - [ ] [layer 6] [shared] 0002 Yes
 
                       [A] [translation](<0001 Common DSW Knowledge Model [6f6241d9]/0002 Re-using data [82fd0cce]/0002 Is there any pre-existing data [efc80cc8]/0006 Yes [2663b978]/0004 Will you be using data that needs to be (re-)made computer readable... [7e77ee02]/0002 Yes [4a3e9d91]/translation.md>)
 
@@ -780,7 +780,7 @@
 
                           [Q] [translation](<0001 Common DSW Knowledge Model [6f6241d9]/0002 Re-using data [82fd0cce]/0002 Is there any pre-existing data [efc80cc8]/0006 Yes [2663b978]/0004 Will you be using data that needs to be (re-)made computer readable... [7e77ee02]/0002 Yes [4a3e9d91]/0001 Will you be making the data itself available in computer readable... [530124a4]/translation.md>)
 
-                            - [x] [layer 8] 0001 No
+                            - [x] [layer 8] [shared] 0001 No
 
                               [A] [translation](<0001 Common DSW Knowledge Model [6f6241d9]/0002 Re-using data [82fd0cce]/0002 Is there any pre-existing data [efc80cc8]/0006 Yes [2663b978]/0004 Will you be using data that needs to be (re-)made computer readable... [7e77ee02]/0002 Yes [4a3e9d91]/0001 Will you be making the data itself available in computer readable... [530124a4]/0001 No [14c64eb2]/translation.md>)
                             - [ ] [layer 8] 0002 Yes, through a standard repository
@@ -793,10 +793,10 @@
 
                           [Q] [translation](<0001 Common DSW Knowledge Model [6f6241d9]/0002 Re-using data [82fd0cce]/0002 Is there any pre-existing data [efc80cc8]/0006 Yes [2663b978]/0004 Will you be using data that needs to be (re-)made computer readable... [7e77ee02]/0002 Yes [4a3e9d91]/0002 Will you provide machine readable, standardised metadata to others [44b0de3f]/translation.md>)
 
-                            - [x] [layer 8] 0001 No
+                            - [x] [layer 8] [shared] 0001 No
 
                               [A] [translation](<0001 Common DSW Knowledge Model [6f6241d9]/0002 Re-using data [82fd0cce]/0002 Is there any pre-existing data [efc80cc8]/0006 Yes [2663b978]/0004 Will you be using data that needs to be (re-)made computer readable... [7e77ee02]/0002 Yes [4a3e9d91]/0002 Will you provide machine readable, standardised metadata to others [44b0de3f]/0001 No [60bb3161]/translation.md>)
-                            - [ ] [layer 8] 0002 Yes
+                            - [ ] [layer 8] [shared] 0002 Yes
 
                               [A] [translation](<0001 Common DSW Knowledge Model [6f6241d9]/0002 Re-using data [82fd0cce]/0002 Is there any pre-existing data [efc80cc8]/0006 Yes [2663b978]/0004 Will you be using data that needs to be (re-)made computer readable... [7e77ee02]/0002 Yes [4a3e9d91]/0002 Will you provide machine readable, standardised metadata to others [44b0de3f]/0002 Yes [69b0dc80]/translation.md>)
 
@@ -804,7 +804,7 @@
 
                                   [Q] [translation](<0001 Common DSW Knowledge Model [6f6241d9]/0002 Re-using data [82fd0cce]/0002 Is there any pre-existing data [efc80cc8]/0006 Yes [2663b978]/0004 Will you be using data that needs to be (re-)made computer readable... [7e77ee02]/0002 Yes [4a3e9d91]/0002 Will you provide machine readable, standardised metadata to others [44b0de3f]/0002 Yes [69b0dc80]/0001 Which metadata standards will you use [f09c417a]/translation.md>)
 
-                                    - [ ] [layer 10] 0001 Metadata Standard
+                                    - [ ] [layer 10] [shared] 0001 Metadata Standard
 
                                       [Q] [translation](<0001 Common DSW Knowledge Model [6f6241d9]/0002 Re-using data [82fd0cce]/0002 Is there any pre-existing data [efc80cc8]/0006 Yes [2663b978]/0004 Will you be using data that needs to be (re-)made computer readable... [7e77ee02]/0002 Yes [4a3e9d91]/0002 Will you provide machine readable, standardised metadata to others [44b0de3f]/0002 Yes [69b0dc80]/0001 Which metadata standards will you use [f09c417a]/0001 Metadata Standard [2e5b1f82]/translation.md>)
             - [x] [layer 4] 0007 DMEG on Data Discovery
@@ -821,10 +821,10 @@
 
           [Q] [translation](<0001 Common DSW Knowledge Model [6f6241d9]/0003 Creating and collecting data [b1df3c74]/0001 Are you running the project in a collaboration between different... [b2fb6b4e]/translation.md>)
 
-            - [x] [layer 4] 0001 No
+            - [x] [layer 4] [shared] 0001 No
 
               [A] [translation](<0001 Common DSW Knowledge Model [6f6241d9]/0003 Creating and collecting data [b1df3c74]/0001 Are you running the project in a collaboration between different... [b2fb6b4e]/0001 No [90ac56a8]/translation.md>)
-            - [ ] [layer 4] 0002 Yes
+            - [ ] [layer 4] [shared] 0002 Yes
 
               [A] [translation](<0001 Common DSW Knowledge Model [6f6241d9]/0003 Creating and collecting data [b1df3c74]/0001 Are you running the project in a collaboration between different... [b2fb6b4e]/0002 Yes [62b8c25d]/translation.md>)
 
@@ -832,10 +832,10 @@
 
                   [Q] [translation](<0001 Common DSW Knowledge Model [6f6241d9]/0003 Creating and collecting data [b1df3c74]/0001 Are you running the project in a collaboration between different... [b2fb6b4e]/0002 Yes [62b8c25d]/0001 Is there a collaboration agreement in the project that describes... [a5dbea23]/translation.md>)
 
-                    - [x] [layer 6] 0001 No
+                    - [x] [layer 6] [shared] 0001 No
 
                       [A] [translation](<0001 Common DSW Knowledge Model [6f6241d9]/0003 Creating and collecting data [b1df3c74]/0001 Are you running the project in a collaboration between different... [b2fb6b4e]/0002 Yes [62b8c25d]/0001 Is there a collaboration agreement in the project that describes... [a5dbea23]/0001 No [4505bb3f]/translation.md>)
-                    - [ ] [layer 6] 0002 Yes
+                    - [ ] [layer 6] [shared] 0002 Yes
 
                       [A] [translation](<0001 Common DSW Knowledge Model [6f6241d9]/0003 Creating and collecting data [b1df3c74]/0001 Are you running the project in a collaboration between different... [b2fb6b4e]/0002 Yes [62b8c25d]/0001 Is there a collaboration agreement in the project that describes... [a5dbea23]/0002 Yes [ef8a62ec]/translation.md>)
                     - [x] [layer 6] 0003 See also description of Data Sharing in RDMkit
@@ -845,10 +845,10 @@
 
           [Q] [translation](<0001 Common DSW Knowledge Model [6f6241d9]/0003 Creating and collecting data [b1df3c74]/0002 Will you be collecting physical samples [0e810343]/translation.md>)
 
-            - [x] [layer 4] 0001 No
+            - [x] [layer 4] [shared] 0001 No
 
               [A] [translation](<0001 Common DSW Knowledge Model [6f6241d9]/0003 Creating and collecting data [b1df3c74]/0002 Will you be collecting physical samples [0e810343]/0001 No [bd40f22d]/translation.md>)
-            - [ ] [layer 4] 0002 Yes
+            - [ ] [layer 4] [shared] 0002 Yes
 
               [A] [translation](<0001 Common DSW Knowledge Model [6f6241d9]/0003 Creating and collecting data [b1df3c74]/0002 Will you be collecting physical samples [0e810343]/0002 Yes [05873934]/translation.md>)
 
@@ -856,7 +856,7 @@
 
                   [Q] [translation](<0001 Common DSW Knowledge Model [6f6241d9]/0003 Creating and collecting data [b1df3c74]/0002 Will you be collecting physical samples [0e810343]/0002 Yes [05873934]/0001 Do your samples need to be submitted to a public repository [f67a9910]/translation.md>)
 
-                    - [x] [layer 6] 0001 No
+                    - [x] [layer 6] [shared] 0001 No
 
                       [A] [translation](<0001 Common DSW Knowledge Model [6f6241d9]/0003 Creating and collecting data [b1df3c74]/0002 Will you be collecting physical samples [0e810343]/0002 Yes [05873934]/0001 Do your samples need to be submitted to a public repository [f67a9910]/0001 No [8095f86a]/translation.md>)
 
@@ -864,13 +864,13 @@
 
                           [Q] [translation](<0001 Common DSW Knowledge Model [6f6241d9]/0003 Creating and collecting data [b1df3c74]/0002 Will you be collecting physical samples [0e810343]/0002 Yes [05873934]/0001 Do your samples need to be submitted to a public repository [f67a9910]/0001 No [8095f86a]/0001 Will the samples be stored in a local repository such as a biobank [cc57d7c0]/translation.md>)
 
-                            - [x] [layer 8] 0001 No
+                            - [x] [layer 8] [shared] 0001 No
 
                               [A] [translation](<0001 Common DSW Knowledge Model [6f6241d9]/0003 Creating and collecting data [b1df3c74]/0002 Will you be collecting physical samples [0e810343]/0002 Yes [05873934]/0001 Do your samples need to be submitted to a public repository [f67a9910]/0001 No [8095f86a]/0001 Will the samples be stored in a local repository such as a biobank [cc57d7c0]/0001 No [ed957bb8]/translation.md>)
-                            - [ ] [layer 8] 0002 Yes
+                            - [ ] [layer 8] [shared] 0002 Yes
 
                               [A] [translation](<0001 Common DSW Knowledge Model [6f6241d9]/0003 Creating and collecting data [b1df3c74]/0002 Will you be collecting physical samples [0e810343]/0002 Yes [05873934]/0001 Do your samples need to be submitted to a public repository [f67a9910]/0001 No [8095f86a]/0001 Will the samples be stored in a local repository such as a biobank [cc57d7c0]/0002 Yes [9562c8d0]/translation.md>)
-                    - [ ] [layer 6] 0002 Yes
+                    - [ ] [layer 6] [shared] 0002 Yes
 
                       [A] [translation](<0001 Common DSW Knowledge Model [6f6241d9]/0003 Creating and collecting data [b1df3c74]/0002 Will you be collecting physical samples [0e810343]/0002 Yes [05873934]/0001 Do your samples need to be submitted to a public repository [f67a9910]/0002 Yes [a8938dfc]/translation.md>)
                 - [x] [layer 5] 0002 How will the samples be identified
@@ -890,20 +890,20 @@
 
                   [Q] [translation](<0001 Common DSW Knowledge Model [6f6241d9]/0003 Creating and collecting data [b1df3c74]/0002 Will you be collecting physical samples [0e810343]/0002 Yes [05873934]/0004 Will you make explicit cross-reference between physical samples and... [9e238002]/translation.md>)
 
-                    - [ ] [layer 6] 0001 Yes
+                    - [ ] [layer 6] [shared] 0001 Yes
 
                       [A] [translation](<0001 Common DSW Knowledge Model [6f6241d9]/0003 Creating and collecting data [b1df3c74]/0002 Will you be collecting physical samples [0e810343]/0002 Yes [05873934]/0004 Will you make explicit cross-reference between physical samples and... [9e238002]/0001 Yes [20249329]/translation.md>)
-                    - [x] [layer 6] 0002 No
+                    - [x] [layer 6] [shared] 0002 No
 
                       [A] [translation](<0001 Common DSW Knowledge Model [6f6241d9]/0003 Creating and collecting data [b1df3c74]/0002 Will you be collecting physical samples [0e810343]/0002 Yes [05873934]/0004 Will you make explicit cross-reference between physical samples and... [9e238002]/0002 No [2fb2cb0a]/translation.md>)
-                    - [x] [layer 6] 0003 RDMkit on Identifiers
+                    - [x] [layer 6] [shared] 0003 RDMkit on Identifiers
 
                       [R] [translation](<0001 Common DSW Knowledge Model [6f6241d9]/0003 Creating and collecting data [b1df3c74]/0002 Will you be collecting physical samples [0e810343]/0002 Yes [05873934]/0004 Will you make explicit cross-reference between physical samples and... [9e238002]/0003 RDMkit on Identifiers [5c6e0a81]/translation.md>)
         - [ ] [layer 3] 0003 How will you do file naming and file organization
 
           [Q] [translation](<0001 Common DSW Knowledge Model [6f6241d9]/0003 Creating and collecting data [b1df3c74]/0003 How will you do file naming and file organization [8e886b55]/translation.md>)
 
-            - [x] [layer 4] 0001 Explore
+            - [x] [layer 4] [shared] 0001 Explore
 
               [A] [translation](<0001 Common DSW Knowledge Model [6f6241d9]/0003 Creating and collecting data [b1df3c74]/0003 How will you do file naming and file organization [8e886b55]/0001 Explore [c05f27a2]/translation.md>)
 
@@ -911,10 +911,10 @@
 
                   [Q] [translation](<0001 Common DSW Knowledge Model [6f6241d9]/0003 Creating and collecting data [b1df3c74]/0003 How will you do file naming and file organization [8e886b55]/0001 Explore [c05f27a2]/0001 Will you be using persistent identifiers to refer to data within... [b1f62b06]/translation.md>)
 
-                    - [x] [layer 6] 0001 No
+                    - [x] [layer 6] [shared] 0001 No
 
                       [A] [translation](<0001 Common DSW Knowledge Model [6f6241d9]/0003 Creating and collecting data [b1df3c74]/0003 How will you do file naming and file organization [8e886b55]/0001 Explore [c05f27a2]/0001 Will you be using persistent identifiers to refer to data within... [b1f62b06]/0001 No [22251809]/translation.md>)
-                    - [ ] [layer 6] 0002 Yes
+                    - [ ] [layer 6] [shared] 0002 Yes
 
                       [A] [translation](<0001 Common DSW Knowledge Model [6f6241d9]/0003 Creating and collecting data [b1df3c74]/0003 How will you do file naming and file organization [8e886b55]/0001 Explore [c05f27a2]/0001 Will you be using persistent identifiers to refer to data within... [b1f62b06]/0002 Yes [c0898e79]/translation.md>)
                     - [ ] [layer 6] 0003 The Handle System
@@ -923,7 +923,7 @@
                     - [x] [layer 6] 0004 Handbook on Persistent Identifiers
 
                       [R] [translation](<0001 Common DSW Knowledge Model [6f6241d9]/0003 Creating and collecting data [b1df3c74]/0003 How will you do file naming and file organization [8e886b55]/0001 Explore [c05f27a2]/0001 Will you be using persistent identifiers to refer to data within... [b1f62b06]/0004 Handbook on Persistent Identifiers [06ca6750]/translation.md>)
-                    - [x] [layer 6] 0005 FAIRCookbook on creating resolvable identifiers
+                    - [x] [layer 6] [shared] 0005 FAIRCookbook on creating resolvable identifiers
 
                       [R] [translation](<0001 Common DSW Knowledge Model [6f6241d9]/0003 Creating and collecting data [b1df3c74]/0003 How will you do file naming and file organization [8e886b55]/0001 Explore [c05f27a2]/0001 Will you be using persistent identifiers to refer to data within... [b1f62b06]/0005 FAIRCookbook on creating resolvable identifiers [e9091f21]/translation.md>)
                 - [ ] [layer 5] 0002 Will all the metadata that is embedded in the file names also be...
@@ -940,27 +940,27 @@
 
                   [Q] [translation](<0001 Common DSW Knowledge Model [6f6241d9]/0003 Creating and collecting data [b1df3c74]/0003 How will you do file naming and file organization [8e886b55]/0001 Explore [c05f27a2]/0003 Will you be keeping the relationships between data clear in the... [37d0367b]/translation.md>)
 
-                    - [x] [layer 6] 0001 No
+                    - [x] [layer 6] [shared] 0001 No
 
                       [A] [translation](<0001 Common DSW Knowledge Model [6f6241d9]/0003 Creating and collecting data [b1df3c74]/0003 How will you do file naming and file organization [8e886b55]/0001 Explore [c05f27a2]/0003 Will you be keeping the relationships between data clear in the... [37d0367b]/0001 No [9beb6069]/translation.md>)
-                    - [ ] [layer 6] 0002 Yes
+                    - [ ] [layer 6] [shared] 0002 Yes
 
                       [A] [translation](<0001 Common DSW Knowledge Model [6f6241d9]/0003 Creating and collecting data [b1df3c74]/0003 How will you do file naming and file organization [8e886b55]/0001 Explore [c05f27a2]/0003 Will you be keeping the relationships between data clear in the... [37d0367b]/0002 Yes [8032494b]/translation.md>)
                 - [x] [layer 5] 0004 Did you make appointments in the project on how to name files and...
 
                   [Q] [translation](<0001 Common DSW Knowledge Model [6f6241d9]/0003 Creating and collecting data [b1df3c74]/0003 How will you do file naming and file organization [8e886b55]/0001 Explore [c05f27a2]/0004 Did you make appointments in the project on how to name files and... [d4fe0b55]/translation.md>)
 
-                    - [x] [layer 6] 0001 No
+                    - [x] [layer 6] [shared] 0001 No
 
                       [A] [translation](<0001 Common DSW Knowledge Model [6f6241d9]/0003 Creating and collecting data [b1df3c74]/0003 How will you do file naming and file organization [8e886b55]/0001 Explore [c05f27a2]/0004 Did you make appointments in the project on how to name files and... [d4fe0b55]/0001 No [f449e055]/translation.md>)
-                    - [ ] [layer 6] 0002 Yes
+                    - [ ] [layer 6] [shared] 0002 Yes
 
                       [A] [translation](<0001 Common DSW Knowledge Model [6f6241d9]/0003 Creating and collecting data [b1df3c74]/0003 How will you do file naming and file organization [8e886b55]/0001 Explore [c05f27a2]/0004 Did you make appointments in the project on how to name files and... [d4fe0b55]/0002 Yes [8b13234e]/translation.md>)
 
                         - [x] [layer 7] 0001 How do you name files in the project
 
                           [Q] [translation](<0001 Common DSW Knowledge Model [6f6241d9]/0003 Creating and collecting data [b1df3c74]/0003 How will you do file naming and file organization [8e886b55]/0001 Explore [c05f27a2]/0004 Did you make appointments in the project on how to name files and... [d4fe0b55]/0002 Yes [8b13234e]/0001 How do you name files in the project [9ff389f0]/translation.md>)
-            - [ ] [layer 4] 0002 RDMkit on data organisation
+            - [ ] [layer 4] [shared] 0002 RDMkit on data organisation
 
               [R] [translation](<0001 Common DSW Knowledge Model [6f6241d9]/0003 Creating and collecting data [b1df3c74]/0003 How will you do file naming and file organization [8e886b55]/0002 RDMkit on data organisation [8652cd42]/translation.md>)
             - [x] [layer 4] 0003 DMEG on File Naming and Folder Structure
@@ -977,7 +977,7 @@
 
               [Q] [translation](<0001 Common DSW Knowledge Model [6f6241d9]/0003 Creating and collecting data [b1df3c74]/0004 What existing data formats types will you be using [b08fe063]/0002 Is this a standard data format widely used by researchers in this field [ecff019a]/translation.md>)
 
-                - [x] [layer 5] 0001 No
+                - [x] [layer 5] [shared] 0001 No
 
                   [A] [translation](<0001 Common DSW Knowledge Model [6f6241d9]/0003 Creating and collecting data [b1df3c74]/0004 What existing data formats types will you be using [b08fe063]/0002 Is this a standard data format widely used by researchers in this field [ecff019a]/0001 No [52b7aba3]/translation.md>)
 
@@ -998,14 +998,14 @@
                             - [ ] [layer 8] 0001 What other reason do you have for not using a standard file format...
 
                               [Q] [translation](<0001 Common DSW Knowledge Model [6f6241d9]/0003 Creating and collecting data [b1df3c74]/0004 What existing data formats types will you be using [b08fe063]/0002 Is this a standard data format widely used by researchers in this field [ecff019a]/0001 No [52b7aba3]/0001 Why are you using a non-standard format [8bd3d76a]/0003 Another reason [ab19f42e]/0001 What other reason do you have for not using a standard file format... [ea7420ef]/translation.md>)
-                - [ ] [layer 5] 0002 Yes
+                - [ ] [layer 5] [shared] 0002 Yes
 
                   [A] [translation](<0001 Common DSW Knowledge Model [6f6241d9]/0003 Creating and collecting data [b1df3c74]/0004 What existing data formats types will you be using [b08fe063]/0002 Is this a standard data format widely used by researchers in this field [ecff019a]/0002 Yes [d4ce2c56]/translation.md>)
             - [x] [layer 4] 0003 Does this data format enable sharing and long term archiving
 
               [Q] [translation](<0001 Common DSW Knowledge Model [6f6241d9]/0003 Creating and collecting data [b1df3c74]/0004 What existing data formats types will you be using [b08fe063]/0003 Does this data format enable sharing and long term archiving [ced5a7c2]/translation.md>)
 
-                - [x] [layer 5] 0001 No
+                - [x] [layer 5] [shared] 0001 No
 
                   [A] [translation](<0001 Common DSW Knowledge Model [6f6241d9]/0003 Creating and collecting data [b1df3c74]/0004 What existing data formats types will you be using [b08fe063]/0003 Does this data format enable sharing and long term archiving [ced5a7c2]/0001 No [86e547b8]/translation.md>)
 
@@ -1013,23 +1013,23 @@
 
                       [Q] [translation](<0001 Common DSW Knowledge Model [6f6241d9]/0003 Creating and collecting data [b1df3c74]/0004 What existing data formats types will you be using [b08fe063]/0003 Does this data format enable sharing and long term archiving [ced5a7c2]/0001 No [86e547b8]/0001 Will you convert to a file format more suitable for archiving later [bf32374c]/translation.md>)
 
-                        - [x] [layer 7] 0001 No
+                        - [x] [layer 7] [shared] 0001 No
 
                           [A] [translation](<0001 Common DSW Knowledge Model [6f6241d9]/0003 Creating and collecting data [b1df3c74]/0004 What existing data formats types will you be using [b08fe063]/0003 Does this data format enable sharing and long term archiving [ced5a7c2]/0001 No [86e547b8]/0001 Will you convert to a file format more suitable for archiving later [bf32374c]/0001 No [3159d107]/translation.md>)
-                        - [ ] [layer 7] 0002 Yes
+                        - [ ] [layer 7] [shared] 0002 Yes
 
                           [A] [translation](<0001 Common DSW Knowledge Model [6f6241d9]/0003 Creating and collecting data [b1df3c74]/0004 What existing data formats types will you be using [b08fe063]/0003 Does this data format enable sharing and long term archiving [ced5a7c2]/0001 No [86e547b8]/0001 Will you convert to a file format more suitable for archiving later [bf32374c]/0002 Yes [7d8dc2f5]/translation.md>)
-                - [ ] [layer 5] 0002 Yes
+                - [ ] [layer 5] [shared] 0002 Yes
 
                   [A] [translation](<0001 Common DSW Knowledge Model [6f6241d9]/0003 Creating and collecting data [b1df3c74]/0004 What existing data formats types will you be using [b08fe063]/0003 Does this data format enable sharing and long term archiving [ced5a7c2]/0002 Yes [985e488d]/translation.md>)
             - [x] [layer 4] 0004 Is this data format completely described
 
               [Q] [translation](<0001 Common DSW Knowledge Model [6f6241d9]/0003 Creating and collecting data [b1df3c74]/0004 What existing data formats types will you be using [b08fe063]/0004 Is this data format completely described [192fc5d3]/translation.md>)
 
-                - [ ] [layer 5] 0001 No
+                - [ ] [layer 5] [shared] 0001 No
 
                   [A] [translation](<0001 Common DSW Knowledge Model [6f6241d9]/0003 Creating and collecting data [b1df3c74]/0004 What existing data formats types will you be using [b08fe063]/0004 Is this data format completely described [192fc5d3]/0001 No [14503afc]/translation.md>)
-                - [ ] [layer 5] 0002 Yes
+                - [ ] [layer 5] [shared] 0002 Yes
 
                   [A] [translation](<0001 Common DSW Knowledge Model [6f6241d9]/0003 Creating and collecting data [b1df3c74]/0004 What existing data formats types will you be using [b08fe063]/0004 Is this data format completely described [192fc5d3]/0002 Yes [d75d94bb]/translation.md>)
             - [ ] [layer 4] 0005 What volume of data of this type will you be working with
@@ -1039,14 +1039,14 @@
                 - [x] [layer 5] 0001 So small that it is not a problem
 
                   [A] [translation](<0001 Common DSW Knowledge Model [6f6241d9]/0003 Creating and collecting data [b1df3c74]/0004 What existing data formats types will you be using [b08fe063]/0005 What volume of data of this type will you be working with [ba9e42fc]/0001 So small that it is not a problem [7d3857a2]/translation.md>)
-                - [x] [layer 5] 0002 I can specify the total amount
+                - [x] [layer 5] [shared] 0002 I can specify the total amount
 
                   [A] [translation](<0001 Common DSW Knowledge Model [6f6241d9]/0003 Creating and collecting data [b1df3c74]/0004 What existing data formats types will you be using [b08fe063]/0005 What volume of data of this type will you be working with [ba9e42fc]/0002 I can specify the total amount [c2bc3d0b]/translation.md>)
 
-                    - [ ] [layer 6] 0001 Data volume in Gigabytes
+                    - [ ] [layer 6] [shared] 0001 Data volume in Gigabytes
 
                       [Q] [translation](<0001 Common DSW Knowledge Model [6f6241d9]/0003 Creating and collecting data [b1df3c74]/0004 What existing data formats types will you be using [b08fe063]/0005 What volume of data of this type will you be working with [ba9e42fc]/0002 I can specify the total amount [c2bc3d0b]/0001 Data volume in Gigabytes [4ae6452a]/translation.md>)
-                - [ ] [layer 5] 0003 I can specify the number of files subjects and the size of each
+                - [ ] [layer 5] [shared] 0003 I can specify the number of files subjects and the size of each
 
                   [A] [translation](<0001 Common DSW Knowledge Model [6f6241d9]/0003 Creating and collecting data [b1df3c74]/0004 What existing data formats types will you be using [b08fe063]/0005 What volume of data of this type will you be working with [ba9e42fc]/0003 I can specify the number of files subjects and the size of each [24dbd191]/translation.md>)
 
@@ -1069,13 +1069,13 @@
             - [x] [layer 4] 0002 FAIRCookbook on selecting terminologies and ontologies
 
               [R] [translation](<0001 Common DSW Knowledge Model [6f6241d9]/0003 Creating and collecting data [b1df3c74]/0005 What existing encodings terminologies vocabularies ontologies will... [2bac9020]/0002 FAIRCookbook on selecting terminologies and ontologies [5669ca15]/translation.md>)
-            - [x] [layer 4] 0003 FAIRCookbook on Selecting an ontology lookup service
+            - [x] [layer 4] [shared] 0003 FAIRCookbook on Selecting an ontology lookup service
 
               [R] [translation](<0001 Common DSW Knowledge Model [6f6241d9]/0003 Creating and collecting data [b1df3c74]/0005 What existing encodings terminologies vocabularies ontologies will... [2bac9020]/0003 FAIRCookbook on Selecting an ontology lookup service [06211161]/translation.md>)
             - [x] [layer 4] 0004 If you use a standard that is not in FAIRsharing, please specify...
 
               [Q] [translation](<0001 Common DSW Knowledge Model [6f6241d9]/0003 Creating and collecting data [b1df3c74]/0005 What existing encodings terminologies vocabularies ontologies will... [2bac9020]/0004 If you use a standard that is not in FAIRsharing, please specify... [c00627a4]/translation.md>)
-            - [ ] [layer 4] 0005 Name
+            - [ ] [layer 4] [shared] 0005 Name
 
               [Q] [translation](<0001 Common DSW Knowledge Model [6f6241d9]/0003 Creating and collecting data [b1df3c74]/0005 What existing encodings terminologies vocabularies ontologies will... [2bac9020]/0005 Name [9a7e42c3]/translation.md>)
         - [ ] [layer 3] 0006 Will you be using new types of data
@@ -1143,13 +1143,13 @@
 
                           [Q] [translation](<0001 Common DSW Knowledge Model [6f6241d9]/0003 Creating and collecting data [b1df3c74]/0006 Will you be using new types of data [5ba53879]/0002 Yes, I will need to use custom formats for some of my data [bf76127e]/0005 Do you need to create vocabularies or ontologies for any of your... [b211f896]/0002 Yes, I will make and publish a vocabulary or ontology for some of... [668ecd34]/0001 Will you be mapping your terms to existing vocabularies or ontologies [76cf4d79]/translation.md>)
 
-                            - [ ] [layer 8] 0001 Yes
+                            - [ ] [layer 8] [shared] 0001 Yes
 
                               [A] [translation](<0001 Common DSW Knowledge Model [6f6241d9]/0003 Creating and collecting data [b1df3c74]/0006 Will you be using new types of data [5ba53879]/0002 Yes, I will need to use custom formats for some of my data [bf76127e]/0005 Do you need to create vocabularies or ontologies for any of your... [b211f896]/0002 Yes, I will make and publish a vocabulary or ontology for some of... [668ecd34]/0001 Will you be mapping your terms to existing vocabularies or ontologies [76cf4d79]/0001 Yes [319e3255]/translation.md>)
-                            - [x] [layer 8] 0002 No
+                            - [x] [layer 8] [shared] 0002 No
 
                               [A] [translation](<0001 Common DSW Knowledge Model [6f6241d9]/0003 Creating and collecting data [b1df3c74]/0006 Will you be using new types of data [5ba53879]/0002 Yes, I will need to use custom formats for some of my data [bf76127e]/0005 Do you need to create vocabularies or ontologies for any of your... [b211f896]/0002 Yes, I will make and publish a vocabulary or ontology for some of... [668ecd34]/0001 Will you be mapping your terms to existing vocabularies or ontologies [76cf4d79]/0002 No [c936c3ad]/translation.md>)
-                    - [x] [layer 6] 0003 FAIRCookbook on Selecting an ontology lookup service
+                    - [x] [layer 6] [shared] 0003 FAIRCookbook on Selecting an ontology lookup service
 
                       [R] [translation](<0001 Common DSW Knowledge Model [6f6241d9]/0003 Creating and collecting data [b1df3c74]/0006 Will you be using new types of data [5ba53879]/0002 Yes, I will need to use custom formats for some of my data [bf76127e]/0005 Do you need to create vocabularies or ontologies for any of your... [b211f896]/0003 FAIRCookbook on Selecting an ontology lookup service [ae26faa3]/translation.md>)
         - [x] [layer 3] 0007 How will you be collecting and keeping your metadata
@@ -1162,7 +1162,7 @@
             - [ ] [layer 4] 0002 Metadata Standards Catalogue (RDA)
 
               [R] [translation](<0001 Common DSW Knowledge Model [6f6241d9]/0003 Creating and collecting data [b1df3c74]/0007 How will you be collecting and keeping your metadata [8c962e6f]/0002 Metadata Standards Catalogue (RDA) [91440234]/translation.md>)
-            - [ ] [layer 4] 0003 Explore
+            - [ ] [layer 4] [shared] 0003 Explore
 
               [A] [translation](<0001 Common DSW Knowledge Model [6f6241d9]/0003 Creating and collecting data [b1df3c74]/0007 How will you be collecting and keeping your metadata [8c962e6f]/0003 Explore [6d18bfff]/translation.md>)
 
@@ -1170,7 +1170,7 @@
 
                   [Q] [translation](<0001 Common DSW Knowledge Model [6f6241d9]/0003 Creating and collecting data [b1df3c74]/0007 How will you be collecting and keeping your metadata [8c962e6f]/0003 Explore [6d18bfff]/0001 What standard(s) will you use to specify author title keyword... [1440afd6]/translation.md>)
 
-                    - [x] [layer 6] 0001 Explore
+                    - [x] [layer 6] [shared] 0001 Explore
 
                       [A] [translation](<0001 Common DSW Knowledge Model [6f6241d9]/0003 Creating and collecting data [b1df3c74]/0007 How will you be collecting and keeping your metadata [8c962e6f]/0003 Explore [6d18bfff]/0001 What standard(s) will you use to specify author title keyword... [1440afd6]/0001 Explore [aec37b0d]/translation.md>)
 
@@ -1178,10 +1178,10 @@
 
                           [Q] [translation](<0001 Common DSW Knowledge Model [6f6241d9]/0003 Creating and collecting data [b1df3c74]/0007 How will you be collecting and keeping your metadata [8c962e6f]/0003 Explore [6d18bfff]/0001 What standard(s) will you use to specify author title keyword... [1440afd6]/0001 Explore [aec37b0d]/0001 Will you document the data with Dublin Core metadata [8d3b85e0]/translation.md>)
 
-                            - [x] [layer 8] 0001 No
+                            - [x] [layer 8] [shared] 0001 No
 
                               [A] [translation](<0001 Common DSW Knowledge Model [6f6241d9]/0003 Creating and collecting data [b1df3c74]/0007 How will you be collecting and keeping your metadata [8c962e6f]/0003 Explore [6d18bfff]/0001 What standard(s) will you use to specify author title keyword... [1440afd6]/0001 Explore [aec37b0d]/0001 Will you document the data with Dublin Core metadata [8d3b85e0]/0001 No [45dba825]/translation.md>)
-                            - [ ] [layer 8] 0002 Yes
+                            - [ ] [layer 8] [shared] 0002 Yes
 
                               [A] [translation](<0001 Common DSW Knowledge Model [6f6241d9]/0003 Creating and collecting data [b1df3c74]/0007 How will you be collecting and keeping your metadata [8c962e6f]/0003 Explore [6d18bfff]/0001 What standard(s) will you use to specify author title keyword... [1440afd6]/0001 Explore [aec37b0d]/0001 Will you document the data with Dublin Core metadata [8d3b85e0]/0002 Yes [d29ca8b4]/translation.md>)
                             - [x] [layer 8] 0003 Dublin Core Metadata Terms
@@ -1194,10 +1194,10 @@
 
                           [Q] [translation](<0001 Common DSW Knowledge Model [6f6241d9]/0003 Creating and collecting data [b1df3c74]/0007 How will you be collecting and keeping your metadata [8c962e6f]/0003 Explore [6d18bfff]/0001 What standard(s) will you use to specify author title keyword... [1440afd6]/0001 Explore [aec37b0d]/0002 Will you document the data with DDI metadata [9320bf04]/translation.md>)
 
-                            - [ ] [layer 8] 0001 Yes
+                            - [ ] [layer 8] [shared] 0001 Yes
 
                               [A] [translation](<0001 Common DSW Knowledge Model [6f6241d9]/0003 Creating and collecting data [b1df3c74]/0007 How will you be collecting and keeping your metadata [8c962e6f]/0003 Explore [6d18bfff]/0001 What standard(s) will you use to specify author title keyword... [1440afd6]/0001 Explore [aec37b0d]/0002 Will you document the data with DDI metadata [9320bf04]/0001 Yes [8f537593]/translation.md>)
-                            - [x] [layer 8] 0002 No
+                            - [x] [layer 8] [shared] 0002 No
 
                               [A] [translation](<0001 Common DSW Knowledge Model [6f6241d9]/0003 Creating and collecting data [b1df3c74]/0007 How will you be collecting and keeping your metadata [8c962e6f]/0003 Explore [6d18bfff]/0001 What standard(s) will you use to specify author title keyword... [1440afd6]/0001 Explore [aec37b0d]/0002 Will you document the data with DDI metadata [9320bf04]/0002 No [f01c23ee]/translation.md>)
                             - [x] [layer 8] 0003 DDI metadata documentation
@@ -1207,10 +1207,10 @@
 
                           [Q] [translation](<0001 Common DSW Knowledge Model [6f6241d9]/0003 Creating and collecting data [b1df3c74]/0007 How will you be collecting and keeping your metadata [8c962e6f]/0003 Explore [6d18bfff]/0001 What standard(s) will you use to specify author title keyword... [1440afd6]/0001 Explore [aec37b0d]/0003 Will you document the data with DataCite metadata [035a37e5]/translation.md>)
 
-                            - [ ] [layer 8] 0001 Yes
+                            - [ ] [layer 8] [shared] 0001 Yes
 
                               [A] [translation](<0001 Common DSW Knowledge Model [6f6241d9]/0003 Creating and collecting data [b1df3c74]/0007 How will you be collecting and keeping your metadata [8c962e6f]/0003 Explore [6d18bfff]/0001 What standard(s) will you use to specify author title keyword... [1440afd6]/0001 Explore [aec37b0d]/0003 Will you document the data with DataCite metadata [035a37e5]/0001 Yes [3a738380]/translation.md>)
-                            - [x] [layer 8] 0002 No
+                            - [x] [layer 8] [shared] 0002 No
 
                               [A] [translation](<0001 Common DSW Knowledge Model [6f6241d9]/0003 Creating and collecting data [b1df3c74]/0007 How will you be collecting and keeping your metadata [8c962e6f]/0003 Explore [6d18bfff]/0001 What standard(s) will you use to specify author title keyword... [1440afd6]/0001 Explore [aec37b0d]/0003 Will you document the data with DataCite metadata [035a37e5]/0002 No [db10df40]/translation.md>)
                             - [x] [layer 8] 0003 DataCite metadata schema
@@ -1220,20 +1220,20 @@
 
                           [Q] [translation](<0001 Common DSW Knowledge Model [6f6241d9]/0003 Creating and collecting data [b1df3c74]/0007 How will you be collecting and keeping your metadata [8c962e6f]/0003 Explore [6d18bfff]/0001 What standard(s) will you use to specify author title keyword... [1440afd6]/0001 Explore [aec37b0d]/0004 Will you be including keywords or relevant ontology references to... [c37476ca]/translation.md>)
 
-                            - [x] [layer 8] 0001 No
+                            - [x] [layer 8] [shared] 0001 No
 
                               [A] [translation](<0001 Common DSW Knowledge Model [6f6241d9]/0003 Creating and collecting data [b1df3c74]/0007 How will you be collecting and keeping your metadata [8c962e6f]/0003 Explore [6d18bfff]/0001 What standard(s) will you use to specify author title keyword... [1440afd6]/0001 Explore [aec37b0d]/0004 Will you be including keywords or relevant ontology references to... [c37476ca]/0001 No [ca706a0f]/translation.md>)
-                            - [ ] [layer 8] 0002 Yes
+                            - [ ] [layer 8] [shared] 0002 Yes
 
                               [A] [translation](<0001 Common DSW Knowledge Model [6f6241d9]/0003 Creating and collecting data [b1df3c74]/0007 How will you be collecting and keeping your metadata [8c962e6f]/0003 Explore [6d18bfff]/0001 What standard(s) will you use to specify author title keyword... [1440afd6]/0001 Explore [aec37b0d]/0004 Will you be including keywords or relevant ontology references to... [c37476ca]/0002 Yes [b6cb254e]/translation.md>)
                 - [ ] [layer 5] 0002 Will you be creating a data variable dictionary
 
                   [Q] [translation](<0001 Common DSW Knowledge Model [6f6241d9]/0003 Creating and collecting data [b1df3c74]/0007 How will you be collecting and keeping your metadata [8c962e6f]/0003 Explore [6d18bfff]/0002 Will you be creating a data variable dictionary [434b28c1]/translation.md>)
 
-                    - [x] [layer 6] 0001 No
+                    - [x] [layer 6] [shared] 0001 No
 
                       [A] [translation](<0001 Common DSW Knowledge Model [6f6241d9]/0003 Creating and collecting data [b1df3c74]/0007 How will you be collecting and keeping your metadata [8c962e6f]/0003 Explore [6d18bfff]/0002 Will you be creating a data variable dictionary [434b28c1]/0001 No [93d19bdb]/translation.md>)
-                    - [ ] [layer 6] 0002 Yes
+                    - [ ] [layer 6] [shared] 0002 Yes
 
                       [A] [translation](<0001 Common DSW Knowledge Model [6f6241d9]/0003 Creating and collecting data [b1df3c74]/0007 How will you be collecting and keeping your metadata [8c962e6f]/0003 Explore [6d18bfff]/0002 Will you be creating a data variable dictionary [434b28c1]/0002 Yes [c6efc94b]/translation.md>)
                     - [x] [layer 6] 0003 FAIRCookbook on creating a data variable dictionary
@@ -1243,10 +1243,10 @@
 
                   [Q] [translation](<0001 Common DSW Knowledge Model [6f6241d9]/0003 Creating and collecting data [b1df3c74]/0007 How will you be collecting and keeping your metadata [8c962e6f]/0003 Explore [6d18bfff]/0003 Do suitable 'Minimal Metadata About ...' (MIA...) standards exist... [6226d7f2]/translation.md>)
 
-                    - [x] [layer 6] 0001 FAIRsharing repository of standards
+                    - [x] [layer 6] [shared] 0001 FAIRsharing repository of standards
 
                       [R] [translation](<0001 Common DSW Knowledge Model [6f6241d9]/0003 Creating and collecting data [b1df3c74]/0007 How will you be collecting and keeping your metadata [8c962e6f]/0003 Explore [6d18bfff]/0003 Do suitable 'Minimal Metadata About ...' (MIA...) standards exist... [6226d7f2]/0001 FAIRsharing repository of standards [2bdad98e]/translation.md>)
-                    - [x] [layer 6] 0002 No
+                    - [x] [layer 6] [shared] 0002 No
 
                       [A] [translation](<0001 Common DSW Knowledge Model [6f6241d9]/0003 Creating and collecting data [b1df3c74]/0007 How will you be collecting and keeping your metadata [8c962e6f]/0003 Explore [6d18bfff]/0003 Do suitable 'Minimal Metadata About ...' (MIA...) standards exist... [6226d7f2]/0002 No [a23664b1]/translation.md>)
 
@@ -1254,16 +1254,16 @@
 
                           [Q] [translation](<0001 Common DSW Knowledge Model [6f6241d9]/0003 Creating and collecting data [b1df3c74]/0007 How will you be collecting and keeping your metadata [8c962e6f]/0003 Explore [6d18bfff]/0003 Do suitable 'Minimal Metadata About ...' (MIA...) standards exist... [6226d7f2]/0002 No [a23664b1]/0001 Do you have a good idea of what metadata is needed to make it... [44a9d6c0]/translation.md>)
 
-                            - [x] [layer 8] 0001 FAIRsharing repository of standards
+                            - [x] [layer 8] [shared] 0001 FAIRsharing repository of standards
 
                               [R] [translation](<0001 Common DSW Knowledge Model [6f6241d9]/0003 Creating and collecting data [b1df3c74]/0007 How will you be collecting and keeping your metadata [8c962e6f]/0003 Explore [6d18bfff]/0003 Do suitable 'Minimal Metadata About ...' (MIA...) standards exist... [6226d7f2]/0002 No [a23664b1]/0001 Do you have a good idea of what metadata is needed to make it... [44a9d6c0]/0001 FAIRsharing repository of standards [67a39c34]/translation.md>)
-                            - [x] [layer 8] 0002 No
+                            - [x] [layer 8] [shared] 0002 No
 
                               [A] [translation](<0001 Common DSW Knowledge Model [6f6241d9]/0003 Creating and collecting data [b1df3c74]/0007 How will you be collecting and keeping your metadata [8c962e6f]/0003 Explore [6d18bfff]/0003 Do suitable 'Minimal Metadata About ...' (MIA...) standards exist... [6226d7f2]/0002 No [a23664b1]/0001 Do you have a good idea of what metadata is needed to make it... [44a9d6c0]/0002 No [49e35bb1]/translation.md>)
-                            - [ ] [layer 8] 0003 Yes
+                            - [ ] [layer 8] [shared] 0003 Yes
 
                               [A] [translation](<0001 Common DSW Knowledge Model [6f6241d9]/0003 Creating and collecting data [b1df3c74]/0007 How will you be collecting and keeping your metadata [8c962e6f]/0003 Explore [6d18bfff]/0003 Do suitable 'Minimal Metadata About ...' (MIA...) standards exist... [6226d7f2]/0002 No [a23664b1]/0001 Do you have a good idea of what metadata is needed to make it... [44a9d6c0]/0003 Yes [b3acec51]/translation.md>)
-                    - [ ] [layer 6] 0003 Yes
+                    - [ ] [layer 6] [shared] 0003 Yes
 
                       [A] [translation](<0001 Common DSW Knowledge Model [6f6241d9]/0003 Creating and collecting data [b1df3c74]/0007 How will you be collecting and keeping your metadata [8c962e6f]/0003 Explore [6d18bfff]/0003 Do suitable 'Minimal Metadata About ...' (MIA...) standards exist... [6226d7f2]/0003 Yes [08bd1365]/translation.md>)
 
@@ -1271,20 +1271,20 @@
 
                           [Q] [translation](<0001 Common DSW Knowledge Model [6f6241d9]/0003 Creating and collecting data [b1df3c74]/0007 How will you be collecting and keeping your metadata [8c962e6f]/0003 Explore [6d18bfff]/0003 Do suitable 'Minimal Metadata About ...' (MIA...) standards exist... [6226d7f2]/0003 Yes [08bd1365]/0001 Which Minimal Information standards will you use [e7b6cd51]/translation.md>)
 
-                            - [ ] [layer 8] 0001 Minimal Information Standard
+                            - [ ] [layer 8] [shared] 0001 Minimal Information Standard
 
                               [Q] [translation](<0001 Common DSW Knowledge Model [6f6241d9]/0003 Creating and collecting data [b1df3c74]/0007 How will you be collecting and keeping your metadata [8c962e6f]/0003 Explore [6d18bfff]/0003 Do suitable 'Minimal Metadata About ...' (MIA...) standards exist... [6226d7f2]/0003 Yes [08bd1365]/0001 Which Minimal Information standards will you use [e7b6cd51]/0001 Minimal Information Standard [f0ca4f37]/translation.md>)
                 - [x] [layer 5] 0004 Do you know how and when you will be collecting the necessary metadata
 
                   [Q] [translation](<0001 Common DSW Knowledge Model [6f6241d9]/0003 Creating and collecting data [b1df3c74]/0007 How will you be collecting and keeping your metadata [8c962e6f]/0003 Explore [6d18bfff]/0004 Do you know how and when you will be collecting the necessary metadata [ed872b74]/translation.md>)
 
-                    - [x] [layer 6] 0001 FAIRsharing repository of standards
+                    - [x] [layer 6] [shared] 0001 FAIRsharing repository of standards
 
                       [R] [translation](<0001 Common DSW Knowledge Model [6f6241d9]/0003 Creating and collecting data [b1df3c74]/0007 How will you be collecting and keeping your metadata [8c962e6f]/0003 Explore [6d18bfff]/0004 Do you know how and when you will be collecting the necessary metadata [ed872b74]/0001 FAIRsharing repository of standards [cab1617b]/translation.md>)
-                    - [x] [layer 6] 0002 No
+                    - [x] [layer 6] [shared] 0002 No
 
                       [A] [translation](<0001 Common DSW Knowledge Model [6f6241d9]/0003 Creating and collecting data [b1df3c74]/0007 How will you be collecting and keeping your metadata [8c962e6f]/0003 Explore [6d18bfff]/0004 Do you know how and when you will be collecting the necessary metadata [ed872b74]/0002 No [bc41fb1c]/translation.md>)
-                    - [ ] [layer 6] 0003 Yes
+                    - [ ] [layer 6] [shared] 0003 Yes
 
                       [A] [translation](<0001 Common DSW Knowledge Model [6f6241d9]/0003 Creating and collecting data [b1df3c74]/0007 How will you be collecting and keeping your metadata [8c962e6f]/0003 Explore [6d18bfff]/0004 Do you know how and when you will be collecting the necessary metadata [ed872b74]/0003 Yes [2fb268e0]/translation.md>)
                 - [ ] [layer 5] 0005 Will you consider re-usability of your data beyond your original purpose
@@ -1312,10 +1312,10 @@
 
                           [Q] [translation](<0001 Common DSW Knowledge Model [6f6241d9]/0003 Creating and collecting data [b1df3c74]/0007 How will you be collecting and keeping your metadata [8c962e6f]/0003 Explore [6d18bfff]/0005 Will you consider re-usability of your data beyond your original purpose [15573266]/0001 Yes, I will add optional metadata where I can [cb765913]/0002 Do you need to exchange your data with others [c961b59a]/translation.md>)
 
-                            - [x] [layer 8] 0001 No
+                            - [x] [layer 8] [shared] 0001 No
 
                               [A] [translation](<0001 Common DSW Knowledge Model [6f6241d9]/0003 Creating and collecting data [b1df3c74]/0007 How will you be collecting and keeping your metadata [8c962e6f]/0003 Explore [6d18bfff]/0005 Will you consider re-usability of your data beyond your original purpose [15573266]/0001 Yes, I will add optional metadata where I can [cb765913]/0002 Do you need to exchange your data with others [c961b59a]/0001 No [c0d4739d]/translation.md>)
-                            - [ ] [layer 8] 0002 Yes
+                            - [ ] [layer 8] [shared] 0002 Yes
 
                               [A] [translation](<0001 Common DSW Knowledge Model [6f6241d9]/0003 Creating and collecting data [b1df3c74]/0007 How will you be collecting and keeping your metadata [8c962e6f]/0003 Explore [6d18bfff]/0005 Will you consider re-usability of your data beyond your original purpose [15573266]/0001 Yes, I will add optional metadata where I can [cb765913]/0002 Do you need to exchange your data with others [c961b59a]/0002 Yes [fb7addc1]/translation.md>)
                     - [ ] [layer 6] 0002 I will only add the metadata that is required in the standard
@@ -1325,7 +1325,7 @@
 
                   [Q] [translation](<0001 Common DSW Knowledge Model [6f6241d9]/0003 Creating and collecting data [b1df3c74]/0007 How will you be collecting and keeping your metadata [8c962e6f]/0003 Explore [6d18bfff]/0006 Will a license be assigned to your datasets [ae28a862]/translation.md>)
 
-                    - [ ] [layer 6] 0001 Yes
+                    - [ ] [layer 6] [shared] 0001 Yes
 
                       [A] [translation](<0001 Common DSW Knowledge Model [6f6241d9]/0003 Creating and collecting data [b1df3c74]/0007 How will you be collecting and keeping your metadata [8c962e6f]/0003 Explore [6d18bfff]/0006 Will a license be assigned to your datasets [ae28a862]/0001 Yes [6110d79f]/translation.md>)
 
@@ -1333,16 +1333,16 @@
 
                           [Q] [translation](<0001 Common DSW Knowledge Model [6f6241d9]/0003 Creating and collecting data [b1df3c74]/0007 How will you be collecting and keeping your metadata [8c962e6f]/0003 Explore [6d18bfff]/0006 Will a license be assigned to your datasets [ae28a862]/0001 Yes [6110d79f]/0001 Will you store the licenses with the data at all time [0551adc9]/translation.md>)
 
-                            - [x] [layer 8] 0001 No
+                            - [x] [layer 8] [shared] 0001 No
 
                               [A] [translation](<0001 Common DSW Knowledge Model [6f6241d9]/0003 Creating and collecting data [b1df3c74]/0007 How will you be collecting and keeping your metadata [8c962e6f]/0003 Explore [6d18bfff]/0006 Will a license be assigned to your datasets [ae28a862]/0001 Yes [6110d79f]/0001 Will you store the licenses with the data at all time [0551adc9]/0001 No [e95aca23]/translation.md>)
-                            - [ ] [layer 8] 0002 Yes
+                            - [ ] [layer 8] [shared] 0002 Yes
 
                               [A] [translation](<0001 Common DSW Knowledge Model [6f6241d9]/0003 Creating and collecting data [b1df3c74]/0007 How will you be collecting and keeping your metadata [8c962e6f]/0003 Explore [6d18bfff]/0006 Will a license be assigned to your datasets [ae28a862]/0001 Yes [6110d79f]/0001 Will you store the licenses with the data at all time [0551adc9]/0002 Yes [245e5ab0]/translation.md>)
-                    - [x] [layer 6] 0002 RDMkit on Licensing
+                    - [x] [layer 6] [shared] 0002 RDMkit on Licensing
 
                       [R] [translation](<0001 Common DSW Knowledge Model [6f6241d9]/0003 Creating and collecting data [b1df3c74]/0007 How will you be collecting and keeping your metadata [8c962e6f]/0003 Explore [6d18bfff]/0006 Will a license be assigned to your datasets [ae28a862]/0002 RDMkit on Licensing [6df6b71d]/translation.md>)
-                    - [ ] [layer 6] 0003 No
+                    - [ ] [layer 6] [shared] 0003 No
 
                       [A] [translation](<0001 Common DSW Knowledge Model [6f6241d9]/0003 Creating and collecting data [b1df3c74]/0007 How will you be collecting and keeping your metadata [8c962e6f]/0003 Explore [6d18bfff]/0006 Will a license be assigned to your datasets [ae28a862]/0003 No [0b0e1e89]/translation.md>)
                     - [x] [layer 6] 0004 DMEG on Licensing
@@ -1368,7 +1368,7 @@
                         - [x] [layer 7] 0001 How will you store any applicable restrictions
 
                           [Q] [translation](<0001 Common DSW Knowledge Model [6f6241d9]/0003 Creating and collecting data [b1df3c74]/0007 How will you be collecting and keeping your metadata [8c962e6f]/0003 Explore [6d18bfff]/0007 Where do you keep any applicable restrictions on the usage of the data [de1b1a0f]/0004 In another way [0cdaa526]/0001 How will you store any applicable restrictions [f9572d3c]/translation.md>)
-                    - [x] [layer 6] 0005 Data Use Ontology
+                    - [x] [layer 6] [shared] 0005 Data Use Ontology
 
                       [R] [translation](<0001 Common DSW Knowledge Model [6f6241d9]/0003 Creating and collecting data [b1df3c74]/0007 How will you be collecting and keeping your metadata [8c962e6f]/0003 Explore [6d18bfff]/0007 Where do you keep any applicable restrictions on the usage of the data [de1b1a0f]/0005 Data Use Ontology [35bcd464]/translation.md>)
                 - [x] [layer 5] 0008 How will you be keeping track of the provenance of the data
@@ -1388,7 +1388,7 @@
 
                       [A] [translation](<0001 Common DSW Knowledge Model [6f6241d9]/0003 Creating and collecting data [b1df3c74]/0007 How will you be collecting and keeping your metadata [8c962e6f]/0003 Explore [6d18bfff]/0008 How will you be keeping track of the provenance of the data [948b5fd8]/0004 We use other arrangements [ccdb5296]/translation.md>)
 
-                        - [ ] [layer 7] 0001 What other arrangements
+                        - [ ] [layer 7] [shared] 0001 What other arrangements
 
                           [Q] [translation](<0001 Common DSW Knowledge Model [6f6241d9]/0003 Creating and collecting data [b1df3c74]/0007 How will you be collecting and keeping your metadata [8c962e6f]/0003 Explore [6d18bfff]/0008 How will you be keeping track of the provenance of the data [948b5fd8]/0004 We use other arrangements [ccdb5296]/0001 What other arrangements [b73b8310]/translation.md>)
                     - [x] [layer 6] 0005 How will you make sure to know what exactly has been run
@@ -1404,20 +1404,20 @@
                     - [ ] [layer 6] 0002 W3C Prov primer
 
                       [R] [translation](<0001 Common DSW Knowledge Model [6f6241d9]/0003 Creating and collecting data [b1df3c74]/0007 How will you be collecting and keeping your metadata [8c962e6f]/0003 Explore [6d18bfff]/0009 Will you be documenting the data with W3C PROV provenance [106df534]/0002 W3C Prov primer [074d97c3]/translation.md>)
-                    - [x] [layer 6] 0003 No
+                    - [x] [layer 6] [shared] 0003 No
 
                       [A] [translation](<0001 Common DSW Knowledge Model [6f6241d9]/0003 Creating and collecting data [b1df3c74]/0007 How will you be collecting and keeping your metadata [8c962e6f]/0003 Explore [6d18bfff]/0009 Will you be documenting the data with W3C PROV provenance [106df534]/0003 No [ac02cdb6]/translation.md>)
-                    - [ ] [layer 6] 0004 Yes
+                    - [ ] [layer 6] [shared] 0004 Yes
 
                       [A] [translation](<0001 Common DSW Knowledge Model [6f6241d9]/0003 Creating and collecting data [b1df3c74]/0007 How will you be collecting and keeping your metadata [8c962e6f]/0003 Explore [6d18bfff]/0009 Will you be documenting the data with W3C PROV provenance [106df534]/0004 Yes [42502a61]/translation.md>)
                 - [ ] [layer 5] 0010 Will you use a workflow system that automatically keeps track of...
 
                   [Q] [translation](<0001 Common DSW Knowledge Model [6f6241d9]/0003 Creating and collecting data [b1df3c74]/0007 How will you be collecting and keeping your metadata [8c962e6f]/0003 Explore [6d18bfff]/0010 Will you use a workflow system that automatically keeps track of... [91a7c75c]/translation.md>)
 
-                    - [ ] [layer 6] 0001 Yes
+                    - [ ] [layer 6] [shared] 0001 Yes
 
                       [A] [translation](<0001 Common DSW Knowledge Model [6f6241d9]/0003 Creating and collecting data [b1df3c74]/0007 How will you be collecting and keeping your metadata [8c962e6f]/0003 Explore [6d18bfff]/0010 Will you use a workflow system that automatically keeps track of... [91a7c75c]/0001 Yes [e9568fd5]/translation.md>)
-                    - [x] [layer 6] 0002 No
+                    - [x] [layer 6] [shared] 0002 No
 
                       [A] [translation](<0001 Common DSW Knowledge Model [6f6241d9]/0003 Creating and collecting data [b1df3c74]/0007 How will you be collecting and keeping your metadata [8c962e6f]/0003 Explore [6d18bfff]/0010 Will you use a workflow system that automatically keeps track of... [91a7c75c]/0002 No [fdb89e4f]/translation.md>)
             - [x] [layer 4] 0004 FAIRCookbook on FAIR and the notion of Metadata
@@ -1430,18 +1430,18 @@
 
           [Q] [translation](<0001 Common DSW Knowledge Model [6f6241d9]/0003 Creating and collecting data [b1df3c74]/0008 Will you be acquiring data using measurement equipment [f87c331d]/translation.md>)
 
-            - [x] [layer 4] 0001 No
+            - [x] [layer 4] [shared] 0001 No
 
               [A] [translation](<0001 Common DSW Knowledge Model [6f6241d9]/0003 Creating and collecting data [b1df3c74]/0008 Will you be acquiring data using measurement equipment [f87c331d]/0001 No [8d384c38]/translation.md>)
-            - [ ] [layer 4] 0002 Yes
+            - [ ] [layer 4] [shared] 0002 Yes
 
               [A] [translation](<0001 Common DSW Knowledge Model [6f6241d9]/0003 Creating and collecting data [b1df3c74]/0008 Will you be acquiring data using measurement equipment [f87c331d]/0002 Yes [e4ca2d31]/translation.md>)
 
-                - [ ] [layer 5] 0001 Specify what data sets you will acquire using measurement equipment
+                - [ ] [layer 5] [shared] 0001 Specify what data sets you will acquire using measurement equipment
 
                   [Q] [translation](<0001 Common DSW Knowledge Model [6f6241d9]/0003 Creating and collecting data [b1df3c74]/0008 Will you be acquiring data using measurement equipment [f87c331d]/0002 Yes [e4ca2d31]/0001 Specify what data sets you will acquire using measurement equipment [f5fef09d]/translation.md>)
 
-                    - [x] [layer 6] 0001 Data set -
+                    - [x] [layer 6] [shared] 0001 Data set -
 
                       [Q] [translation](<0001 Common DSW Knowledge Model [6f6241d9]/0003 Creating and collecting data [b1df3c74]/0008 Will you be acquiring data using measurement equipment [f87c331d]/0002 Yes [e4ca2d31]/0001 Specify what data sets you will acquire using measurement equipment [f5fef09d]/0001 Data set - [a077aec4]/translation.md>)
                     - [ ] [layer 6] 0002 Who will do the measurements And where
@@ -1471,11 +1471,11 @@
                                 - [ ] [layer 9] 0003 The measuring party will delete the data, the project partners will...
 
                                   [A] [translation](<0001 Common DSW Knowledge Model [6f6241d9]/0003 Creating and collecting data [b1df3c74]/0008 Will you be acquiring data using measurement equipment [f87c331d]/0002 Yes [e4ca2d31]/0001 Specify what data sets you will acquire using measurement equipment [f5fef09d]/0002 Who will do the measurements And where [ee59664e]/0003 External party [f2784b7e]/0001 Has responsibility for long term safe keeping of the raw data been... [f0a474ac]/0003 The measuring party will delete the data, the project partners will... [350fa8cc]/translation.md>)
-                                - [ ] [layer 9] 0004 We have made other arrangements
+                                - [ ] [layer 9] [shared] 0004 We have made other arrangements
 
                                   [A] [translation](<0001 Common DSW Knowledge Model [6f6241d9]/0003 Creating and collecting data [b1df3c74]/0008 Will you be acquiring data using measurement equipment [f87c331d]/0002 Yes [e4ca2d31]/0001 Specify what data sets you will acquire using measurement equipment [f5fef09d]/0002 Who will do the measurements And where [ee59664e]/0003 External party [f2784b7e]/0001 Has responsibility for long term safe keeping of the raw data been... [f0a474ac]/0004 We have made other arrangements [8197cf1c]/translation.md>)
 
-                                    - [ ] [layer 10] 0001 What other arrangements
+                                    - [ ] [layer 10] [shared] 0001 What other arrangements
 
                                       [Q] [translation](<0001 Common DSW Knowledge Model [6f6241d9]/0003 Creating and collecting data [b1df3c74]/0008 Will you be acquiring data using measurement equipment [f87c331d]/0002 Yes [e4ca2d31]/0001 Specify what data sets you will acquire using measurement equipment [f5fef09d]/0002 Who will do the measurements And where [ee59664e]/0003 External party [f2784b7e]/0001 Has responsibility for long term safe keeping of the raw data been... [f0a474ac]/0004 We have made other arrangements [8197cf1c]/0001 What other arrangements [e576471a]/translation.md>)
                             - [x] [layer 8] 0002 Has formal ownership of the data been established
@@ -1488,11 +1488,11 @@
                                 - [ ] [layer 9] 0002 The project partners acquire full ownership
 
                                   [A] [translation](<0001 Common DSW Knowledge Model [6f6241d9]/0003 Creating and collecting data [b1df3c74]/0008 Will you be acquiring data using measurement equipment [f87c331d]/0002 Yes [e4ca2d31]/0001 Specify what data sets you will acquire using measurement equipment [f5fef09d]/0002 Who will do the measurements And where [ee59664e]/0003 External party [f2784b7e]/0002 Has formal ownership of the data been established [aa27852a]/0002 The project partners acquire full ownership [306f7ef4]/translation.md>)
-                                - [ ] [layer 9] 0003 We have made other arrangements
+                                - [ ] [layer 9] [shared] 0003 We have made other arrangements
 
                                   [A] [translation](<0001 Common DSW Knowledge Model [6f6241d9]/0003 Creating and collecting data [b1df3c74]/0008 Will you be acquiring data using measurement equipment [f87c331d]/0002 Yes [e4ca2d31]/0001 Specify what data sets you will acquire using measurement equipment [f5fef09d]/0002 Who will do the measurements And where [ee59664e]/0003 External party [f2784b7e]/0002 Has formal ownership of the data been established [aa27852a]/0003 We have made other arrangements [399245d4]/translation.md>)
 
-                                    - [ ] [layer 10] 0001 What other arrangements
+                                    - [ ] [layer 10] [shared] 0001 What other arrangements
 
                                       [Q] [translation](<0001 Common DSW Knowledge Model [6f6241d9]/0003 Creating and collecting data [b1df3c74]/0008 Will you be acquiring data using measurement equipment [f87c331d]/0002 Yes [e4ca2d31]/0001 Specify what data sets you will acquire using measurement equipment [f5fef09d]/0002 Who will do the measurements And where [ee59664e]/0003 External party [f2784b7e]/0002 Has formal ownership of the data been established [aa27852a]/0003 We have made other arrangements [399245d4]/0001 What other arrangements [227f056a]/translation.md>)
                     - [ ] [layer 6] 0003 Instruments used for data collection
@@ -1530,20 +1530,20 @@
 
                               [Q] [translation](<0001 Common DSW Knowledge Model [6f6241d9]/0003 Creating and collecting data [b1df3c74]/0008 Will you be acquiring data using measurement equipment [f87c331d]/0002 Yes [e4ca2d31]/0001 Specify what data sets you will acquire using measurement equipment [f5fef09d]/0005 Is special care needed to get the raw data ready for processing [28b99b8e]/0002 Yes, lets explore this [065a500b]/0001 Is the data format established [2c5fd209]/translation.md>)
 
-                                - [x] [layer 9] 0001 No
+                                - [x] [layer 9] [shared] 0001 No
 
                                   [A] [translation](<0001 Common DSW Knowledge Model [6f6241d9]/0003 Creating and collecting data [b1df3c74]/0008 Will you be acquiring data using measurement equipment [f87c331d]/0002 Yes [e4ca2d31]/0001 Specify what data sets you will acquire using measurement equipment [f5fef09d]/0005 Is special care needed to get the raw data ready for processing [28b99b8e]/0002 Yes, lets explore this [065a500b]/0001 Is the data format established [2c5fd209]/0001 No [856438ef]/translation.md>)
-                                - [ ] [layer 9] 0002 Yes
+                                - [ ] [layer 9] [shared] 0002 Yes
 
                                   [A] [translation](<0001 Common DSW Knowledge Model [6f6241d9]/0003 Creating and collecting data [b1df3c74]/0008 Will you be acquiring data using measurement equipment [f87c331d]/0002 Yes [e4ca2d31]/0001 Specify what data sets you will acquire using measurement equipment [f5fef09d]/0005 Is special care needed to get the raw data ready for processing [28b99b8e]/0002 Yes, lets explore this [065a500b]/0001 Is the data format established [2c5fd209]/0002 Yes [abc6b715]/translation.md>)
                             - [ ] [layer 8] 0002 Is data integrity guaranteed during this stage
 
                               [Q] [translation](<0001 Common DSW Knowledge Model [6f6241d9]/0003 Creating and collecting data [b1df3c74]/0008 Will you be acquiring data using measurement equipment [f87c331d]/0002 Yes [e4ca2d31]/0001 Specify what data sets you will acquire using measurement equipment [f5fef09d]/0005 Is special care needed to get the raw data ready for processing [28b99b8e]/0002 Yes, lets explore this [065a500b]/0002 Is data integrity guaranteed during this stage [129f74a4]/translation.md>)
 
-                                - [x] [layer 9] 0001 No
+                                - [x] [layer 9] [shared] 0001 No
 
                                   [A] [translation](<0001 Common DSW Knowledge Model [6f6241d9]/0003 Creating and collecting data [b1df3c74]/0008 Will you be acquiring data using measurement equipment [f87c331d]/0002 Yes [e4ca2d31]/0001 Specify what data sets you will acquire using measurement equipment [f5fef09d]/0005 Is special care needed to get the raw data ready for processing [28b99b8e]/0002 Yes, lets explore this [065a500b]/0002 Is data integrity guaranteed during this stage [129f74a4]/0001 No [faafb22b]/translation.md>)
-                                - [ ] [layer 9] 0002 Yes
+                                - [ ] [layer 9] [shared] 0002 Yes
 
                                   [A] [translation](<0001 Common DSW Knowledge Model [6f6241d9]/0003 Creating and collecting data [b1df3c74]/0008 Will you be acquiring data using measurement equipment [f87c331d]/0002 Yes [e4ca2d31]/0001 Specify what data sets you will acquire using measurement equipment [f5fef09d]/0005 Is special care needed to get the raw data ready for processing [28b99b8e]/0002 Yes, lets explore this [065a500b]/0002 Is data integrity guaranteed during this stage [129f74a4]/0002 Yes [5935eebc]/translation.md>)
                             - [x] [layer 8] 0003 How will the raw data be transported
@@ -1561,7 +1561,7 @@
 
                                       [Q] [translation](<0001 Common DSW Knowledge Model [6f6241d9]/0003 Creating and collecting data [b1df3c74]/0008 Will you be acquiring data using measurement equipment [f87c331d]/0002 Yes [e4ca2d31]/0001 Specify what data sets you will acquire using measurement equipment [f5fef09d]/0005 Is special care needed to get the raw data ready for processing [28b99b8e]/0002 Yes, lets explore this [065a500b]/0003 How will the raw data be transported [2e8d6e55]/0002 On physical media [8c9c3d59]/0001 Is sufficient writing and reading capacity available for the... [31da89a7]/translation.md>)
 
-                                        - [ ] [layer 11] 0001 Yes, has been taken care of
+                                        - [ ] [layer 11] [shared] 0001 Yes, has been taken care of
 
                                           [A] [translation](<0001 Common DSW Knowledge Model [6f6241d9]/0003 Creating and collecting data [b1df3c74]/0008 Will you be acquiring data using measurement equipment [f87c331d]/0002 Yes [e4ca2d31]/0001 Specify what data sets you will acquire using measurement equipment [f5fef09d]/0005 Is special care needed to get the raw data ready for processing [28b99b8e]/0002 Yes, lets explore this [065a500b]/0003 How will the raw data be transported [2e8d6e55]/0002 On physical media [8c9c3d59]/0001 Is sufficient writing and reading capacity available for the... [31da89a7]/0001 Yes, has been taken care of [be674d81]/translation.md>)
                                 - [ ] [layer 9] 0003 Via the network
@@ -1572,10 +1572,10 @@
 
                                       [Q] [translation](<0001 Common DSW Knowledge Model [6f6241d9]/0003 Creating and collecting data [b1df3c74]/0008 Will you be acquiring data using measurement equipment [f87c331d]/0002 Yes [e4ca2d31]/0001 Specify what data sets you will acquire using measurement equipment [f5fef09d]/0005 Is special care needed to get the raw data ready for processing [28b99b8e]/0002 Yes, lets explore this [065a500b]/0003 How will the raw data be transported [2e8d6e55]/0003 Via the network [ca02196a]/0001 Is sufficient network capacity available [3d942d91]/translation.md>)
 
-                                        - [ ] [layer 11] 0001 Yes, has been taken care of
+                                        - [ ] [layer 11] [shared] 0001 Yes, has been taken care of
 
                                           [A] [translation](<0001 Common DSW Knowledge Model [6f6241d9]/0003 Creating and collecting data [b1df3c74]/0008 Will you be acquiring data using measurement equipment [f87c331d]/0002 Yes [e4ca2d31]/0001 Specify what data sets you will acquire using measurement equipment [f5fef09d]/0005 Is special care needed to get the raw data ready for processing [28b99b8e]/0002 Yes, lets explore this [065a500b]/0003 How will the raw data be transported [2e8d6e55]/0003 Via the network [ca02196a]/0001 Is sufficient network capacity available [3d942d91]/0001 Yes, has been taken care of [44dfd6cb]/translation.md>)
-                                - [ ] [layer 9] 0004 RDMkit on Data Transfer
+                                - [ ] [layer 9] [shared] 0004 RDMkit on Data Transfer
 
                                   [R] [translation](<0001 Common DSW Knowledge Model [6f6241d9]/0003 Creating and collecting data [b1df3c74]/0008 Will you be acquiring data using measurement equipment [f87c331d]/0002 Yes [e4ca2d31]/0001 Specify what data sets you will acquire using measurement equipment [f5fef09d]/0005 Is special care needed to get the raw data ready for processing [28b99b8e]/0002 Yes, lets explore this [065a500b]/0003 How will the raw data be transported [2e8d6e55]/0004 RDMkit on Data Transfer [5b5a7569]/translation.md>)
                             - [ ] [layer 8] 0004 Is data security guaranteed during this stage
@@ -1585,17 +1585,17 @@
                                 - [x] [layer 9] 0001 No, not needed
 
                                   [A] [translation](<0001 Common DSW Knowledge Model [6f6241d9]/0003 Creating and collecting data [b1df3c74]/0008 Will you be acquiring data using measurement equipment [f87c331d]/0002 Yes [e4ca2d31]/0001 Specify what data sets you will acquire using measurement equipment [f5fef09d]/0005 Is special care needed to get the raw data ready for processing [28b99b8e]/0002 Yes, lets explore this [065a500b]/0004 Is data security guaranteed during this stage [0ebd660b]/0001 No, not needed [c30318bd]/translation.md>)
-                                - [ ] [layer 9] 0002 Yes
+                                - [ ] [layer 9] [shared] 0002 Yes
 
                                   [A] [translation](<0001 Common DSW Knowledge Model [6f6241d9]/0003 Creating and collecting data [b1df3c74]/0008 Will you be acquiring data using measurement equipment [f87c331d]/0002 Yes [e4ca2d31]/0001 Specify what data sets you will acquire using measurement equipment [f5fef09d]/0005 Is special care needed to get the raw data ready for processing [28b99b8e]/0002 Yes, lets explore this [065a500b]/0004 Is data security guaranteed during this stage [0ebd660b]/0002 Yes [a87f2a11]/translation.md>)
                     - [ ] [layer 6] 0006 Will you be using quality processes
 
                       [Q] [translation](<0001 Common DSW Knowledge Model [6f6241d9]/0003 Creating and collecting data [b1df3c74]/0008 Will you be acquiring data using measurement equipment [f87c331d]/0002 Yes [e4ca2d31]/0001 Specify what data sets you will acquire using measurement equipment [f5fef09d]/0006 Will you be using quality processes [ba38b16d]/translation.md>)
 
-                        - [x] [layer 7] 0001 No
+                        - [x] [layer 7] [shared] 0001 No
 
                           [A] [translation](<0001 Common DSW Knowledge Model [6f6241d9]/0003 Creating and collecting data [b1df3c74]/0008 Will you be acquiring data using measurement equipment [f87c331d]/0002 Yes [e4ca2d31]/0001 Specify what data sets you will acquire using measurement equipment [f5fef09d]/0006 Will you be using quality processes [ba38b16d]/0001 No [de365ac3]/translation.md>)
-                        - [ ] [layer 7] 0002 Yes
+                        - [ ] [layer 7] [shared] 0002 Yes
 
                           [A] [translation](<0001 Common DSW Knowledge Model [6f6241d9]/0003 Creating and collecting data [b1df3c74]/0008 Will you be acquiring data using measurement equipment [f87c331d]/0002 Yes [e4ca2d31]/0001 Specify what data sets you will acquire using measurement equipment [f5fef09d]/0006 Will you be using quality processes [ba38b16d]/0002 Yes [9a8dbe23]/translation.md>)
 
@@ -1603,125 +1603,125 @@
 
                               [Q] [translation](<0001 Common DSW Knowledge Model [6f6241d9]/0003 Creating and collecting data [b1df3c74]/0008 Will you be acquiring data using measurement equipment [f87c331d]/0002 Yes [e4ca2d31]/0001 Specify what data sets you will acquire using measurement equipment [f5fef09d]/0006 Will you be using quality processes [ba38b16d]/0002 Yes [9a8dbe23]/0001 Are you using any other quality processes [839ea5fc]/translation.md>)
 
-                                - [ ] [layer 9] 0001 Yes
+                                - [ ] [layer 9] [shared] 0001 Yes
 
                                   [A] [translation](<0001 Common DSW Knowledge Model [6f6241d9]/0003 Creating and collecting data [b1df3c74]/0008 Will you be acquiring data using measurement equipment [f87c331d]/0002 Yes [e4ca2d31]/0001 Specify what data sets you will acquire using measurement equipment [f5fef09d]/0006 Will you be using quality processes [ba38b16d]/0002 Yes [9a8dbe23]/0001 Are you using any other quality processes [839ea5fc]/0001 Yes [f1e2f788]/translation.md>)
 
                                     - [ ] [layer 10] 0001 What other quality processes do you use
 
                                       [Q] [translation](<0001 Common DSW Knowledge Model [6f6241d9]/0003 Creating and collecting data [b1df3c74]/0008 Will you be acquiring data using measurement equipment [f87c331d]/0002 Yes [e4ca2d31]/0001 Specify what data sets you will acquire using measurement equipment [f5fef09d]/0006 Will you be using quality processes [ba38b16d]/0002 Yes [9a8dbe23]/0001 Are you using any other quality processes [839ea5fc]/0001 Yes [f1e2f788]/0001 What other quality processes do you use [e24167a2]/translation.md>)
-                                - [x] [layer 9] 0002 No
+                                - [x] [layer 9] [shared] 0002 No
 
                                   [A] [translation](<0001 Common DSW Knowledge Model [6f6241d9]/0003 Creating and collecting data [b1df3c74]/0008 Will you be acquiring data using measurement equipment [f87c331d]/0002 Yes [e4ca2d31]/0001 Specify what data sets you will acquire using measurement equipment [f5fef09d]/0006 Will you be using quality processes [ba38b16d]/0002 Yes [9a8dbe23]/0001 Are you using any other quality processes [839ea5fc]/0002 No [095cdc0d]/translation.md>)
                             - [x] [layer 8] 0002 Are you using data peer review
 
                               [Q] [translation](<0001 Common DSW Knowledge Model [6f6241d9]/0003 Creating and collecting data [b1df3c74]/0008 Will you be acquiring data using measurement equipment [f87c331d]/0002 Yes [e4ca2d31]/0001 Specify what data sets you will acquire using measurement equipment [f5fef09d]/0006 Will you be using quality processes [ba38b16d]/0002 Yes [9a8dbe23]/0002 Are you using data peer review [56354f8a]/translation.md>)
 
-                                - [x] [layer 9] 0001 No
+                                - [x] [layer 9] [shared] 0001 No
 
                                   [A] [translation](<0001 Common DSW Knowledge Model [6f6241d9]/0003 Creating and collecting data [b1df3c74]/0008 Will you be acquiring data using measurement equipment [f87c331d]/0002 Yes [e4ca2d31]/0001 Specify what data sets you will acquire using measurement equipment [f5fef09d]/0006 Will you be using quality processes [ba38b16d]/0002 Yes [9a8dbe23]/0002 Are you using data peer review [56354f8a]/0001 No [8dd3a209]/translation.md>)
-                                - [ ] [layer 9] 0002 Yes
+                                - [ ] [layer 9] [shared] 0002 Yes
 
                                   [A] [translation](<0001 Common DSW Knowledge Model [6f6241d9]/0003 Creating and collecting data [b1df3c74]/0008 Will you be acquiring data using measurement equipment [f87c331d]/0002 Yes [e4ca2d31]/0001 Specify what data sets you will acquire using measurement equipment [f5fef09d]/0006 Will you be using quality processes [ba38b16d]/0002 Yes [9a8dbe23]/0002 Are you using data peer review [56354f8a]/0002 Yes [8f6a792d]/translation.md>)
                             - [x] [layer 8] 0003 Are you running standardized data capture or recording
 
                               [Q] [translation](<0001 Common DSW Knowledge Model [6f6241d9]/0003 Creating and collecting data [b1df3c74]/0008 Will you be acquiring data using measurement equipment [f87c331d]/0002 Yes [e4ca2d31]/0001 Specify what data sets you will acquire using measurement equipment [f5fef09d]/0006 Will you be using quality processes [ba38b16d]/0002 Yes [9a8dbe23]/0003 Are you running standardized data capture or recording [ecdc6c3f]/translation.md>)
 
-                                - [x] [layer 9] 0001 No
+                                - [x] [layer 9] [shared] 0001 No
 
                                   [A] [translation](<0001 Common DSW Knowledge Model [6f6241d9]/0003 Creating and collecting data [b1df3c74]/0008 Will you be acquiring data using measurement equipment [f87c331d]/0002 Yes [e4ca2d31]/0001 Specify what data sets you will acquire using measurement equipment [f5fef09d]/0006 Will you be using quality processes [ba38b16d]/0002 Yes [9a8dbe23]/0003 Are you running standardized data capture or recording [ecdc6c3f]/0001 No [3180d0d4]/translation.md>)
-                                - [ ] [layer 9] 0002 Yes
+                                - [ ] [layer 9] [shared] 0002 Yes
 
                                   [A] [translation](<0001 Common DSW Knowledge Model [6f6241d9]/0003 Creating and collecting data [b1df3c74]/0008 Will you be acquiring data using measurement equipment [f87c331d]/0002 Yes [e4ca2d31]/0001 Specify what data sets you will acquire using measurement equipment [f5fef09d]/0006 Will you be using quality processes [ba38b16d]/0002 Yes [9a8dbe23]/0003 Are you running standardized data capture or recording [ecdc6c3f]/0002 Yes [8ff86fcf]/translation.md>)
                             - [x] [layer 8] 0004 Are you using controlled vocabularies where possible
 
                               [Q] [translation](<0001 Common DSW Knowledge Model [6f6241d9]/0003 Creating and collecting data [b1df3c74]/0008 Will you be acquiring data using measurement equipment [f87c331d]/0002 Yes [e4ca2d31]/0001 Specify what data sets you will acquire using measurement equipment [f5fef09d]/0006 Will you be using quality processes [ba38b16d]/0002 Yes [9a8dbe23]/0004 Are you using controlled vocabularies where possible [e2401b56]/translation.md>)
 
-                                - [x] [layer 9] 0001 No
+                                - [x] [layer 9] [shared] 0001 No
 
                                   [A] [translation](<0001 Common DSW Knowledge Model [6f6241d9]/0003 Creating and collecting data [b1df3c74]/0008 Will you be acquiring data using measurement equipment [f87c331d]/0002 Yes [e4ca2d31]/0001 Specify what data sets you will acquire using measurement equipment [f5fef09d]/0006 Will you be using quality processes [ba38b16d]/0002 Yes [9a8dbe23]/0004 Are you using controlled vocabularies where possible [e2401b56]/0001 No [7cda2bd8]/translation.md>)
-                                - [ ] [layer 9] 0002 Yes
+                                - [ ] [layer 9] [shared] 0002 Yes
 
                                   [A] [translation](<0001 Common DSW Knowledge Model [6f6241d9]/0003 Creating and collecting data [b1df3c74]/0008 Will you be acquiring data using measurement equipment [f87c331d]/0002 Yes [e4ca2d31]/0001 Specify what data sets you will acquire using measurement equipment [f5fef09d]/0006 Will you be using quality processes [ba38b16d]/0002 Yes [9a8dbe23]/0004 Are you using controlled vocabularies where possible [e2401b56]/0002 Yes [e5af082a]/translation.md>)
                             - [x] [layer 8] 0005 Are you calibrating measurements
 
                               [Q] [translation](<0001 Common DSW Knowledge Model [6f6241d9]/0003 Creating and collecting data [b1df3c74]/0008 Will you be acquiring data using measurement equipment [f87c331d]/0002 Yes [e4ca2d31]/0001 Specify what data sets you will acquire using measurement equipment [f5fef09d]/0006 Will you be using quality processes [ba38b16d]/0002 Yes [9a8dbe23]/0005 Are you calibrating measurements [e458d2eb]/translation.md>)
 
-                                - [x] [layer 9] 0001 No
+                                - [x] [layer 9] [shared] 0001 No
 
                                   [A] [translation](<0001 Common DSW Knowledge Model [6f6241d9]/0003 Creating and collecting data [b1df3c74]/0008 Will you be acquiring data using measurement equipment [f87c331d]/0002 Yes [e4ca2d31]/0001 Specify what data sets you will acquire using measurement equipment [f5fef09d]/0006 Will you be using quality processes [ba38b16d]/0002 Yes [9a8dbe23]/0005 Are you calibrating measurements [e458d2eb]/0001 No [55953e8e]/translation.md>)
-                                - [ ] [layer 9] 0002 Yes
+                                - [ ] [layer 9] [shared] 0002 Yes
 
                                   [A] [translation](<0001 Common DSW Knowledge Model [6f6241d9]/0003 Creating and collecting data [b1df3c74]/0008 Will you be acquiring data using measurement equipment [f87c331d]/0002 Yes [e4ca2d31]/0001 Specify what data sets you will acquire using measurement equipment [f5fef09d]/0006 Will you be using quality processes [ba38b16d]/0002 Yes [9a8dbe23]/0005 Are you calibrating measurements [e458d2eb]/0002 Yes [7cd93213]/translation.md>)
                             - [x] [layer 8] 0006 Are you running repeat samples or are you repeating measurements in...
 
                               [Q] [translation](<0001 Common DSW Knowledge Model [6f6241d9]/0003 Creating and collecting data [b1df3c74]/0008 Will you be acquiring data using measurement equipment [f87c331d]/0002 Yes [e4ca2d31]/0001 Specify what data sets you will acquire using measurement equipment [f5fef09d]/0006 Will you be using quality processes [ba38b16d]/0002 Yes [9a8dbe23]/0006 Are you running repeat samples or are you repeating measurements in... [d5ab8298]/translation.md>)
 
-                                - [x] [layer 9] 0001 No
+                                - [x] [layer 9] [shared] 0001 No
 
                                   [A] [translation](<0001 Common DSW Knowledge Model [6f6241d9]/0003 Creating and collecting data [b1df3c74]/0008 Will you be acquiring data using measurement equipment [f87c331d]/0002 Yes [e4ca2d31]/0001 Specify what data sets you will acquire using measurement equipment [f5fef09d]/0006 Will you be using quality processes [ba38b16d]/0002 Yes [9a8dbe23]/0006 Are you running repeat samples or are you repeating measurements in... [d5ab8298]/0001 No [ba2aa9ee]/translation.md>)
-                                - [ ] [layer 9] 0002 Yes
+                                - [ ] [layer 9] [shared] 0002 Yes
 
                                   [A] [translation](<0001 Common DSW Knowledge Model [6f6241d9]/0003 Creating and collecting data [b1df3c74]/0008 Will you be acquiring data using measurement equipment [f87c331d]/0002 Yes [e4ca2d31]/0001 Specify what data sets you will acquire using measurement equipment [f5fef09d]/0006 Will you be using quality processes [ba38b16d]/0002 Yes [9a8dbe23]/0006 Are you running repeat samples or are you repeating measurements in... [d5ab8298]/0002 Yes [d79fc9ad]/translation.md>)
                             - [x] [layer 8] 0007 Are you doing Data Entry validation
 
                               [Q] [translation](<0001 Common DSW Knowledge Model [6f6241d9]/0003 Creating and collecting data [b1df3c74]/0008 Will you be acquiring data using measurement equipment [f87c331d]/0002 Yes [e4ca2d31]/0001 Specify what data sets you will acquire using measurement equipment [f5fef09d]/0006 Will you be using quality processes [ba38b16d]/0002 Yes [9a8dbe23]/0007 Are you doing Data Entry validation [01b70401]/translation.md>)
 
-                                - [x] [layer 9] 0001 No
+                                - [x] [layer 9] [shared] 0001 No
 
                                   [A] [translation](<0001 Common DSW Knowledge Model [6f6241d9]/0003 Creating and collecting data [b1df3c74]/0008 Will you be acquiring data using measurement equipment [f87c331d]/0002 Yes [e4ca2d31]/0001 Specify what data sets you will acquire using measurement equipment [f5fef09d]/0006 Will you be using quality processes [ba38b16d]/0002 Yes [9a8dbe23]/0007 Are you doing Data Entry validation [01b70401]/0001 No [6503be67]/translation.md>)
-                                - [ ] [layer 9] 0002 Yes
+                                - [ ] [layer 9] [shared] 0002 Yes
 
                                   [A] [translation](<0001 Common DSW Knowledge Model [6f6241d9]/0003 Creating and collecting data [b1df3c74]/0008 Will you be acquiring data using measurement equipment [f87c331d]/0002 Yes [e4ca2d31]/0001 Specify what data sets you will acquire using measurement equipment [f5fef09d]/0006 Will you be using quality processes [ba38b16d]/0002 Yes [9a8dbe23]/0007 Are you doing Data Entry validation [01b70401]/0002 Yes [394d1836]/translation.md>)
                             - [x] [layer 8] 0008 Are you measuring samples for which the outcome is known in order...
 
                               [Q] [translation](<0001 Common DSW Knowledge Model [6f6241d9]/0003 Creating and collecting data [b1df3c74]/0008 Will you be acquiring data using measurement equipment [f87c331d]/0002 Yes [e4ca2d31]/0001 Specify what data sets you will acquire using measurement equipment [f5fef09d]/0006 Will you be using quality processes [ba38b16d]/0002 Yes [9a8dbe23]/0008 Are you measuring samples for which the outcome is known in order... [1b919e1e]/translation.md>)
 
-                                - [x] [layer 9] 0001 No
+                                - [x] [layer 9] [shared] 0001 No
 
                                   [A] [translation](<0001 Common DSW Knowledge Model [6f6241d9]/0003 Creating and collecting data [b1df3c74]/0008 Will you be acquiring data using measurement equipment [f87c331d]/0002 Yes [e4ca2d31]/0001 Specify what data sets you will acquire using measurement equipment [f5fef09d]/0006 Will you be using quality processes [ba38b16d]/0002 Yes [9a8dbe23]/0008 Are you measuring samples for which the outcome is known in order... [1b919e1e]/0001 No [6dbf4e18]/translation.md>)
-                                - [ ] [layer 9] 0002 Yes
+                                - [ ] [layer 9] [shared] 0002 Yes
 
                                   [A] [translation](<0001 Common DSW Knowledge Model [6f6241d9]/0003 Creating and collecting data [b1df3c74]/0008 Will you be acquiring data using measurement equipment [f87c331d]/0002 Yes [e4ca2d31]/0001 Specify what data sets you will acquire using measurement equipment [f5fef09d]/0006 Will you be using quality processes [ba38b16d]/0002 Yes [9a8dbe23]/0008 Are you measuring samples for which the outcome is known in order... [1b919e1e]/0002 Yes [4f39e294]/translation.md>)
-                        - [x] [layer 7] 0003 RDMkit on Data Quality
+                        - [x] [layer 7] [shared] 0003 RDMkit on Data Quality
 
                           [R] [translation](<0001 Common DSW Knowledge Model [6f6241d9]/0003 Creating and collecting data [b1df3c74]/0008 Will you be acquiring data using measurement equipment [f87c331d]/0002 Yes [e4ca2d31]/0001 Specify what data sets you will acquire using measurement equipment [f5fef09d]/0006 Will you be using quality processes [ba38b16d]/0003 RDMkit on Data Quality [5414f646]/translation.md>)
-                    - [ ] [layer 6] 0007 Who else could be interested in using this data
+                    - [ ] [layer 6] [shared] 0007 Who else could be interested in using this data
 
                       [Q] [translation](<0001 Common DSW Knowledge Model [6f6241d9]/0003 Creating and collecting data [b1df3c74]/0008 Will you be acquiring data using measurement equipment [f87c331d]/0002 Yes [e4ca2d31]/0001 Specify what data sets you will acquire using measurement equipment [f5fef09d]/0007 Who else could be interested in using this data [135aa977]/translation.md>)
 
-                        - [x] [layer 7] 0001 Just us
+                        - [x] [layer 7] [shared] 0001 Just us
 
                           [A] [translation](<0001 Common DSW Knowledge Model [6f6241d9]/0003 Creating and collecting data [b1df3c74]/0008 Will you be acquiring data using measurement equipment [f87c331d]/0002 Yes [e4ca2d31]/0001 Specify what data sets you will acquire using measurement equipment [f5fef09d]/0007 Who else could be interested in using this data [135aa977]/0001 Just us [f5a4d36c]/translation.md>)
-                        - [x] [layer 7] 0002 Other researchers working in the same field of research
+                        - [x] [layer 7] [shared] 0002 Other researchers working in the same field of research
 
                           [A] [translation](<0001 Common DSW Knowledge Model [6f6241d9]/0003 Creating and collecting data [b1df3c74]/0008 Will you be acquiring data using measurement equipment [f87c331d]/0002 Yes [e4ca2d31]/0001 Specify what data sets you will acquire using measurement equipment [f5fef09d]/0007 Who else could be interested in using this data [135aa977]/0002 Other researchers working in the same field of research [515cac06]/translation.md>)
-                        - [ ] [layer 7] 0003 Researchers working in other fields
+                        - [ ] [layer 7] [shared] 0003 Researchers working in other fields
 
                           [A] [translation](<0001 Common DSW Knowledge Model [6f6241d9]/0003 Creating and collecting data [b1df3c74]/0008 Will you be acquiring data using measurement equipment [f87c331d]/0002 Yes [e4ca2d31]/0001 Specify what data sets you will acquire using measurement equipment [f5fef09d]/0007 Who else could be interested in using this data [135aa977]/0003 Researchers working in other fields [9270c716]/translation.md>)
 
-                            - [x] [layer 8] 0001 How do you think other researchers can use this data
+                            - [x] [layer 8] [shared] 0001 How do you think other researchers can use this data
 
                               [Q] [translation](<0001 Common DSW Knowledge Model [6f6241d9]/0003 Creating and collecting data [b1df3c74]/0008 Will you be acquiring data using measurement equipment [f87c331d]/0002 Yes [e4ca2d31]/0001 Specify what data sets you will acquire using measurement equipment [f5fef09d]/0007 Who else could be interested in using this data [135aa977]/0003 Researchers working in other fields [9270c716]/0001 How do you think other researchers can use this data [1ca28160]/translation.md>)
         - [x] [layer 3] 0009 Do you have any non-equipment data capture
 
           [Q] [translation](<0001 Common DSW Knowledge Model [6f6241d9]/0003 Creating and collecting data [b1df3c74]/0009 Do you have any non-equipment data capture [f038bd46]/translation.md>)
 
-            - [x] [layer 4] 0001 No
+            - [x] [layer 4] [shared] 0001 No
 
               [A] [translation](<0001 Common DSW Knowledge Model [6f6241d9]/0003 Creating and collecting data [b1df3c74]/0009 Do you have any non-equipment data capture [f038bd46]/0001 No [514befe5]/translation.md>)
-            - [ ] [layer 4] 0002 Yes
+            - [ ] [layer 4] [shared] 0002 Yes
 
               [A] [translation](<0001 Common DSW Knowledge Model [6f6241d9]/0003 Creating and collecting data [b1df3c74]/0009 Do you have any non-equipment data capture [f038bd46]/0002 Yes [4fd89b13]/translation.md>)
 
-                - [ ] [layer 5] 0001 Please list all non-equipment data sets you will collect
+                - [ ] [layer 5] [shared] 0001 Please list all non-equipment data sets you will collect
 
                   [Q] [translation](<0001 Common DSW Knowledge Model [6f6241d9]/0003 Creating and collecting data [b1df3c74]/0009 Do you have any non-equipment data capture [f038bd46]/0002 Yes [4fd89b13]/0001 Please list all non-equipment data sets you will collect [b642c31d]/translation.md>)
 
-                    - [x] [layer 6] 0001 Data set -
+                    - [x] [layer 6] [shared] 0001 Data set -
 
                       [Q] [translation](<0001 Common DSW Knowledge Model [6f6241d9]/0003 Creating and collecting data [b1df3c74]/0009 Do you have any non-equipment data capture [f038bd46]/0002 Yes [4fd89b13]/0001 Please list all non-equipment data sets you will collect [b642c31d]/0001 Data set - [d87a239f]/translation.md>)
-                    - [x] [layer 6] 0002 Description
+                    - [x] [layer 6] [shared] 0002 Description
 
                       [Q] [translation](<0001 Common DSW Knowledge Model [6f6241d9]/0003 Creating and collecting data [b1df3c74]/0009 Do you have any non-equipment data capture [f038bd46]/0002 Yes [4fd89b13]/0001 Please list all non-equipment data sets you will collect [b642c31d]/0002 Description [934f6592]/translation.md>)
                     - [x] [layer 6] 0003 How will the data be captured
@@ -1745,21 +1745,21 @@
                                 - [x] [layer 9] 0002 One of the members of the project team
 
                                   [A] [translation](<0001 Common DSW Knowledge Model [6f6241d9]/0003 Creating and collecting data [b1df3c74]/0009 Do you have any non-equipment data capture [f038bd46]/0002 Yes [4fd89b13]/0001 Please list all non-equipment data sets you will collect [b642c31d]/0003 How will the data be captured [4e84a44f]/0002 Data will first be on paper [374974a6]/0001 Who will do the data entry [32f5bc5c]/0002 One of the members of the project team [9660950a]/translation.md>)
-                                - [ ] [layer 9] 0003 We have made other arrangements
+                                - [ ] [layer 9] [shared] 0003 We have made other arrangements
 
                                   [A] [translation](<0001 Common DSW Knowledge Model [6f6241d9]/0003 Creating and collecting data [b1df3c74]/0009 Do you have any non-equipment data capture [f038bd46]/0002 Yes [4fd89b13]/0001 Please list all non-equipment data sets you will collect [b642c31d]/0003 How will the data be captured [4e84a44f]/0002 Data will first be on paper [374974a6]/0001 Who will do the data entry [32f5bc5c]/0003 We have made other arrangements [82ef3ee8]/translation.md>)
 
-                                    - [ ] [layer 10] 0001 What other arrangements
+                                    - [ ] [layer 10] [shared] 0001 What other arrangements
 
                                       [Q] [translation](<0001 Common DSW Knowledge Model [6f6241d9]/0003 Creating and collecting data [b1df3c74]/0009 Do you have any non-equipment data capture [f038bd46]/0002 Yes [4fd89b13]/0001 Please list all non-equipment data sets you will collect [b642c31d]/0003 How will the data be captured [4e84a44f]/0002 Data will first be on paper [374974a6]/0001 Who will do the data entry [32f5bc5c]/0003 We have made other arrangements [82ef3ee8]/0001 What other arrangements [f0e57014]/translation.md>)
                             - [x] [layer 8] 0002 Did you arrange who will make the data digitally available to you
 
                               [Q] [translation](<0001 Common DSW Knowledge Model [6f6241d9]/0003 Creating and collecting data [b1df3c74]/0009 Do you have any non-equipment data capture [f038bd46]/0002 Yes [4fd89b13]/0001 Please list all non-equipment data sets you will collect [b642c31d]/0003 How will the data be captured [4e84a44f]/0002 Data will first be on paper [374974a6]/0002 Did you arrange who will make the data digitally available to you [a205f751]/translation.md>)
 
-                                - [ ] [layer 9] 0001 Not yet
+                                - [ ] [layer 9] [shared] 0001 Not yet
 
                                   [A] [translation](<0001 Common DSW Knowledge Model [6f6241d9]/0003 Creating and collecting data [b1df3c74]/0009 Do you have any non-equipment data capture [f038bd46]/0002 Yes [4fd89b13]/0001 Please list all non-equipment data sets you will collect [b642c31d]/0003 How will the data be captured [4e84a44f]/0002 Data will first be on paper [374974a6]/0002 Did you arrange who will make the data digitally available to you [a205f751]/0001 Not yet [1c6da256]/translation.md>)
-                                - [ ] [layer 9] 0002 Yes
+                                - [ ] [layer 9] [shared] 0002 Yes
 
                                   [A] [translation](<0001 Common DSW Knowledge Model [6f6241d9]/0003 Creating and collecting data [b1df3c74]/0009 Do you have any non-equipment data capture [f038bd46]/0002 Yes [4fd89b13]/0001 Please list all non-equipment data sets you will collect [b642c31d]/0003 How will the data be captured [4e84a44f]/0002 Data will first be on paper [374974a6]/0002 Did you arrange who will make the data digitally available to you [a205f751]/0002 Yes [83d23b9f]/translation.md>)
                     - [ ] [layer 6] 0004 Will all data be collected by a single person
@@ -1789,38 +1789,38 @@
                                 - [ ] [layer 9] 0004 We do validation afterwards
 
                                   [A] [translation](<0001 Common DSW Knowledge Model [6f6241d9]/0003 Creating and collecting data [b1df3c74]/0009 Do you have any non-equipment data capture [f038bd46]/0002 Yes [4fd89b13]/0001 Please list all non-equipment data sets you will collect [b642c31d]/0004 Will all data be collected by a single person [36d40d39]/0002 More people will capture data [d988687b]/0001 Is there a risk of different interpretations Subjectivity [68956a97]/0004 We do validation afterwards [8bf15202]/translation.md>)
-                                - [ ] [layer 9] 0005 We have made other arrangements
+                                - [ ] [layer 9] [shared] 0005 We have made other arrangements
 
                                   [A] [translation](<0001 Common DSW Knowledge Model [6f6241d9]/0003 Creating and collecting data [b1df3c74]/0009 Do you have any non-equipment data capture [f038bd46]/0002 Yes [4fd89b13]/0001 Please list all non-equipment data sets you will collect [b642c31d]/0004 Will all data be collected by a single person [36d40d39]/0002 More people will capture data [d988687b]/0001 Is there a risk of different interpretations Subjectivity [68956a97]/0005 We have made other arrangements [17443e43]/translation.md>)
 
-                                    - [ ] [layer 10] 0001 What other arrangements
+                                    - [ ] [layer 10] [shared] 0001 What other arrangements
 
                                       [Q] [translation](<0001 Common DSW Knowledge Model [6f6241d9]/0003 Creating and collecting data [b1df3c74]/0009 Do you have any non-equipment data capture [f038bd46]/0002 Yes [4fd89b13]/0001 Please list all non-equipment data sets you will collect [b642c31d]/0004 Will all data be collected by a single person [36d40d39]/0002 More people will capture data [d988687b]/0001 Is there a risk of different interpretations Subjectivity [68956a97]/0005 We have made other arrangements [17443e43]/0001 What other arrangements [ef139df4]/translation.md>)
-                    - [ ] [layer 6] 0005 Who else could be interested in using this data
+                    - [ ] [layer 6] [shared] 0005 Who else could be interested in using this data
 
                       [Q] [translation](<0001 Common DSW Knowledge Model [6f6241d9]/0003 Creating and collecting data [b1df3c74]/0009 Do you have any non-equipment data capture [f038bd46]/0002 Yes [4fd89b13]/0001 Please list all non-equipment data sets you will collect [b642c31d]/0005 Who else could be interested in using this data [c520b63c]/translation.md>)
 
-                        - [x] [layer 7] 0001 Just us
+                        - [x] [layer 7] [shared] 0001 Just us
 
                           [A] [translation](<0001 Common DSW Knowledge Model [6f6241d9]/0003 Creating and collecting data [b1df3c74]/0009 Do you have any non-equipment data capture [f038bd46]/0002 Yes [4fd89b13]/0001 Please list all non-equipment data sets you will collect [b642c31d]/0005 Who else could be interested in using this data [c520b63c]/0001 Just us [e862d2cb]/translation.md>)
-                        - [x] [layer 7] 0002 Other researchers working in the same field of research
+                        - [x] [layer 7] [shared] 0002 Other researchers working in the same field of research
 
                           [A] [translation](<0001 Common DSW Knowledge Model [6f6241d9]/0003 Creating and collecting data [b1df3c74]/0009 Do you have any non-equipment data capture [f038bd46]/0002 Yes [4fd89b13]/0001 Please list all non-equipment data sets you will collect [b642c31d]/0005 Who else could be interested in using this data [c520b63c]/0002 Other researchers working in the same field of research [1566d3af]/translation.md>)
-                        - [ ] [layer 7] 0003 Researchers working in other fields
+                        - [ ] [layer 7] [shared] 0003 Researchers working in other fields
 
                           [A] [translation](<0001 Common DSW Knowledge Model [6f6241d9]/0003 Creating and collecting data [b1df3c74]/0009 Do you have any non-equipment data capture [f038bd46]/0002 Yes [4fd89b13]/0001 Please list all non-equipment data sets you will collect [b642c31d]/0005 Who else could be interested in using this data [c520b63c]/0003 Researchers working in other fields [0c630b6f]/translation.md>)
 
-                            - [x] [layer 8] 0001 How do you think other researchers can use this data
+                            - [x] [layer 8] [shared] 0001 How do you think other researchers can use this data
 
                               [Q] [translation](<0001 Common DSW Knowledge Model [6f6241d9]/0003 Creating and collecting data [b1df3c74]/0009 Do you have any non-equipment data capture [f038bd46]/0002 Yes [4fd89b13]/0001 Please list all non-equipment data sets you will collect [b642c31d]/0005 Who else could be interested in using this data [c520b63c]/0003 Researchers working in other fields [0c630b6f]/0001 How do you think other researchers can use this data [41a1b4ba]/translation.md>)
                 - [ ] [layer 5] 0002 Will you be collecting data from electronic patient records
 
                   [Q] [translation](<0001 Common DSW Knowledge Model [6f6241d9]/0003 Creating and collecting data [b1df3c74]/0009 Do you have any non-equipment data capture [f038bd46]/0002 Yes [4fd89b13]/0002 Will you be collecting data from electronic patient records [7e456b72]/translation.md>)
 
-                    - [x] [layer 6] 0001 No
+                    - [x] [layer 6] [shared] 0001 No
 
                       [A] [translation](<0001 Common DSW Knowledge Model [6f6241d9]/0003 Creating and collecting data [b1df3c74]/0009 Do you have any non-equipment data capture [f038bd46]/0002 Yes [4fd89b13]/0002 Will you be collecting data from electronic patient records [7e456b72]/0001 No [1e097cb9]/translation.md>)
-                    - [ ] [layer 6] 0002 Yes
+                    - [ ] [layer 6] [shared] 0002 Yes
 
                       [A] [translation](<0001 Common DSW Knowledge Model [6f6241d9]/0003 Creating and collecting data [b1df3c74]/0009 Do you have any non-equipment data capture [f038bd46]/0002 Yes [4fd89b13]/0002 Will you be collecting data from electronic patient records [7e456b72]/0002 Yes [2d3d08b8]/translation.md>)
 
@@ -1828,30 +1828,30 @@
 
                           [Q] [translation](<0001 Common DSW Knowledge Model [6f6241d9]/0003 Creating and collecting data [b1df3c74]/0009 Do you have any non-equipment data capture [f038bd46]/0002 Yes [4fd89b13]/0002 Will you be collecting data from electronic patient records [7e456b72]/0002 Yes [2d3d08b8]/0001 Has access to the electronic patient records been arranged [4eb1bd6f]/translation.md>)
 
-                            - [ ] [layer 8] 0001 Not yet
+                            - [ ] [layer 8] [shared] 0001 Not yet
 
                               [A] [translation](<0001 Common DSW Knowledge Model [6f6241d9]/0003 Creating and collecting data [b1df3c74]/0009 Do you have any non-equipment data capture [f038bd46]/0002 Yes [4fd89b13]/0002 Will you be collecting data from electronic patient records [7e456b72]/0002 Yes [2d3d08b8]/0001 Has access to the electronic patient records been arranged [4eb1bd6f]/0001 Not yet [03f16c20]/translation.md>)
-                            - [ ] [layer 8] 0002 Yes
+                            - [ ] [layer 8] [shared] 0002 Yes
 
                               [A] [translation](<0001 Common DSW Knowledge Model [6f6241d9]/0003 Creating and collecting data [b1df3c74]/0009 Do you have any non-equipment data capture [f038bd46]/0002 Yes [4fd89b13]/0002 Will you be collecting data from electronic patient records [7e456b72]/0002 Yes [2d3d08b8]/0001 Has access to the electronic patient records been arranged [4eb1bd6f]/0002 Yes [5af68c53]/translation.md>)
                 - [ ] [layer 5] 0003 Will you be collecting case report forms
 
                   [Q] [translation](<0001 Common DSW Knowledge Model [6f6241d9]/0003 Creating and collecting data [b1df3c74]/0009 Do you have any non-equipment data capture [f038bd46]/0002 Yes [4fd89b13]/0003 Will you be collecting case report forms [36a5ed1e]/translation.md>)
 
-                    - [x] [layer 6] 0001 No
+                    - [x] [layer 6] [shared] 0001 No
 
                       [A] [translation](<0001 Common DSW Knowledge Model [6f6241d9]/0003 Creating and collecting data [b1df3c74]/0009 Do you have any non-equipment data capture [f038bd46]/0002 Yes [4fd89b13]/0003 Will you be collecting case report forms [36a5ed1e]/0001 No [3e3d559c]/translation.md>)
-                    - [ ] [layer 6] 0002 Yes
+                    - [ ] [layer 6] [shared] 0002 Yes
 
                       [A] [translation](<0001 Common DSW Knowledge Model [6f6241d9]/0003 Creating and collecting data [b1df3c74]/0009 Do you have any non-equipment data capture [f038bd46]/0002 Yes [4fd89b13]/0003 Will you be collecting case report forms [36a5ed1e]/0002 Yes [7fcce8f6]/translation.md>)
                 - [ ] [layer 5] 0004 Will you be collecting questionnaires
 
                   [Q] [translation](<0001 Common DSW Knowledge Model [6f6241d9]/0003 Creating and collecting data [b1df3c74]/0009 Do you have any non-equipment data capture [f038bd46]/0002 Yes [4fd89b13]/0004 Will you be collecting questionnaires [85079340]/translation.md>)
 
-                    - [x] [layer 6] 0001 No
+                    - [x] [layer 6] [shared] 0001 No
 
                       [A] [translation](<0001 Common DSW Knowledge Model [6f6241d9]/0003 Creating and collecting data [b1df3c74]/0009 Do you have any non-equipment data capture [f038bd46]/0002 Yes [4fd89b13]/0004 Will you be collecting questionnaires [85079340]/0001 No [000f21de]/translation.md>)
-                    - [ ] [layer 6] 0002 Yes
+                    - [ ] [layer 6] [shared] 0002 Yes
 
                       [A] [translation](<0001 Common DSW Knowledge Model [6f6241d9]/0003 Creating and collecting data [b1df3c74]/0009 Do you have any non-equipment data capture [f038bd46]/0002 Yes [4fd89b13]/0004 Will you be collecting questionnaires [85079340]/0002 Yes [81baba8e]/translation.md>)
         - [ ] [layer 3] 0010 Is there a data integration tool that can handle and combine all...
@@ -1861,7 +1861,7 @@
             - [ ] [layer 4] 0001 Will you be doing integration or linking of different data types
 
               [R] [translation](<0001 Common DSW Knowledge Model [6f6241d9]/0003 Creating and collecting data [b1df3c74]/0010 Is there a data integration tool that can handle and combine all... [ab4b3f39]/0001 Will you be doing integration or linking of different data types [6c8abc44]/translation.md>)
-            - [x] [layer 4] 0002 No
+            - [x] [layer 4] [shared] 0002 No
 
               [A] [translation](<0001 Common DSW Knowledge Model [6f6241d9]/0003 Creating and collecting data [b1df3c74]/0010 Is there a data integration tool that can handle and combine all... [ab4b3f39]/0002 No [9e5abf02]/translation.md>)
 
@@ -1869,16 +1869,16 @@
 
                   [Q] [translation](<0001 Common DSW Knowledge Model [6f6241d9]/0003 Creating and collecting data [b1df3c74]/0010 Is there a data integration tool that can handle and combine all... [ab4b3f39]/0002 No [9e5abf02]/0001 Can all data be brought into the same format, e.g. RDF [20a9685a]/translation.md>)
 
-                    - [x] [layer 6] 0001 No
+                    - [x] [layer 6] [shared] 0001 No
 
                       [A] [translation](<0001 Common DSW Knowledge Model [6f6241d9]/0003 Creating and collecting data [b1df3c74]/0010 Is there a data integration tool that can handle and combine all... [ab4b3f39]/0002 No [9e5abf02]/0001 Can all data be brought into the same format, e.g. RDF [20a9685a]/0001 No [6c382760]/translation.md>)
-                    - [ ] [layer 6] 0002 Yes
+                    - [ ] [layer 6] [shared] 0002 Yes
 
                       [A] [translation](<0001 Common DSW Knowledge Model [6f6241d9]/0003 Creating and collecting data [b1df3c74]/0010 Is there a data integration tool that can handle and combine all... [ab4b3f39]/0002 No [9e5abf02]/0001 Can all data be brought into the same format, e.g. RDF [20a9685a]/0002 Yes [2d5c8925]/translation.md>)
                     - [x] [layer 6] 0003 FAIRCookbook on tools to convert data to RDF
 
                       [R] [translation](<0001 Common DSW Knowledge Model [6f6241d9]/0003 Creating and collecting data [b1df3c74]/0010 Is there a data integration tool that can handle and combine all... [ab4b3f39]/0002 No [9e5abf02]/0001 Can all data be brought into the same format, e.g. RDF [20a9685a]/0003 FAIRCookbook on tools to convert data to RDF [f57c5313]/translation.md>)
-            - [ ] [layer 4] 0003 Yes
+            - [ ] [layer 4] [shared] 0003 Yes
 
               [A] [translation](<0001 Common DSW Knowledge Model [6f6241d9]/0003 Creating and collecting data [b1df3c74]/0010 Is there a data integration tool that can handle and combine all... [ab4b3f39]/0003 Yes [b24b7cbe]/translation.md>)
 
@@ -1913,13 +1913,13 @@
 
           [Q] [translation](<0001 Common DSW Knowledge Model [6f6241d9]/0003 Creating and collecting data [b1df3c74]/0011 Will you collect any data connected to a person, personal data [49c009cb]/translation.md>)
 
-            - [x] [layer 4] 0001 No
+            - [x] [layer 4] [shared] 0001 No
 
               [A] [translation](<0001 Common DSW Knowledge Model [6f6241d9]/0003 Creating and collecting data [b1df3c74]/0011 Will you collect any data connected to a person, personal data [49c009cb]/0001 No [4bdc319d]/translation.md>)
-            - [x] [layer 4] 0002 RDMkit on Human Data
+            - [x] [layer 4] [shared] 0002 RDMkit on Human Data
 
               [R] [translation](<0001 Common DSW Knowledge Model [6f6241d9]/0003 Creating and collecting data [b1df3c74]/0011 Will you collect any data connected to a person, personal data [49c009cb]/0002 RDMkit on Human Data [612660d5]/translation.md>)
-            - [ ] [layer 4] 0003 Yes
+            - [ ] [layer 4] [shared] 0003 Yes
 
               [A] [translation](<0001 Common DSW Knowledge Model [6f6241d9]/0003 Creating and collecting data [b1df3c74]/0011 Will you collect any data connected to a person, personal data [49c009cb]/0003 Yes [421e2d3e]/translation.md>)
 
@@ -1927,7 +1927,7 @@
 
                   [Q] [translation](<0001 Common DSW Knowledge Model [6f6241d9]/0003 Creating and collecting data [b1df3c74]/0011 Will you collect any data connected to a person, personal data [49c009cb]/0003 Yes [421e2d3e]/0001 General Data Protection Regulation (GDPR) considerations [c8687abf]/translation.md>)
 
-                    - [x] [layer 6] 0001 Explore
+                    - [x] [layer 6] [shared] 0001 Explore
 
                       [A] [translation](<0001 Common DSW Knowledge Model [6f6241d9]/0003 Creating and collecting data [b1df3c74]/0011 Will you collect any data connected to a person, personal data [49c009cb]/0003 Yes [421e2d3e]/0001 General Data Protection Regulation (GDPR) considerations [c8687abf]/0001 Explore [d8ecede2]/translation.md>)
 
@@ -1935,7 +1935,7 @@
 
                           [Q] [translation](<0001 Common DSW Knowledge Model [6f6241d9]/0003 Creating and collecting data [b1df3c74]/0011 Will you collect any data connected to a person, personal data [49c009cb]/0003 Yes [421e2d3e]/0001 General Data Protection Regulation (GDPR) considerations [c8687abf]/0001 Explore [d8ecede2]/0001 What legal basis are you using to collect and process the personal data [be4651c9]/translation.md>)
 
-                            - [ ] [layer 8] 0001 Public interest
+                            - [ ] [layer 8] [shared] 0001 Public interest
 
                               [A] [translation](<0001 Common DSW Knowledge Model [6f6241d9]/0003 Creating and collecting data [b1df3c74]/0011 Will you collect any data connected to a person, personal data [49c009cb]/0003 Yes [421e2d3e]/0001 General Data Protection Regulation (GDPR) considerations [c8687abf]/0001 Explore [d8ecede2]/0001 What legal basis are you using to collect and process the personal data [be4651c9]/0001 Public interest [c732f0b9]/translation.md>)
                             - [ ] [layer 8] 0002 We ask the data subjects for their consent
@@ -1965,10 +1965,10 @@
 
                                   [Q] [translation](<0001 Common DSW Knowledge Model [6f6241d9]/0003 Creating and collecting data [b1df3c74]/0011 Will you collect any data connected to a person, personal data [49c009cb]/0003 Yes [421e2d3e]/0001 General Data Protection Regulation (GDPR) considerations [c8687abf]/0001 Explore [d8ecede2]/0001 What legal basis are you using to collect and process the personal data [be4651c9]/0002 We ask the data subjects for their consent [73cd2dda]/0003 Will the consent form be available for re-users [d0e029ee]/translation.md>)
 
-                                    - [x] [layer 10] 0001 No
+                                    - [x] [layer 10] [shared] 0001 No
 
                                       [A] [translation](<0001 Common DSW Knowledge Model [6f6241d9]/0003 Creating and collecting data [b1df3c74]/0011 Will you collect any data connected to a person, personal data [49c009cb]/0003 Yes [421e2d3e]/0001 General Data Protection Regulation (GDPR) considerations [c8687abf]/0001 Explore [d8ecede2]/0001 What legal basis are you using to collect and process the personal data [be4651c9]/0002 We ask the data subjects for their consent [73cd2dda]/0003 Will the consent form be available for re-users [d0e029ee]/0001 No [e4b4093e]/translation.md>)
-                                    - [ ] [layer 10] 0002 Yes
+                                    - [ ] [layer 10] [shared] 0002 Yes
 
                                       [A] [translation](<0001 Common DSW Knowledge Model [6f6241d9]/0003 Creating and collecting data [b1df3c74]/0011 Will you collect any data connected to a person, personal data [49c009cb]/0003 Yes [421e2d3e]/0001 General Data Protection Regulation (GDPR) considerations [c8687abf]/0001 Explore [d8ecede2]/0001 What legal basis are you using to collect and process the personal data [be4651c9]/0002 We ask the data subjects for their consent [73cd2dda]/0003 Will the consent form be available for re-users [d0e029ee]/0002 Yes [dce67815]/translation.md>)
                                 - [ ] [layer 9] 0004 Describe the procedure for obtaining consent from data subjects
@@ -1996,7 +1996,7 @@
                                     - [x] [layer 10] 0006 GDPR Chapter 3 - Rights of the data subject
 
                                       [R] [translation](<0001 Common DSW Knowledge Model [6f6241d9]/0003 Creating and collecting data [b1df3c74]/0011 Will you collect any data connected to a person, personal data [49c009cb]/0003 Yes [421e2d3e]/0001 General Data Protection Regulation (GDPR) considerations [c8687abf]/0001 Explore [d8ecede2]/0001 What legal basis are you using to collect and process the personal data [be4651c9]/0002 We ask the data subjects for their consent [73cd2dda]/0005 Describe how data subjects exercise their rights to their data [361c38f0]/0006 GDPR Chapter 3 - Rights of the data subject [f093edb7]/translation.md>)
-                            - [ ] [layer 8] 0003 Other
+                            - [ ] [layer 8] [shared] 0003 Other
 
                               [A] [translation](<0001 Common DSW Knowledge Model [6f6241d9]/0003 Creating and collecting data [b1df3c74]/0011 Will you collect any data connected to a person, personal data [49c009cb]/0003 Yes [421e2d3e]/0001 General Data Protection Regulation (GDPR) considerations [c8687abf]/0001 Explore [d8ecede2]/0001 What legal basis are you using to collect and process the personal data [be4651c9]/0003 Other [2a84c15c]/translation.md>)
 
@@ -2010,10 +2010,10 @@
                                     - [x] [layer 10] 0002 Legitimate interest
 
                                       [A] [translation](<0001 Common DSW Knowledge Model [6f6241d9]/0003 Creating and collecting data [b1df3c74]/0011 Will you collect any data connected to a person, personal data [49c009cb]/0003 Yes [421e2d3e]/0001 General Data Protection Regulation (GDPR) considerations [c8687abf]/0001 Explore [d8ecede2]/0001 What legal basis are you using to collect and process the personal data [be4651c9]/0003 Other [2a84c15c]/0001 Which other [b307cc44]/0002 Legitimate interest [9d5e3104]/translation.md>)
-                                    - [x] [layer 10] 0003 Legal requirement
+                                    - [x] [layer 10] [shared] 0003 Legal requirement
 
                                       [A] [translation](<0001 Common DSW Knowledge Model [6f6241d9]/0003 Creating and collecting data [b1df3c74]/0011 Will you collect any data connected to a person, personal data [49c009cb]/0003 Yes [421e2d3e]/0001 General Data Protection Regulation (GDPR) considerations [c8687abf]/0001 Explore [d8ecede2]/0001 What legal basis are you using to collect and process the personal data [be4651c9]/0003 Other [2a84c15c]/0001 Which other [b307cc44]/0003 Legal requirement [f10de3a8]/translation.md>)
-                                    - [ ] [layer 10] 0004 Vital interest
+                                    - [ ] [layer 10] [shared] 0004 Vital interest
 
                                       [A] [translation](<0001 Common DSW Knowledge Model [6f6241d9]/0003 Creating and collecting data [b1df3c74]/0011 Will you collect any data connected to a person, personal data [49c009cb]/0003 Yes [421e2d3e]/0001 General Data Protection Regulation (GDPR) considerations [c8687abf]/0001 Explore [d8ecede2]/0001 What legal basis are you using to collect and process the personal data [be4651c9]/0003 Other [2a84c15c]/0001 Which other [b307cc44]/0004 Vital interest [557a5401]/translation.md>)
                         - [ ] [layer 7] 0002 State the purpose of processing the personal data
@@ -2041,7 +2041,7 @@
                                     - [ ] [layer 10] 0001 No, there is only one controller
 
                                       [A] [translation](<0001 Common DSW Knowledge Model [6f6241d9]/0003 Creating and collecting data [b1df3c74]/0011 Will you collect any data connected to a person, personal data [49c009cb]/0003 Yes [421e2d3e]/0001 General Data Protection Regulation (GDPR) considerations [c8687abf]/0001 Explore [d8ecede2]/0003 Who are the data controller(s) of the personal data processed in... [eccb8305]/0001 Please specify the controller(s) [42a0b857]/0002 Is there more than one controller of the personal data processed in... [312ad81e]/0001 No, there is only one controller [57a9a008]/translation.md>)
-                                    - [ ] [layer 10] 0002 Yes
+                                    - [ ] [layer 10] [shared] 0002 Yes
 
                                       [A] [translation](<0001 Common DSW Knowledge Model [6f6241d9]/0003 Creating and collecting data [b1df3c74]/0011 Will you collect any data connected to a person, personal data [49c009cb]/0003 Yes [421e2d3e]/0001 General Data Protection Regulation (GDPR) considerations [c8687abf]/0001 Explore [d8ecede2]/0003 Who are the data controller(s) of the personal data processed in... [eccb8305]/0001 Please specify the controller(s) [42a0b857]/0002 Is there more than one controller of the personal data processed in... [312ad81e]/0002 Yes [039bdd6f]/translation.md>)
 
@@ -2049,10 +2049,10 @@
 
                                           [Q] [translation](<0001 Common DSW Knowledge Model [6f6241d9]/0003 Creating and collecting data [b1df3c74]/0011 Will you collect any data connected to a person, personal data [49c009cb]/0003 Yes [421e2d3e]/0001 General Data Protection Regulation (GDPR) considerations [c8687abf]/0001 Explore [d8ecede2]/0003 Who are the data controller(s) of the personal data processed in... [eccb8305]/0001 Please specify the controller(s) [42a0b857]/0002 Is there more than one controller of the personal data processed in... [312ad81e]/0002 Yes [039bdd6f]/0001 Will the parties be joint controllers [bdb07de8]/translation.md>)
 
-                                            - [x] [layer 12] 0001 No
+                                            - [x] [layer 12] [shared] 0001 No
 
                                               [A] [translation](<0001 Common DSW Knowledge Model [6f6241d9]/0003 Creating and collecting data [b1df3c74]/0011 Will you collect any data connected to a person, personal data [49c009cb]/0003 Yes [421e2d3e]/0001 General Data Protection Regulation (GDPR) considerations [c8687abf]/0001 Explore [d8ecede2]/0003 Who are the data controller(s) of the personal data processed in... [eccb8305]/0001 Please specify the controller(s) [42a0b857]/0002 Is there more than one controller of the personal data processed in... [312ad81e]/0002 Yes [039bdd6f]/0001 Will the parties be joint controllers [bdb07de8]/0001 No [7ece1b60]/translation.md>)
-                                            - [ ] [layer 12] 0002 Yes
+                                            - [ ] [layer 12] [shared] 0002 Yes
 
                                               [A] [translation](<0001 Common DSW Knowledge Model [6f6241d9]/0003 Creating and collecting data [b1df3c74]/0011 Will you collect any data connected to a person, personal data [49c009cb]/0003 Yes [421e2d3e]/0001 General Data Protection Regulation (GDPR) considerations [c8687abf]/0001 Explore [d8ecede2]/0003 Who are the data controller(s) of the personal data processed in... [eccb8305]/0001 Please specify the controller(s) [42a0b857]/0002 Is there more than one controller of the personal data processed in... [312ad81e]/0002 Yes [039bdd6f]/0001 Will the parties be joint controllers [bdb07de8]/0002 Yes [6a670985]/translation.md>)
 
@@ -2060,10 +2060,10 @@
 
                                                   [Q] [translation](<0001 Common DSW Knowledge Model [6f6241d9]/0003 Creating and collecting data [b1df3c74]/0011 Will you collect any data connected to a person, personal data [49c009cb]/0003 Yes [421e2d3e]/0001 General Data Protection Regulation (GDPR) considerations [c8687abf]/0001 Explore [d8ecede2]/0003 Who are the data controller(s) of the personal data processed in... [eccb8305]/0001 Please specify the controller(s) [42a0b857]/0002 Is there more than one controller of the personal data processed in... [312ad81e]/0002 Yes [039bdd6f]/0001 Will the parties be joint controllers [bdb07de8]/0002 Yes [6a670985]/0001 Has a joint controllership agreement between the parties been... [0dda3f9c]/translation.md>)
 
-                                                    - [x] [layer 14] 0001 No
+                                                    - [x] [layer 14] [shared] 0001 No
 
                                                       [A] [translation](<0001 Common DSW Knowledge Model [6f6241d9]/0003 Creating and collecting data [b1df3c74]/0011 Will you collect any data connected to a person, personal data [49c009cb]/0003 Yes [421e2d3e]/0001 General Data Protection Regulation (GDPR) considerations [c8687abf]/0001 Explore [d8ecede2]/0003 Who are the data controller(s) of the personal data processed in... [eccb8305]/0001 Please specify the controller(s) [42a0b857]/0002 Is there more than one controller of the personal data processed in... [312ad81e]/0002 Yes [039bdd6f]/0001 Will the parties be joint controllers [bdb07de8]/0002 Yes [6a670985]/0001 Has a joint controllership agreement between the parties been... [0dda3f9c]/0001 No [022c62eb]/translation.md>)
-                                                    - [ ] [layer 14] 0002 Yes
+                                                    - [ ] [layer 14] [shared] 0002 Yes
 
                                                       [A] [translation](<0001 Common DSW Knowledge Model [6f6241d9]/0003 Creating and collecting data [b1df3c74]/0011 Will you collect any data connected to a person, personal data [49c009cb]/0003 Yes [421e2d3e]/0001 General Data Protection Regulation (GDPR) considerations [c8687abf]/0001 Explore [d8ecede2]/0003 Who are the data controller(s) of the personal data processed in... [eccb8305]/0001 Please specify the controller(s) [42a0b857]/0002 Is there more than one controller of the personal data processed in... [312ad81e]/0002 Yes [039bdd6f]/0001 Will the parties be joint controllers [bdb07de8]/0002 Yes [6a670985]/0001 Has a joint controllership agreement between the parties been... [0dda3f9c]/0002 Yes [e09fbe99]/translation.md>)
                         - [ ] [layer 7] 0004 Under what GDPR category does the project data fall
@@ -2110,7 +2110,7 @@
                                         - [x] [layer 11] 0002 Consent
 
                                           [A] [translation](<0001 Common DSW Knowledge Model [6f6241d9]/0003 Creating and collecting data [b1df3c74]/0011 Will you collect any data connected to a person, personal data [49c009cb]/0003 Yes [421e2d3e]/0001 General Data Protection Regulation (GDPR) considerations [c8687abf]/0001 Explore [d8ecede2]/0004 Under what GDPR category does the project data fall [9e0fb0fd]/0001 Special category data (plus optional additional standard personal data) [4c42e36b]/0002 What are the exemptions to the prohibition for processing of... [de72effc]/0001 Select exemption [2418a1b7]/0002 Consent [59bc5ee8]/translation.md>)
-                                        - [x] [layer 11] 0003 Other
+                                        - [x] [layer 11] [shared] 0003 Other
 
                                           [A] [translation](<0001 Common DSW Knowledge Model [6f6241d9]/0003 Creating and collecting data [b1df3c74]/0011 Will you collect any data connected to a person, personal data [49c009cb]/0003 Yes [421e2d3e]/0001 General Data Protection Regulation (GDPR) considerations [c8687abf]/0001 Explore [d8ecede2]/0004 Under what GDPR category does the project data fall [9e0fb0fd]/0001 Special category data (plus optional additional standard personal data) [4c42e36b]/0002 What are the exemptions to the prohibition for processing of... [de72effc]/0001 Select exemption [2418a1b7]/0003 Other [24e9cc13]/translation.md>)
 
@@ -2134,7 +2134,7 @@
                             - [ ] [layer 8] 0002 Not yet, but they will be established before processing starts
 
                               [A] [translation](<0001 Common DSW Knowledge Model [6f6241d9]/0003 Creating and collecting data [b1df3c74]/0011 Will you collect any data connected to a person, personal data [49c009cb]/0003 Yes [421e2d3e]/0001 General Data Protection Regulation (GDPR) considerations [c8687abf]/0001 Explore [d8ecede2]/0005 Have data processing agreements been (or will they be) established... [c6e30ba1]/0002 Not yet, but they will be established before processing starts [e722d0dc]/translation.md>)
-                            - [ ] [layer 8] 0003 Yes
+                            - [ ] [layer 8] [shared] 0003 Yes
 
                               [A] [translation](<0001 Common DSW Knowledge Model [6f6241d9]/0003 Creating and collecting data [b1df3c74]/0011 Will you collect any data connected to a person, personal data [49c009cb]/0003 Yes [421e2d3e]/0001 General Data Protection Regulation (GDPR) considerations [c8687abf]/0001 Explore [d8ecede2]/0005 Have data processing agreements been (or will they be) established... [c6e30ba1]/0003 Yes [9f9124e0]/translation.md>)
 
@@ -2152,10 +2152,10 @@
 
                           [Q] [translation](<0001 Common DSW Knowledge Model [6f6241d9]/0003 Creating and collecting data [b1df3c74]/0011 Will you collect any data connected to a person, personal data [49c009cb]/0003 Yes [421e2d3e]/0001 General Data Protection Regulation (GDPR) considerations [c8687abf]/0001 Explore [d8ecede2]/0006 Do you need a Data Protection Impact Assessment [8915bd25]/translation.md>)
 
-                            - [x] [layer 8] 0001 No
+                            - [x] [layer 8] [shared] 0001 No
 
                               [A] [translation](<0001 Common DSW Knowledge Model [6f6241d9]/0003 Creating and collecting data [b1df3c74]/0011 Will you collect any data connected to a person, personal data [49c009cb]/0003 Yes [421e2d3e]/0001 General Data Protection Regulation (GDPR) considerations [c8687abf]/0001 Explore [d8ecede2]/0006 Do you need a Data Protection Impact Assessment [8915bd25]/0001 No [d0741ff3]/translation.md>)
-                            - [ ] [layer 8] 0002 Yes
+                            - [ ] [layer 8] [shared] 0002 Yes
 
                               [A] [translation](<0001 Common DSW Knowledge Model [6f6241d9]/0003 Creating and collecting data [b1df3c74]/0011 Will you collect any data connected to a person, personal data [49c009cb]/0003 Yes [421e2d3e]/0001 General Data Protection Regulation (GDPR) considerations [c8687abf]/0001 Explore [d8ecede2]/0006 Do you need a Data Protection Impact Assessment [8915bd25]/0002 Yes [c3914e43]/translation.md>)
 
@@ -2163,10 +2163,10 @@
 
                                   [Q] [translation](<0001 Common DSW Knowledge Model [6f6241d9]/0003 Creating and collecting data [b1df3c74]/0011 Will you collect any data connected to a person, personal data [49c009cb]/0003 Yes [421e2d3e]/0001 General Data Protection Regulation (GDPR) considerations [c8687abf]/0001 Explore [d8ecede2]/0006 Do you need a Data Protection Impact Assessment [8915bd25]/0002 Yes [c3914e43]/0001 Have Data Protection Impact Assessments (DPIA) been performed for... [6cc96576]/translation.md>)
 
-                                    - [ ] [layer 10] 0001 No
+                                    - [ ] [layer 10] [shared] 0001 No
 
                                       [A] [translation](<0001 Common DSW Knowledge Model [6f6241d9]/0003 Creating and collecting data [b1df3c74]/0011 Will you collect any data connected to a person, personal data [49c009cb]/0003 Yes [421e2d3e]/0001 General Data Protection Regulation (GDPR) considerations [c8687abf]/0001 Explore [d8ecede2]/0006 Do you need a Data Protection Impact Assessment [8915bd25]/0002 Yes [c3914e43]/0001 Have Data Protection Impact Assessments (DPIA) been performed for... [6cc96576]/0001 No [feb5bdea]/translation.md>)
-                                    - [ ] [layer 10] 0002 Yes
+                                    - [ ] [layer 10] [shared] 0002 Yes
 
                                       [A] [translation](<0001 Common DSW Knowledge Model [6f6241d9]/0003 Creating and collecting data [b1df3c74]/0011 Will you collect any data connected to a person, personal data [49c009cb]/0003 Yes [421e2d3e]/0001 General Data Protection Regulation (GDPR) considerations [c8687abf]/0001 Explore [d8ecede2]/0006 Do you need a Data Protection Impact Assessment [8915bd25]/0002 Yes [c3914e43]/0001 Have Data Protection Impact Assessments (DPIA) been performed for... [6cc96576]/0002 Yes [af053acd]/translation.md>)
 
@@ -2217,7 +2217,7 @@
                                     - [x] [layer 10] 0004 FAIRCookbook on Data Protection Impact Assessment
 
                                       [R] [translation](<0001 Common DSW Knowledge Model [6f6241d9]/0003 Creating and collecting data [b1df3c74]/0011 Will you collect any data connected to a person, personal data [49c009cb]/0003 Yes [421e2d3e]/0001 General Data Protection Regulation (GDPR) considerations [c8687abf]/0001 Explore [d8ecede2]/0006 Do you need a Data Protection Impact Assessment [8915bd25]/0002 Yes [c3914e43]/0001 Have Data Protection Impact Assessments (DPIA) been performed for... [6cc96576]/0004 FAIRCookbook on Data Protection Impact Assessment [0dfcc19c]/translation.md>)
-                            - [x] [layer 8] 0003 RDMkit on GDPR Compliance
+                            - [x] [layer 8] [shared] 0003 RDMkit on GDPR Compliance
 
                               [R] [translation](<0001 Common DSW Knowledge Model [6f6241d9]/0003 Creating and collecting data [b1df3c74]/0011 Will you collect any data connected to a person, personal data [49c009cb]/0003 Yes [421e2d3e]/0001 General Data Protection Regulation (GDPR) considerations [c8687abf]/0001 Explore [d8ecede2]/0006 Do you need a Data Protection Impact Assessment [8915bd25]/0003 RDMkit on GDPR Compliance [ba4eb06a]/translation.md>)
                         - [ ] [layer 7] 0007 What technical and procedural safeguards have been established for...
@@ -2248,10 +2248,10 @@
 
                                   [Q] [translation](<0001 Common DSW Knowledge Model [6f6241d9]/0003 Creating and collecting data [b1df3c74]/0011 Will you collect any data connected to a person, personal data [49c009cb]/0003 Yes [421e2d3e]/0001 General Data Protection Regulation (GDPR) considerations [c8687abf]/0001 Explore [d8ecede2]/0007 What technical and procedural safeguards have been established for... [a30f5047]/0001 Please specify [22e612e0]/0003 Do you plan to transfer data outside the EU EEA [15ade1cb]/translation.md>)
 
-                                    - [x] [layer 10] 0001 No
+                                    - [x] [layer 10] [shared] 0001 No
 
                                       [A] [translation](<0001 Common DSW Knowledge Model [6f6241d9]/0003 Creating and collecting data [b1df3c74]/0011 Will you collect any data connected to a person, personal data [49c009cb]/0003 Yes [421e2d3e]/0001 General Data Protection Regulation (GDPR) considerations [c8687abf]/0001 Explore [d8ecede2]/0007 What technical and procedural safeguards have been established for... [a30f5047]/0001 Please specify [22e612e0]/0003 Do you plan to transfer data outside the EU EEA [15ade1cb]/0001 No [ecbffd84]/translation.md>)
-                                    - [ ] [layer 10] 0002 Yes
+                                    - [ ] [layer 10] [shared] 0002 Yes
 
                                       [A] [translation](<0001 Common DSW Knowledge Model [6f6241d9]/0003 Creating and collecting data [b1df3c74]/0011 Will you collect any data connected to a person, personal data [49c009cb]/0003 Yes [421e2d3e]/0001 General Data Protection Regulation (GDPR) considerations [c8687abf]/0001 Explore [d8ecede2]/0007 What technical and procedural safeguards have been established for... [a30f5047]/0001 Please specify [22e612e0]/0003 Do you plan to transfer data outside the EU EEA [15ade1cb]/0002 Yes [92b8a6ea]/translation.md>)
 
@@ -2261,7 +2261,7 @@
                             - [x] [layer 8] 0002 RDMkit on Data Security
 
                               [R] [translation](<0001 Common DSW Knowledge Model [6f6241d9]/0003 Creating and collecting data [b1df3c74]/0011 Will you collect any data connected to a person, personal data [49c009cb]/0003 Yes [421e2d3e]/0001 General Data Protection Regulation (GDPR) considerations [c8687abf]/0001 Explore [d8ecede2]/0007 What technical and procedural safeguards have been established for... [a30f5047]/0002 RDMkit on Data Security [0b460273]/translation.md>)
-            - [x] [layer 4] 0004 RDMkit on GDPR Compliance
+            - [x] [layer 4] [shared] 0004 RDMkit on GDPR Compliance
 
               [R] [translation](<0001 Common DSW Knowledge Model [6f6241d9]/0003 Creating and collecting data [b1df3c74]/0011 Will you collect any data connected to a person, personal data [49c009cb]/0004 RDMkit on GDPR Compliance [42a7b822]/translation.md>)
             - [x] [layer 4] 0005 RDMkit about Data Sensitivity
@@ -2303,10 +2303,10 @@
 
           [Q] [translation](<0001 Common DSW Knowledge Model [6f6241d9]/0003 Creating and collecting data [b1df3c74]/0013 Will you monitor data integrity once it has been collected [02b3fed1]/translation.md>)
 
-            - [x] [layer 4] 0001 No
+            - [x] [layer 4] [shared] 0001 No
 
               [A] [translation](<0001 Common DSW Knowledge Model [6f6241d9]/0003 Creating and collecting data [b1df3c74]/0013 Will you monitor data integrity once it has been collected [02b3fed1]/0001 No [033e0538]/translation.md>)
-            - [ ] [layer 4] 0002 Yes
+            - [ ] [layer 4] [shared] 0002 Yes
 
               [A] [translation](<0001 Common DSW Knowledge Model [6f6241d9]/0003 Creating and collecting data [b1df3c74]/0013 Will you monitor data integrity once it has been collected [02b3fed1]/0002 Yes [8608d3df]/translation.md>)
 
@@ -2314,26 +2314,26 @@
 
                   [Q] [translation](<0001 Common DSW Knowledge Model [6f6241d9]/0003 Creating and collecting data [b1df3c74]/0013 Will you monitor data integrity once it has been collected [02b3fed1]/0002 Yes [8608d3df]/0001 Will you define a way to detect file or sample swaps, e.g. by... [acb86509]/translation.md>)
 
-                    - [x] [layer 6] 0001 No
+                    - [x] [layer 6] [shared] 0001 No
 
                       [A] [translation](<0001 Common DSW Knowledge Model [6f6241d9]/0003 Creating and collecting data [b1df3c74]/0013 Will you monitor data integrity once it has been collected [02b3fed1]/0002 Yes [8608d3df]/0001 Will you define a way to detect file or sample swaps, e.g. by... [acb86509]/0001 No [4bd98e96]/translation.md>)
-                    - [ ] [layer 6] 0002 Yes
+                    - [ ] [layer 6] [shared] 0002 Yes
 
                       [A] [translation](<0001 Common DSW Knowledge Model [6f6241d9]/0003 Creating and collecting data [b1df3c74]/0013 Will you monitor data integrity once it has been collected [02b3fed1]/0002 Yes [8608d3df]/0001 Will you define a way to detect file or sample swaps, e.g. by... [acb86509]/0002 Yes [ec3718dd]/translation.md>)
                 - [ ] [layer 5] 0002 Will you be keeping a master list with checksums of certified...
 
                   [Q] [translation](<0001 Common DSW Knowledge Model [6f6241d9]/0003 Creating and collecting data [b1df3c74]/0013 Will you monitor data integrity once it has been collected [02b3fed1]/0002 Yes [8608d3df]/0002 Will you be keeping a master list with checksums of certified... [e0759fdc]/translation.md>)
 
-                    - [x] [layer 6] 0001 No
+                    - [x] [layer 6] [shared] 0001 No
 
                       [A] [translation](<0001 Common DSW Knowledge Model [6f6241d9]/0003 Creating and collecting data [b1df3c74]/0013 Will you monitor data integrity once it has been collected [02b3fed1]/0002 Yes [8608d3df]/0002 Will you be keeping a master list with checksums of certified... [e0759fdc]/0001 No [637f4603]/translation.md>)
-                    - [ ] [layer 6] 0002 Yes
+                    - [ ] [layer 6] [shared] 0002 Yes
 
                       [A] [translation](<0001 Common DSW Knowledge Model [6f6241d9]/0003 Creating and collecting data [b1df3c74]/0013 Will you monitor data integrity once it has been collected [02b3fed1]/0002 Yes [8608d3df]/0002 Will you be keeping a master list with checksums of certified... [e0759fdc]/0002 Yes [e7a8b914]/translation.md>)
                     - [x] [layer 6] 0003 FAIRCookbook on creating checksum files
 
                       [R] [translation](<0001 Common DSW Knowledge Model [6f6241d9]/0003 Creating and collecting data [b1df3c74]/0013 Will you monitor data integrity once it has been collected [02b3fed1]/0002 Yes [8608d3df]/0002 Will you be keeping a master list with checksums of certified... [e0759fdc]/0003 FAIRCookbook on creating checksum files [b0955b59]/translation.md>)
-            - [x] [layer 4] 0003 RDMkit on Data Quality
+            - [x] [layer 4] [shared] 0003 RDMkit on Data Quality
 
               [R] [translation](<0001 Common DSW Knowledge Model [6f6241d9]/0003 Creating and collecting data [b1df3c74]/0013 Will you monitor data integrity once it has been collected [02b3fed1]/0003 RDMkit on Data Quality [148f612f]/translation.md>)
             - [x] [layer 4] 0004 DMEG on Data Quality
@@ -2366,13 +2366,13 @@
                     - [ ] [layer 6] 0003 Restrictions in the consent
 
                       [C] [translation](<0001 Common DSW Knowledge Model [6f6241d9]/0003 Creating and collecting data [b1df3c74]/0014 Data use restrictions [63b6e695]/0002 There will be restrictions [03704872]/0001 What are the background of the restrictions [81f18ab3]/0003 Restrictions in the consent [18605a14]/translation.md>)
-                    - [x] [layer 6] 0004 Other
+                    - [x] [layer 6] [shared] 0004 Other
 
                       [C] [translation](<0001 Common DSW Knowledge Model [6f6241d9]/0003 Creating and collecting data [b1df3c74]/0014 Data use restrictions [63b6e695]/0002 There will be restrictions [03704872]/0001 What are the background of the restrictions [81f18ab3]/0004 Other [64f2af8d]/translation.md>)
                 - [x] [layer 5] 0002 Please specify what the restrictions are
 
                   [Q] [translation](<0001 Common DSW Knowledge Model [6f6241d9]/0003 Creating and collecting data [b1df3c74]/0014 Data use restrictions [63b6e695]/0002 There will be restrictions [03704872]/0002 Please specify what the restrictions are [0ac70ded]/translation.md>)
-            - [x] [layer 4] 0003 Data Use Ontology
+            - [x] [layer 4] [shared] 0003 Data Use Ontology
 
               [R] [translation](<0001 Common DSW Knowledge Model [6f6241d9]/0003 Creating and collecting data [b1df3c74]/0014 Data use restrictions [63b6e695]/0003 Data Use Ontology [b2db3b93]/translation.md>)
             - [x] [layer 4] 0004 FAIRCookbook on permitted uses of data
@@ -2382,10 +2382,10 @@
 
           [Q] [translation](<0001 Common DSW Knowledge Model [6f6241d9]/0003 Creating and collecting data [b1df3c74]/0015 Is the data collection subject to ethical legislation [ebcbf4c6]/translation.md>)
 
-            - [x] [layer 4] 0001 No
+            - [x] [layer 4] [shared] 0001 No
 
               [A] [translation](<0001 Common DSW Knowledge Model [6f6241d9]/0003 Creating and collecting data [b1df3c74]/0015 Is the data collection subject to ethical legislation [ebcbf4c6]/0001 No [579c0a9a]/translation.md>)
-            - [ ] [layer 4] 0002 Yes
+            - [ ] [layer 4] [shared] 0002 Yes
 
               [A] [translation](<0001 Common DSW Knowledge Model [6f6241d9]/0003 Creating and collecting data [b1df3c74]/0015 Is the data collection subject to ethical legislation [ebcbf4c6]/0002 Yes [9310b639]/translation.md>)
 
@@ -2393,10 +2393,10 @@
 
                   [Q] [translation](<0001 Common DSW Knowledge Model [6f6241d9]/0003 Creating and collecting data [b1df3c74]/0015 Is the data collection subject to ethical legislation [ebcbf4c6]/0002 Yes [9310b639]/0001 Is the collection covered by ethical review [3782d32b]/translation.md>)
 
-                    - [x] [layer 6] 0001 No
+                    - [x] [layer 6] [shared] 0001 No
 
                       [A] [translation](<0001 Common DSW Knowledge Model [6f6241d9]/0003 Creating and collecting data [b1df3c74]/0015 Is the data collection subject to ethical legislation [ebcbf4c6]/0002 Yes [9310b639]/0001 Is the collection covered by ethical review [3782d32b]/0001 No [6480ac87]/translation.md>)
-                    - [ ] [layer 6] 0002 Yes
+                    - [ ] [layer 6] [shared] 0002 Yes
 
                       [A] [translation](<0001 Common DSW Knowledge Model [6f6241d9]/0003 Creating and collecting data [b1df3c74]/0015 Is the data collection subject to ethical legislation [ebcbf4c6]/0002 Yes [9310b639]/0001 Is the collection covered by ethical review [3782d32b]/0002 Yes [04644b31]/translation.md>)
                     - [x] [layer 6] 0003 DMEG on Ethical Process Review
@@ -2406,10 +2406,10 @@
 
                   [Q] [translation](<0001 Common DSW Knowledge Model [6f6241d9]/0003 Creating and collecting data [b1df3c74]/0015 Is the data collection subject to ethical legislation [ebcbf4c6]/0002 Yes [9310b639]/0002 Does the collection of data involve human subjects [b464593d]/translation.md>)
 
-                    - [x] [layer 6] 0001 No
+                    - [x] [layer 6] [shared] 0001 No
 
                       [A] [translation](<0001 Common DSW Knowledge Model [6f6241d9]/0003 Creating and collecting data [b1df3c74]/0015 Is the data collection subject to ethical legislation [ebcbf4c6]/0002 Yes [9310b639]/0002 Does the collection of data involve human subjects [b464593d]/0001 No [58b49591]/translation.md>)
-                    - [ ] [layer 6] 0002 Yes
+                    - [ ] [layer 6] [shared] 0002 Yes
 
                       [A] [translation](<0001 Common DSW Knowledge Model [6f6241d9]/0003 Creating and collecting data [b1df3c74]/0015 Is the data collection subject to ethical legislation [ebcbf4c6]/0002 Yes [9310b639]/0002 Does the collection of data involve human subjects [b464593d]/0002 Yes [761d20f2]/translation.md>)
 
@@ -2417,13 +2417,13 @@
 
                           [Q] [translation](<0001 Common DSW Knowledge Model [6f6241d9]/0003 Creating and collecting data [b1df3c74]/0015 Is the data collection subject to ethical legislation [ebcbf4c6]/0002 Yes [9310b639]/0002 Does the collection of data involve human subjects [b464593d]/0002 Yes [761d20f2]/0001 Have informed consents been collected from the research subjects [a2b1fa38]/translation.md>)
 
-                            - [x] [layer 8] 0001 No
+                            - [x] [layer 8] [shared] 0001 No
 
                               [A] [translation](<0001 Common DSW Knowledge Model [6f6241d9]/0003 Creating and collecting data [b1df3c74]/0015 Is the data collection subject to ethical legislation [ebcbf4c6]/0002 Yes [9310b639]/0002 Does the collection of data involve human subjects [b464593d]/0002 Yes [761d20f2]/0001 Have informed consents been collected from the research subjects [a2b1fa38]/0001 No [7a2be944]/translation.md>)
-                            - [ ] [layer 8] 0002 Yes
+                            - [ ] [layer 8] [shared] 0002 Yes
 
                               [A] [translation](<0001 Common DSW Knowledge Model [6f6241d9]/0003 Creating and collecting data [b1df3c74]/0015 Is the data collection subject to ethical legislation [ebcbf4c6]/0002 Yes [9310b639]/0002 Does the collection of data involve human subjects [b464593d]/0002 Yes [761d20f2]/0001 Have informed consents been collected from the research subjects [a2b1fa38]/0002 Yes [3d50ae01]/translation.md>)
-                    - [x] [layer 6] 0003 RDMkit on Human Data
+                    - [x] [layer 6] [shared] 0003 RDMkit on Human Data
 
                       [R] [translation](<0001 Common DSW Knowledge Model [6f6241d9]/0003 Creating and collecting data [b1df3c74]/0015 Is the data collection subject to ethical legislation [ebcbf4c6]/0002 Yes [9310b639]/0002 Does the collection of data involve human subjects [b464593d]/0003 RDMkit on Human Data [9090a519]/translation.md>)
     - [ ] [layer 2] 0004 Processing data
@@ -2434,7 +2434,7 @@
 
           [Q] [translation](<0001 Common DSW Knowledge Model [6f6241d9]/0004 Processing data [10a10ffd]/0001 Will you be using a shared working space to work with your data [72099c46]/translation.md>)
 
-            - [ ] [layer 4] 0001 Yes
+            - [ ] [layer 4] [shared] 0001 Yes
 
               [A] [translation](<0001 Common DSW Knowledge Model [6f6241d9]/0004 Processing data [10a10ffd]/0001 Will you be using a shared working space to work with your data [72099c46]/0001 Yes [e7324e1a]/translation.md>)
 
@@ -2442,17 +2442,17 @@
 
                   [Q] [translation](<0001 Common DSW Knowledge Model [6f6241d9]/0004 Processing data [10a10ffd]/0001 Will you be using a shared working space to work with your data [72099c46]/0001 Yes [e7324e1a]/0001 Will this work space be run by dedicated specialists [5607d0bb]/translation.md>)
 
-                    - [x] [layer 6] 0001 No
+                    - [x] [layer 6] [shared] 0001 No
 
                       [A] [translation](<0001 Common DSW Knowledge Model [6f6241d9]/0004 Processing data [10a10ffd]/0001 Will you be using a shared working space to work with your data [72099c46]/0001 Yes [e7324e1a]/0001 Will this work space be run by dedicated specialists [5607d0bb]/0001 No [bcbc8cf6]/translation.md>)
-                    - [ ] [layer 6] 0002 Yes
+                    - [ ] [layer 6] [shared] 0002 Yes
 
                       [A] [translation](<0001 Common DSW Knowledge Model [6f6241d9]/0004 Processing data [10a10ffd]/0001 Will you be using a shared working space to work with your data [72099c46]/0001 Yes [e7324e1a]/0001 Will this work space be run by dedicated specialists [5607d0bb]/0002 Yes [35b32d04]/translation.md>)
                 - [ ] [layer 5] 0002 How will you work with your data
 
                   [Q] [translation](<0001 Common DSW Knowledge Model [6f6241d9]/0004 Processing data [10a10ffd]/0001 Will you be using a shared working space to work with your data [72099c46]/0001 Yes [e7324e1a]/0002 How will you work with your data [df36fb68]/translation.md>)
 
-                    - [x] [layer 6] 0001 Explore
+                    - [x] [layer 6] [shared] 0001 Explore
 
                       [A] [translation](<0001 Common DSW Knowledge Model [6f6241d9]/0004 Processing data [10a10ffd]/0001 Will you be using a shared working space to work with your data [72099c46]/0001 Yes [e7324e1a]/0002 How will you work with your data [df36fb68]/0001 Explore [5af813b7]/translation.md>)
 
@@ -2466,10 +2466,10 @@
                             - [x] [layer 8] 0001 Do you need to do compute capacity planning
 
                               [R] [translation](<0001 Common DSW Knowledge Model [6f6241d9]/0004 Processing data [10a10ffd]/0001 Will you be using a shared working space to work with your data [72099c46]/0001 Yes [e7324e1a]/0002 How will you work with your data [df36fb68]/0001 Explore [5af813b7]/0002 Do you need the work space to be close to the compute capacity [f6e66f4f]/0001 Do you need to do compute capacity planning [83081d6a]/translation.md>)
-                            - [x] [layer 8] 0002 No
+                            - [x] [layer 8] [shared] 0002 No
 
                               [A] [translation](<0001 Common DSW Knowledge Model [6f6241d9]/0004 Processing data [10a10ffd]/0001 Will you be using a shared working space to work with your data [72099c46]/0001 Yes [e7324e1a]/0002 How will you work with your data [df36fb68]/0001 Explore [5af813b7]/0002 Do you need the work space to be close to the compute capacity [f6e66f4f]/0002 No [12f3cb44]/translation.md>)
-                            - [ ] [layer 8] 0003 Yes
+                            - [ ] [layer 8] [shared] 0003 Yes
 
                               [A] [translation](<0001 Common DSW Knowledge Model [6f6241d9]/0004 Processing data [10a10ffd]/0001 Will you be using a shared working space to work with your data [72099c46]/0001 Yes [e7324e1a]/0002 How will you work with your data [df36fb68]/0001 Explore [5af813b7]/0002 Do you need the work space to be close to the compute capacity [f6e66f4f]/0003 Yes [4cf287dd]/translation.md>)
                         - [ ] [layer 7] 0003 Will you be working with your data in another form than the way it...
@@ -2489,10 +2489,10 @@
                             - [x] [layer 8] 0001 Will you be archiving data (using so-called 'cold storage') for...
 
                               [R] [translation](<0001 Common DSW Knowledge Model [6f6241d9]/0004 Processing data [10a10ffd]/0001 Will you be using a shared working space to work with your data [72099c46]/0001 Yes [e7324e1a]/0002 How will you work with your data [df36fb68]/0001 Explore [5af813b7]/0004 Will you need to temporarily archive data sets (e.g. to tape) [50a9c060]/0001 Will you be archiving data (using so-called 'cold storage') for... [1fa0cc82]/translation.md>)
-                            - [x] [layer 8] 0002 No
+                            - [x] [layer 8] [shared] 0002 No
 
                               [A] [translation](<0001 Common DSW Knowledge Model [6f6241d9]/0004 Processing data [10a10ffd]/0001 Will you be using a shared working space to work with your data [72099c46]/0001 Yes [e7324e1a]/0002 How will you work with your data [df36fb68]/0001 Explore [5af813b7]/0004 Will you need to temporarily archive data sets (e.g. to tape) [50a9c060]/0002 No [09ac9b88]/translation.md>)
-                            - [ ] [layer 8] 0003 Yes
+                            - [ ] [layer 8] [shared] 0003 Yes
 
                               [A] [translation](<0001 Common DSW Knowledge Model [6f6241d9]/0004 Processing data [10a10ffd]/0001 Will you be using a shared working space to work with your data [72099c46]/0001 Yes [e7324e1a]/0002 How will you work with your data [df36fb68]/0001 Explore [5af813b7]/0004 Will you need to temporarily archive data sets (e.g. to tape) [50a9c060]/0003 Yes [9797dc5a]/translation.md>)
                         - [x] [layer 7] 0005 How will your first data come in
@@ -2511,7 +2511,7 @@
                             - [ ] [layer 8] 0004 Initial data will arrive on separate media and will need to be...
 
                               [A] [translation](<0001 Common DSW Knowledge Model [6f6241d9]/0004 Processing data [10a10ffd]/0001 Will you be using a shared working space to work with your data [72099c46]/0001 Yes [e7324e1a]/0002 How will you work with your data [df36fb68]/0001 Explore [5af813b7]/0005 How will your first data come in [f4065e54]/0004 Initial data will arrive on separate media and will need to be... [94aa40a4]/translation.md>)
-                            - [ ] [layer 8] 0005 RDMkit on Data Transfer
+                            - [ ] [layer 8] [shared] 0005 RDMkit on Data Transfer
 
                               [R] [translation](<0001 Common DSW Knowledge Model [6f6241d9]/0004 Processing data [10a10ffd]/0001 Will you be using a shared working space to work with your data [72099c46]/0001 Yes [e7324e1a]/0002 How will you work with your data [df36fb68]/0001 Explore [5af813b7]/0005 How will your first data come in [f4065e54]/0005 RDMkit on Data Transfer [2a84091c]/translation.md>)
                         - [ ] [layer 7] 0006 How does the storage need change over time
@@ -2530,7 +2530,7 @@
                             - [ ] [layer 8] 0004 Storage needs are largest in the middle of the project
 
                               [A] [translation](<0001 Common DSW Knowledge Model [6f6241d9]/0004 Processing data [10a10ffd]/0001 Will you be using a shared working space to work with your data [72099c46]/0001 Yes [e7324e1a]/0002 How will you work with your data [df36fb68]/0001 Explore [5af813b7]/0006 How does the storage need change over time [4ee4d67d]/0004 Storage needs are largest in the middle of the project [51a8248e]/translation.md>)
-                            - [x] [layer 8] 0005 Explore
+                            - [x] [layer 8] [shared] 0005 Explore
 
                               [A] [translation](<0001 Common DSW Knowledge Model [6f6241d9]/0004 Processing data [10a10ffd]/0001 Will you be using a shared working space to work with your data [72099c46]/0001 Yes [e7324e1a]/0002 How will you work with your data [df36fb68]/0001 Explore [5af813b7]/0006 How does the storage need change over time [4ee4d67d]/0005 Explore [aca843cd]/translation.md>)
 
@@ -2568,7 +2568,7 @@
                                             - [ ] [layer 12] 0003 No, it can be remeasured easily and more cheaply than archiving
 
                                               [A] [translation](<0001 Common DSW Knowledge Model [6f6241d9]/0004 Processing data [10a10ffd]/0001 Will you be using a shared working space to work with your data [72099c46]/0001 Yes [e7324e1a]/0002 How will you work with your data [df36fb68]/0001 Explore [5af813b7]/0006 How does the storage need change over time [4ee4d67d]/0005 Explore [aca843cd]/0002 How much of the raw data do you need to keep in the work space [01cd836b]/0002 Raw data can be cleaned out or archived quickly [aad7d438]/0001 Do your raw data need to be archived [ba381732]/0003 No, it can be remeasured easily and more cheaply than archiving [e4da5030]/translation.md>)
-                                            - [ ] [layer 12] 0004 Yes
+                                            - [ ] [layer 12] [shared] 0004 Yes
 
                                               [A] [translation](<0001 Common DSW Knowledge Model [6f6241d9]/0004 Processing data [10a10ffd]/0001 Will you be using a shared working space to work with your data [72099c46]/0001 Yes [e7324e1a]/0002 How will you work with your data [df36fb68]/0001 Explore [5af813b7]/0006 How does the storage need change over time [4ee4d67d]/0005 Explore [aca843cd]/0002 How much of the raw data do you need to keep in the work space [01cd836b]/0002 Raw data can be cleaned out or archived quickly [aad7d438]/0001 Do your raw data need to be archived [ba381732]/0004 Yes [44cad909]/translation.md>)
                                     - [ ] [layer 10] 0003 Raw data do not form a major part of the storage needs
@@ -2606,27 +2606,27 @@
                                                     - [x] [layer 14] 0001 How CSC restored 850 million temporary files
 
                                                       [R] [translation](<0001 Common DSW Knowledge Model [6f6241d9]/0004 Processing data [10a10ffd]/0001 Will you be using a shared working space to work with your data [72099c46]/0001 Yes [e7324e1a]/0002 How will you work with your data [df36fb68]/0001 Explore [5af813b7]/0006 How does the storage need change over time [4ee4d67d]/0005 Explore [aca843cd]/0003 Did you plan how much intermediate data you will get during... [c0944ac9]/0002 A large volume of intermediate data will be in the work space [9a0cfd22]/0001 Is it possible to store intermediate temporary data on a separate... [deb647ec]/0002 We can offload intermediate results to a scratch area that is not... [5cbefa56]/0001 Are you sure you will not need a backup of the data stored on the... [3a076e83]/0001 How CSC restored 850 million temporary files [94544b24]/translation.md>)
-                                                    - [x] [layer 14] 0002 No
+                                                    - [x] [layer 14] [shared] 0002 No
 
                                                       [A] [translation](<0001 Common DSW Knowledge Model [6f6241d9]/0004 Processing data [10a10ffd]/0001 Will you be using a shared working space to work with your data [72099c46]/0001 Yes [e7324e1a]/0002 How will you work with your data [df36fb68]/0001 Explore [5af813b7]/0006 How does the storage need change over time [4ee4d67d]/0005 Explore [aca843cd]/0003 Did you plan how much intermediate data you will get during... [c0944ac9]/0002 A large volume of intermediate data will be in the work space [9a0cfd22]/0001 Is it possible to store intermediate temporary data on a separate... [deb647ec]/0002 We can offload intermediate results to a scratch area that is not... [5cbefa56]/0001 Are you sure you will not need a backup of the data stored on the... [3a076e83]/0002 No [fe80319d]/translation.md>)
-                                                    - [ ] [layer 14] 0003 Yes
+                                                    - [ ] [layer 14] [shared] 0003 Yes
 
                                                       [A] [translation](<0001 Common DSW Knowledge Model [6f6241d9]/0004 Processing data [10a10ffd]/0001 Will you be using a shared working space to work with your data [72099c46]/0001 Yes [e7324e1a]/0002 How will you work with your data [df36fb68]/0001 Explore [5af813b7]/0006 How does the storage need change over time [4ee4d67d]/0005 Explore [aca843cd]/0003 Did you plan how much intermediate data you will get during... [c0944ac9]/0002 A large volume of intermediate data will be in the work space [9a0cfd22]/0001 Is it possible to store intermediate temporary data on a separate... [deb647ec]/0002 We can offload intermediate results to a scratch area that is not... [5cbefa56]/0001 Are you sure you will not need a backup of the data stored on the... [3a076e83]/0003 Yes [f4bf87cf]/translation.md>)
                                 - [ ] [layer 9] 0004 Will you have different versions of intermediate data that need to...
 
                                   [Q] [translation](<0001 Common DSW Knowledge Model [6f6241d9]/0004 Processing data [10a10ffd]/0001 Will you be using a shared working space to work with your data [72099c46]/0001 Yes [e7324e1a]/0002 How will you work with your data [df36fb68]/0001 Explore [5af813b7]/0006 How does the storage need change over time [4ee4d67d]/0005 Explore [aca843cd]/0004 Will you have different versions of intermediate data that need to... [89f78871]/translation.md>)
 
-                                    - [x] [layer 10] 0001 No
+                                    - [x] [layer 10] [shared] 0001 No
 
                                       [A] [translation](<0001 Common DSW Knowledge Model [6f6241d9]/0004 Processing data [10a10ffd]/0001 Will you be using a shared working space to work with your data [72099c46]/0001 Yes [e7324e1a]/0002 How will you work with your data [df36fb68]/0001 Explore [5af813b7]/0006 How does the storage need change over time [4ee4d67d]/0005 Explore [aca843cd]/0004 Will you have different versions of intermediate data that need to... [89f78871]/0001 No [28452352]/translation.md>)
-                                    - [ ] [layer 10] 0002 Yes
+                                    - [ ] [layer 10] [shared] 0002 Yes
 
                                       [A] [translation](<0001 Common DSW Knowledge Model [6f6241d9]/0004 Processing data [10a10ffd]/0001 Will you be using a shared working space to work with your data [72099c46]/0001 Yes [e7324e1a]/0002 How will you work with your data [df36fb68]/0001 Explore [5af813b7]/0006 How does the storage need change over time [4ee4d67d]/0005 Explore [aca843cd]/0004 Will you have different versions of intermediate data that need to... [89f78871]/0002 Yes [ee686b11]/translation.md>)
                         - [x] [layer 7] 0007 How will project partners access the work space
 
                           [Q] [translation](<0001 Common DSW Knowledge Model [6f6241d9]/0004 Processing data [10a10ffd]/0001 Will you be using a shared working space to work with your data [72099c46]/0001 Yes [e7324e1a]/0002 How will you work with your data [df36fb68]/0001 Explore [5af813b7]/0007 How will project partners access the work space [2ed7b5c7]/translation.md>)
 
-                            - [x] [layer 8] 0001 Explore
+                            - [x] [layer 8] [shared] 0001 Explore
 
                               [A] [translation](<0001 Common DSW Knowledge Model [6f6241d9]/0004 Processing data [10a10ffd]/0001 Will you be using a shared working space to work with your data [72099c46]/0001 Yes [e7324e1a]/0002 How will you work with your data [df36fb68]/0001 Explore [5af813b7]/0007 How will project partners access the work space [2ed7b5c7]/0001 Explore [54e9c073]/translation.md>)
 
@@ -2640,13 +2640,13 @@
                                     - [x] [layer 10] 0002 No, this should not be allowed
 
                                       [A] [translation](<0001 Common DSW Knowledge Model [6f6241d9]/0004 Processing data [10a10ffd]/0001 Will you be using a shared working space to work with your data [72099c46]/0001 Yes [e7324e1a]/0002 How will you work with your data [df36fb68]/0001 Explore [5af813b7]/0007 How will project partners access the work space [2ed7b5c7]/0001 Explore [54e9c073]/0001 Will data be copied out and in to the workspace storage by remote users [f14750e9]/0002 No, this should not be allowed [2c2cd046]/translation.md>)
-                                    - [x] [layer 10] 0003 No, all data processing will be done in the same environment...
+                                    - [x] [layer 10] [shared] 0003 No, all data processing will be done in the same environment...
 
                                       [A] [translation](<0001 Common DSW Knowledge Model [6f6241d9]/0004 Processing data [10a10ffd]/0001 Will you be using a shared working space to work with your data [72099c46]/0001 Yes [e7324e1a]/0002 How will you work with your data [df36fb68]/0001 Explore [5af813b7]/0007 How will project partners access the work space [2ed7b5c7]/0001 Explore [54e9c073]/0001 Will data be copied out and in to the workspace storage by remote users [f14750e9]/0003 No, all data processing will be done in the same environment... [8fee76df]/translation.md>)
                                     - [ ] [layer 10] 0004 Yes, occasionally
 
                                       [A] [translation](<0001 Common DSW Knowledge Model [6f6241d9]/0004 Processing data [10a10ffd]/0001 Will you be using a shared working space to work with your data [72099c46]/0001 Yes [e7324e1a]/0002 How will you work with your data [df36fb68]/0001 Explore [5af813b7]/0007 How will project partners access the work space [2ed7b5c7]/0001 Explore [54e9c073]/0001 Will data be copied out and in to the workspace storage by remote users [f14750e9]/0004 Yes, occasionally [8fa969a0]/translation.md>)
-                                    - [ ] [layer 10] 0005 Yes, for actual computations, requiring high performance
+                                    - [ ] [layer 10] [shared] 0005 Yes, for actual computations, requiring high performance
 
                                       [A] [translation](<0001 Common DSW Knowledge Model [6f6241d9]/0004 Processing data [10a10ffd]/0001 Will you be using a shared working space to work with your data [72099c46]/0001 Yes [e7324e1a]/0002 How will you work with your data [df36fb68]/0001 Explore [5af813b7]/0007 How will project partners access the work space [2ed7b5c7]/0001 Explore [54e9c073]/0001 Will data be copied out and in to the workspace storage by remote users [f14750e9]/0005 Yes, for actual computations, requiring high performance [06a34c86]/translation.md>)
 
@@ -2657,26 +2657,26 @@
                                             - [ ] [layer 12] 0001 This is not needed
 
                                               [A] [translation](<0001 Common DSW Knowledge Model [6f6241d9]/0004 Processing data [10a10ffd]/0001 Will you be using a shared working space to work with your data [72099c46]/0001 Yes [e7324e1a]/0002 How will you work with your data [df36fb68]/0001 Explore [5af813b7]/0007 How will project partners access the work space [2ed7b5c7]/0001 Explore [54e9c073]/0001 Will data be copied out and in to the workspace storage by remote users [f14750e9]/0005 Yes, for actual computations, requiring high performance [06a34c86]/0001 Are data integrity and reliability requirements also met by the... [6b3f13db]/0001 This is not needed [c7a0181c]/translation.md>)
-                                            - [ ] [layer 12] 0002 Yes
+                                            - [ ] [layer 12] [shared] 0002 Yes
 
                                               [A] [translation](<0001 Common DSW Knowledge Model [6f6241d9]/0004 Processing data [10a10ffd]/0001 Will you be using a shared working space to work with your data [72099c46]/0001 Yes [e7324e1a]/0002 How will you work with your data [df36fb68]/0001 Explore [5af813b7]/0007 How will project partners access the work space [2ed7b5c7]/0001 Explore [54e9c073]/0001 Will data be copied out and in to the workspace storage by remote users [f14750e9]/0005 Yes, for actual computations, requiring high performance [06a34c86]/0001 Are data integrity and reliability requirements also met by the... [6b3f13db]/0002 Yes [a1c5e3e9]/translation.md>)
                                 - [ ] [layer 9] 0002 Will the work space storage need to be remote mounted
 
                                   [Q] [translation](<0001 Common DSW Knowledge Model [6f6241d9]/0004 Processing data [10a10ffd]/0001 Will you be using a shared working space to work with your data [72099c46]/0001 Yes [e7324e1a]/0002 How will you work with your data [df36fb68]/0001 Explore [5af813b7]/0007 How will project partners access the work space [2ed7b5c7]/0001 Explore [54e9c073]/0002 Will the work space storage need to be remote mounted [f99580d5]/translation.md>)
 
-                                    - [x] [layer 10] 0001 No
+                                    - [x] [layer 10] [shared] 0001 No
 
                                       [A] [translation](<0001 Common DSW Knowledge Model [6f6241d9]/0004 Processing data [10a10ffd]/0001 Will you be using a shared working space to work with your data [72099c46]/0001 Yes [e7324e1a]/0002 How will you work with your data [df36fb68]/0001 Explore [5af813b7]/0007 How will project partners access the work space [2ed7b5c7]/0001 Explore [54e9c073]/0002 Will the work space storage need to be remote mounted [f99580d5]/0001 No [68be7c83]/translation.md>)
                                     - [ ] [layer 10] 0002 No, data will be copied if it needs to be processed elsewhere
 
                                       [A] [translation](<0001 Common DSW Knowledge Model [6f6241d9]/0004 Processing data [10a10ffd]/0001 Will you be using a shared working space to work with your data [72099c46]/0001 Yes [e7324e1a]/0002 How will you work with your data [df36fb68]/0001 Explore [5af813b7]/0007 How will project partners access the work space [2ed7b5c7]/0001 Explore [54e9c073]/0002 Will the work space storage need to be remote mounted [f99580d5]/0002 No, data will be copied if it needs to be processed elsewhere [f848f3ec]/translation.md>)
-                                    - [x] [layer 10] 0003 No, all data processing will be done in the same environment...
+                                    - [x] [layer 10] [shared] 0003 No, all data processing will be done in the same environment...
 
                                       [A] [translation](<0001 Common DSW Knowledge Model [6f6241d9]/0004 Processing data [10a10ffd]/0001 Will you be using a shared working space to work with your data [72099c46]/0001 Yes [e7324e1a]/0002 How will you work with your data [df36fb68]/0001 Explore [5af813b7]/0007 How will project partners access the work space [2ed7b5c7]/0001 Explore [54e9c073]/0002 Will the work space storage need to be remote mounted [f99580d5]/0003 No, all data processing will be done in the same environment... [bdf255fd]/translation.md>)
                                     - [ ] [layer 10] 0004 Yes, for occasional exploration
 
                                       [A] [translation](<0001 Common DSW Knowledge Model [6f6241d9]/0004 Processing data [10a10ffd]/0001 Will you be using a shared working space to work with your data [72099c46]/0001 Yes [e7324e1a]/0002 How will you work with your data [df36fb68]/0001 Explore [5af813b7]/0007 How will project partners access the work space [2ed7b5c7]/0001 Explore [54e9c073]/0002 Will the work space storage need to be remote mounted [f99580d5]/0004 Yes, for occasional exploration [6baa53fe]/translation.md>)
-                                    - [ ] [layer 10] 0005 Yes, for actual computations, requiring high performance
+                                    - [ ] [layer 10] [shared] 0005 Yes, for actual computations, requiring high performance
 
                                       [A] [translation](<0001 Common DSW Knowledge Model [6f6241d9]/0004 Processing data [10a10ffd]/0001 Will you be using a shared working space to work with your data [72099c46]/0001 Yes [e7324e1a]/0002 How will you work with your data [df36fb68]/0001 Explore [5af813b7]/0007 How will project partners access the work space [2ed7b5c7]/0001 Explore [54e9c073]/0002 Will the work space storage need to be remote mounted [f99580d5]/0005 Yes, for actual computations, requiring high performance [5ab6d069]/translation.md>)
                                 - [ ] [layer 9] 0003 Who will arrange access control
@@ -2692,17 +2692,17 @@
                                     - [ ] [layer 10] 0003 The work space should be connected to a single-sign-on system
 
                                       [A] [translation](<0001 Common DSW Knowledge Model [6f6241d9]/0004 Processing data [10a10ffd]/0001 Will you be using a shared working space to work with your data [72099c46]/0001 Yes [e7324e1a]/0002 How will you work with your data [df36fb68]/0001 Explore [5af813b7]/0007 How will project partners access the work space [2ed7b5c7]/0001 Explore [54e9c073]/0003 Who will arrange access control [b1faddd1]/0003 The work space should be connected to a single-sign-on system [4bb35a94]/translation.md>)
-                    - [x] [layer 6] 0002 RDMkit on Data Processing
+                    - [x] [layer 6] [shared] 0002 RDMkit on Data Processing
 
                       [R] [translation](<0001 Common DSW Knowledge Model [6f6241d9]/0004 Processing data [10a10ffd]/0001 Will you be using a shared working space to work with your data [72099c46]/0001 Yes [e7324e1a]/0002 How will you work with your data [df36fb68]/0002 RDMkit on Data Processing [7aa33891]/translation.md>)
-                    - [ ] [layer 6] 0003 RDMkit on Data Analysis
+                    - [ ] [layer 6] [shared] 0003 RDMkit on Data Analysis
 
                       [R] [translation](<0001 Common DSW Knowledge Model [6f6241d9]/0004 Processing data [10a10ffd]/0001 Will you be using a shared working space to work with your data [72099c46]/0001 Yes [e7324e1a]/0002 How will you work with your data [df36fb68]/0003 RDMkit on Data Analysis [23a14548]/translation.md>)
                 - [ ] [layer 5] 0003 How available reliable should must the work space be
 
                   [Q] [translation](<0001 Common DSW Knowledge Model [6f6241d9]/0004 Processing data [10a10ffd]/0001 Will you be using a shared working space to work with your data [72099c46]/0001 Yes [e7324e1a]/0003 How available reliable should must the work space be [b171ec17]/translation.md>)
 
-                    - [x] [layer 6] 0001 Explore
+                    - [x] [layer 6] [shared] 0001 Explore
 
                       [A] [translation](<0001 Common DSW Knowledge Model [6f6241d9]/0004 Processing data [10a10ffd]/0001 Will you be using a shared working space to work with your data [72099c46]/0001 Yes [e7324e1a]/0003 How available reliable should must the work space be [b171ec17]/0001 Explore [0d64d3c6]/translation.md>)
 
@@ -2809,7 +2809,7 @@
 
                   [Q] [translation](<0001 Common DSW Knowledge Model [6f6241d9]/0004 Processing data [10a10ffd]/0001 Will you be using a shared working space to work with your data [72099c46]/0002 No, participants in the project each have different collections of... [1d6ba101]/0001 Are data that project members and partners store themselves... [c1e83bdf]/translation.md>)
 
-                    - [x] [layer 6] 0001 No
+                    - [x] [layer 6] [shared] 0001 No
 
                       [A] [translation](<0001 Common DSW Knowledge Model [6f6241d9]/0004 Processing data [10a10ffd]/0001 Will you be using a shared working space to work with your data [72099c46]/0002 No, participants in the project each have different collections of... [1d6ba101]/0001 Are data that project members and partners store themselves... [c1e83bdf]/0001 No [0c93a407]/translation.md>)
                     - [ ] [layer 6] 0002 Yes, protected against both equipment failure and human error
@@ -2819,13 +2819,13 @@
 
           [Q] [translation](<0001 Common DSW Knowledge Model [6f6241d9]/0004 Processing data [10a10ffd]/0002 Data storage systems and file naming conventions [bc5e3dbf]/translation.md>)
 
-            - [ ] [layer 4] 0001 RDMkit on data organisation
+            - [ ] [layer 4] [shared] 0001 RDMkit on data organisation
 
               [R] [translation](<0001 Common DSW Knowledge Model [6f6241d9]/0004 Processing data [10a10ffd]/0002 Data storage systems and file naming conventions [bc5e3dbf]/0001 RDMkit on data organisation [4cb74793]/translation.md>)
             - [ ] [layer 4] 0002 RDMkit on data storage
 
               [R] [translation](<0001 Common DSW Knowledge Model [6f6241d9]/0004 Processing data [10a10ffd]/0002 Data storage systems and file naming conventions [bc5e3dbf]/0002 RDMkit on data storage [0cf8efcf]/translation.md>)
-            - [x] [layer 4] 0003 Explore
+            - [x] [layer 4] [shared] 0003 Explore
 
               [A] [translation](<0001 Common DSW Knowledge Model [6f6241d9]/0004 Processing data [10a10ffd]/0002 Data storage systems and file naming conventions [bc5e3dbf]/0003 Explore [f7f2ff16]/translation.md>)
 
@@ -2836,7 +2836,7 @@
                     - [x] [layer 6] 0001 So little that it is not a problem
 
                       [A] [translation](<0001 Common DSW Knowledge Model [6f6241d9]/0004 Processing data [10a10ffd]/0002 Data storage systems and file naming conventions [bc5e3dbf]/0003 Explore [f7f2ff16]/0001 How much storage space will the project require for all data and... [38ebf5d0]/0001 So little that it is not a problem [9c0ce039]/translation.md>)
-                    - [x] [layer 6] 0002 I can specify the total amount
+                    - [x] [layer 6] [shared] 0002 I can specify the total amount
 
                       [A] [translation](<0001 Common DSW Knowledge Model [6f6241d9]/0004 Processing data [10a10ffd]/0002 Data storage systems and file naming conventions [bc5e3dbf]/0003 Explore [f7f2ff16]/0001 How much storage space will the project require for all data and... [38ebf5d0]/0002 I can specify the total amount [ec502175]/translation.md>)
 
@@ -2850,7 +2850,7 @@
                             - [ ] [layer 8] 0002 Raw Input Data
 
                               [A] [translation](<0001 Common DSW Knowledge Model [6f6241d9]/0004 Processing data [10a10ffd]/0002 Data storage systems and file naming conventions [bc5e3dbf]/0003 Explore [f7f2ff16]/0001 How much storage space will the project require for all data and... [38ebf5d0]/0002 I can specify the total amount [ec502175]/0001 What part of the data will have the largest volume [b6d0922c]/0002 Raw Input Data [044ef740]/translation.md>)
-                            - [ ] [layer 8] 0003 Intermediate data
+                            - [ ] [layer 8] [shared] 0003 Intermediate data
 
                               [A] [translation](<0001 Common DSW Knowledge Model [6f6241d9]/0004 Processing data [10a10ffd]/0002 Data storage systems and file naming conventions [bc5e3dbf]/0003 Explore [f7f2ff16]/0001 How much storage space will the project require for all data and... [38ebf5d0]/0002 I can specify the total amount [ec502175]/0001 What part of the data will have the largest volume [b6d0922c]/0003 Intermediate data [70442fd3]/translation.md>)
                             - [ ] [layer 8] 0004 There is no significant difference
@@ -2863,10 +2863,10 @@
 
                   [Q] [translation](<0001 Common DSW Knowledge Model [6f6241d9]/0004 Processing data [10a10ffd]/0002 Data storage systems and file naming conventions [bc5e3dbf]/0003 Explore [f7f2ff16]/0002 Are you using a filesystem with files and folders [a12aa967]/translation.md>)
 
-                    - [x] [layer 6] 0001 No
+                    - [x] [layer 6] [shared] 0001 No
 
                       [A] [translation](<0001 Common DSW Knowledge Model [6f6241d9]/0004 Processing data [10a10ffd]/0002 Data storage systems and file naming conventions [bc5e3dbf]/0003 Explore [f7f2ff16]/0002 Are you using a filesystem with files and folders [a12aa967]/0001 No [988d0815]/translation.md>)
-                    - [ ] [layer 6] 0002 Yes
+                    - [ ] [layer 6] [shared] 0002 Yes
 
                       [A] [translation](<0001 Common DSW Knowledge Model [6f6241d9]/0004 Processing data [10a10ffd]/0002 Data storage systems and file naming conventions [bc5e3dbf]/0003 Explore [f7f2ff16]/0002 Are you using a filesystem with files and folders [a12aa967]/0002 Yes [00ed33b9]/translation.md>)
 
@@ -2874,10 +2874,10 @@
 
                           [Q] [translation](<0001 Common DSW Knowledge Model [6f6241d9]/0004 Processing data [10a10ffd]/0002 Data storage systems and file naming conventions [bc5e3dbf]/0003 Explore [f7f2ff16]/0002 Are you using a filesystem with files and folders [a12aa967]/0002 Yes [00ed33b9]/0001 Will you use a folder for each sample subject [cc76bce4]/translation.md>)
 
-                            - [x] [layer 8] 0001 No
+                            - [x] [layer 8] [shared] 0001 No
 
                               [A] [translation](<0001 Common DSW Knowledge Model [6f6241d9]/0004 Processing data [10a10ffd]/0002 Data storage systems and file naming conventions [bc5e3dbf]/0003 Explore [f7f2ff16]/0002 Are you using a filesystem with files and folders [a12aa967]/0002 Yes [00ed33b9]/0001 Will you use a folder for each sample subject [cc76bce4]/0001 No [d8e75d4d]/translation.md>)
-                            - [ ] [layer 8] 0002 Yes
+                            - [ ] [layer 8] [shared] 0002 Yes
 
                               [A] [translation](<0001 Common DSW Knowledge Model [6f6241d9]/0004 Processing data [10a10ffd]/0002 Data storage systems and file naming conventions [bc5e3dbf]/0003 Explore [f7f2ff16]/0002 Are you using a filesystem with files and folders [a12aa967]/0002 Yes [00ed33b9]/0001 Will you use a folder for each sample subject [cc76bce4]/0002 Yes [b1fdd89d]/translation.md>)
 
@@ -2888,28 +2888,28 @@
 
                           [Q] [translation](<0001 Common DSW Knowledge Model [6f6241d9]/0004 Processing data [10a10ffd]/0002 Data storage systems and file naming conventions [bc5e3dbf]/0003 Explore [f7f2ff16]/0002 Are you using a filesystem with files and folders [a12aa967]/0002 Yes [00ed33b9]/0002 Will you use a (sub)folder for each (repeated) analysis [f8eeb548]/translation.md>)
 
-                            - [x] [layer 8] 0001 No
+                            - [x] [layer 8] [shared] 0001 No
 
                               [A] [translation](<0001 Common DSW Knowledge Model [6f6241d9]/0004 Processing data [10a10ffd]/0002 Data storage systems and file naming conventions [bc5e3dbf]/0003 Explore [f7f2ff16]/0002 Are you using a filesystem with files and folders [a12aa967]/0002 Yes [00ed33b9]/0002 Will you use a (sub)folder for each (repeated) analysis [f8eeb548]/0001 No [b95e30f5]/translation.md>)
-                            - [ ] [layer 8] 0002 Yes
+                            - [ ] [layer 8] [shared] 0002 Yes
 
                               [A] [translation](<0001 Common DSW Knowledge Model [6f6241d9]/0004 Processing data [10a10ffd]/0002 Data storage systems and file naming conventions [bc5e3dbf]/0003 Explore [f7f2ff16]/0002 Are you using a filesystem with files and folders [a12aa967]/0002 Yes [00ed33b9]/0002 Will you use a (sub)folder for each (repeated) analysis [f8eeb548]/0002 Yes [0493b207]/translation.md>)
 
-                                - [ ] [layer 9] 0001 What are the naming conventions for the analysis folders
+                                - [ ] [layer 9] [shared] 0001 What are the naming conventions for the analysis folders
 
                                   [Q] [translation](<0001 Common DSW Knowledge Model [6f6241d9]/0004 Processing data [10a10ffd]/0002 Data storage systems and file naming conventions [bc5e3dbf]/0003 Explore [f7f2ff16]/0002 Are you using a filesystem with files and folders [a12aa967]/0002 Yes [00ed33b9]/0002 Will you use a (sub)folder for each (repeated) analysis [f8eeb548]/0002 Yes [0493b207]/0001 What are the naming conventions for the analysis folders [ecb23397]/translation.md>)
                         - [ ] [layer 7] 0003 Will you use a (sub)folder for each step in the analysis workflow
 
                           [Q] [translation](<0001 Common DSW Knowledge Model [6f6241d9]/0004 Processing data [10a10ffd]/0002 Data storage systems and file naming conventions [bc5e3dbf]/0003 Explore [f7f2ff16]/0002 Are you using a filesystem with files and folders [a12aa967]/0002 Yes [00ed33b9]/0003 Will you use a (sub)folder for each step in the analysis workflow [c39edad5]/translation.md>)
 
-                            - [x] [layer 8] 0001 No
+                            - [x] [layer 8] [shared] 0001 No
 
                               [A] [translation](<0001 Common DSW Knowledge Model [6f6241d9]/0004 Processing data [10a10ffd]/0002 Data storage systems and file naming conventions [bc5e3dbf]/0003 Explore [f7f2ff16]/0002 Are you using a filesystem with files and folders [a12aa967]/0002 Yes [00ed33b9]/0003 Will you use a (sub)folder for each step in the analysis workflow [c39edad5]/0001 No [f8896f30]/translation.md>)
-                            - [ ] [layer 8] 0002 Yes
+                            - [ ] [layer 8] [shared] 0002 Yes
 
                               [A] [translation](<0001 Common DSW Knowledge Model [6f6241d9]/0004 Processing data [10a10ffd]/0002 Data storage systems and file naming conventions [bc5e3dbf]/0003 Explore [f7f2ff16]/0002 Are you using a filesystem with files and folders [a12aa967]/0002 Yes [00ed33b9]/0003 Will you use a (sub)folder for each step in the analysis workflow [c39edad5]/0002 Yes [420d249b]/translation.md>)
 
-                                - [ ] [layer 9] 0001 What are the naming conventions for these folders
+                                - [ ] [layer 9] [shared] 0001 What are the naming conventions for these folders
 
                                   [Q] [translation](<0001 Common DSW Knowledge Model [6f6241d9]/0004 Processing data [10a10ffd]/0002 Data storage systems and file naming conventions [bc5e3dbf]/0003 Explore [f7f2ff16]/0002 Are you using a filesystem with files and folders [a12aa967]/0002 Yes [00ed33b9]/0003 Will you use a (sub)folder for each step in the analysis workflow [c39edad5]/0002 Yes [420d249b]/0001 What are the naming conventions for these folders [dad8247a]/translation.md>)
                         - [ ] [layer 7] 0004 What appointments have you made about the naming of files
@@ -2919,10 +2919,10 @@
 
                           [Q] [translation](<0001 Common DSW Knowledge Model [6f6241d9]/0004 Processing data [10a10ffd]/0002 Data storage systems and file naming conventions [bc5e3dbf]/0003 Explore [f7f2ff16]/0002 Are you using a filesystem with files and folders [a12aa967]/0002 Yes [00ed33b9]/0005 Did you document how you manage file versioning [a2e22a59]/translation.md>)
 
-                            - [x] [layer 8] 0001 No
+                            - [x] [layer 8] [shared] 0001 No
 
                               [A] [translation](<0001 Common DSW Knowledge Model [6f6241d9]/0004 Processing data [10a10ffd]/0002 Data storage systems and file naming conventions [bc5e3dbf]/0003 Explore [f7f2ff16]/0002 Are you using a filesystem with files and folders [a12aa967]/0002 Yes [00ed33b9]/0005 Did you document how you manage file versioning [a2e22a59]/0001 No [d23c7fe6]/translation.md>)
-                            - [ ] [layer 8] 0002 Yes
+                            - [ ] [layer 8] [shared] 0002 Yes
 
                               [A] [translation](<0001 Common DSW Knowledge Model [6f6241d9]/0004 Processing data [10a10ffd]/0002 Data storage systems and file naming conventions [bc5e3dbf]/0003 Explore [f7f2ff16]/0002 Are you using a filesystem with files and folders [a12aa967]/0002 Yes [00ed33b9]/0005 Did you document how you manage file versioning [a2e22a59]/0002 Yes [7df4eaa1]/translation.md>)
                     - [ ] [layer 6] 0003 RDMkit on Data Organisation
@@ -2935,10 +2935,10 @@
 
                   [Q] [translation](<0001 Common DSW Knowledge Model [6f6241d9]/0004 Processing data [10a10ffd]/0002 Data storage systems and file naming conventions [bc5e3dbf]/0003 Explore [f7f2ff16]/0003 Will you be storing data in an object store or a document store system [dc39957e]/translation.md>)
 
-                    - [x] [layer 6] 0001 No
+                    - [x] [layer 6] [shared] 0001 No
 
                       [A] [translation](<0001 Common DSW Knowledge Model [6f6241d9]/0004 Processing data [10a10ffd]/0002 Data storage systems and file naming conventions [bc5e3dbf]/0003 Explore [f7f2ff16]/0003 Will you be storing data in an object store or a document store system [dc39957e]/0001 No [e1a9bab2]/translation.md>)
-                    - [ ] [layer 6] 0002 Yes
+                    - [ ] [layer 6] [shared] 0002 Yes
 
                       [A] [translation](<0001 Common DSW Knowledge Model [6f6241d9]/0004 Processing data [10a10ffd]/0002 Data storage systems and file naming conventions [bc5e3dbf]/0003 Explore [f7f2ff16]/0003 Will you be storing data in an object store or a document store system [dc39957e]/0002 Yes [91c04284]/translation.md>)
 
@@ -2955,10 +2955,10 @@
 
                   [Q] [translation](<0001 Common DSW Knowledge Model [6f6241d9]/0004 Processing data [10a10ffd]/0002 Data storage systems and file naming conventions [bc5e3dbf]/0003 Explore [f7f2ff16]/0004 Will you use a database system to store project data [4539a575]/translation.md>)
 
-                    - [x] [layer 6] 0001 No
+                    - [x] [layer 6] [shared] 0001 No
 
                       [A] [translation](<0001 Common DSW Knowledge Model [6f6241d9]/0004 Processing data [10a10ffd]/0002 Data storage systems and file naming conventions [bc5e3dbf]/0003 Explore [f7f2ff16]/0004 Will you use a database system to store project data [4539a575]/0001 No [6be266f0]/translation.md>)
-                    - [ ] [layer 6] 0002 Yes
+                    - [ ] [layer 6] [shared] 0002 Yes
 
                       [A] [translation](<0001 Common DSW Knowledge Model [6f6241d9]/0004 Processing data [10a10ffd]/0002 Data storage systems and file naming conventions [bc5e3dbf]/0003 Explore [f7f2ff16]/0004 Will you use a database system to store project data [4539a575]/0002 Yes [cb1a5c3b]/translation.md>)
 
@@ -2979,13 +2979,13 @@
 
                   [Q] [translation](<0001 Common DSW Knowledge Model [6f6241d9]/0004 Processing data [10a10ffd]/0002 Data storage systems and file naming conventions [bc5e3dbf]/0003 Explore [f7f2ff16]/0005 Are you storing (some of your) data in an application specific manner [65730a4d]/translation.md>)
 
-                    - [x] [layer 6] 0001 No
+                    - [x] [layer 6] [shared] 0001 No
 
                       [A] [translation](<0001 Common DSW Knowledge Model [6f6241d9]/0004 Processing data [10a10ffd]/0002 Data storage systems and file naming conventions [bc5e3dbf]/0003 Explore [f7f2ff16]/0005 Are you storing (some of your) data in an application specific manner [65730a4d]/0001 No [643254d2]/translation.md>)
-                    - [ ] [layer 6] 0002 Yes
+                    - [ ] [layer 6] [shared] 0002 Yes
 
                       [A] [translation](<0001 Common DSW Knowledge Model [6f6241d9]/0004 Processing data [10a10ffd]/0002 Data storage systems and file naming conventions [bc5e3dbf]/0003 Explore [f7f2ff16]/0005 Are you storing (some of your) data in an application specific manner [65730a4d]/0002 Yes [d5575f62]/translation.md>)
-            - [x] [layer 4] 0004 DMEG on Storage
+            - [x] [layer 4] [shared] 0004 DMEG on Storage
 
               [R] [translation](<0001 Common DSW Knowledge Model [6f6241d9]/0004 Processing data [10a10ffd]/0002 Data storage systems and file naming conventions [bc5e3dbf]/0004 DMEG on Storage [2757f8e9]/translation.md>)
         - [ ] [layer 3] 0003 Workflow development
@@ -3052,18 +3052,18 @@
                             - [x] [layer 8] 0003 Data will always be encrypted
 
                               [A] [translation](<0001 Common DSW Knowledge Model [6f6241d9]/0004 Processing data [10a10ffd]/0003 Workflow development [4ba3304e]/0002 More guidance is desired [bb00eb32]/0002 What data will the workflow developers or implementers use [14ed71a8]/0003 They can use data from our project [3996826a]/0002 How will data security be dealt with [d206fcaf]/0003 Data will always be encrypted [340ae978]/translation.md>)
-                            - [ ] [layer 8] 0004 We have made other arrangements
+                            - [ ] [layer 8] [shared] 0004 We have made other arrangements
 
                               [A] [translation](<0001 Common DSW Knowledge Model [6f6241d9]/0004 Processing data [10a10ffd]/0003 Workflow development [4ba3304e]/0002 More guidance is desired [bb00eb32]/0002 What data will the workflow developers or implementers use [14ed71a8]/0003 They can use data from our project [3996826a]/0002 How will data security be dealt with [d206fcaf]/0004 We have made other arrangements [a3286c6a]/translation.md>)
 
-                                - [ ] [layer 9] 0001 What other arrangements
+                                - [ ] [layer 9] [shared] 0001 What other arrangements
 
                                   [Q] [translation](<0001 Common DSW Knowledge Model [6f6241d9]/0004 Processing data [10a10ffd]/0003 Workflow development [4ba3304e]/0002 More guidance is desired [bb00eb32]/0002 What data will the workflow developers or implementers use [14ed71a8]/0003 They can use data from our project [3996826a]/0002 How will data security be dealt with [d206fcaf]/0004 We have made other arrangements [a3286c6a]/0001 What other arrangements [4bf93fbc]/translation.md>)
                 - [ ] [layer 5] 0003 List new software components you will develop for the analysis workflow
 
                   [Q] [translation](<0001 Common DSW Knowledge Model [6f6241d9]/0004 Processing data [10a10ffd]/0003 Workflow development [4ba3304e]/0002 More guidance is desired [bb00eb32]/0003 List new software components you will develop for the analysis workflow [2109e98d]/translation.md>)
 
-                    - [x] [layer 6] 0001 Software component -
+                    - [x] [layer 6] [shared] 0001 Software component -
 
                       [Q] [translation](<0001 Common DSW Knowledge Model [6f6241d9]/0004 Processing data [10a10ffd]/0003 Workflow development [4ba3304e]/0002 More guidance is desired [bb00eb32]/0003 List new software components you will develop for the analysis workflow [2109e98d]/0001 Software component - [76254a17]/translation.md>)
                     - [x] [layer 6] 0002 Please specify the software repository you use for development
@@ -3112,20 +3112,20 @@
 
                               [Q] [translation](<0001 Common DSW Knowledge Model [6f6241d9]/0004 Processing data [10a10ffd]/0003 Workflow development [4ba3304e]/0002 More guidance is desired [bb00eb32]/0003 List new software components you will develop for the analysis workflow [2109e98d]/0004 What license will you use for your tool [3b0f752e]/0005 We are using a different license [584339ee]/0002 Is this a recognised reusable open source license [c83097bb]/translation.md>)
 
-                                - [x] [layer 9] 0001 No
+                                - [x] [layer 9] [shared] 0001 No
 
                                   [A] [translation](<0001 Common DSW Knowledge Model [6f6241d9]/0004 Processing data [10a10ffd]/0003 Workflow development [4ba3304e]/0002 More guidance is desired [bb00eb32]/0003 List new software components you will develop for the analysis workflow [2109e98d]/0004 What license will you use for your tool [3b0f752e]/0005 We are using a different license [584339ee]/0002 Is this a recognised reusable open source license [c83097bb]/0001 No [aefb5f4a]/translation.md>)
-                                - [ ] [layer 9] 0002 Yes
+                                - [ ] [layer 9] [shared] 0002 Yes
 
                                   [A] [translation](<0001 Common DSW Knowledge Model [6f6241d9]/0004 Processing data [10a10ffd]/0003 Workflow development [4ba3304e]/0002 More guidance is desired [bb00eb32]/0003 List new software components you will develop for the analysis workflow [2109e98d]/0004 What license will you use for your tool [3b0f752e]/0005 We are using a different license [584339ee]/0002 Is this a recognised reusable open source license [c83097bb]/0002 Yes [d67fb3b1]/translation.md>)
                 - [x] [layer 5] 0004 Do you plan taking special measures to guarantee the integrity of...
 
                   [Q] [translation](<0001 Common DSW Knowledge Model [6f6241d9]/0004 Processing data [10a10ffd]/0003 Workflow development [4ba3304e]/0002 More guidance is desired [bb00eb32]/0004 Do you plan taking special measures to guarantee the integrity of... [558f01a3]/translation.md>)
 
-                    - [x] [layer 6] 0001 No
+                    - [x] [layer 6] [shared] 0001 No
 
                       [A] [translation](<0001 Common DSW Knowledge Model [6f6241d9]/0004 Processing data [10a10ffd]/0003 Workflow development [4ba3304e]/0002 More guidance is desired [bb00eb32]/0004 Do you plan taking special measures to guarantee the integrity of... [558f01a3]/0001 No [fe13a1d8]/translation.md>)
-                    - [ ] [layer 6] 0002 Yes
+                    - [ ] [layer 6] [shared] 0002 Yes
 
                       [A] [translation](<0001 Common DSW Knowledge Model [6f6241d9]/0004 Processing data [10a10ffd]/0003 Workflow development [4ba3304e]/0002 More guidance is desired [bb00eb32]/0004 Do you plan taking special measures to guarantee the integrity of... [558f01a3]/0002 Yes [ebc3a870]/translation.md>)
 
@@ -3133,20 +3133,20 @@
 
                           [Q] [translation](<0001 Common DSW Knowledge Model [6f6241d9]/0004 Processing data [10a10ffd]/0003 Workflow development [4ba3304e]/0002 More guidance is desired [bb00eb32]/0004 Do you plan taking special measures to guarantee the integrity of... [558f01a3]/0002 Yes [ebc3a870]/0001 Will you only use well-scrutinized open source tools [4b4d5878]/translation.md>)
 
-                            - [x] [layer 8] 0001 No
+                            - [x] [layer 8] [shared] 0001 No
 
                               [A] [translation](<0001 Common DSW Knowledge Model [6f6241d9]/0004 Processing data [10a10ffd]/0003 Workflow development [4ba3304e]/0002 More guidance is desired [bb00eb32]/0004 Do you plan taking special measures to guarantee the integrity of... [558f01a3]/0002 Yes [ebc3a870]/0001 Will you only use well-scrutinized open source tools [4b4d5878]/0001 No [1c921d11]/translation.md>)
-                            - [ ] [layer 8] 0002 Yes
+                            - [ ] [layer 8] [shared] 0002 Yes
 
                               [A] [translation](<0001 Common DSW Knowledge Model [6f6241d9]/0004 Processing data [10a10ffd]/0003 Workflow development [4ba3304e]/0002 More guidance is desired [bb00eb32]/0004 Do you plan taking special measures to guarantee the integrity of... [558f01a3]/0002 Yes [ebc3a870]/0001 Will you only use well-scrutinized open source tools [4b4d5878]/0002 Yes [5bae42be]/translation.md>)
                         - [ ] [layer 7] 0002 Will you have all changes checked by a second developer before...
 
                           [Q] [translation](<0001 Common DSW Knowledge Model [6f6241d9]/0004 Processing data [10a10ffd]/0003 Workflow development [4ba3304e]/0002 More guidance is desired [bb00eb32]/0004 Do you plan taking special measures to guarantee the integrity of... [558f01a3]/0002 Yes [ebc3a870]/0002 Will you have all changes checked by a second developer before... [5ea8a4fd]/translation.md>)
 
-                            - [x] [layer 8] 0001 No
+                            - [x] [layer 8] [shared] 0001 No
 
                               [A] [translation](<0001 Common DSW Knowledge Model [6f6241d9]/0004 Processing data [10a10ffd]/0003 Workflow development [4ba3304e]/0002 More guidance is desired [bb00eb32]/0004 Do you plan taking special measures to guarantee the integrity of... [558f01a3]/0002 Yes [ebc3a870]/0002 Will you have all changes checked by a second developer before... [5ea8a4fd]/0001 No [7dbd8884]/translation.md>)
-                            - [ ] [layer 8] 0002 Yes
+                            - [ ] [layer 8] [shared] 0002 Yes
 
                               [A] [translation](<0001 Common DSW Knowledge Model [6f6241d9]/0004 Processing data [10a10ffd]/0003 Workflow development [4ba3304e]/0002 More guidance is desired [bb00eb32]/0004 Do you plan taking special measures to guarantee the integrity of... [558f01a3]/0002 Yes [ebc3a870]/0002 Will you have all changes checked by a second developer before... [5ea8a4fd]/0002 Yes [f3ecf7bd]/translation.md>)
                         - [x] [layer 7] 0003 How will you handle upgrades to tools
@@ -3175,7 +3175,7 @@
                             - [ ] [layer 8] 0001 Will you run part of the data set repeatedly to catch unexpected...
 
                               [R] [translation](<0001 Common DSW Knowledge Model [6f6241d9]/0004 Processing data [10a10ffd]/0003 Workflow development [4ba3304e]/0002 More guidance is desired [bb00eb32]/0004 Do you plan taking special measures to guarantee the integrity of... [558f01a3]/0002 Yes [ebc3a870]/0004 Will you test whether known correct results are obtained over time [099902bd]/0001 Will you run part of the data set repeatedly to catch unexpected... [908be822]/translation.md>)
-                            - [x] [layer 8] 0002 No
+                            - [x] [layer 8] [shared] 0002 No
 
                               [A] [translation](<0001 Common DSW Knowledge Model [6f6241d9]/0004 Processing data [10a10ffd]/0003 Workflow development [4ba3304e]/0002 More guidance is desired [bb00eb32]/0004 Do you plan taking special measures to guarantee the integrity of... [558f01a3]/0002 Yes [ebc3a870]/0004 Will you test whether known correct results are obtained over time [099902bd]/0002 No [a547baf0]/translation.md>)
                             - [ ] [layer 8] 0003 Yes, we will regularly make test runs on the same data
@@ -3215,7 +3215,7 @@
 
                   [Q] [translation](<0001 Common DSW Knowledge Model [6f6241d9]/0004 Processing data [10a10ffd]/0003 Workflow development [4ba3304e]/0002 More guidance is desired [bb00eb32]/0005 List existing software components you will use in the analysis workflow [9a1c0153]/translation.md>)
 
-                    - [x] [layer 6] 0001 Software component -
+                    - [x] [layer 6] [shared] 0001 Software component -
 
                       [Q] [translation](<0001 Common DSW Knowledge Model [6f6241d9]/0004 Processing data [10a10ffd]/0003 Workflow development [4ba3304e]/0002 More guidance is desired [bb00eb32]/0005 List existing software components you will use in the analysis workflow [9a1c0153]/0001 Software component - [9c08ca3b]/translation.md>)
                     - [ ] [layer 6] 0002 Where are you getting this software from Please specify a web...
@@ -3239,13 +3239,13 @@
 
                               [Q] [translation](<0001 Common DSW Knowledge Model [6f6241d9]/0004 Processing data [10a10ffd]/0003 Workflow development [4ba3304e]/0002 More guidance is desired [bb00eb32]/0005 List existing software components you will use in the analysis workflow [9a1c0153]/0003 What version of this software will you use [cfb67fc9]/0003 Whatever is the latest version at the time the analysis is run [e3e4240a]/0001 Will you re-run any analysis when a new version comes out [b482e4e9]/translation.md>)
 
-                                - [x] [layer 9] 0001 No
+                                - [x] [layer 9] [shared] 0001 No
 
                                   [A] [translation](<0001 Common DSW Knowledge Model [6f6241d9]/0004 Processing data [10a10ffd]/0003 Workflow development [4ba3304e]/0002 More guidance is desired [bb00eb32]/0005 List existing software components you will use in the analysis workflow [9a1c0153]/0003 What version of this software will you use [cfb67fc9]/0003 Whatever is the latest version at the time the analysis is run [e3e4240a]/0001 Will you re-run any analysis when a new version comes out [b482e4e9]/0001 No [8a3adc2b]/translation.md>)
-                                - [x] [layer 9] 0002 If there is potentially a better result
+                                - [x] [layer 9] [shared] 0002 If there is potentially a better result
 
                                   [A] [translation](<0001 Common DSW Knowledge Model [6f6241d9]/0004 Processing data [10a10ffd]/0003 Workflow development [4ba3304e]/0002 More guidance is desired [bb00eb32]/0005 List existing software components you will use in the analysis workflow [9a1c0153]/0003 What version of this software will you use [cfb67fc9]/0003 Whatever is the latest version at the time the analysis is run [e3e4240a]/0001 Will you re-run any analysis when a new version comes out [b482e4e9]/0002 If there is potentially a better result [de969453]/translation.md>)
-                                - [ ] [layer 9] 0003 Yes
+                                - [ ] [layer 9] [shared] 0003 Yes
 
                                   [A] [translation](<0001 Common DSW Knowledge Model [6f6241d9]/0004 Processing data [10a10ffd]/0003 Workflow development [4ba3304e]/0002 More guidance is desired [bb00eb32]/0005 List existing software components you will use in the analysis workflow [9a1c0153]/0003 What version of this software will you use [cfb67fc9]/0003 Whatever is the latest version at the time the analysis is run [e3e4240a]/0001 Will you re-run any analysis when a new version comes out [b482e4e9]/0003 Yes [7e0cd029]/translation.md>)
                     - [x] [layer 6] 0004 How is your experience with this software
@@ -3268,10 +3268,10 @@
 
                   [Q] [translation](<0001 Common DSW Knowledge Model [6f6241d9]/0004 Processing data [10a10ffd]/0003 Workflow development [4ba3304e]/0002 More guidance is desired [bb00eb32]/0006 Will you make your workflow FAIR [730bf055]/translation.md>)
 
-                    - [x] [layer 6] 0001 No
+                    - [x] [layer 6] [shared] 0001 No
 
                       [A] [translation](<0001 Common DSW Knowledge Model [6f6241d9]/0004 Processing data [10a10ffd]/0003 Workflow development [4ba3304e]/0002 More guidance is desired [bb00eb32]/0006 Will you make your workflow FAIR [730bf055]/0001 No [fc19a25b]/translation.md>)
-                    - [ ] [layer 6] 0002 Yes
+                    - [ ] [layer 6] [shared] 0002 Yes
 
                       [A] [translation](<0001 Common DSW Knowledge Model [6f6241d9]/0004 Processing data [10a10ffd]/0003 Workflow development [4ba3304e]/0002 More guidance is desired [bb00eb32]/0006 Will you make your workflow FAIR [730bf055]/0002 Yes [013ddcd2]/translation.md>)
                     - [x] [layer 6] 0003 FAIRCookbook on making Workflows FAIR
@@ -3281,7 +3281,7 @@
 
                   [Q] [translation](<0001 Common DSW Knowledge Model [6f6241d9]/0004 Processing data [10a10ffd]/0003 Workflow development [4ba3304e]/0002 More guidance is desired [bb00eb32]/0007 Did you choose the workflow engine you will be using [a1c37c05]/translation.md>)
 
-                    - [ ] [layer 6] 0001 RDMkit on Data Analysis
+                    - [ ] [layer 6] [shared] 0001 RDMkit on Data Analysis
 
                       [R] [translation](<0001 Common DSW Knowledge Model [6f6241d9]/0004 Processing data [10a10ffd]/0003 Workflow development [4ba3304e]/0002 More guidance is desired [bb00eb32]/0007 Did you choose the workflow engine you will be using [a1c37c05]/0001 RDMkit on Data Analysis [45d989ae]/translation.md>)
                     - [ ] [layer 6] 0002 Workflows will be run from a computer command line
@@ -3293,188 +3293,188 @@
                     - [ ] [layer 6] 0004 Yes, we have selected one based on what features we need
 
                       [A] [translation](<0001 Common DSW Knowledge Model [6f6241d9]/0004 Processing data [10a10ffd]/0003 Workflow development [4ba3304e]/0002 More guidance is desired [bb00eb32]/0007 Did you choose the workflow engine you will be using [a1c37c05]/0004 Yes, we have selected one based on what features we need [7626c84b]/translation.md>)
-                    - [x] [layer 6] 0005 Explore
+                    - [x] [layer 6] [shared] 0005 Explore
 
                       [A] [translation](<0001 Common DSW Knowledge Model [6f6241d9]/0004 Processing data [10a10ffd]/0003 Workflow development [4ba3304e]/0002 More guidance is desired [bb00eb32]/0007 Did you choose the workflow engine you will be using [a1c37c05]/0005 Explore [00842b33]/translation.md>)
 
-                        - [ ] [layer 7] 0001 Do you need the workflow engine to produce provenance information...
+                        - [ ] [layer 7] [shared] 0001 Do you need the workflow engine to produce provenance information...
 
                           [Q] [translation](<0001 Common DSW Knowledge Model [6f6241d9]/0004 Processing data [10a10ffd]/0003 Workflow development [4ba3304e]/0002 More guidance is desired [bb00eb32]/0007 Did you choose the workflow engine you will be using [a1c37c05]/0005 Explore [00842b33]/0001 Do you need the workflow engine to produce provenance information... [28b10fd8]/translation.md>)
 
                             - [ ] [layer 8] 0001 Will you make use of standard workflow engines and automatic work...
 
                               [R] [translation](<0001 Common DSW Knowledge Model [6f6241d9]/0004 Processing data [10a10ffd]/0003 Workflow development [4ba3304e]/0002 More guidance is desired [bb00eb32]/0007 Did you choose the workflow engine you will be using [a1c37c05]/0005 Explore [00842b33]/0001 Do you need the workflow engine to produce provenance information... [28b10fd8]/0001 Will you make use of standard workflow engines and automatic work... [b238d832]/translation.md>)
-                            - [x] [layer 8] 0002 No
+                            - [x] [layer 8] [shared] 0002 No
 
                               [A] [translation](<0001 Common DSW Knowledge Model [6f6241d9]/0004 Processing data [10a10ffd]/0003 Workflow development [4ba3304e]/0002 More guidance is desired [bb00eb32]/0007 Did you choose the workflow engine you will be using [a1c37c05]/0005 Explore [00842b33]/0001 Do you need the workflow engine to produce provenance information... [28b10fd8]/0002 No [25b6c0b3]/translation.md>)
-                            - [ ] [layer 8] 0003 Yes
+                            - [ ] [layer 8] [shared] 0003 Yes
 
                               [A] [translation](<0001 Common DSW Knowledge Model [6f6241d9]/0004 Processing data [10a10ffd]/0003 Workflow development [4ba3304e]/0002 More guidance is desired [bb00eb32]/0007 Did you choose the workflow engine you will be using [a1c37c05]/0005 Explore [00842b33]/0001 Do you need the workflow engine to produce provenance information... [28b10fd8]/0003 Yes [1693bb64]/translation.md>)
 
-                                - [ ] [layer 9] 0001 Does the provenance need to be stored or converted to some standard...
+                                - [ ] [layer 9] [shared] 0001 Does the provenance need to be stored or converted to some standard...
 
                                   [Q] [translation](<0001 Common DSW Knowledge Model [6f6241d9]/0004 Processing data [10a10ffd]/0003 Workflow development [4ba3304e]/0002 More guidance is desired [bb00eb32]/0007 Did you choose the workflow engine you will be using [a1c37c05]/0005 Explore [00842b33]/0001 Do you need the workflow engine to produce provenance information... [28b10fd8]/0003 Yes [1693bb64]/0001 Does the provenance need to be stored or converted to some standard... [15e6148f]/translation.md>)
 
-                                    - [x] [layer 10] 0001 No
+                                    - [x] [layer 10] [shared] 0001 No
 
                                       [A] [translation](<0001 Common DSW Knowledge Model [6f6241d9]/0004 Processing data [10a10ffd]/0003 Workflow development [4ba3304e]/0002 More guidance is desired [bb00eb32]/0007 Did you choose the workflow engine you will be using [a1c37c05]/0005 Explore [00842b33]/0001 Do you need the workflow engine to produce provenance information... [28b10fd8]/0003 Yes [1693bb64]/0001 Does the provenance need to be stored or converted to some standard... [15e6148f]/0001 No [275de315]/translation.md>)
-                                    - [ ] [layer 10] 0002 Yes
+                                    - [ ] [layer 10] [shared] 0002 Yes
 
                                       [A] [translation](<0001 Common DSW Knowledge Model [6f6241d9]/0004 Processing data [10a10ffd]/0003 Workflow development [4ba3304e]/0002 More guidance is desired [bb00eb32]/0007 Did you choose the workflow engine you will be using [a1c37c05]/0005 Explore [00842b33]/0001 Do you need the workflow engine to produce provenance information... [28b10fd8]/0003 Yes [1693bb64]/0001 Does the provenance need to be stored or converted to some standard... [15e6148f]/0002 Yes [e1482f60]/translation.md>)
-                                - [ ] [layer 9] 0002 Can the work flow be annotated to make it understandable
+                                - [ ] [layer 9] [shared] 0002 Can the work flow be annotated to make it understandable
 
                                   [Q] [translation](<0001 Common DSW Knowledge Model [6f6241d9]/0004 Processing data [10a10ffd]/0003 Workflow development [4ba3304e]/0002 More guidance is desired [bb00eb32]/0007 Did you choose the workflow engine you will be using [a1c37c05]/0005 Explore [00842b33]/0001 Do you need the workflow engine to produce provenance information... [28b10fd8]/0003 Yes [1693bb64]/0002 Can the work flow be annotated to make it understandable [ba0000c2]/translation.md>)
 
-                                    - [x] [layer 10] 0001 No
+                                    - [x] [layer 10] [shared] 0001 No
 
                                       [A] [translation](<0001 Common DSW Knowledge Model [6f6241d9]/0004 Processing data [10a10ffd]/0003 Workflow development [4ba3304e]/0002 More guidance is desired [bb00eb32]/0007 Did you choose the workflow engine you will be using [a1c37c05]/0005 Explore [00842b33]/0001 Do you need the workflow engine to produce provenance information... [28b10fd8]/0003 Yes [1693bb64]/0002 Can the work flow be annotated to make it understandable [ba0000c2]/0001 No [e3241ef2]/translation.md>)
-                                    - [ ] [layer 10] 0002 Yes
+                                    - [ ] [layer 10] [shared] 0002 Yes
 
                                       [A] [translation](<0001 Common DSW Knowledge Model [6f6241d9]/0004 Processing data [10a10ffd]/0003 Workflow development [4ba3304e]/0002 More guidance is desired [bb00eb32]/0007 Did you choose the workflow engine you will be using [a1c37c05]/0005 Explore [00842b33]/0001 Do you need the workflow engine to produce provenance information... [28b10fd8]/0003 Yes [1693bb64]/0002 Can the work flow be annotated to make it understandable [ba0000c2]/0002 Yes [fadd9cac]/translation.md>)
-                        - [ ] [layer 7] 0002 Do you need the workflow engine to be run high-throughput
+                        - [ ] [layer 7] [shared] 0002 Do you need the workflow engine to be run high-throughput
 
                           [Q] [translation](<0001 Common DSW Knowledge Model [6f6241d9]/0004 Processing data [10a10ffd]/0003 Workflow development [4ba3304e]/0002 More guidance is desired [bb00eb32]/0007 Did you choose the workflow engine you will be using [a1c37c05]/0005 Explore [00842b33]/0002 Do you need the workflow engine to be run high-throughput [ff6f53f1]/translation.md>)
 
-                            - [x] [layer 8] 0001 No
+                            - [x] [layer 8] [shared] 0001 No
 
                               [A] [translation](<0001 Common DSW Knowledge Model [6f6241d9]/0004 Processing data [10a10ffd]/0003 Workflow development [4ba3304e]/0002 More guidance is desired [bb00eb32]/0007 Did you choose the workflow engine you will be using [a1c37c05]/0005 Explore [00842b33]/0002 Do you need the workflow engine to be run high-throughput [ff6f53f1]/0001 No [a4f6d057]/translation.md>)
-                            - [ ] [layer 8] 0002 Yes
+                            - [ ] [layer 8] [shared] 0002 Yes
 
                               [A] [translation](<0001 Common DSW Knowledge Model [6f6241d9]/0004 Processing data [10a10ffd]/0003 Workflow development [4ba3304e]/0002 More guidance is desired [bb00eb32]/0007 Did you choose the workflow engine you will be using [a1c37c05]/0005 Explore [00842b33]/0002 Do you need the workflow engine to be run high-throughput [ff6f53f1]/0002 Yes [f0c9bb01]/translation.md>)
-                        - [ ] [layer 7] 0003 Is ease of development of the workflow engine itself an issue for you
+                        - [ ] [layer 7] [shared] 0003 Is ease of development of the workflow engine itself an issue for you
 
                           [Q] [translation](<0001 Common DSW Knowledge Model [6f6241d9]/0004 Processing data [10a10ffd]/0003 Workflow development [4ba3304e]/0002 More guidance is desired [bb00eb32]/0007 Did you choose the workflow engine you will be using [a1c37c05]/0005 Explore [00842b33]/0003 Is ease of development of the workflow engine itself an issue for you [fdeb19c8]/translation.md>)
 
-                            - [x] [layer 8] 0001 No
+                            - [x] [layer 8] [shared] 0001 No
 
                               [A] [translation](<0001 Common DSW Knowledge Model [6f6241d9]/0004 Processing data [10a10ffd]/0003 Workflow development [4ba3304e]/0002 More guidance is desired [bb00eb32]/0007 Did you choose the workflow engine you will be using [a1c37c05]/0005 Explore [00842b33]/0003 Is ease of development of the workflow engine itself an issue for you [fdeb19c8]/0001 No [95c45541]/translation.md>)
-                            - [ ] [layer 8] 0002 Yes
+                            - [ ] [layer 8] [shared] 0002 Yes
 
                               [A] [translation](<0001 Common DSW Knowledge Model [6f6241d9]/0004 Processing data [10a10ffd]/0003 Workflow development [4ba3304e]/0002 More guidance is desired [bb00eb32]/0007 Did you choose the workflow engine you will be using [a1c37c05]/0005 Explore [00842b33]/0003 Is ease of development of the workflow engine itself an issue for you [fdeb19c8]/0002 Yes [40eb8be9]/translation.md>)
 
-                                - [ ] [layer 9] 0001 Can you reach out to the developers Is there a contact
+                                - [ ] [layer 9] [shared] 0001 Can you reach out to the developers Is there a contact
 
                                   [Q] [translation](<0001 Common DSW Knowledge Model [6f6241d9]/0004 Processing data [10a10ffd]/0003 Workflow development [4ba3304e]/0002 More guidance is desired [bb00eb32]/0007 Did you choose the workflow engine you will be using [a1c37c05]/0005 Explore [00842b33]/0003 Is ease of development of the workflow engine itself an issue for you [fdeb19c8]/0002 Yes [40eb8be9]/0001 Can you reach out to the developers Is there a contact [2122d8b6]/translation.md>)
 
-                                    - [x] [layer 10] 0001 No
+                                    - [x] [layer 10] [shared] 0001 No
 
                                       [A] [translation](<0001 Common DSW Knowledge Model [6f6241d9]/0004 Processing data [10a10ffd]/0003 Workflow development [4ba3304e]/0002 More guidance is desired [bb00eb32]/0007 Did you choose the workflow engine you will be using [a1c37c05]/0005 Explore [00842b33]/0003 Is ease of development of the workflow engine itself an issue for you [fdeb19c8]/0002 Yes [40eb8be9]/0001 Can you reach out to the developers Is there a contact [2122d8b6]/0001 No [617518d4]/translation.md>)
-                                    - [ ] [layer 10] 0002 Yes
+                                    - [ ] [layer 10] [shared] 0002 Yes
 
                                       [A] [translation](<0001 Common DSW Knowledge Model [6f6241d9]/0004 Processing data [10a10ffd]/0003 Workflow development [4ba3304e]/0002 More guidance is desired [bb00eb32]/0007 Did you choose the workflow engine you will be using [a1c37c05]/0005 Explore [00842b33]/0003 Is ease of development of the workflow engine itself an issue for you [fdeb19c8]/0002 Yes [40eb8be9]/0001 Can you reach out to the developers Is there a contact [2122d8b6]/0002 Yes [cc057984]/translation.md>)
-                                - [ ] [layer 9] 0002 Does the workflow engine need to support a particular compute back...
+                                - [ ] [layer 9] [shared] 0002 Does the workflow engine need to support a particular compute back...
 
                                   [Q] [translation](<0001 Common DSW Knowledge Model [6f6241d9]/0004 Processing data [10a10ffd]/0003 Workflow development [4ba3304e]/0002 More guidance is desired [bb00eb32]/0007 Did you choose the workflow engine you will be using [a1c37c05]/0005 Explore [00842b33]/0003 Is ease of development of the workflow engine itself an issue for you [fdeb19c8]/0002 Yes [40eb8be9]/0002 Does the workflow engine need to support a particular compute back... [c1cbd221]/translation.md>)
 
-                                    - [x] [layer 10] 0001 No
+                                    - [x] [layer 10] [shared] 0001 No
 
                                       [A] [translation](<0001 Common DSW Knowledge Model [6f6241d9]/0004 Processing data [10a10ffd]/0003 Workflow development [4ba3304e]/0002 More guidance is desired [bb00eb32]/0007 Did you choose the workflow engine you will be using [a1c37c05]/0005 Explore [00842b33]/0003 Is ease of development of the workflow engine itself an issue for you [fdeb19c8]/0002 Yes [40eb8be9]/0002 Does the workflow engine need to support a particular compute back... [c1cbd221]/0001 No [9540973a]/translation.md>)
-                                    - [ ] [layer 10] 0002 Yes
+                                    - [ ] [layer 10] [shared] 0002 Yes
 
                                       [A] [translation](<0001 Common DSW Knowledge Model [6f6241d9]/0004 Processing data [10a10ffd]/0003 Workflow development [4ba3304e]/0002 More guidance is desired [bb00eb32]/0007 Did you choose the workflow engine you will be using [a1c37c05]/0005 Explore [00842b33]/0003 Is ease of development of the workflow engine itself an issue for you [fdeb19c8]/0002 Yes [40eb8be9]/0002 Does the workflow engine need to support a particular compute back... [c1cbd221]/0002 Yes [6c8cf810]/translation.md>)
-                                - [ ] [layer 9] 0003 Does the workflow engine need standard tools for administrators
+                                - [ ] [layer 9] [shared] 0003 Does the workflow engine need standard tools for administrators
 
                                   [Q] [translation](<0001 Common DSW Knowledge Model [6f6241d9]/0004 Processing data [10a10ffd]/0003 Workflow development [4ba3304e]/0002 More guidance is desired [bb00eb32]/0007 Did you choose the workflow engine you will be using [a1c37c05]/0005 Explore [00842b33]/0003 Is ease of development of the workflow engine itself an issue for you [fdeb19c8]/0002 Yes [40eb8be9]/0003 Does the workflow engine need standard tools for administrators [20fa4bb1]/translation.md>)
 
-                                    - [x] [layer 10] 0001 No
+                                    - [x] [layer 10] [shared] 0001 No
 
                                       [A] [translation](<0001 Common DSW Knowledge Model [6f6241d9]/0004 Processing data [10a10ffd]/0003 Workflow development [4ba3304e]/0002 More guidance is desired [bb00eb32]/0007 Did you choose the workflow engine you will be using [a1c37c05]/0005 Explore [00842b33]/0003 Is ease of development of the workflow engine itself an issue for you [fdeb19c8]/0002 Yes [40eb8be9]/0003 Does the workflow engine need standard tools for administrators [20fa4bb1]/0001 No [e32737aa]/translation.md>)
-                                    - [ ] [layer 10] 0002 Yes
+                                    - [ ] [layer 10] [shared] 0002 Yes
 
                                       [A] [translation](<0001 Common DSW Knowledge Model [6f6241d9]/0004 Processing data [10a10ffd]/0003 Workflow development [4ba3304e]/0002 More guidance is desired [bb00eb32]/0007 Did you choose the workflow engine you will be using [a1c37c05]/0005 Explore [00842b33]/0003 Is ease of development of the workflow engine itself an issue for you [fdeb19c8]/0002 Yes [40eb8be9]/0003 Does the workflow engine need standard tools for administrators [20fa4bb1]/0002 Yes [93cd18d8]/translation.md>)
-                        - [ ] [layer 7] 0004 Is ease of development of the workflows an issue for you
+                        - [ ] [layer 7] [shared] 0004 Is ease of development of the workflows an issue for you
 
                           [Q] [translation](<0001 Common DSW Knowledge Model [6f6241d9]/0004 Processing data [10a10ffd]/0003 Workflow development [4ba3304e]/0002 More guidance is desired [bb00eb32]/0007 Did you choose the workflow engine you will be using [a1c37c05]/0005 Explore [00842b33]/0004 Is ease of development of the workflows an issue for you [f5b2b4d2]/translation.md>)
 
-                            - [x] [layer 8] 0001 No
+                            - [x] [layer 8] [shared] 0001 No
 
                               [A] [translation](<0001 Common DSW Knowledge Model [6f6241d9]/0004 Processing data [10a10ffd]/0003 Workflow development [4ba3304e]/0002 More guidance is desired [bb00eb32]/0007 Did you choose the workflow engine you will be using [a1c37c05]/0005 Explore [00842b33]/0004 Is ease of development of the workflows an issue for you [f5b2b4d2]/0001 No [ed8000c8]/translation.md>)
-                            - [ ] [layer 8] 0002 Yes
+                            - [ ] [layer 8] [shared] 0002 Yes
 
                               [A] [translation](<0001 Common DSW Knowledge Model [6f6241d9]/0004 Processing data [10a10ffd]/0003 Workflow development [4ba3304e]/0002 More guidance is desired [bb00eb32]/0007 Did you choose the workflow engine you will be using [a1c37c05]/0005 Explore [00842b33]/0004 Is ease of development of the workflows an issue for you [f5b2b4d2]/0002 Yes [d88f0055]/translation.md>)
 
-                                - [ ] [layer 9] 0001 Does the workflow engine need a developer GUI
+                                - [ ] [layer 9] [shared] 0001 Does the workflow engine need a developer GUI
 
                                   [Q] [translation](<0001 Common DSW Knowledge Model [6f6241d9]/0004 Processing data [10a10ffd]/0003 Workflow development [4ba3304e]/0002 More guidance is desired [bb00eb32]/0007 Did you choose the workflow engine you will be using [a1c37c05]/0005 Explore [00842b33]/0004 Is ease of development of the workflows an issue for you [f5b2b4d2]/0002 Yes [d88f0055]/0001 Does the workflow engine need a developer GUI [f3c858ab]/translation.md>)
 
-                                    - [x] [layer 10] 0001 No
+                                    - [x] [layer 10] [shared] 0001 No
 
                                       [A] [translation](<0001 Common DSW Knowledge Model [6f6241d9]/0004 Processing data [10a10ffd]/0003 Workflow development [4ba3304e]/0002 More guidance is desired [bb00eb32]/0007 Did you choose the workflow engine you will be using [a1c37c05]/0005 Explore [00842b33]/0004 Is ease of development of the workflows an issue for you [f5b2b4d2]/0002 Yes [d88f0055]/0001 Does the workflow engine need a developer GUI [f3c858ab]/0001 No [d92e6bb3]/translation.md>)
-                                    - [ ] [layer 10] 0002 Yes
+                                    - [ ] [layer 10] [shared] 0002 Yes
 
                                       [A] [translation](<0001 Common DSW Knowledge Model [6f6241d9]/0004 Processing data [10a10ffd]/0003 Workflow development [4ba3304e]/0002 More guidance is desired [bb00eb32]/0007 Did you choose the workflow engine you will be using [a1c37c05]/0005 Explore [00842b33]/0004 Is ease of development of the workflows an issue for you [f5b2b4d2]/0002 Yes [d88f0055]/0001 Does the workflow engine need a developer GUI [f3c858ab]/0002 Yes [fbe3bbd8]/translation.md>)
-                                - [ ] [layer 9] 0002 Does it need to be easy to support new tools in a workflow
+                                - [ ] [layer 9] [shared] 0002 Does it need to be easy to support new tools in a workflow
 
                                   [Q] [translation](<0001 Common DSW Knowledge Model [6f6241d9]/0004 Processing data [10a10ffd]/0003 Workflow development [4ba3304e]/0002 More guidance is desired [bb00eb32]/0007 Did you choose the workflow engine you will be using [a1c37c05]/0005 Explore [00842b33]/0004 Is ease of development of the workflows an issue for you [f5b2b4d2]/0002 Yes [d88f0055]/0002 Does it need to be easy to support new tools in a workflow [f1609178]/translation.md>)
 
-                                    - [ ] [layer 10] 0001 Yes
+                                    - [ ] [layer 10] [shared] 0001 Yes
 
                                       [A] [translation](<0001 Common DSW Knowledge Model [6f6241d9]/0004 Processing data [10a10ffd]/0003 Workflow development [4ba3304e]/0002 More guidance is desired [bb00eb32]/0007 Did you choose the workflow engine you will be using [a1c37c05]/0005 Explore [00842b33]/0004 Is ease of development of the workflows an issue for you [f5b2b4d2]/0002 Yes [d88f0055]/0002 Does it need to be easy to support new tools in a workflow [f1609178]/0001 Yes [3d891703]/translation.md>)
-                                    - [x] [layer 10] 0002 No
+                                    - [x] [layer 10] [shared] 0002 No
 
                                       [A] [translation](<0001 Common DSW Knowledge Model [6f6241d9]/0004 Processing data [10a10ffd]/0003 Workflow development [4ba3304e]/0002 More guidance is desired [bb00eb32]/0007 Did you choose the workflow engine you will be using [a1c37c05]/0005 Explore [00842b33]/0004 Is ease of development of the workflows an issue for you [f5b2b4d2]/0002 Yes [d88f0055]/0002 Does it need to be easy to support new tools in a workflow [f1609178]/0002 No [c3c74172]/translation.md>)
-                                - [ ] [layer 9] 0003 Does it need support for specific kinds of data processing or data...
+                                - [ ] [layer 9] [shared] 0003 Does it need support for specific kinds of data processing or data...
 
                                   [Q] [translation](<0001 Common DSW Knowledge Model [6f6241d9]/0004 Processing data [10a10ffd]/0003 Workflow development [4ba3304e]/0002 More guidance is desired [bb00eb32]/0007 Did you choose the workflow engine you will be using [a1c37c05]/0005 Explore [00842b33]/0004 Is ease of development of the workflows an issue for you [f5b2b4d2]/0002 Yes [d88f0055]/0003 Does it need support for specific kinds of data processing or data... [0567eb3f]/translation.md>)
 
-                                    - [x] [layer 10] 0001 No
+                                    - [x] [layer 10] [shared] 0001 No
 
                                       [A] [translation](<0001 Common DSW Knowledge Model [6f6241d9]/0004 Processing data [10a10ffd]/0003 Workflow development [4ba3304e]/0002 More guidance is desired [bb00eb32]/0007 Did you choose the workflow engine you will be using [a1c37c05]/0005 Explore [00842b33]/0004 Is ease of development of the workflows an issue for you [f5b2b4d2]/0002 Yes [d88f0055]/0003 Does it need support for specific kinds of data processing or data... [0567eb3f]/0001 No [9681e27d]/translation.md>)
-                                    - [ ] [layer 10] 0002 Yes
+                                    - [ ] [layer 10] [shared] 0002 Yes
 
                                       [A] [translation](<0001 Common DSW Knowledge Model [6f6241d9]/0004 Processing data [10a10ffd]/0003 Workflow development [4ba3304e]/0002 More guidance is desired [bb00eb32]/0007 Did you choose the workflow engine you will be using [a1c37c05]/0005 Explore [00842b33]/0004 Is ease of development of the workflows an issue for you [f5b2b4d2]/0002 Yes [d88f0055]/0003 Does it need support for specific kinds of data processing or data... [0567eb3f]/0002 Yes [893753a6]/translation.md>)
-                                - [ ] [layer 9] 0004 Does it need support for complex control structures like...
+                                - [ ] [layer 9] [shared] 0004 Does it need support for complex control structures like...
 
                                   [Q] [translation](<0001 Common DSW Knowledge Model [6f6241d9]/0004 Processing data [10a10ffd]/0003 Workflow development [4ba3304e]/0002 More guidance is desired [bb00eb32]/0007 Did you choose the workflow engine you will be using [a1c37c05]/0005 Explore [00842b33]/0004 Is ease of development of the workflows an issue for you [f5b2b4d2]/0002 Yes [d88f0055]/0004 Does it need support for complex control structures like... [74d6de0c]/translation.md>)
 
-                                    - [x] [layer 10] 0001 No
+                                    - [x] [layer 10] [shared] 0001 No
 
                                       [A] [translation](<0001 Common DSW Knowledge Model [6f6241d9]/0004 Processing data [10a10ffd]/0003 Workflow development [4ba3304e]/0002 More guidance is desired [bb00eb32]/0007 Did you choose the workflow engine you will be using [a1c37c05]/0005 Explore [00842b33]/0004 Is ease of development of the workflows an issue for you [f5b2b4d2]/0002 Yes [d88f0055]/0004 Does it need support for complex control structures like... [74d6de0c]/0001 No [694c4a4c]/translation.md>)
-                                    - [ ] [layer 10] 0002 Yes
+                                    - [ ] [layer 10] [shared] 0002 Yes
 
                                       [A] [translation](<0001 Common DSW Knowledge Model [6f6241d9]/0004 Processing data [10a10ffd]/0003 Workflow development [4ba3304e]/0002 More guidance is desired [bb00eb32]/0007 Did you choose the workflow engine you will be using [a1c37c05]/0005 Explore [00842b33]/0004 Is ease of development of the workflows an issue for you [f5b2b4d2]/0002 Yes [d88f0055]/0004 Does it need support for complex control structures like... [74d6de0c]/0002 Yes [5628065a]/translation.md>)
-                                - [ ] [layer 9] 0005 Does it need native support for specific data types
+                                - [ ] [layer 9] [shared] 0005 Does it need native support for specific data types
 
                                   [Q] [translation](<0001 Common DSW Knowledge Model [6f6241d9]/0004 Processing data [10a10ffd]/0003 Workflow development [4ba3304e]/0002 More guidance is desired [bb00eb32]/0007 Did you choose the workflow engine you will be using [a1c37c05]/0005 Explore [00842b33]/0004 Is ease of development of the workflows an issue for you [f5b2b4d2]/0002 Yes [d88f0055]/0005 Does it need native support for specific data types [d8833614]/translation.md>)
 
-                                    - [x] [layer 10] 0001 No
+                                    - [x] [layer 10] [shared] 0001 No
 
                                       [A] [translation](<0001 Common DSW Knowledge Model [6f6241d9]/0004 Processing data [10a10ffd]/0003 Workflow development [4ba3304e]/0002 More guidance is desired [bb00eb32]/0007 Did you choose the workflow engine you will be using [a1c37c05]/0005 Explore [00842b33]/0004 Is ease of development of the workflows an issue for you [f5b2b4d2]/0002 Yes [d88f0055]/0005 Does it need native support for specific data types [d8833614]/0001 No [866bc1b1]/translation.md>)
-                                    - [ ] [layer 10] 0002 Yes
+                                    - [ ] [layer 10] [shared] 0002 Yes
 
                                       [A] [translation](<0001 Common DSW Knowledge Model [6f6241d9]/0004 Processing data [10a10ffd]/0003 Workflow development [4ba3304e]/0002 More guidance is desired [bb00eb32]/0007 Did you choose the workflow engine you will be using [a1c37c05]/0005 Explore [00842b33]/0004 Is ease of development of the workflows an issue for you [f5b2b4d2]/0002 Yes [d88f0055]/0005 Does it need native support for specific data types [d8833614]/0002 Yes [290f7b14]/translation.md>)
-                                - [ ] [layer 9] 0006 Does it need support for nested workflows
+                                - [ ] [layer 9] [shared] 0006 Does it need support for nested workflows
 
                                   [Q] [translation](<0001 Common DSW Knowledge Model [6f6241d9]/0004 Processing data [10a10ffd]/0003 Workflow development [4ba3304e]/0002 More guidance is desired [bb00eb32]/0007 Did you choose the workflow engine you will be using [a1c37c05]/0005 Explore [00842b33]/0004 Is ease of development of the workflows an issue for you [f5b2b4d2]/0002 Yes [d88f0055]/0006 Does it need support for nested workflows [5179b194]/translation.md>)
 
-                                    - [x] [layer 10] 0001 No
+                                    - [x] [layer 10] [shared] 0001 No
 
                                       [A] [translation](<0001 Common DSW Knowledge Model [6f6241d9]/0004 Processing data [10a10ffd]/0003 Workflow development [4ba3304e]/0002 More guidance is desired [bb00eb32]/0007 Did you choose the workflow engine you will be using [a1c37c05]/0005 Explore [00842b33]/0004 Is ease of development of the workflows an issue for you [f5b2b4d2]/0002 Yes [d88f0055]/0006 Does it need support for nested workflows [5179b194]/0001 No [453c3e72]/translation.md>)
-                                    - [ ] [layer 10] 0002 Yes
+                                    - [ ] [layer 10] [shared] 0002 Yes
 
                                       [A] [translation](<0001 Common DSW Knowledge Model [6f6241d9]/0004 Processing data [10a10ffd]/0003 Workflow development [4ba3304e]/0002 More guidance is desired [bb00eb32]/0007 Did you choose the workflow engine you will be using [a1c37c05]/0005 Explore [00842b33]/0004 Is ease of development of the workflows an issue for you [f5b2b4d2]/0002 Yes [d88f0055]/0006 Does it need support for nested workflows [5179b194]/0002 Yes [fd6d72e5]/translation.md>)
-                                - [ ] [layer 9] 0007 Does it need support collaborative editing of workflows
+                                - [ ] [layer 9] [shared] 0007 Does it need support collaborative editing of workflows
 
                                   [Q] [translation](<0001 Common DSW Knowledge Model [6f6241d9]/0004 Processing data [10a10ffd]/0003 Workflow development [4ba3304e]/0002 More guidance is desired [bb00eb32]/0007 Did you choose the workflow engine you will be using [a1c37c05]/0005 Explore [00842b33]/0004 Is ease of development of the workflows an issue for you [f5b2b4d2]/0002 Yes [d88f0055]/0007 Does it need support collaborative editing of workflows [5a83b169]/translation.md>)
 
-                                    - [x] [layer 10] 0001 No
+                                    - [x] [layer 10] [shared] 0001 No
 
                                       [A] [translation](<0001 Common DSW Knowledge Model [6f6241d9]/0004 Processing data [10a10ffd]/0003 Workflow development [4ba3304e]/0002 More guidance is desired [bb00eb32]/0007 Did you choose the workflow engine you will be using [a1c37c05]/0005 Explore [00842b33]/0004 Is ease of development of the workflows an issue for you [f5b2b4d2]/0002 Yes [d88f0055]/0007 Does it need support collaborative editing of workflows [5a83b169]/0001 No [53cef353]/translation.md>)
-                                    - [ ] [layer 10] 0002 Yes
+                                    - [ ] [layer 10] [shared] 0002 Yes
 
                                       [A] [translation](<0001 Common DSW Knowledge Model [6f6241d9]/0004 Processing data [10a10ffd]/0003 Workflow development [4ba3304e]/0002 More guidance is desired [bb00eb32]/0007 Did you choose the workflow engine you will be using [a1c37c05]/0005 Explore [00842b33]/0004 Is ease of development of the workflows an issue for you [f5b2b4d2]/0002 Yes [d88f0055]/0007 Does it need support collaborative editing of workflows [5a83b169]/0002 Yes [fbda04fb]/translation.md>)
-                        - [ ] [layer 7] 0005 Is ease of use an issue for you
+                        - [ ] [layer 7] [shared] 0005 Is ease of use an issue for you
 
                           [Q] [translation](<0001 Common DSW Knowledge Model [6f6241d9]/0004 Processing data [10a10ffd]/0003 Workflow development [4ba3304e]/0002 More guidance is desired [bb00eb32]/0007 Did you choose the workflow engine you will be using [a1c37c05]/0005 Explore [00842b33]/0005 Is ease of use an issue for you [add9596e]/translation.md>)
 
-                            - [x] [layer 8] 0001 No
+                            - [x] [layer 8] [shared] 0001 No
 
                               [A] [translation](<0001 Common DSW Knowledge Model [6f6241d9]/0004 Processing data [10a10ffd]/0003 Workflow development [4ba3304e]/0002 More guidance is desired [bb00eb32]/0007 Did you choose the workflow engine you will be using [a1c37c05]/0005 Explore [00842b33]/0005 Is ease of use an issue for you [add9596e]/0001 No [254bd2bb]/translation.md>)
-                            - [ ] [layer 8] 0002 Yes
+                            - [ ] [layer 8] [shared] 0002 Yes
 
                               [A] [translation](<0001 Common DSW Knowledge Model [6f6241d9]/0004 Processing data [10a10ffd]/0003 Workflow development [4ba3304e]/0002 More guidance is desired [bb00eb32]/0007 Did you choose the workflow engine you will be using [a1c37c05]/0005 Explore [00842b33]/0005 Is ease of use an issue for you [add9596e]/0002 Yes [4908bd0c]/translation.md>)
 
-                                - [ ] [layer 9] 0001 Who are the people that will run the workflows
+                                - [ ] [layer 9] [shared] 0001 Who are the people that will run the workflows
 
                                   [Q] [translation](<0001 Common DSW Knowledge Model [6f6241d9]/0004 Processing data [10a10ffd]/0003 Workflow development [4ba3304e]/0002 More guidance is desired [bb00eb32]/0007 Did you choose the workflow engine you will be using [a1c37c05]/0005 Explore [00842b33]/0005 Is ease of use an issue for you [add9596e]/0002 Yes [4908bd0c]/0001 Who are the people that will run the workflows [6d31cd2e]/translation.md>)
 
@@ -3487,78 +3487,78 @@
                                     - [x] [layer 10] 0003 Subject matter experts with no affinity for computer solutions
 
                                       [A] [translation](<0001 Common DSW Knowledge Model [6f6241d9]/0004 Processing data [10a10ffd]/0003 Workflow development [4ba3304e]/0002 More guidance is desired [bb00eb32]/0007 Did you choose the workflow engine you will be using [a1c37c05]/0005 Explore [00842b33]/0005 Is ease of use an issue for you [add9596e]/0002 Yes [4908bd0c]/0001 Who are the people that will run the workflows [6d31cd2e]/0003 Subject matter experts with no affinity for computer solutions [7cfd3e4a]/translation.md>)
-                                - [ ] [layer 9] 0002 Does the running of work flows need to be controlled via a GUI
+                                - [ ] [layer 9] [shared] 0002 Does the running of work flows need to be controlled via a GUI
 
                                   [Q] [translation](<0001 Common DSW Knowledge Model [6f6241d9]/0004 Processing data [10a10ffd]/0003 Workflow development [4ba3304e]/0002 More guidance is desired [bb00eb32]/0007 Did you choose the workflow engine you will be using [a1c37c05]/0005 Explore [00842b33]/0005 Is ease of use an issue for you [add9596e]/0002 Yes [4908bd0c]/0002 Does the running of work flows need to be controlled via a GUI [6ed1691c]/translation.md>)
 
-                                    - [x] [layer 10] 0001 No
+                                    - [x] [layer 10] [shared] 0001 No
 
                                       [A] [translation](<0001 Common DSW Knowledge Model [6f6241d9]/0004 Processing data [10a10ffd]/0003 Workflow development [4ba3304e]/0002 More guidance is desired [bb00eb32]/0007 Did you choose the workflow engine you will be using [a1c37c05]/0005 Explore [00842b33]/0005 Is ease of use an issue for you [add9596e]/0002 Yes [4908bd0c]/0002 Does the running of work flows need to be controlled via a GUI [6ed1691c]/0001 No [f9f33b39]/translation.md>)
-                                    - [ ] [layer 10] 0002 Yes
+                                    - [ ] [layer 10] [shared] 0002 Yes
 
                                       [A] [translation](<0001 Common DSW Knowledge Model [6f6241d9]/0004 Processing data [10a10ffd]/0003 Workflow development [4ba3304e]/0002 More guidance is desired [bb00eb32]/0007 Did you choose the workflow engine you will be using [a1c37c05]/0005 Explore [00842b33]/0005 Is ease of use an issue for you [add9596e]/0002 Yes [4908bd0c]/0002 Does the running of work flows need to be controlled via a GUI [6ed1691c]/0002 Yes [9e1303bf]/translation.md>)
-                                - [ ] [layer 9] 0003 Do work flows need to be run on remote computers
+                                - [ ] [layer 9] [shared] 0003 Do work flows need to be run on remote computers
 
                                   [Q] [translation](<0001 Common DSW Knowledge Model [6f6241d9]/0004 Processing data [10a10ffd]/0003 Workflow development [4ba3304e]/0002 More guidance is desired [bb00eb32]/0007 Did you choose the workflow engine you will be using [a1c37c05]/0005 Explore [00842b33]/0005 Is ease of use an issue for you [add9596e]/0002 Yes [4908bd0c]/0003 Do work flows need to be run on remote computers [8330c11f]/translation.md>)
 
-                                    - [x] [layer 10] 0001 No
+                                    - [x] [layer 10] [shared] 0001 No
 
                                       [A] [translation](<0001 Common DSW Knowledge Model [6f6241d9]/0004 Processing data [10a10ffd]/0003 Workflow development [4ba3304e]/0002 More guidance is desired [bb00eb32]/0007 Did you choose the workflow engine you will be using [a1c37c05]/0005 Explore [00842b33]/0005 Is ease of use an issue for you [add9596e]/0002 Yes [4908bd0c]/0003 Do work flows need to be run on remote computers [8330c11f]/0001 No [cb4444e3]/translation.md>)
-                                    - [ ] [layer 10] 0002 Yes
+                                    - [ ] [layer 10] [shared] 0002 Yes
 
                                       [A] [translation](<0001 Common DSW Knowledge Model [6f6241d9]/0004 Processing data [10a10ffd]/0003 Workflow development [4ba3304e]/0002 More guidance is desired [bb00eb32]/0007 Did you choose the workflow engine you will be using [a1c37c05]/0005 Explore [00842b33]/0005 Is ease of use an issue for you [add9596e]/0002 Yes [4908bd0c]/0003 Do work flows need to be run on remote computers [8330c11f]/0002 Yes [adc8fe50]/translation.md>)
-                        - [ ] [layer 7] 0006 Is durability of work flows important for you
+                        - [ ] [layer 7] [shared] 0006 Is durability of work flows important for you
 
                           [Q] [translation](<0001 Common DSW Knowledge Model [6f6241d9]/0004 Processing data [10a10ffd]/0003 Workflow development [4ba3304e]/0002 More guidance is desired [bb00eb32]/0007 Did you choose the workflow engine you will be using [a1c37c05]/0005 Explore [00842b33]/0006 Is durability of work flows important for you [38b2a0d8]/translation.md>)
 
-                            - [x] [layer 8] 0001 No
+                            - [x] [layer 8] [shared] 0001 No
 
                               [A] [translation](<0001 Common DSW Knowledge Model [6f6241d9]/0004 Processing data [10a10ffd]/0003 Workflow development [4ba3304e]/0002 More guidance is desired [bb00eb32]/0007 Did you choose the workflow engine you will be using [a1c37c05]/0005 Explore [00842b33]/0006 Is durability of work flows important for you [38b2a0d8]/0001 No [b863299e]/translation.md>)
-                            - [ ] [layer 8] 0002 Yes
+                            - [ ] [layer 8] [shared] 0002 Yes
 
                               [A] [translation](<0001 Common DSW Knowledge Model [6f6241d9]/0004 Processing data [10a10ffd]/0003 Workflow development [4ba3304e]/0002 More guidance is desired [bb00eb32]/0007 Did you choose the workflow engine you will be using [a1c37c05]/0005 Explore [00842b33]/0006 Is durability of work flows important for you [38b2a0d8]/0002 Yes [5a54c4c2]/translation.md>)
 
-                                - [ ] [layer 9] 0001 Do you need the same workflow to run next year Durability against...
+                                - [ ] [layer 9] [shared] 0001 Do you need the same workflow to run next year Durability against...
 
                                   [Q] [translation](<0001 Common DSW Knowledge Model [6f6241d9]/0004 Processing data [10a10ffd]/0003 Workflow development [4ba3304e]/0002 More guidance is desired [bb00eb32]/0007 Did you choose the workflow engine you will be using [a1c37c05]/0005 Explore [00842b33]/0006 Is durability of work flows important for you [38b2a0d8]/0002 Yes [5a54c4c2]/0001 Do you need the same workflow to run next year Durability against... [0d13a230]/translation.md>)
 
-                                    - [x] [layer 10] 0001 No
+                                    - [x] [layer 10] [shared] 0001 No
 
                                       [A] [translation](<0001 Common DSW Knowledge Model [6f6241d9]/0004 Processing data [10a10ffd]/0003 Workflow development [4ba3304e]/0002 More guidance is desired [bb00eb32]/0007 Did you choose the workflow engine you will be using [a1c37c05]/0005 Explore [00842b33]/0006 Is durability of work flows important for you [38b2a0d8]/0002 Yes [5a54c4c2]/0001 Do you need the same workflow to run next year Durability against... [0d13a230]/0001 No [9fa5ba3b]/translation.md>)
-                                    - [ ] [layer 10] 0002 Yes
+                                    - [ ] [layer 10] [shared] 0002 Yes
 
                                       [A] [translation](<0001 Common DSW Knowledge Model [6f6241d9]/0004 Processing data [10a10ffd]/0003 Workflow development [4ba3304e]/0002 More guidance is desired [bb00eb32]/0007 Did you choose the workflow engine you will be using [a1c37c05]/0005 Explore [00842b33]/0006 Is durability of work flows important for you [38b2a0d8]/0002 Yes [5a54c4c2]/0001 Do you need the same workflow to run next year Durability against... [0d13a230]/0002 Yes [382d0640]/translation.md>)
-                                - [ ] [layer 9] 0002 Are all versions of all tools, including built-in tools, under...
+                                - [ ] [layer 9] [shared] 0002 Are all versions of all tools, including built-in tools, under...
 
                                   [Q] [translation](<0001 Common DSW Knowledge Model [6f6241d9]/0004 Processing data [10a10ffd]/0003 Workflow development [4ba3304e]/0002 More guidance is desired [bb00eb32]/0007 Did you choose the workflow engine you will be using [a1c37c05]/0005 Explore [00842b33]/0006 Is durability of work flows important for you [38b2a0d8]/0002 Yes [5a54c4c2]/0002 Are all versions of all tools, including built-in tools, under... [655180dc]/translation.md>)
 
                                     - [ ] [layer 10] 0001 Are all tools you use under your complete control
 
                                       [R] [translation](<0001 Common DSW Knowledge Model [6f6241d9]/0004 Processing data [10a10ffd]/0003 Workflow development [4ba3304e]/0002 More guidance is desired [bb00eb32]/0007 Did you choose the workflow engine you will be using [a1c37c05]/0005 Explore [00842b33]/0006 Is durability of work flows important for you [38b2a0d8]/0002 Yes [5a54c4c2]/0002 Are all versions of all tools, including built-in tools, under... [655180dc]/0001 Are all tools you use under your complete control [d8f2ac46]/translation.md>)
-                                    - [x] [layer 10] 0002 No
+                                    - [x] [layer 10] [shared] 0002 No
 
                                       [A] [translation](<0001 Common DSW Knowledge Model [6f6241d9]/0004 Processing data [10a10ffd]/0003 Workflow development [4ba3304e]/0002 More guidance is desired [bb00eb32]/0007 Did you choose the workflow engine you will be using [a1c37c05]/0005 Explore [00842b33]/0006 Is durability of work flows important for you [38b2a0d8]/0002 Yes [5a54c4c2]/0002 Are all versions of all tools, including built-in tools, under... [655180dc]/0002 No [d48d7df6]/translation.md>)
-                                    - [ ] [layer 10] 0003 Yes
+                                    - [ ] [layer 10] [shared] 0003 Yes
 
                                       [A] [translation](<0001 Common DSW Knowledge Model [6f6241d9]/0004 Processing data [10a10ffd]/0003 Workflow development [4ba3304e]/0002 More guidance is desired [bb00eb32]/0007 Did you choose the workflow engine you will be using [a1c37c05]/0005 Explore [00842b33]/0006 Is durability of work flows important for you [38b2a0d8]/0002 Yes [5a54c4c2]/0002 Are all versions of all tools, including built-in tools, under... [655180dc]/0003 Yes [29cf1c35]/translation.md>)
-                                - [ ] [layer 9] 0003 Do you need to be able to export import workflows (e.g. in the...
+                                - [ ] [layer 9] [shared] 0003 Do you need to be able to export import workflows (e.g. in the...
 
                                   [Q] [translation](<0001 Common DSW Knowledge Model [6f6241d9]/0004 Processing data [10a10ffd]/0003 Workflow development [4ba3304e]/0002 More guidance is desired [bb00eb32]/0007 Did you choose the workflow engine you will be using [a1c37c05]/0005 Explore [00842b33]/0006 Is durability of work flows important for you [38b2a0d8]/0002 Yes [5a54c4c2]/0003 Do you need to be able to export import workflows (e.g. in the... [92cab7ad]/translation.md>)
 
-                                    - [x] [layer 10] 0001 No
+                                    - [x] [layer 10] [shared] 0001 No
 
                                       [A] [translation](<0001 Common DSW Knowledge Model [6f6241d9]/0004 Processing data [10a10ffd]/0003 Workflow development [4ba3304e]/0002 More guidance is desired [bb00eb32]/0007 Did you choose the workflow engine you will be using [a1c37c05]/0005 Explore [00842b33]/0006 Is durability of work flows important for you [38b2a0d8]/0002 Yes [5a54c4c2]/0003 Do you need to be able to export import workflows (e.g. in the... [92cab7ad]/0001 No [b3403202]/translation.md>)
-                                    - [ ] [layer 10] 0002 Yes
+                                    - [ ] [layer 10] [shared] 0002 Yes
 
                                       [A] [translation](<0001 Common DSW Knowledge Model [6f6241d9]/0004 Processing data [10a10ffd]/0003 Workflow development [4ba3304e]/0002 More guidance is desired [bb00eb32]/0007 Did you choose the workflow engine you will be using [a1c37c05]/0005 Explore [00842b33]/0006 Is durability of work flows important for you [38b2a0d8]/0002 Yes [5a54c4c2]/0003 Do you need to be able to export import workflows (e.g. in the... [92cab7ad]/0002 Yes [cc6e3b14]/translation.md>)
-                        - [ ] [layer 7] 0007 Do you want your workflow engine to be professionally hosted by a...
+                        - [ ] [layer 7] [shared] 0007 Do you want your workflow engine to be professionally hosted by a...
 
                           [Q] [translation](<0001 Common DSW Knowledge Model [6f6241d9]/0004 Processing data [10a10ffd]/0003 Workflow development [4ba3304e]/0002 More guidance is desired [bb00eb32]/0007 Did you choose the workflow engine you will be using [a1c37c05]/0005 Explore [00842b33]/0007 Do you want your workflow engine to be professionally hosted by a... [75af1eb3]/translation.md>)
 
-                            - [x] [layer 8] 0001 No
+                            - [x] [layer 8] [shared] 0001 No
 
                               [A] [translation](<0001 Common DSW Knowledge Model [6f6241d9]/0004 Processing data [10a10ffd]/0003 Workflow development [4ba3304e]/0002 More guidance is desired [bb00eb32]/0007 Did you choose the workflow engine you will be using [a1c37c05]/0005 Explore [00842b33]/0007 Do you want your workflow engine to be professionally hosted by a... [75af1eb3]/0001 No [7c8ab0c9]/translation.md>)
-                            - [ ] [layer 8] 0002 Yes
+                            - [ ] [layer 8] [shared] 0002 Yes
 
                               [A] [translation](<0001 Common DSW Knowledge Model [6f6241d9]/0004 Processing data [10a10ffd]/0003 Workflow development [4ba3304e]/0002 More guidance is desired [bb00eb32]/0007 Did you choose the workflow engine you will be using [a1c37c05]/0005 Explore [00842b33]/0007 Do you want your workflow engine to be professionally hosted by a... [75af1eb3]/0002 Yes [592d8fb9]/translation.md>)
                         - [x] [layer 7] 0008 Can you make a decision for the workflow engine based on the...
@@ -3626,7 +3626,7 @@
             - [x] [layer 4] 0001 How will you keep provenance
 
               [R] [translation](<0001 Common DSW Knowledge Model [6f6241d9]/0004 Processing data [10a10ffd]/0004 How will you make sure to know what exactly has been run [1991077f]/0001 How will you keep provenance [0c4383ec]/translation.md>)
-            - [x] [layer 4] 0002 Explore
+            - [x] [layer 4] [shared] 0002 Explore
 
               [A] [translation](<0001 Common DSW Knowledge Model [6f6241d9]/0004 Processing data [10a10ffd]/0004 How will you make sure to know what exactly has been run [1991077f]/0002 Explore [12a85bf3]/translation.md>)
 
@@ -3634,40 +3634,40 @@
 
                   [Q] [translation](<0001 Common DSW Knowledge Model [6f6241d9]/0004 Processing data [10a10ffd]/0004 How will you make sure to know what exactly has been run [1991077f]/0002 Explore [12a85bf3]/0001 Will you keep results together with all processing scripts or... [5e111fc1]/translation.md>)
 
-                    - [x] [layer 6] 0001 No
+                    - [x] [layer 6] [shared] 0001 No
 
                       [A] [translation](<0001 Common DSW Knowledge Model [6f6241d9]/0004 Processing data [10a10ffd]/0004 How will you make sure to know what exactly has been run [1991077f]/0002 Explore [12a85bf3]/0001 Will you keep results together with all processing scripts or... [5e111fc1]/0001 No [f5518b1e]/translation.md>)
-                    - [ ] [layer 6] 0002 Yes
+                    - [ ] [layer 6] [shared] 0002 Yes
 
                       [A] [translation](<0001 Common DSW Knowledge Model [6f6241d9]/0004 Processing data [10a10ffd]/0004 How will you make sure to know what exactly has been run [1991077f]/0002 Explore [12a85bf3]/0001 Will you keep results together with all processing scripts or... [5e111fc1]/0002 Yes [0d9d77b1]/translation.md>)
                 - [ ] [layer 5] 0002 Will you make use of the metadata fields in your output data files...
 
                   [Q] [translation](<0001 Common DSW Knowledge Model [6f6241d9]/0004 Processing data [10a10ffd]/0004 How will you make sure to know what exactly has been run [1991077f]/0002 Explore [12a85bf3]/0002 Will you make use of the metadata fields in your output data files... [a972fba5]/translation.md>)
 
-                    - [x] [layer 6] 0001 No
+                    - [x] [layer 6] [shared] 0001 No
 
                       [A] [translation](<0001 Common DSW Knowledge Model [6f6241d9]/0004 Processing data [10a10ffd]/0004 How will you make sure to know what exactly has been run [1991077f]/0002 Explore [12a85bf3]/0002 Will you make use of the metadata fields in your output data files... [a972fba5]/0001 No [a3031101]/translation.md>)
-                    - [ ] [layer 6] 0002 Yes
+                    - [ ] [layer 6] [shared] 0002 Yes
 
                       [A] [translation](<0001 Common DSW Knowledge Model [6f6241d9]/0004 Processing data [10a10ffd]/0004 How will you make sure to know what exactly has been run [1991077f]/0002 Explore [12a85bf3]/0002 Will you make use of the metadata fields in your output data files... [a972fba5]/0002 Yes [2f4e30d6]/translation.md>)
                 - [ ] [layer 5] 0003 Are all software tools in the work flow professionally maintained,...
 
                   [Q] [translation](<0001 Common DSW Knowledge Model [6f6241d9]/0004 Processing data [10a10ffd]/0004 How will you make sure to know what exactly has been run [1991077f]/0002 Explore [12a85bf3]/0003 Are all software tools in the work flow professionally maintained,... [56bc8ebb]/translation.md>)
 
-                    - [x] [layer 6] 0001 No
+                    - [x] [layer 6] [shared] 0001 No
 
                       [A] [translation](<0001 Common DSW Knowledge Model [6f6241d9]/0004 Processing data [10a10ffd]/0004 How will you make sure to know what exactly has been run [1991077f]/0002 Explore [12a85bf3]/0003 Are all software tools in the work flow professionally maintained,... [56bc8ebb]/0001 No [76d2327b]/translation.md>)
-                    - [ ] [layer 6] 0002 Yes
+                    - [ ] [layer 6] [shared] 0002 Yes
 
                       [A] [translation](<0001 Common DSW Knowledge Model [6f6241d9]/0004 Processing data [10a10ffd]/0004 How will you make sure to know what exactly has been run [1991077f]/0002 Explore [12a85bf3]/0003 Are all software tools in the work flow professionally maintained,... [56bc8ebb]/0002 Yes [8afcd524]/translation.md>)
                 - [ ] [layer 5] 0004 Will you use a central repository for all tools and their versions...
 
                   [Q] [translation](<0001 Common DSW Knowledge Model [6f6241d9]/0004 Processing data [10a10ffd]/0004 How will you make sure to know what exactly has been run [1991077f]/0002 Explore [12a85bf3]/0004 Will you use a central repository for all tools and their versions... [decb7c9c]/translation.md>)
 
-                    - [x] [layer 6] 0001 No
+                    - [x] [layer 6] [shared] 0001 No
 
                       [A] [translation](<0001 Common DSW Knowledge Model [6f6241d9]/0004 Processing data [10a10ffd]/0004 How will you make sure to know what exactly has been run [1991077f]/0002 Explore [12a85bf3]/0004 Will you use a central repository for all tools and their versions... [decb7c9c]/0001 No [45d40564]/translation.md>)
-                    - [ ] [layer 6] 0002 Yes
+                    - [ ] [layer 6] [shared] 0002 Yes
 
                       [A] [translation](<0001 Common DSW Knowledge Model [6f6241d9]/0004 Processing data [10a10ffd]/0004 How will you make sure to know what exactly has been run [1991077f]/0002 Explore [12a85bf3]/0004 Will you use a central repository for all tools and their versions... [decb7c9c]/0002 Yes [a7b481ba]/translation.md>)
                     - [x] [layer 6] 0003 RDMkit on Package management systems
@@ -3677,10 +3677,10 @@
 
                   [Q] [translation](<0001 Common DSW Knowledge Model [6f6241d9]/0004 Processing data [10a10ffd]/0004 How will you make sure to know what exactly has been run [1991077f]/0002 Explore [12a85bf3]/0005 Will you use a central repository for reference data used in your... [4c7cd15f]/translation.md>)
 
-                    - [x] [layer 6] 0001 No
+                    - [x] [layer 6] [shared] 0001 No
 
                       [A] [translation](<0001 Common DSW Knowledge Model [6f6241d9]/0004 Processing data [10a10ffd]/0004 How will you make sure to know what exactly has been run [1991077f]/0002 Explore [12a85bf3]/0005 Will you use a central repository for reference data used in your... [4c7cd15f]/0001 No [67ba0ead]/translation.md>)
-                    - [ ] [layer 6] 0002 Yes
+                    - [ ] [layer 6] [shared] 0002 Yes
 
                       [A] [translation](<0001 Common DSW Knowledge Model [6f6241d9]/0004 Processing data [10a10ffd]/0004 How will you make sure to know what exactly has been run [1991077f]/0002 Explore [12a85bf3]/0005 Will you use a central repository for reference data used in your... [4c7cd15f]/0002 Yes [e8b48f96]/translation.md>)
                 - [ ] [layer 5] 0006 Will you make use of standard workflow engines and automatic work...
@@ -3690,20 +3690,20 @@
                     - [ ] [layer 6] 0001 Do you need the workflow engine to produce provenance information...
 
                       [R] [translation](<0001 Common DSW Knowledge Model [6f6241d9]/0004 Processing data [10a10ffd]/0004 How will you make sure to know what exactly has been run [1991077f]/0002 Explore [12a85bf3]/0006 Will you make use of standard workflow engines and automatic work... [49199b05]/0001 Do you need the workflow engine to produce provenance information... [d522881a]/translation.md>)
-                    - [x] [layer 6] 0002 No
+                    - [x] [layer 6] [shared] 0002 No
 
                       [A] [translation](<0001 Common DSW Knowledge Model [6f6241d9]/0004 Processing data [10a10ffd]/0004 How will you make sure to know what exactly has been run [1991077f]/0002 Explore [12a85bf3]/0006 Will you make use of standard workflow engines and automatic work... [49199b05]/0002 No [a9db9446]/translation.md>)
-                    - [ ] [layer 6] 0003 Yes
+                    - [ ] [layer 6] [shared] 0003 Yes
 
                       [A] [translation](<0001 Common DSW Knowledge Model [6f6241d9]/0004 Processing data [10a10ffd]/0004 How will you make sure to know what exactly has been run [1991077f]/0002 Explore [12a85bf3]/0006 Will you make use of standard workflow engines and automatic work... [49199b05]/0003 Yes [ea0ab328]/translation.md>)
-            - [ ] [layer 4] 0003 RDMkit on Data Analysis
+            - [ ] [layer 4] [shared] 0003 RDMkit on Data Analysis
 
               [R] [translation](<0001 Common DSW Knowledge Model [6f6241d9]/0004 Processing data [10a10ffd]/0004 How will you make sure to know what exactly has been run [1991077f]/0003 RDMkit on Data Analysis [f3fd7baf]/translation.md>)
         - [x] [layer 3] 0005 How will you validate the integrity of the results
 
           [Q] [translation](<0001 Common DSW Knowledge Model [6f6241d9]/0004 Processing data [10a10ffd]/0005 How will you validate the integrity of the results [918d5fd1]/translation.md>)
 
-            - [x] [layer 4] 0001 Explore
+            - [x] [layer 4] [shared] 0001 Explore
 
               [A] [translation](<0001 Common DSW Knowledge Model [6f6241d9]/0004 Processing data [10a10ffd]/0005 How will you validate the integrity of the results [918d5fd1]/0001 Explore [30d1e85c]/translation.md>)
 
@@ -3711,30 +3711,30 @@
 
                   [Q] [translation](<0001 Common DSW Knowledge Model [6f6241d9]/0004 Processing data [10a10ffd]/0005 How will you validate the integrity of the results [918d5fd1]/0001 Explore [30d1e85c]/0001 Will you be instrumenting the tools into pipelines and workflows... [a3a4ce37]/translation.md>)
 
-                    - [x] [layer 6] 0001 No
+                    - [x] [layer 6] [shared] 0001 No
 
                       [A] [translation](<0001 Common DSW Knowledge Model [6f6241d9]/0004 Processing data [10a10ffd]/0005 How will you validate the integrity of the results [918d5fd1]/0001 Explore [30d1e85c]/0001 Will you be instrumenting the tools into pipelines and workflows... [a3a4ce37]/0001 No [9ffbb7f2]/translation.md>)
-                    - [ ] [layer 6] 0002 Yes
+                    - [ ] [layer 6] [shared] 0002 Yes
 
                       [A] [translation](<0001 Common DSW Knowledge Model [6f6241d9]/0004 Processing data [10a10ffd]/0005 How will you validate the integrity of the results [918d5fd1]/0001 Explore [30d1e85c]/0001 Will you be instrumenting the tools into pipelines and workflows... [a3a4ce37]/0002 Yes [4715c145]/translation.md>)
                 - [ ] [layer 5] 0002 Will you run a subset of your jobs several times across the...
 
                   [Q] [translation](<0001 Common DSW Knowledge Model [6f6241d9]/0004 Processing data [10a10ffd]/0005 How will you validate the integrity of the results [918d5fd1]/0001 Explore [30d1e85c]/0002 Will you run a subset of your jobs several times across the... [e8a08f27]/translation.md>)
 
-                    - [x] [layer 6] 0001 No
+                    - [x] [layer 6] [shared] 0001 No
 
                       [A] [translation](<0001 Common DSW Knowledge Model [6f6241d9]/0004 Processing data [10a10ffd]/0005 How will you validate the integrity of the results [918d5fd1]/0001 Explore [30d1e85c]/0002 Will you run a subset of your jobs several times across the... [e8a08f27]/0001 No [8d038086]/translation.md>)
-                    - [ ] [layer 6] 0002 Yes
+                    - [ ] [layer 6] [shared] 0002 Yes
 
                       [A] [translation](<0001 Common DSW Knowledge Model [6f6241d9]/0004 Processing data [10a10ffd]/0005 How will you validate the integrity of the results [918d5fd1]/0001 Explore [30d1e85c]/0002 Will you run a subset of your jobs several times across the... [e8a08f27]/0002 Yes [be0761b6]/translation.md>)
                 - [ ] [layer 5] 0003 Will you use independently developed duplicate tools or workflows...
 
                   [Q] [translation](<0001 Common DSW Knowledge Model [6f6241d9]/0004 Processing data [10a10ffd]/0005 How will you validate the integrity of the results [918d5fd1]/0001 Explore [30d1e85c]/0003 Will you use independently developed duplicate tools or workflows... [34a3ef8b]/translation.md>)
 
-                    - [x] [layer 6] 0001 No
+                    - [x] [layer 6] [shared] 0001 No
 
                       [A] [translation](<0001 Common DSW Knowledge Model [6f6241d9]/0004 Processing data [10a10ffd]/0005 How will you validate the integrity of the results [918d5fd1]/0001 Explore [30d1e85c]/0003 Will you use independently developed duplicate tools or workflows... [34a3ef8b]/0001 No [f14a3135]/translation.md>)
-                    - [ ] [layer 6] 0002 Yes
+                    - [ ] [layer 6] [shared] 0002 Yes
 
                       [A] [translation](<0001 Common DSW Knowledge Model [6f6241d9]/0004 Processing data [10a10ffd]/0005 How will you validate the integrity of the results [918d5fd1]/0001 Explore [30d1e85c]/0003 Will you use independently developed duplicate tools or workflows... [34a3ef8b]/0002 Yes [56c899c9]/translation.md>)
                 - [ ] [layer 5] 0004 Will you run part of the data set repeatedly to catch unexpected...
@@ -3744,20 +3744,20 @@
                     - [ ] [layer 6] 0001 Will you test whether known correct results are obtained over time
 
                       [R] [translation](<0001 Common DSW Knowledge Model [6f6241d9]/0004 Processing data [10a10ffd]/0005 How will you validate the integrity of the results [918d5fd1]/0001 Explore [30d1e85c]/0004 Will you run part of the data set repeatedly to catch unexpected... [faf72b3d]/0001 Will you test whether known correct results are obtained over time [fbe68369]/translation.md>)
-                    - [x] [layer 6] 0002 No
+                    - [x] [layer 6] [shared] 0002 No
 
                       [A] [translation](<0001 Common DSW Knowledge Model [6f6241d9]/0004 Processing data [10a10ffd]/0005 How will you validate the integrity of the results [918d5fd1]/0001 Explore [30d1e85c]/0004 Will you run part of the data set repeatedly to catch unexpected... [faf72b3d]/0002 No [168ba2ce]/translation.md>)
-                    - [ ] [layer 6] 0003 Yes
+                    - [ ] [layer 6] [shared] 0003 Yes
 
                       [A] [translation](<0001 Common DSW Knowledge Model [6f6241d9]/0004 Processing data [10a10ffd]/0005 How will you validate the integrity of the results [918d5fd1]/0001 Explore [30d1e85c]/0004 Will you run part of the data set repeatedly to catch unexpected... [faf72b3d]/0003 Yes [2c9f5097]/translation.md>)
         - [x] [layer 3] 0006 Do you need to do compute capacity planning
 
           [Q] [translation](<0001 Common DSW Knowledge Model [6f6241d9]/0004 Processing data [10a10ffd]/0006 Do you need to do compute capacity planning [e87ef779]/translation.md>)
 
-            - [x] [layer 4] 0001 No
+            - [x] [layer 4] [shared] 0001 No
 
               [A] [translation](<0001 Common DSW Knowledge Model [6f6241d9]/0004 Processing data [10a10ffd]/0006 Do you need to do compute capacity planning [e87ef779]/0001 No [3cc05034]/translation.md>)
-            - [ ] [layer 4] 0002 Yes
+            - [ ] [layer 4] [shared] 0002 Yes
 
               [A] [translation](<0001 Common DSW Knowledge Model [6f6241d9]/0004 Processing data [10a10ffd]/0006 Do you need to do compute capacity planning [e87ef779]/0002 Yes [ae82cfc8]/translation.md>)
 
@@ -3765,10 +3765,10 @@
 
                   [Q] [translation](<0001 Common DSW Knowledge Model [6f6241d9]/0004 Processing data [10a10ffd]/0006 Do you need to do compute capacity planning [e87ef779]/0002 Yes [ae82cfc8]/0001 Do you know how much CPU power, memory and I O band width a typical... [30027b9a]/translation.md>)
 
-                    - [x] [layer 6] 0001 No
+                    - [x] [layer 6] [shared] 0001 No
 
                       [A] [translation](<0001 Common DSW Knowledge Model [6f6241d9]/0004 Processing data [10a10ffd]/0006 Do you need to do compute capacity planning [e87ef779]/0002 Yes [ae82cfc8]/0001 Do you know how much CPU power, memory and I O band width a typical... [30027b9a]/0001 No [ea6d837d]/translation.md>)
-                    - [ ] [layer 6] 0002 Yes
+                    - [ ] [layer 6] [shared] 0002 Yes
 
                       [A] [translation](<0001 Common DSW Knowledge Model [6f6241d9]/0004 Processing data [10a10ffd]/0006 Do you need to do compute capacity planning [e87ef779]/0002 Yes [ae82cfc8]/0001 Do you know how much CPU power, memory and I O band width a typical... [30027b9a]/0002 Yes [34954537]/translation.md>)
                 - [ ] [layer 5] 0002 What type of compute architecture is most suitable for your work...
@@ -3807,17 +3807,17 @@
 
                   [Q] [translation](<0001 Common DSW Knowledge Model [6f6241d9]/0004 Processing data [10a10ffd]/0006 Do you need to do compute capacity planning [e87ef779]/0002 Yes [ae82cfc8]/0004 Have you established with the provider when will you need the... [d8150021]/translation.md>)
 
-                    - [x] [layer 6] 0001 No
+                    - [x] [layer 6] [shared] 0001 No
 
                       [A] [translation](<0001 Common DSW Knowledge Model [6f6241d9]/0004 Processing data [10a10ffd]/0006 Do you need to do compute capacity planning [e87ef779]/0002 Yes [ae82cfc8]/0004 Have you established with the provider when will you need the... [d8150021]/0001 No [a4e0eb91]/translation.md>)
-                    - [ ] [layer 6] 0002 Yes
+                    - [ ] [layer 6] [shared] 0002 Yes
 
                       [A] [translation](<0001 Common DSW Knowledge Model [6f6241d9]/0004 Processing data [10a10ffd]/0006 Do you need to do compute capacity planning [e87ef779]/0002 Yes [ae82cfc8]/0004 Have you established with the provider when will you need the... [d8150021]/0002 Yes [9029ca4e]/translation.md>)
                 - [ ] [layer 5] 0005 Is all required compute capacity available close to the project...
 
                   [Q] [translation](<0001 Common DSW Knowledge Model [6f6241d9]/0004 Processing data [10a10ffd]/0006 Do you need to do compute capacity planning [e87ef779]/0002 Yes [ae82cfc8]/0005 Is all required compute capacity available close to the project... [4c71d62c]/translation.md>)
 
-                    - [x] [layer 6] 0001 No
+                    - [x] [layer 6] [shared] 0001 No
 
                       [A] [translation](<0001 Common DSW Knowledge Model [6f6241d9]/0004 Processing data [10a10ffd]/0006 Do you need to do compute capacity planning [e87ef779]/0002 Yes [ae82cfc8]/0005 Is all required compute capacity available close to the project... [4c71d62c]/0001 No [c536e726]/translation.md>)
 
@@ -3838,23 +3838,23 @@
 
                           [Q] [translation](<0001 Common DSW Knowledge Model [6f6241d9]/0004 Processing data [10a10ffd]/0006 Do you need to do compute capacity planning [e87ef779]/0002 Yes [ae82cfc8]/0005 Is all required compute capacity available close to the project... [4c71d62c]/0001 No [c536e726]/0002 Can all data be legally transported and processed at the computing site [3788d53f]/translation.md>)
 
-                            - [x] [layer 8] 0001 No
+                            - [x] [layer 8] [shared] 0001 No
 
                               [A] [translation](<0001 Common DSW Knowledge Model [6f6241d9]/0004 Processing data [10a10ffd]/0006 Do you need to do compute capacity planning [e87ef779]/0002 Yes [ae82cfc8]/0005 Is all required compute capacity available close to the project... [4c71d62c]/0001 No [c536e726]/0002 Can all data be legally transported and processed at the computing site [3788d53f]/0001 No [e208ad3c]/translation.md>)
-                            - [ ] [layer 8] 0002 Yes
+                            - [ ] [layer 8] [shared] 0002 Yes
 
                               [A] [translation](<0001 Common DSW Knowledge Model [6f6241d9]/0004 Processing data [10a10ffd]/0006 Do you need to do compute capacity planning [e87ef779]/0002 Yes [ae82cfc8]/0005 Is all required compute capacity available close to the project... [4c71d62c]/0001 No [c536e726]/0002 Can all data be legally transported and processed at the computing site [3788d53f]/0002 Yes [bd3c4a00]/translation.md>)
-                    - [ ] [layer 6] 0002 Yes
+                    - [ ] [layer 6] [shared] 0002 Yes
 
                       [A] [translation](<0001 Common DSW Knowledge Model [6f6241d9]/0004 Processing data [10a10ffd]/0006 Do you need to do compute capacity planning [e87ef779]/0002 Yes [ae82cfc8]/0005 Is all required compute capacity available close to the project... [4c71d62c]/0002 Yes [d439ecac]/translation.md>)
                 - [x] [layer 5] 0006 Can your work flow and work flow system make use of trivial...
 
                   [Q] [translation](<0001 Common DSW Knowledge Model [6f6241d9]/0004 Processing data [10a10ffd]/0006 Do you need to do compute capacity planning [e87ef779]/0002 Yes [ae82cfc8]/0006 Can your work flow and work flow system make use of trivial... [a0d52f2d]/translation.md>)
 
-                    - [x] [layer 6] 0001 No
+                    - [x] [layer 6] [shared] 0001 No
 
                       [A] [translation](<0001 Common DSW Knowledge Model [6f6241d9]/0004 Processing data [10a10ffd]/0006 Do you need to do compute capacity planning [e87ef779]/0002 Yes [ae82cfc8]/0006 Can your work flow and work flow system make use of trivial... [a0d52f2d]/0001 No [23967ba0]/translation.md>)
-                    - [ ] [layer 6] 0002 Yes
+                    - [ ] [layer 6] [shared] 0002 Yes
 
                       [A] [translation](<0001 Common DSW Knowledge Model [6f6241d9]/0004 Processing data [10a10ffd]/0006 Do you need to do compute capacity planning [e87ef779]/0002 Yes [ae82cfc8]/0006 Can your work flow and work flow system make use of trivial... [a0d52f2d]/0002 Yes [1e2dd80b]/translation.md>)
                 - [ ] [layer 5] 0007 Will different groups work on different parts of the workflow Will...
@@ -3875,17 +3875,17 @@
 
                           [Q] [translation](<0001 Common DSW Knowledge Model [6f6241d9]/0004 Processing data [10a10ffd]/0006 Do you need to do compute capacity planning [e87ef779]/0002 Yes [ae82cfc8]/0007 Will different groups work on different parts of the workflow Will... [410f3709]/0003 Some steps may be performed at local computing locations [a2c4514b]/0001 Is there sufficient network capacity to the other computing locations [9e34d326]/translation.md>)
 
-                            - [x] [layer 8] 0001 No
+                            - [x] [layer 8] [shared] 0001 No
 
                               [A] [translation](<0001 Common DSW Knowledge Model [6f6241d9]/0004 Processing data [10a10ffd]/0006 Do you need to do compute capacity planning [e87ef779]/0002 Yes [ae82cfc8]/0007 Will different groups work on different parts of the workflow Will... [410f3709]/0003 Some steps may be performed at local computing locations [a2c4514b]/0001 Is there sufficient network capacity to the other computing locations [9e34d326]/0001 No [310adf1a]/translation.md>)
-                            - [ ] [layer 8] 0002 Yes
+                            - [ ] [layer 8] [shared] 0002 Yes
 
                               [A] [translation](<0001 Common DSW Knowledge Model [6f6241d9]/0004 Processing data [10a10ffd]/0006 Do you need to do compute capacity planning [e87ef779]/0002 Yes [ae82cfc8]/0007 Will different groups work on different parts of the workflow Will... [410f3709]/0003 Some steps may be performed at local computing locations [a2c4514b]/0001 Is there sufficient network capacity to the other computing locations [9e34d326]/0002 Yes [d2ceec96]/translation.md>)
         - [ ] [layer 3] 0007 Is the risk of information loss, leaks and vandalism acceptably low
 
           [Q] [translation](<0001 Common DSW Knowledge Model [6f6241d9]/0004 Processing data [10a10ffd]/0007 Is the risk of information loss, leaks and vandalism acceptably low [614ab69d]/translation.md>)
 
-            - [x] [layer 4] 0001 Explore
+            - [x] [layer 4] [shared] 0001 Explore
 
               [A] [translation](<0001 Common DSW Knowledge Model [6f6241d9]/0004 Processing data [10a10ffd]/0007 Is the risk of information loss, leaks and vandalism acceptably low [614ab69d]/0001 Explore [b2f76c0a]/translation.md>)
 
@@ -3893,30 +3893,30 @@
 
                   [Q] [translation](<0001 Common DSW Knowledge Model [6f6241d9]/0004 Processing data [10a10ffd]/0007 Is the risk of information loss, leaks and vandalism acceptably low [614ab69d]/0001 Explore [b2f76c0a]/0001 Do project members send project data or reports per e-mail or other... [2d57daa6]/translation.md>)
 
-                    - [x] [layer 6] 0001 No
+                    - [x] [layer 6] [shared] 0001 No
 
                       [A] [translation](<0001 Common DSW Knowledge Model [6f6241d9]/0004 Processing data [10a10ffd]/0007 Is the risk of information loss, leaks and vandalism acceptably low [614ab69d]/0001 Explore [b2f76c0a]/0001 Do project members send project data or reports per e-mail or other... [2d57daa6]/0001 No [1846d736]/translation.md>)
-                    - [ ] [layer 6] 0002 Yes
+                    - [ ] [layer 6] [shared] 0002 Yes
 
                       [A] [translation](<0001 Common DSW Knowledge Model [6f6241d9]/0004 Processing data [10a10ffd]/0007 Is the risk of information loss, leaks and vandalism acceptably low [614ab69d]/0001 Explore [b2f76c0a]/0001 Do project members send project data or reports per e-mail or other... [2d57daa6]/0002 Yes [eed11bd7]/translation.md>)
                 - [x] [layer 5] 0002 Do all data centers where project data is stored carry sufficient...
 
                   [Q] [translation](<0001 Common DSW Knowledge Model [6f6241d9]/0004 Processing data [10a10ffd]/0007 Is the risk of information loss, leaks and vandalism acceptably low [614ab69d]/0001 Explore [b2f76c0a]/0002 Do all data centers where project data is stored carry sufficient... [a454fffd]/translation.md>)
 
-                    - [x] [layer 6] 0001 No
+                    - [x] [layer 6] [shared] 0001 No
 
                       [A] [translation](<0001 Common DSW Knowledge Model [6f6241d9]/0004 Processing data [10a10ffd]/0007 Is the risk of information loss, leaks and vandalism acceptably low [614ab69d]/0001 Explore [b2f76c0a]/0002 Do all data centers where project data is stored carry sufficient... [a454fffd]/0001 No [9acf74b1]/translation.md>)
-                    - [ ] [layer 6] 0002 Yes
+                    - [ ] [layer 6] [shared] 0002 Yes
 
                       [A] [translation](<0001 Common DSW Knowledge Model [6f6241d9]/0004 Processing data [10a10ffd]/0007 Is the risk of information loss, leaks and vandalism acceptably low [614ab69d]/0001 Explore [b2f76c0a]/0002 Do all data centers where project data is stored carry sufficient... [a454fffd]/0002 Yes [a9629ff2]/translation.md>)
                 - [x] [layer 5] 0003 Do project members carry data with them
 
                   [Q] [translation](<0001 Common DSW Knowledge Model [6f6241d9]/0004 Processing data [10a10ffd]/0007 Is the risk of information loss, leaks and vandalism acceptably low [614ab69d]/0001 Explore [b2f76c0a]/0003 Do project members carry data with them [abaf4a70]/translation.md>)
 
-                    - [x] [layer 6] 0001 No
+                    - [x] [layer 6] [shared] 0001 No
 
                       [A] [translation](<0001 Common DSW Knowledge Model [6f6241d9]/0004 Processing data [10a10ffd]/0007 Is the risk of information loss, leaks and vandalism acceptably low [614ab69d]/0001 Explore [b2f76c0a]/0003 Do project members carry data with them [abaf4a70]/0001 No [3c8f999d]/translation.md>)
-                    - [ ] [layer 6] 0002 Yes
+                    - [ ] [layer 6] [shared] 0002 Yes
 
                       [A] [translation](<0001 Common DSW Knowledge Model [6f6241d9]/0004 Processing data [10a10ffd]/0007 Is the risk of information loss, leaks and vandalism acceptably low [614ab69d]/0001 Explore [b2f76c0a]/0003 Do project members carry data with them [abaf4a70]/0002 Yes [c9fc7d94]/translation.md>)
 
@@ -3924,108 +3924,108 @@
 
                           [Q] [translation](<0001 Common DSW Knowledge Model [6f6241d9]/0004 Processing data [10a10ffd]/0007 Is the risk of information loss, leaks and vandalism acceptably low [614ab69d]/0001 Explore [b2f76c0a]/0003 Do project members carry data with them [abaf4a70]/0002 Yes [c9fc7d94]/0001 Are all data carriers encrypted [6aff9a57]/translation.md>)
 
-                            - [ ] [layer 8] 0001 Yes
+                            - [ ] [layer 8] [shared] 0001 Yes
 
                               [A] [translation](<0001 Common DSW Knowledge Model [6f6241d9]/0004 Processing data [10a10ffd]/0007 Is the risk of information loss, leaks and vandalism acceptably low [614ab69d]/0001 Explore [b2f76c0a]/0003 Do project members carry data with them [abaf4a70]/0002 Yes [c9fc7d94]/0001 Are all data carriers encrypted [6aff9a57]/0001 Yes [dda8513e]/translation.md>)
-                            - [x] [layer 8] 0002 No
+                            - [x] [layer 8] [shared] 0002 No
 
                               [A] [translation](<0001 Common DSW Knowledge Model [6f6241d9]/0004 Processing data [10a10ffd]/0007 Is the risk of information loss, leaks and vandalism acceptably low [614ab69d]/0001 Explore [b2f76c0a]/0003 Do project members carry data with them [abaf4a70]/0002 Yes [c9fc7d94]/0001 Are all data carriers encrypted [6aff9a57]/0002 No [546d6e41]/translation.md>)
                         - [x] [layer 7] 0002 Are accounts on laptops password protected
 
                           [Q] [translation](<0001 Common DSW Knowledge Model [6f6241d9]/0004 Processing data [10a10ffd]/0007 Is the risk of information loss, leaks and vandalism acceptably low [614ab69d]/0001 Explore [b2f76c0a]/0003 Do project members carry data with them [abaf4a70]/0002 Yes [c9fc7d94]/0002 Are accounts on laptops password protected [26c19dc0]/translation.md>)
 
-                            - [ ] [layer 8] 0001 Yes
+                            - [ ] [layer 8] [shared] 0001 Yes
 
                               [A] [translation](<0001 Common DSW Knowledge Model [6f6241d9]/0004 Processing data [10a10ffd]/0007 Is the risk of information loss, leaks and vandalism acceptably low [614ab69d]/0001 Explore [b2f76c0a]/0003 Do project members carry data with them [abaf4a70]/0002 Yes [c9fc7d94]/0002 Are accounts on laptops password protected [26c19dc0]/0001 Yes [3e17a9da]/translation.md>)
-                            - [x] [layer 8] 0002 No
+                            - [x] [layer 8] [shared] 0002 No
 
                               [A] [translation](<0001 Common DSW Knowledge Model [6f6241d9]/0004 Processing data [10a10ffd]/0007 Is the risk of information loss, leaks and vandalism acceptably low [614ab69d]/0001 Explore [b2f76c0a]/0003 Do project members carry data with them [abaf4a70]/0002 Yes [c9fc7d94]/0002 Are accounts on laptops password protected [26c19dc0]/0002 No [f2d273c1]/translation.md>)
                 - [x] [layer 5] 0004 Did you consider the possible impact to the project or organization...
 
                   [Q] [translation](<0001 Common DSW Knowledge Model [6f6241d9]/0004 Processing data [10a10ffd]/0007 Is the risk of information loss, leaks and vandalism acceptably low [614ab69d]/0001 Explore [b2f76c0a]/0004 Did you consider the possible impact to the project or organization... [a20ddc5d]/translation.md>)
 
-                    - [x] [layer 6] 0001 No
+                    - [x] [layer 6] [shared] 0001 No
 
                       [A] [translation](<0001 Common DSW Knowledge Model [6f6241d9]/0004 Processing data [10a10ffd]/0007 Is the risk of information loss, leaks and vandalism acceptably low [614ab69d]/0001 Explore [b2f76c0a]/0004 Did you consider the possible impact to the project or organization... [a20ddc5d]/0001 No [04dd5577]/translation.md>)
-                    - [ ] [layer 6] 0002 Yes; the effect is small
+                    - [ ] [layer 6] [shared] 0002 Yes; the effect is small
 
                       [A] [translation](<0001 Common DSW Knowledge Model [6f6241d9]/0004 Processing data [10a10ffd]/0007 Is the risk of information loss, leaks and vandalism acceptably low [614ab69d]/0001 Explore [b2f76c0a]/0004 Did you consider the possible impact to the project or organization... [a20ddc5d]/0002 Yes; the effect is small [7c9c8543]/translation.md>)
-                    - [ ] [layer 6] 0003 Yes; the risk is acceptably low
+                    - [ ] [layer 6] [shared] 0003 Yes; the risk is acceptably low
 
                       [A] [translation](<0001 Common DSW Knowledge Model [6f6241d9]/0004 Processing data [10a10ffd]/0007 Is the risk of information loss, leaks and vandalism acceptably low [614ab69d]/0001 Explore [b2f76c0a]/0004 Did you consider the possible impact to the project or organization... [a20ddc5d]/0003 Yes; the risk is acceptably low [6306207c]/translation.md>)
-                    - [ ] [layer 6] 0004 Yes; we will need to work on this
+                    - [ ] [layer 6] [shared] 0004 Yes; we will need to work on this
 
                       [A] [translation](<0001 Common DSW Knowledge Model [6f6241d9]/0004 Processing data [10a10ffd]/0007 Is the risk of information loss, leaks and vandalism acceptably low [614ab69d]/0001 Explore [b2f76c0a]/0004 Did you consider the possible impact to the project or organization... [a20ddc5d]/0004 Yes; we will need to work on this [efec7b38]/translation.md>)
                 - [x] [layer 5] 0005 Did you consider the possible impact to the project or organization...
 
                   [Q] [translation](<0001 Common DSW Knowledge Model [6f6241d9]/0004 Processing data [10a10ffd]/0007 Is the risk of information loss, leaks and vandalism acceptably low [614ab69d]/0001 Explore [b2f76c0a]/0005 Did you consider the possible impact to the project or organization... [67c34ee1]/translation.md>)
 
-                    - [x] [layer 6] 0001 No
+                    - [x] [layer 6] [shared] 0001 No
 
                       [A] [translation](<0001 Common DSW Knowledge Model [6f6241d9]/0004 Processing data [10a10ffd]/0007 Is the risk of information loss, leaks and vandalism acceptably low [614ab69d]/0001 Explore [b2f76c0a]/0005 Did you consider the possible impact to the project or organization... [67c34ee1]/0001 No [4c5d329b]/translation.md>)
-                    - [ ] [layer 6] 0002 Yes; the effect is small
+                    - [ ] [layer 6] [shared] 0002 Yes; the effect is small
 
                       [A] [translation](<0001 Common DSW Knowledge Model [6f6241d9]/0004 Processing data [10a10ffd]/0007 Is the risk of information loss, leaks and vandalism acceptably low [614ab69d]/0001 Explore [b2f76c0a]/0005 Did you consider the possible impact to the project or organization... [67c34ee1]/0002 Yes; the effect is small [a8a4dc7d]/translation.md>)
-                    - [ ] [layer 6] 0003 Yes; the risk is acceptably low
+                    - [ ] [layer 6] [shared] 0003 Yes; the risk is acceptably low
 
                       [A] [translation](<0001 Common DSW Knowledge Model [6f6241d9]/0004 Processing data [10a10ffd]/0007 Is the risk of information loss, leaks and vandalism acceptably low [614ab69d]/0001 Explore [b2f76c0a]/0005 Did you consider the possible impact to the project or organization... [67c34ee1]/0003 Yes; the risk is acceptably low [a0ec7128]/translation.md>)
-                    - [ ] [layer 6] 0004 Yes; we will need to work on this
+                    - [ ] [layer 6] [shared] 0004 Yes; we will need to work on this
 
                       [A] [translation](<0001 Common DSW Knowledge Model [6f6241d9]/0004 Processing data [10a10ffd]/0007 Is the risk of information loss, leaks and vandalism acceptably low [614ab69d]/0001 Explore [b2f76c0a]/0005 Did you consider the possible impact to the project or organization... [67c34ee1]/0004 Yes; we will need to work on this [928db5fa]/translation.md>)
                 - [ ] [layer 5] 0006 Do project members store data or software on computers in the lab...
 
                   [Q] [translation](<0001 Common DSW Knowledge Model [6f6241d9]/0004 Processing data [10a10ffd]/0007 Is the risk of information loss, leaks and vandalism acceptably low [614ab69d]/0001 Explore [b2f76c0a]/0006 Do project members store data or software on computers in the lab... [90324a7b]/translation.md>)
 
-                    - [x] [layer 6] 0001 No
+                    - [x] [layer 6] [shared] 0001 No
 
                       [A] [translation](<0001 Common DSW Knowledge Model [6f6241d9]/0004 Processing data [10a10ffd]/0007 Is the risk of information loss, leaks and vandalism acceptably low [614ab69d]/0001 Explore [b2f76c0a]/0006 Do project members store data or software on computers in the lab... [90324a7b]/0001 No [17172079]/translation.md>)
-                    - [ ] [layer 6] 0002 Yes
+                    - [ ] [layer 6] [shared] 0002 Yes
 
                       [A] [translation](<0001 Common DSW Knowledge Model [6f6241d9]/0004 Processing data [10a10ffd]/0007 Is the risk of information loss, leaks and vandalism acceptably low [614ab69d]/0001 Explore [b2f76c0a]/0006 Do project members store data or software on computers in the lab... [90324a7b]/0002 Yes [7134876a]/translation.md>)
                 - [x] [layer 5] 0007 Did you consider the possible impact to the project or organization...
 
                   [Q] [translation](<0001 Common DSW Knowledge Model [6f6241d9]/0004 Processing data [10a10ffd]/0007 Is the risk of information loss, leaks and vandalism acceptably low [614ab69d]/0001 Explore [b2f76c0a]/0007 Did you consider the possible impact to the project or organization... [8cd49d8f]/translation.md>)
 
-                    - [x] [layer 6] 0001 No
+                    - [x] [layer 6] [shared] 0001 No
 
                       [A] [translation](<0001 Common DSW Knowledge Model [6f6241d9]/0004 Processing data [10a10ffd]/0007 Is the risk of information loss, leaks and vandalism acceptably low [614ab69d]/0001 Explore [b2f76c0a]/0007 Did you consider the possible impact to the project or organization... [8cd49d8f]/0001 No [b4dbc287]/translation.md>)
-                    - [ ] [layer 6] 0002 Yes; the effect is small
+                    - [ ] [layer 6] [shared] 0002 Yes; the effect is small
 
                       [A] [translation](<0001 Common DSW Knowledge Model [6f6241d9]/0004 Processing data [10a10ffd]/0007 Is the risk of information loss, leaks and vandalism acceptably low [614ab69d]/0001 Explore [b2f76c0a]/0007 Did you consider the possible impact to the project or organization... [8cd49d8f]/0002 Yes; the effect is small [ae0c3b93]/translation.md>)
-                    - [ ] [layer 6] 0003 Yes; the risk is acceptably low
+                    - [ ] [layer 6] [shared] 0003 Yes; the risk is acceptably low
 
                       [A] [translation](<0001 Common DSW Knowledge Model [6f6241d9]/0004 Processing data [10a10ffd]/0007 Is the risk of information loss, leaks and vandalism acceptably low [614ab69d]/0001 Explore [b2f76c0a]/0007 Did you consider the possible impact to the project or organization... [8cd49d8f]/0003 Yes; the risk is acceptably low [b1e1861b]/translation.md>)
-                    - [ ] [layer 6] 0004 Yes; we will need to work on this
+                    - [ ] [layer 6] [shared] 0004 Yes; we will need to work on this
 
                       [A] [translation](<0001 Common DSW Knowledge Model [6f6241d9]/0004 Processing data [10a10ffd]/0007 Is the risk of information loss, leaks and vandalism acceptably low [614ab69d]/0001 Explore [b2f76c0a]/0007 Did you consider the possible impact to the project or organization... [8cd49d8f]/0004 Yes; we will need to work on this [e8943baf]/translation.md>)
                 - [x] [layer 5] 0008 Are all project web services addressed via secure http (https - )
 
                   [Q] [translation](<0001 Common DSW Knowledge Model [6f6241d9]/0004 Processing data [10a10ffd]/0007 Is the risk of information loss, leaks and vandalism acceptably low [614ab69d]/0001 Explore [b2f76c0a]/0008 Are all project web services addressed via secure http (https - ) [39d8dad9]/translation.md>)
 
-                    - [x] [layer 6] 0001 No
+                    - [x] [layer 6] [shared] 0001 No
 
                       [A] [translation](<0001 Common DSW Knowledge Model [6f6241d9]/0004 Processing data [10a10ffd]/0007 Is the risk of information loss, leaks and vandalism acceptably low [614ab69d]/0001 Explore [b2f76c0a]/0008 Are all project web services addressed via secure http (https - ) [39d8dad9]/0001 No [2b934f9d]/translation.md>)
-                    - [ ] [layer 6] 0002 Yes
+                    - [ ] [layer 6] [shared] 0002 Yes
 
                       [A] [translation](<0001 Common DSW Knowledge Model [6f6241d9]/0004 Processing data [10a10ffd]/0007 Is the risk of information loss, leaks and vandalism acceptably low [614ab69d]/0001 Explore [b2f76c0a]/0008 Are all project web services addressed via secure http (https - ) [39d8dad9]/0002 Yes [bb176104]/translation.md>)
                 - [ ] [layer 5] 0009 Have project members been instructed about the risks (generic and...
 
                   [Q] [translation](<0001 Common DSW Knowledge Model [6f6241d9]/0004 Processing data [10a10ffd]/0007 Is the risk of information loss, leaks and vandalism acceptably low [614ab69d]/0001 Explore [b2f76c0a]/0009 Have project members been instructed about the risks (generic and... [dc327e53]/translation.md>)
 
-                    - [x] [layer 6] 0001 No
+                    - [x] [layer 6] [shared] 0001 No
 
                       [A] [translation](<0001 Common DSW Knowledge Model [6f6241d9]/0004 Processing data [10a10ffd]/0007 Is the risk of information loss, leaks and vandalism acceptably low [614ab69d]/0001 Explore [b2f76c0a]/0009 Have project members been instructed about the risks (generic and... [dc327e53]/0001 No [d802675e]/translation.md>)
-                    - [ ] [layer 6] 0002 Yes
+                    - [ ] [layer 6] [shared] 0002 Yes
 
                       [A] [translation](<0001 Common DSW Knowledge Model [6f6241d9]/0004 Processing data [10a10ffd]/0007 Is the risk of information loss, leaks and vandalism acceptably low [614ab69d]/0001 Explore [b2f76c0a]/0009 Have project members been instructed about the risks (generic and... [dc327e53]/0002 Yes [4f86bb87]/translation.md>)
                 - [ ] [layer 5] 0010 Do project members store project data in cloud accounts
 
                   [Q] [translation](<0001 Common DSW Knowledge Model [6f6241d9]/0004 Processing data [10a10ffd]/0007 Is the risk of information loss, leaks and vandalism acceptably low [614ab69d]/0001 Explore [b2f76c0a]/0010 Do project members store project data in cloud accounts [84ec46bd]/translation.md>)
 
-                    - [x] [layer 6] 0001 No
+                    - [x] [layer 6] [shared] 0001 No
 
                       [A] [translation](<0001 Common DSW Knowledge Model [6f6241d9]/0004 Processing data [10a10ffd]/0007 Is the risk of information loss, leaks and vandalism acceptably low [614ab69d]/0001 Explore [b2f76c0a]/0010 Do project members store project data in cloud accounts [84ec46bd]/0001 No [099bfaa6]/translation.md>)
-                    - [ ] [layer 6] 0002 Yes
+                    - [ ] [layer 6] [shared] 0002 Yes
 
                       [A] [translation](<0001 Common DSW Knowledge Model [6f6241d9]/0004 Processing data [10a10ffd]/0007 Is the risk of information loss, leaks and vandalism acceptably low [614ab69d]/0001 Explore [b2f76c0a]/0010 Do project members store project data in cloud accounts [84ec46bd]/0002 Yes [b5e75eac]/translation.md>)
                 - [x] [layer 5] 0011 Are personal data sufficiently protected
@@ -4060,10 +4060,10 @@
                                 - [ ] [layer 9] 0001 What way are you pseudonymizing data
 
                                   [Q] [translation](<0001 Common DSW Knowledge Model [6f6241d9]/0004 Processing data [10a10ffd]/0007 Is the risk of information loss, leaks and vandalism acceptably low [614ab69d]/0001 Explore [b2f76c0a]/0011 Are personal data sufficiently protected [d5990471]/0002 Yes, all personal information will be processed in pseudonymized... [75b86c10]/0001 How is pseudonymization handled [59748a7b]/0003 We have another way of pseudonymization [c5bdfb9d]/0001 What way are you pseudonymizing data [eb876df3]/translation.md>)
-                            - [x] [layer 8] 0004 RDMkit on Data Sensitivity
+                            - [x] [layer 8] [shared] 0004 RDMkit on Data Sensitivity
 
                               [R] [translation](<0001 Common DSW Knowledge Model [6f6241d9]/0004 Processing data [10a10ffd]/0007 Is the risk of information loss, leaks and vandalism acceptably low [614ab69d]/0001 Explore [b2f76c0a]/0011 Are personal data sufficiently protected [d5990471]/0002 Yes, all personal information will be processed in pseudonymized... [75b86c10]/0001 How is pseudonymization handled [59748a7b]/0004 RDMkit on Data Sensitivity [86f7c739]/translation.md>)
-                    - [x] [layer 6] 0003 RDMkit on Human Data
+                    - [x] [layer 6] [shared] 0003 RDMkit on Human Data
 
                       [R] [translation](<0001 Common DSW Knowledge Model [6f6241d9]/0004 Processing data [10a10ffd]/0007 Is the risk of information loss, leaks and vandalism acceptably low [614ab69d]/0001 Explore [b2f76c0a]/0011 Are personal data sufficiently protected [d5990471]/0003 RDMkit on Human Data [2a6ffbc9]/translation.md>)
                     - [ ] [layer 6] 0004 Yes, all data will be collected anonymously
@@ -4072,7 +4072,7 @@
                     - [ ] [layer 6] 0005 Yes, all data will be anonymized as early as possible
 
                       [A] [translation](<0001 Common DSW Knowledge Model [6f6241d9]/0004 Processing data [10a10ffd]/0007 Is the risk of information loss, leaks and vandalism acceptably low [614ab69d]/0001 Explore [b2f76c0a]/0011 Are personal data sufficiently protected [d5990471]/0005 Yes, all data will be anonymized as early as possible [44348fa8]/translation.md>)
-                    - [x] [layer 6] 0006 RDMkit on Data Sensitivity
+                    - [x] [layer 6] [shared] 0006 RDMkit on Data Sensitivity
 
                       [R] [translation](<0001 Common DSW Knowledge Model [6f6241d9]/0004 Processing data [10a10ffd]/0007 Is the risk of information loss, leaks and vandalism acceptably low [614ab69d]/0001 Explore [b2f76c0a]/0011 Are personal data sufficiently protected [d5990471]/0006 RDMkit on Data Sensitivity [3fe12009]/translation.md>)
         - [ ] [layer 3] 0008 Do you have a contingency plan
@@ -4108,10 +4108,10 @@
 
                       [Q] [translation](<0001 Common DSW Knowledge Model [6f6241d9]/0005 Interpreting data [83438863]/0001 List the data formats you will be using for interpretation and... [a797cab9]/0002 How is this data structured [87fe7235]/0001 A structured domain specific file with data and metadata fields [b308b8bb]/0001 Can all of the data you want to couple be captured in that format [37531bec]/translation.md>)
 
-                        - [x] [layer 7] 0001 No
+                        - [x] [layer 7] [shared] 0001 No
 
                           [A] [translation](<0001 Common DSW Knowledge Model [6f6241d9]/0005 Interpreting data [83438863]/0001 List the data formats you will be using for interpretation and... [a797cab9]/0002 How is this data structured [87fe7235]/0001 A structured domain specific file with data and metadata fields [b308b8bb]/0001 Can all of the data you want to couple be captured in that format [37531bec]/0001 No [5313e765]/translation.md>)
-                        - [ ] [layer 7] 0002 Yes
+                        - [ ] [layer 7] [shared] 0002 Yes
 
                           [A] [translation](<0001 Common DSW Knowledge Model [6f6241d9]/0005 Interpreting data [83438863]/0001 List the data formats you will be using for interpretation and... [a797cab9]/0002 How is this data structured [87fe7235]/0001 A structured domain specific file with data and metadata fields [b308b8bb]/0001 Can all of the data you want to couple be captured in that format [37531bec]/0002 Yes [f2c24899]/translation.md>)
 
@@ -4119,20 +4119,20 @@
 
                               [Q] [translation](<0001 Common DSW Knowledge Model [6f6241d9]/0005 Interpreting data [83438863]/0001 List the data formats you will be using for interpretation and... [a797cab9]/0002 How is this data structured [87fe7235]/0001 A structured domain specific file with data and metadata fields [b308b8bb]/0001 Can all of the data you want to couple be captured in that format [37531bec]/0002 Yes [f2c24899]/0001 Will you be doing it that way [45efdccf]/translation.md>)
 
-                                - [x] [layer 9] 0001 No
+                                - [x] [layer 9] [shared] 0001 No
 
                                   [A] [translation](<0001 Common DSW Knowledge Model [6f6241d9]/0005 Interpreting data [83438863]/0001 List the data formats you will be using for interpretation and... [a797cab9]/0002 How is this data structured [87fe7235]/0001 A structured domain specific file with data and metadata fields [b308b8bb]/0001 Can all of the data you want to couple be captured in that format [37531bec]/0002 Yes [f2c24899]/0001 Will you be doing it that way [45efdccf]/0001 No [2d37695e]/translation.md>)
-                                - [ ] [layer 9] 0002 Yes
+                                - [ ] [layer 9] [shared] 0002 Yes
 
                                   [A] [translation](<0001 Common DSW Knowledge Model [6f6241d9]/0005 Interpreting data [83438863]/0001 List the data formats you will be using for interpretation and... [a797cab9]/0002 How is this data structured [87fe7235]/0001 A structured domain specific file with data and metadata fields [b308b8bb]/0001 Can all of the data you want to couple be captured in that format [37531bec]/0002 Yes [f2c24899]/0001 Will you be doing it that way [45efdccf]/0002 Yes [9dd082ed]/translation.md>)
                     - [x] [layer 6] 0002 Does the domain specific format come with its own suite of...
 
                       [Q] [translation](<0001 Common DSW Knowledge Model [6f6241d9]/0005 Interpreting data [83438863]/0001 List the data formats you will be using for interpretation and... [a797cab9]/0002 How is this data structured [87fe7235]/0001 A structured domain specific file with data and metadata fields [b308b8bb]/0002 Does the domain specific format come with its own suite of... [8018e15f]/translation.md>)
 
-                        - [x] [layer 7] 0001 No
+                        - [x] [layer 7] [shared] 0001 No
 
                           [A] [translation](<0001 Common DSW Knowledge Model [6f6241d9]/0005 Interpreting data [83438863]/0001 List the data formats you will be using for interpretation and... [a797cab9]/0002 How is this data structured [87fe7235]/0001 A structured domain specific file with data and metadata fields [b308b8bb]/0002 Does the domain specific format come with its own suite of... [8018e15f]/0001 No [fa12de49]/translation.md>)
-                        - [ ] [layer 7] 0002 Yes
+                        - [ ] [layer 7] [shared] 0002 Yes
 
                           [A] [translation](<0001 Common DSW Knowledge Model [6f6241d9]/0005 Interpreting data [83438863]/0001 List the data formats you will be using for interpretation and... [a797cab9]/0002 How is this data structured [87fe7235]/0001 A structured domain specific file with data and metadata fields [b308b8bb]/0002 Does the domain specific format come with its own suite of... [8018e15f]/0002 Yes [231524b8]/translation.md>)
                 - [x] [layer 5] 0002 A table or set of tables (consisting of 'data records')
@@ -4143,10 +4143,10 @@
 
                       [Q] [translation](<0001 Common DSW Knowledge Model [6f6241d9]/0005 Interpreting data [83438863]/0001 List the data formats you will be using for interpretation and... [a797cab9]/0002 How is this data structured [87fe7235]/0002 A table or set of tables (consisting of 'data records') [e8334918]/0001 Does each column have a header [6bfde30e]/translation.md>)
 
-                        - [ ] [layer 7] 0001 No
+                        - [ ] [layer 7] [shared] 0001 No
 
                           [A] [translation](<0001 Common DSW Knowledge Model [6f6241d9]/0005 Interpreting data [83438863]/0001 List the data formats you will be using for interpretation and... [a797cab9]/0002 How is this data structured [87fe7235]/0002 A table or set of tables (consisting of 'data records') [e8334918]/0001 Does each column have a header [6bfde30e]/0001 No [595acdbc]/translation.md>)
-                        - [ ] [layer 7] 0002 Yes
+                        - [ ] [layer 7] [shared] 0002 Yes
 
                           [A] [translation](<0001 Common DSW Knowledge Model [6f6241d9]/0005 Interpreting data [83438863]/0001 List the data formats you will be using for interpretation and... [a797cab9]/0002 How is this data structured [87fe7235]/0002 A table or set of tables (consisting of 'data records') [e8334918]/0001 Does each column have a header [6bfde30e]/0002 Yes [53d43c6a]/translation.md>)
 
@@ -4154,20 +4154,20 @@
 
                               [Q] [translation](<0001 Common DSW Knowledge Model [6f6241d9]/0005 Interpreting data [83438863]/0001 List the data formats you will be using for interpretation and... [a797cab9]/0002 How is this data structured [87fe7235]/0002 A table or set of tables (consisting of 'data records') [e8334918]/0001 Does each column have a header [6bfde30e]/0002 Yes [53d43c6a]/0001 Are all column headers unambiguous [cacee0fd]/translation.md>)
 
-                                - [x] [layer 9] 0001 No
+                                - [x] [layer 9] [shared] 0001 No
 
                                   [A] [translation](<0001 Common DSW Knowledge Model [6f6241d9]/0005 Interpreting data [83438863]/0001 List the data formats you will be using for interpretation and... [a797cab9]/0002 How is this data structured [87fe7235]/0002 A table or set of tables (consisting of 'data records') [e8334918]/0001 Does each column have a header [6bfde30e]/0002 Yes [53d43c6a]/0001 Are all column headers unambiguous [cacee0fd]/0001 No [1485ec8b]/translation.md>)
-                                - [ ] [layer 9] 0002 Yes
+                                - [ ] [layer 9] [shared] 0002 Yes
 
                                   [A] [translation](<0001 Common DSW Knowledge Model [6f6241d9]/0005 Interpreting data [83438863]/0001 List the data formats you will be using for interpretation and... [a797cab9]/0002 How is this data structured [87fe7235]/0002 A table or set of tables (consisting of 'data records') [e8334918]/0001 Does each column have a header [6bfde30e]/0002 Yes [53d43c6a]/0001 Are all column headers unambiguous [cacee0fd]/0002 Yes [02b2c93a]/translation.md>)
                             - [x] [layer 8] 0002 Do all columns headers have a data type
 
                               [Q] [translation](<0001 Common DSW Knowledge Model [6f6241d9]/0005 Interpreting data [83438863]/0001 List the data formats you will be using for interpretation and... [a797cab9]/0002 How is this data structured [87fe7235]/0002 A table or set of tables (consisting of 'data records') [e8334918]/0001 Does each column have a header [6bfde30e]/0002 Yes [53d43c6a]/0002 Do all columns headers have a data type [6ab36a2a]/translation.md>)
 
-                                - [x] [layer 9] 0001 No
+                                - [x] [layer 9] [shared] 0001 No
 
                                   [A] [translation](<0001 Common DSW Knowledge Model [6f6241d9]/0005 Interpreting data [83438863]/0001 List the data formats you will be using for interpretation and... [a797cab9]/0002 How is this data structured [87fe7235]/0002 A table or set of tables (consisting of 'data records') [e8334918]/0001 Does each column have a header [6bfde30e]/0002 Yes [53d43c6a]/0002 Do all columns headers have a data type [6ab36a2a]/0001 No [7108a5e7]/translation.md>)
-                                - [ ] [layer 9] 0002 Yes
+                                - [ ] [layer 9] [shared] 0002 Yes
 
                                   [A] [translation](<0001 Common DSW Knowledge Model [6f6241d9]/0005 Interpreting data [83438863]/0001 List the data formats you will be using for interpretation and... [a797cab9]/0002 How is this data structured [87fe7235]/0002 A table or set of tables (consisting of 'data records') [e8334918]/0001 Does each column have a header [6bfde30e]/0002 Yes [53d43c6a]/0002 Do all columns headers have a data type [6ab36a2a]/0002 Yes [d4a545a3]/translation.md>)
                             - [x] [layer 8] 0003 Are the limitations to allowed data values in each column explicit
@@ -4177,60 +4177,60 @@
                                 - [ ] [layer 9] 0001 Rightfield - Template fields in Microsoft Excel
 
                                   [R] [translation](<0001 Common DSW Knowledge Model [6f6241d9]/0005 Interpreting data [83438863]/0001 List the data formats you will be using for interpretation and... [a797cab9]/0002 How is this data structured [87fe7235]/0002 A table or set of tables (consisting of 'data records') [e8334918]/0001 Does each column have a header [6bfde30e]/0002 Yes [53d43c6a]/0003 Are the limitations to allowed data values in each column explicit [c47d330a]/0001 Rightfield - Template fields in Microsoft Excel [03640bc5]/translation.md>)
-                                - [x] [layer 9] 0002 No
+                                - [x] [layer 9] [shared] 0002 No
 
                                   [A] [translation](<0001 Common DSW Knowledge Model [6f6241d9]/0005 Interpreting data [83438863]/0001 List the data formats you will be using for interpretation and... [a797cab9]/0002 How is this data structured [87fe7235]/0002 A table or set of tables (consisting of 'data records') [e8334918]/0001 Does each column have a header [6bfde30e]/0002 Yes [53d43c6a]/0003 Are the limitations to allowed data values in each column explicit [c47d330a]/0002 No [6bda04d8]/translation.md>)
-                                - [ ] [layer 9] 0003 Yes
+                                - [ ] [layer 9] [shared] 0003 Yes
 
                                   [A] [translation](<0001 Common DSW Knowledge Model [6f6241d9]/0005 Interpreting data [83438863]/0001 List the data formats you will be using for interpretation and... [a797cab9]/0002 How is this data structured [87fe7235]/0002 A table or set of tables (consisting of 'data records') [e8334918]/0001 Does each column have a header [6bfde30e]/0002 Yes [53d43c6a]/0003 Are the limitations to allowed data values in each column explicit [c47d330a]/0003 Yes [2376500a]/translation.md>)
                     - [ ] [layer 6] 0002 Is it clear what a row in the table represents
 
                       [Q] [translation](<0001 Common DSW Knowledge Model [6f6241d9]/0005 Interpreting data [83438863]/0001 List the data formats you will be using for interpretation and... [a797cab9]/0002 How is this data structured [87fe7235]/0002 A table or set of tables (consisting of 'data records') [e8334918]/0002 Is it clear what a row in the table represents [0259866a]/translation.md>)
 
-                        - [x] [layer 7] 0001 No
+                        - [x] [layer 7] [shared] 0001 No
 
                           [A] [translation](<0001 Common DSW Knowledge Model [6f6241d9]/0005 Interpreting data [83438863]/0001 List the data formats you will be using for interpretation and... [a797cab9]/0002 How is this data structured [87fe7235]/0002 A table or set of tables (consisting of 'data records') [e8334918]/0002 Is it clear what a row in the table represents [0259866a]/0001 No [b75a4215]/translation.md>)
-                        - [ ] [layer 7] 0002 Yes
+                        - [ ] [layer 7] [shared] 0002 Yes
 
                           [A] [translation](<0001 Common DSW Knowledge Model [6f6241d9]/0005 Interpreting data [83438863]/0001 List the data formats you will be using for interpretation and... [a797cab9]/0002 How is this data structured [87fe7235]/0002 A table or set of tables (consisting of 'data records') [e8334918]/0002 Is it clear what a row in the table represents [0259866a]/0002 Yes [7341ed8c]/translation.md>)
                     - [x] [layer 6] 0003 Does each row have an identifier
 
                       [Q] [translation](<0001 Common DSW Knowledge Model [6f6241d9]/0005 Interpreting data [83438863]/0001 List the data formats you will be using for interpretation and... [a797cab9]/0002 How is this data structured [87fe7235]/0002 A table or set of tables (consisting of 'data records') [e8334918]/0003 Does each row have an identifier [ccaaf562]/translation.md>)
 
-                        - [x] [layer 7] 0001 No
+                        - [x] [layer 7] [shared] 0001 No
 
                           [A] [translation](<0001 Common DSW Knowledge Model [6f6241d9]/0005 Interpreting data [83438863]/0001 List the data formats you will be using for interpretation and... [a797cab9]/0002 How is this data structured [87fe7235]/0002 A table or set of tables (consisting of 'data records') [e8334918]/0003 Does each row have an identifier [ccaaf562]/0001 No [435f76fe]/translation.md>)
-                        - [ ] [layer 7] 0002 Yes
+                        - [ ] [layer 7] [shared] 0002 Yes
 
                           [A] [translation](<0001 Common DSW Knowledge Model [6f6241d9]/0005 Interpreting data [83438863]/0001 List the data formats you will be using for interpretation and... [a797cab9]/0002 How is this data structured [87fe7235]/0002 A table or set of tables (consisting of 'data records') [e8334918]/0003 Does each row have an identifier [ccaaf562]/0002 Yes [b904da82]/translation.md>)
                     - [ ] [layer 6] 0004 Is there a distinguishing way a missing value in the table can be...
 
                       [Q] [translation](<0001 Common DSW Knowledge Model [6f6241d9]/0005 Interpreting data [83438863]/0001 List the data formats you will be using for interpretation and... [a797cab9]/0002 How is this data structured [87fe7235]/0002 A table or set of tables (consisting of 'data records') [e8334918]/0004 Is there a distinguishing way a missing value in the table can be... [f90914d8]/translation.md>)
 
-                        - [x] [layer 7] 0001 No
+                        - [x] [layer 7] [shared] 0001 No
 
                           [A] [translation](<0001 Common DSW Knowledge Model [6f6241d9]/0005 Interpreting data [83438863]/0001 List the data formats you will be using for interpretation and... [a797cab9]/0002 How is this data structured [87fe7235]/0002 A table or set of tables (consisting of 'data records') [e8334918]/0004 Is there a distinguishing way a missing value in the table can be... [f90914d8]/0001 No [3cb15eb1]/translation.md>)
-                        - [ ] [layer 7] 0002 Yes
+                        - [ ] [layer 7] [shared] 0002 Yes
 
                           [A] [translation](<0001 Common DSW Knowledge Model [6f6241d9]/0005 Interpreting data [83438863]/0001 List the data formats you will be using for interpretation and... [a797cab9]/0002 How is this data structured [87fe7235]/0002 A table or set of tables (consisting of 'data records') [e8334918]/0004 Is there a distinguishing way a missing value in the table can be... [f90914d8]/0002 Yes [6daf9964]/translation.md>)
                     - [ ] [layer 6] 0005 Is the relation between each of the columns and the record...
 
                       [Q] [translation](<0001 Common DSW Knowledge Model [6f6241d9]/0005 Interpreting data [83438863]/0001 List the data formats you will be using for interpretation and... [a797cab9]/0002 How is this data structured [87fe7235]/0002 A table or set of tables (consisting of 'data records') [e8334918]/0005 Is the relation between each of the columns and the record... [0451d421]/translation.md>)
 
-                        - [x] [layer 7] 0001 No
+                        - [x] [layer 7] [shared] 0001 No
 
                           [A] [translation](<0001 Common DSW Knowledge Model [6f6241d9]/0005 Interpreting data [83438863]/0001 List the data formats you will be using for interpretation and... [a797cab9]/0002 How is this data structured [87fe7235]/0002 A table or set of tables (consisting of 'data records') [e8334918]/0005 Is the relation between each of the columns and the record... [0451d421]/0001 No [3ab6d840]/translation.md>)
-                        - [ ] [layer 7] 0002 Yes
+                        - [ ] [layer 7] [shared] 0002 Yes
 
                           [A] [translation](<0001 Common DSW Knowledge Model [6f6241d9]/0005 Interpreting data [83438863]/0001 List the data formats you will be using for interpretation and... [a797cab9]/0002 How is this data structured [87fe7235]/0002 A table or set of tables (consisting of 'data records') [e8334918]/0005 Is the relation between each of the columns and the record... [0451d421]/0002 Yes [a2aa695e]/translation.md>)
                     - [x] [layer 6] 0006 Are all the relations between the column headers explicit
 
                       [Q] [translation](<0001 Common DSW Knowledge Model [6f6241d9]/0005 Interpreting data [83438863]/0001 List the data formats you will be using for interpretation and... [a797cab9]/0002 How is this data structured [87fe7235]/0002 A table or set of tables (consisting of 'data records') [e8334918]/0006 Are all the relations between the column headers explicit [bdaba73c]/translation.md>)
 
-                        - [x] [layer 7] 0001 No
+                        - [x] [layer 7] [shared] 0001 No
 
                           [A] [translation](<0001 Common DSW Knowledge Model [6f6241d9]/0005 Interpreting data [83438863]/0001 List the data formats you will be using for interpretation and... [a797cab9]/0002 How is this data structured [87fe7235]/0002 A table or set of tables (consisting of 'data records') [e8334918]/0006 Are all the relations between the column headers explicit [bdaba73c]/0001 No [b7118fba]/translation.md>)
-                        - [ ] [layer 7] 0002 Yes
+                        - [ ] [layer 7] [shared] 0002 Yes
 
                           [A] [translation](<0001 Common DSW Knowledge Model [6f6241d9]/0005 Interpreting data [83438863]/0001 List the data formats you will be using for interpretation and... [a797cab9]/0002 How is this data structured [87fe7235]/0002 A table or set of tables (consisting of 'data records') [e8334918]/0006 Are all the relations between the column headers explicit [bdaba73c]/0002 Yes [7dcc6fb0]/translation.md>)
                 - [x] [layer 5] 0003 Complex data, like a graph
@@ -4241,10 +4241,10 @@
 
                       [Q] [translation](<0001 Common DSW Knowledge Model [6f6241d9]/0005 Interpreting data [83438863]/0001 List the data formats you will be using for interpretation and... [a797cab9]/0002 How is this data structured [87fe7235]/0003 Complex data, like a graph [d7911ab4]/0001 Are you representing the graph in RDF [46e07a92]/translation.md>)
 
-                        - [x] [layer 7] 0001 No
+                        - [x] [layer 7] [shared] 0001 No
 
                           [A] [translation](<0001 Common DSW Knowledge Model [6f6241d9]/0005 Interpreting data [83438863]/0001 List the data formats you will be using for interpretation and... [a797cab9]/0002 How is this data structured [87fe7235]/0003 Complex data, like a graph [d7911ab4]/0001 Are you representing the graph in RDF [46e07a92]/0001 No [2662b7d3]/translation.md>)
-                        - [ ] [layer 7] 0002 Yes
+                        - [ ] [layer 7] [shared] 0002 Yes
 
                           [A] [translation](<0001 Common DSW Knowledge Model [6f6241d9]/0005 Interpreting data [83438863]/0001 List the data formats you will be using for interpretation and... [a797cab9]/0002 How is this data structured [87fe7235]/0003 Complex data, like a graph [d7911ab4]/0001 Are you representing the graph in RDF [46e07a92]/0002 Yes [3525f6f9]/translation.md>)
 
@@ -4274,17 +4274,17 @@
             - [x] [layer 4] 0003 RDMkit on Machine Actionability
 
               [R] [translation](<0001 Common DSW Knowledge Model [6f6241d9]/0005 Interpreting data [83438863]/0001 List the data formats you will be using for interpretation and... [a797cab9]/0003 RDMkit on Machine Actionability [ae540a5d]/translation.md>)
-            - [x] [layer 4] 0004 RDMkit on Data Processing
+            - [x] [layer 4] [shared] 0004 RDMkit on Data Processing
 
               [R] [translation](<0001 Common DSW Knowledge Model [6f6241d9]/0005 Interpreting data [83438863]/0001 List the data formats you will be using for interpretation and... [a797cab9]/0004 RDMkit on Data Processing [dddd6258]/translation.md>)
         - [ ] [layer 3] 0002 Will you be doing integration or linking of different data types
 
           [Q] [translation](<0001 Common DSW Knowledge Model [6f6241d9]/0005 Interpreting data [83438863]/0002 Will you be doing integration or linking of different data types [109ed7ea]/translation.md>)
 
-            - [x] [layer 4] 0001 No
+            - [x] [layer 4] [shared] 0001 No
 
               [A] [translation](<0001 Common DSW Knowledge Model [6f6241d9]/0005 Interpreting data [83438863]/0002 Will you be doing integration or linking of different data types [109ed7ea]/0001 No [97a03825]/translation.md>)
-            - [ ] [layer 4] 0002 Yes
+            - [ ] [layer 4] [shared] 0002 Yes
 
               [A] [translation](<0001 Common DSW Knowledge Model [6f6241d9]/0005 Interpreting data [83438863]/0002 Will you be doing integration or linking of different data types [109ed7ea]/0002 Yes [238ace4b]/translation.md>)
 
@@ -4306,33 +4306,33 @@
 
                           [Q] [translation](<0001 Common DSW Knowledge Model [6f6241d9]/0005 Interpreting data [83438863]/0002 Will you be doing integration or linking of different data types [109ed7ea]/0002 Yes [238ace4b]/0001 What will be your approach [ff85db18]/0003 We will use linked data [9cea7792]/0001 Are your data sources using linked data [811965f0]/translation.md>)
 
-                            - [x] [layer 8] 0001 No
+                            - [x] [layer 8] [shared] 0001 No
 
                               [A] [translation](<0001 Common DSW Knowledge Model [6f6241d9]/0005 Interpreting data [83438863]/0002 Will you be doing integration or linking of different data types [109ed7ea]/0002 Yes [238ace4b]/0001 What will be your approach [ff85db18]/0003 We will use linked data [9cea7792]/0001 Are your data sources using linked data [811965f0]/0001 No [d2ae9b5f]/translation.md>)
                             - [ ] [layer 8] 0002 Partly
 
                               [A] [translation](<0001 Common DSW Knowledge Model [6f6241d9]/0005 Interpreting data [83438863]/0002 Will you be doing integration or linking of different data types [109ed7ea]/0002 Yes [238ace4b]/0001 What will be your approach [ff85db18]/0003 We will use linked data [9cea7792]/0001 Are your data sources using linked data [811965f0]/0002 Partly [395c9651]/translation.md>)
-                            - [ ] [layer 8] 0003 Yes
+                            - [ ] [layer 8] [shared] 0003 Yes
 
                               [A] [translation](<0001 Common DSW Knowledge Model [6f6241d9]/0005 Interpreting data [83438863]/0002 Will you be doing integration or linking of different data types [109ed7ea]/0002 Yes [238ace4b]/0001 What will be your approach [ff85db18]/0003 We will use linked data [9cea7792]/0001 Are your data sources using linked data [811965f0]/0003 Yes [054125ff]/translation.md>)
                         - [ ] [layer 7] 0002 Will you provide your results as semantically interoperable linked data
 
                           [Q] [translation](<0001 Common DSW Knowledge Model [6f6241d9]/0005 Interpreting data [83438863]/0002 Will you be doing integration or linking of different data types [109ed7ea]/0002 Yes [238ace4b]/0001 What will be your approach [ff85db18]/0003 We will use linked data [9cea7792]/0002 Will you provide your results as semantically interoperable linked data [fad678c7]/translation.md>)
 
-                            - [x] [layer 8] 0001 No
+                            - [x] [layer 8] [shared] 0001 No
 
                               [A] [translation](<0001 Common DSW Knowledge Model [6f6241d9]/0005 Interpreting data [83438863]/0002 Will you be doing integration or linking of different data types [109ed7ea]/0002 Yes [238ace4b]/0001 What will be your approach [ff85db18]/0003 We will use linked data [9cea7792]/0002 Will you provide your results as semantically interoperable linked data [fad678c7]/0001 No [fb400dcd]/translation.md>)
-                            - [ ] [layer 8] 0002 Yes
+                            - [ ] [layer 8] [shared] 0002 Yes
 
                               [A] [translation](<0001 Common DSW Knowledge Model [6f6241d9]/0005 Interpreting data [83438863]/0002 Will you be doing integration or linking of different data types [109ed7ea]/0002 Yes [238ace4b]/0001 What will be your approach [ff85db18]/0003 We will use linked data [9cea7792]/0002 Will you provide your results as semantically interoperable linked data [fad678c7]/0002 Yes [d17db5ee]/translation.md>)
                         - [x] [layer 7] 0003 Are your sources using the same vocabularies or ontologies where...
 
                           [Q] [translation](<0001 Common DSW Knowledge Model [6f6241d9]/0005 Interpreting data [83438863]/0002 Will you be doing integration or linking of different data types [109ed7ea]/0002 Yes [238ace4b]/0001 What will be your approach [ff85db18]/0003 We will use linked data [9cea7792]/0003 Are your sources using the same vocabularies or ontologies where... [532ddc6a]/translation.md>)
 
-                            - [ ] [layer 8] 0001 No
+                            - [ ] [layer 8] [shared] 0001 No
 
                               [A] [translation](<0001 Common DSW Knowledge Model [6f6241d9]/0005 Interpreting data [83438863]/0002 Will you be doing integration or linking of different data types [109ed7ea]/0002 Yes [238ace4b]/0001 What will be your approach [ff85db18]/0003 We will use linked data [9cea7792]/0003 Are your sources using the same vocabularies or ontologies where... [532ddc6a]/0001 No [9bd923d3]/translation.md>)
-                            - [ ] [layer 8] 0002 Yes
+                            - [ ] [layer 8] [shared] 0002 Yes
 
                               [A] [translation](<0001 Common DSW Knowledge Model [6f6241d9]/0005 Interpreting data [83438863]/0002 Will you be doing integration or linking of different data types [109ed7ea]/0002 Yes [238ace4b]/0001 What will be your approach [ff85db18]/0003 We will use linked data [9cea7792]/0003 Are your sources using the same vocabularies or ontologies where... [532ddc6a]/0002 Yes [10eb8c7f]/translation.md>)
                     - [ ] [layer 6] 0004 Linked data (wikipedia)
@@ -4355,10 +4355,10 @@
 
           [Q] [translation](<0001 Common DSW Knowledge Model [6f6241d9]/0005 Interpreting data [83438863]/0003 Will you be using common ontologies [f67e1539]/translation.md>)
 
-            - [x] [layer 4] 0001 No
+            - [x] [layer 4] [shared] 0001 No
 
               [A] [translation](<0001 Common DSW Knowledge Model [6f6241d9]/0005 Interpreting data [83438863]/0003 Will you be using common ontologies [f67e1539]/0001 No [b497f330]/translation.md>)
-            - [ ] [layer 4] 0002 Yes
+            - [ ] [layer 4] [shared] 0002 Yes
 
               [A] [translation](<0001 Common DSW Knowledge Model [6f6241d9]/0005 Interpreting data [83438863]/0003 Will you be using common ontologies [f67e1539]/0002 Yes [3e5ef321]/translation.md>)
 
@@ -4379,20 +4379,20 @@
 
           [Q] [translation](<0001 Common DSW Knowledge Model [6f6241d9]/0005 Interpreting data [83438863]/0004 Will there be potential issues with statistical normalization [d0306914]/translation.md>)
 
-            - [x] [layer 4] 0001 No
+            - [x] [layer 4] [shared] 0001 No
 
               [A] [translation](<0001 Common DSW Knowledge Model [6f6241d9]/0005 Interpreting data [83438863]/0004 Will there be potential issues with statistical normalization [d0306914]/0001 No [6332fd3a]/translation.md>)
-            - [ ] [layer 4] 0002 Yes
+            - [ ] [layer 4] [shared] 0002 Yes
 
               [A] [translation](<0001 Common DSW Knowledge Model [6f6241d9]/0005 Interpreting data [83438863]/0004 Will there be potential issues with statistical normalization [d0306914]/0002 Yes [49ad2eca]/translation.md>)
         - [ ] [layer 3] 0005 Will you be integrating different data sources to get more samples...
 
           [Q] [translation](<0001 Common DSW Knowledge Model [6f6241d9]/0005 Interpreting data [83438863]/0005 Will you be integrating different data sources to get more samples... [dbb6dcdf]/translation.md>)
 
-            - [x] [layer 4] 0001 No
+            - [x] [layer 4] [shared] 0001 No
 
               [A] [translation](<0001 Common DSW Knowledge Model [6f6241d9]/0005 Interpreting data [83438863]/0005 Will you be integrating different data sources to get more samples... [dbb6dcdf]/0001 No [d59b9031]/translation.md>)
-            - [ ] [layer 4] 0002 Yes
+            - [ ] [layer 4] [shared] 0002 Yes
 
               [A] [translation](<0001 Common DSW Knowledge Model [6f6241d9]/0005 Interpreting data [83438863]/0005 Will you be integrating different data sources to get more samples... [dbb6dcdf]/0002 Yes [493b4264]/translation.md>)
 
@@ -4400,20 +4400,20 @@
 
                   [Q] [translation](<0001 Common DSW Knowledge Model [6f6241d9]/0005 Interpreting data [83438863]/0005 Will you be integrating different data sources to get more samples... [dbb6dcdf]/0002 Yes [493b4264]/0001 Have these been collected with sufficiently identical protocols [18f9b8ec]/translation.md>)
 
-                    - [x] [layer 6] 0001 No
+                    - [x] [layer 6] [shared] 0001 No
 
                       [A] [translation](<0001 Common DSW Knowledge Model [6f6241d9]/0005 Interpreting data [83438863]/0005 Will you be integrating different data sources to get more samples... [dbb6dcdf]/0002 Yes [493b4264]/0001 Have these been collected with sufficiently identical protocols [18f9b8ec]/0001 No [e902668c]/translation.md>)
-                    - [ ] [layer 6] 0002 Yes
+                    - [ ] [layer 6] [shared] 0002 Yes
 
                       [A] [translation](<0001 Common DSW Knowledge Model [6f6241d9]/0005 Interpreting data [83438863]/0005 Will you be integrating different data sources to get more samples... [dbb6dcdf]/0002 Yes [493b4264]/0001 Have these been collected with sufficiently identical protocols [18f9b8ec]/0002 Yes [cce50ae0]/translation.md>)
         - [ ] [layer 3] 0006 Will you be integrating different data sources in order to get more...
 
           [Q] [translation](<0001 Common DSW Knowledge Model [6f6241d9]/0005 Interpreting data [83438863]/0006 Will you be integrating different data sources in order to get more... [d5d21ad3]/translation.md>)
 
-            - [x] [layer 4] 0001 No
+            - [x] [layer 4] [shared] 0001 No
 
               [A] [translation](<0001 Common DSW Knowledge Model [6f6241d9]/0005 Interpreting data [83438863]/0006 Will you be integrating different data sources in order to get more... [d5d21ad3]/0001 No [4ba2c122]/translation.md>)
-            - [ ] [layer 4] 0002 Yes
+            - [ ] [layer 4] [shared] 0002 Yes
 
               [A] [translation](<0001 Common DSW Knowledge Model [6f6241d9]/0005 Interpreting data [83438863]/0006 Will you be integrating different data sources in order to get more... [d5d21ad3]/0002 Yes [61d05101]/translation.md>)
 
@@ -4421,20 +4421,20 @@
 
                   [Q] [translation](<0001 Common DSW Knowledge Model [6f6241d9]/0005 Interpreting data [83438863]/0006 Will you be integrating different data sources in order to get more... [d5d21ad3]/0002 Yes [61d05101]/0001 Did you already select the variables on which you will join the... [63b020de]/translation.md>)
 
-                    - [x] [layer 6] 0001 No
+                    - [x] [layer 6] [shared] 0001 No
 
                       [A] [translation](<0001 Common DSW Knowledge Model [6f6241d9]/0005 Interpreting data [83438863]/0006 Will you be integrating different data sources in order to get more... [d5d21ad3]/0002 Yes [61d05101]/0001 Did you already select the variables on which you will join the... [63b020de]/0001 No [176cf769]/translation.md>)
-                    - [ ] [layer 6] 0002 Yes
+                    - [ ] [layer 6] [shared] 0002 Yes
 
                       [A] [translation](<0001 Common DSW Knowledge Model [6f6241d9]/0005 Interpreting data [83438863]/0006 Will you be integrating different data sources in order to get more... [d5d21ad3]/0002 Yes [61d05101]/0001 Did you already select the variables on which you will join the... [63b020de]/0002 Yes [f8f49bdc]/translation.md>)
                 - [ ] [layer 5] 0002 Will you make sure that you do not inadvertently create a biased subset
 
                   [Q] [translation](<0001 Common DSW Knowledge Model [6f6241d9]/0005 Interpreting data [83438863]/0006 Will you be integrating different data sources in order to get more... [d5d21ad3]/0002 Yes [61d05101]/0002 Will you make sure that you do not inadvertently create a biased subset [c6fdeacb]/translation.md>)
 
-                    - [x] [layer 6] 0001 No
+                    - [x] [layer 6] [shared] 0001 No
 
                       [A] [translation](<0001 Common DSW Knowledge Model [6f6241d9]/0005 Interpreting data [83438863]/0006 Will you be integrating different data sources in order to get more... [d5d21ad3]/0002 Yes [61d05101]/0002 Will you make sure that you do not inadvertently create a biased subset [c6fdeacb]/0001 No [0cf3e92f]/translation.md>)
-                    - [ ] [layer 6] 0002 Yes
+                    - [ ] [layer 6] [shared] 0002 Yes
 
                       [A] [translation](<0001 Common DSW Knowledge Model [6f6241d9]/0005 Interpreting data [83438863]/0006 Will you be integrating different data sources in order to get more... [d5d21ad3]/0002 Yes [61d05101]/0002 Will you make sure that you do not inadvertently create a biased subset [c6fdeacb]/0002 Yes [26f64599]/translation.md>)
                 - [x] [layer 5] 0003 Did you make a conscious decision to be either accurate or complete
@@ -4454,43 +4454,43 @@
 
                   [Q] [translation](<0001 Common DSW Knowledge Model [6f6241d9]/0005 Interpreting data [83438863]/0006 Will you be integrating different data sources in order to get more... [d5d21ad3]/0002 Yes [61d05101]/0004 Could the coupling of data create a danger of re-identification of... [6b3d62a5]/translation.md>)
 
-                    - [x] [layer 6] 0001 RDMkit on Data Sensitivity
+                    - [x] [layer 6] [shared] 0001 RDMkit on Data Sensitivity
 
                       [R] [translation](<0001 Common DSW Knowledge Model [6f6241d9]/0005 Interpreting data [83438863]/0006 Will you be integrating different data sources in order to get more... [d5d21ad3]/0002 Yes [61d05101]/0004 Could the coupling of data create a danger of re-identification of... [6b3d62a5]/0001 RDMkit on Data Sensitivity [00af9ed1]/translation.md>)
-                    - [x] [layer 6] 0002 No
+                    - [x] [layer 6] [shared] 0002 No
 
                       [A] [translation](<0001 Common DSW Knowledge Model [6f6241d9]/0005 Interpreting data [83438863]/0006 Will you be integrating different data sources in order to get more... [d5d21ad3]/0002 Yes [61d05101]/0004 Could the coupling of data create a danger of re-identification of... [6b3d62a5]/0002 No [04fe8749]/translation.md>)
-                    - [ ] [layer 6] 0003 Yes
+                    - [ ] [layer 6] [shared] 0003 Yes
 
                       [A] [translation](<0001 Common DSW Knowledge Model [6f6241d9]/0005 Interpreting data [83438863]/0006 Will you be integrating different data sources in order to get more... [d5d21ad3]/0002 Yes [61d05101]/0004 Could the coupling of data create a danger of re-identification of... [6b3d62a5]/0003 Yes [aad55658]/translation.md>)
         - [x] [layer 3] 0007 Do you have all tools to couple the necessary data types
 
           [Q] [translation](<0001 Common DSW Knowledge Model [6f6241d9]/0005 Interpreting data [83438863]/0007 Do you have all tools to couple the necessary data types [dc4f1dc7]/translation.md>)
 
-            - [x] [layer 4] 0001 No
+            - [x] [layer 4] [shared] 0001 No
 
               [A] [translation](<0001 Common DSW Knowledge Model [6f6241d9]/0005 Interpreting data [83438863]/0007 Do you have all tools to couple the necessary data types [dc4f1dc7]/0001 No [45169011]/translation.md>)
-            - [ ] [layer 4] 0002 Yes
+            - [ ] [layer 4] [shared] 0002 Yes
 
               [A] [translation](<0001 Common DSW Knowledge Model [6f6241d9]/0005 Interpreting data [83438863]/0007 Do you have all tools to couple the necessary data types [dc4f1dc7]/0002 Yes [fa0f8ecf]/translation.md>)
         - [ ] [layer 3] 0008 Will you be using a federated analysis approach
 
           [Q] [translation](<0001 Common DSW Knowledge Model [6f6241d9]/0005 Interpreting data [83438863]/0008 Will you be using a federated analysis approach [e1dba221]/translation.md>)
 
-            - [x] [layer 4] 0001 No
+            - [x] [layer 4] [shared] 0001 No
 
               [A] [translation](<0001 Common DSW Knowledge Model [6f6241d9]/0005 Interpreting data [83438863]/0008 Will you be using a federated analysis approach [e1dba221]/0001 No [e492d849]/translation.md>)
-            - [ ] [layer 4] 0002 Yes
+            - [ ] [layer 4] [shared] 0002 Yes
 
               [A] [translation](<0001 Common DSW Knowledge Model [6f6241d9]/0005 Interpreting data [83438863]/0008 Will you be using a federated analysis approach [e1dba221]/0002 Yes [2d35bf55]/translation.md>)
         - [ ] [layer 3] 0009 Will you be doing (automated) knowledge discovery
 
           [Q] [translation](<0001 Common DSW Knowledge Model [6f6241d9]/0005 Interpreting data [83438863]/0009 Will you be doing (automated) knowledge discovery [460803f2]/translation.md>)
 
-            - [x] [layer 4] 0001 No
+            - [x] [layer 4] [shared] 0001 No
 
               [A] [translation](<0001 Common DSW Knowledge Model [6f6241d9]/0005 Interpreting data [83438863]/0009 Will you be doing (automated) knowledge discovery [460803f2]/0001 No [8592fc25]/translation.md>)
-            - [ ] [layer 4] 0002 Yes
+            - [ ] [layer 4] [shared] 0002 Yes
 
               [A] [translation](<0001 Common DSW Knowledge Model [6f6241d9]/0005 Interpreting data [83438863]/0009 Will you be doing (automated) knowledge discovery [460803f2]/0002 Yes [8d4640c2]/translation.md>)
     - [ ] [layer 2] 0006 Preserving data
@@ -4501,7 +4501,7 @@
 
           [Q] [translation](<0001 Common DSW Knowledge Model [6f6241d9]/0006 Preserving data [d5b27482]/0001 Specify a list of data sets you will be producing [4e0c1edf]/translation.md>)
 
-            - [x] [layer 4] 0001 Data set -
+            - [x] [layer 4] [shared] 0001 Data set -
 
               [Q] [translation](<0001 Common DSW Knowledge Model [6f6241d9]/0006 Preserving data [d5b27482]/0001 Specify a list of data sets you will be producing [4e0c1edf]/0001 Data set - [b0949d09]/translation.md>)
             - [ ] [layer 4] 0002 Description of the data set
@@ -4514,7 +4514,7 @@
                 - [ ] [layer 5] 0001 Raw data
 
                   [A] [translation](<0001 Common DSW Knowledge Model [6f6241d9]/0006 Preserving data [d5b27482]/0001 Specify a list of data sets you will be producing [4e0c1edf]/0003 What type of data is in this data set [3a8ed3fc]/0001 Raw data [79f7797e]/translation.md>)
-                - [ ] [layer 5] 0002 Intermediate data
+                - [ ] [layer 5] [shared] 0002 Intermediate data
 
                   [A] [translation](<0001 Common DSW Knowledge Model [6f6241d9]/0006 Preserving data [d5b27482]/0001 Specify a list of data sets you will be producing [4e0c1edf]/0003 What type of data is in this data set [3a8ed3fc]/0002 Intermediate data [5b49df5e]/translation.md>)
                 - [x] [layer 5] 0003 Processed data leading to unpublishable results
@@ -4553,7 +4553,7 @@
                     - [ ] [layer 6] 0005 We do not assign persistent identifiers to this data
 
                       [A] [translation](<0001 Common DSW Knowledge Model [6f6241d9]/0006 Preserving data [d5b27482]/0001 Specify a list of data sets you will be producing [4e0c1edf]/0004 Identifier of the data set [cf727a0a]/0002 What type of identifier [5c22cf59]/0005 We do not assign persistent identifiers to this data [640d232f]/translation.md>)
-                    - [x] [layer 6] 0006 Other
+                    - [x] [layer 6] [shared] 0006 Other
 
                       [A] [translation](<0001 Common DSW Knowledge Model [6f6241d9]/0006 Preserving data [d5b27482]/0001 Specify a list of data sets you will be producing [4e0c1edf]/0004 Identifier of the data set [cf727a0a]/0002 What type of identifier [5c22cf59]/0006 Other [97236701]/translation.md>)
 
@@ -4564,11 +4564,11 @@
 
               [Q] [translation](<0001 Common DSW Knowledge Model [6f6241d9]/0006 Preserving data [d5b27482]/0001 Specify a list of data sets you will be producing [4e0c1edf]/0005 Will this data set be published [a063da1c]/translation.md>)
 
-                - [x] [layer 5] 0001 No
+                - [x] [layer 5] [shared] 0001 No
 
                   [A] [translation](<0001 Common DSW Knowledge Model [6f6241d9]/0006 Preserving data [d5b27482]/0001 Specify a list of data sets you will be producing [4e0c1edf]/0005 Will this data set be published [a063da1c]/0001 No [771279ea]/translation.md>)
 
-                    - [ ] [layer 6] 0001 Why not
+                    - [ ] [layer 6] [shared] 0001 Why not
 
                       [Q] [translation](<0001 Common DSW Knowledge Model [6f6241d9]/0006 Preserving data [d5b27482]/0001 Specify a list of data sets you will be producing [4e0c1edf]/0005 Will this data set be published [a063da1c]/0001 No [771279ea]/0001 Why not [2a34dbf7]/translation.md>)
 
@@ -4597,7 +4597,7 @@
                             - [ ] [layer 8] 0001 What other reasons
 
                               [Q] [translation](<0001 Common DSW Knowledge Model [6f6241d9]/0006 Preserving data [d5b27482]/0001 Specify a list of data sets you will be producing [4e0c1edf]/0005 Will this data set be published [a063da1c]/0001 No [771279ea]/0001 Why not [2a34dbf7]/0007 There are other reasons [9af201fa]/0001 What other reasons [c3f2eeb9]/translation.md>)
-                - [ ] [layer 5] 0002 Yes
+                - [ ] [layer 5] [shared] 0002 Yes
 
                   [A] [translation](<0001 Common DSW Knowledge Model [6f6241d9]/0006 Preserving data [d5b27482]/0001 Specify a list of data sets you will be producing [4e0c1edf]/0005 Will this data set be published [a063da1c]/0002 Yes [8d1b07a7]/translation.md>)
 
@@ -4626,27 +4626,27 @@
                                     - [ ] [layer 10] 0003 Yes, we will contact the repository
 
                                       [A] [translation](<0001 Common DSW Knowledge Model [6f6241d9]/0006 Preserving data [d5b27482]/0001 Specify a list of data sets you will be producing [4e0c1edf]/0005 Will this data set be published [a063da1c]/0002 Yes [8d1b07a7]/0001 Specify where you will distribute this data from [81d3095e]/0001 What repository will this data be stored in [80a682bd]/0001 A domain-specific repository [1dc412c6]/0001 Will you contact the repository beforehand [b1492627]/0003 Yes, we will contact the repository [93c590a5]/translation.md>)
-                                    - [ ] [layer 10] 0004 We have made other arrangements
+                                    - [ ] [layer 10] [shared] 0004 We have made other arrangements
 
                                       [A] [translation](<0001 Common DSW Knowledge Model [6f6241d9]/0006 Preserving data [d5b27482]/0001 Specify a list of data sets you will be producing [4e0c1edf]/0005 Will this data set be published [a063da1c]/0002 Yes [8d1b07a7]/0001 Specify where you will distribute this data from [81d3095e]/0001 What repository will this data be stored in [80a682bd]/0001 A domain-specific repository [1dc412c6]/0001 Will you contact the repository beforehand [b1492627]/0004 We have made other arrangements [620b1090]/translation.md>)
 
-                                        - [ ] [layer 11] 0001 What other arrangements
+                                        - [ ] [layer 11] [shared] 0001 What other arrangements
 
                                           [Q] [translation](<0001 Common DSW Knowledge Model [6f6241d9]/0006 Preserving data [d5b27482]/0001 Specify a list of data sets you will be producing [4e0c1edf]/0005 Will this data set be published [a063da1c]/0002 Yes [8d1b07a7]/0001 Specify where you will distribute this data from [81d3095e]/0001 What repository will this data be stored in [80a682bd]/0001 A domain-specific repository [1dc412c6]/0001 Will you contact the repository beforehand [b1492627]/0004 We have made other arrangements [620b1090]/0001 What other arrangements [fc0857c1]/translation.md>)
-                                - [ ] [layer 9] 0002 What repository
+                                - [ ] [layer 9] [shared] 0002 What repository
 
                                   [Q] [translation](<0001 Common DSW Knowledge Model [6f6241d9]/0006 Preserving data [d5b27482]/0001 Specify a list of data sets you will be producing [4e0c1edf]/0005 Will this data set be published [a063da1c]/0002 Yes [8d1b07a7]/0001 Specify where you will distribute this data from [81d3095e]/0001 What repository will this data be stored in [80a682bd]/0001 A domain-specific repository [1dc412c6]/0002 What repository [221c322e]/translation.md>)
                             - [x] [layer 8] 0002 A general-purpose repository (e.g., Zenodo)
 
                               [A] [translation](<0001 Common DSW Knowledge Model [6f6241d9]/0006 Preserving data [d5b27482]/0001 Specify a list of data sets you will be producing [4e0c1edf]/0005 Will this data set be published [a063da1c]/0002 Yes [8d1b07a7]/0001 Specify where you will distribute this data from [81d3095e]/0001 What repository will this data be stored in [80a682bd]/0002 A general-purpose repository (e.g., Zenodo) [d3886c3e]/translation.md>)
 
-                                - [ ] [layer 9] 0001 What repository
+                                - [ ] [layer 9] [shared] 0001 What repository
 
                                   [Q] [translation](<0001 Common DSW Knowledge Model [6f6241d9]/0006 Preserving data [d5b27482]/0001 Specify a list of data sets you will be producing [4e0c1edf]/0005 Will this data set be published [a063da1c]/0002 Yes [8d1b07a7]/0001 Specify where you will distribute this data from [81d3095e]/0001 What repository will this data be stored in [80a682bd]/0002 A general-purpose repository (e.g., Zenodo) [d3886c3e]/0001 What repository [371362c3]/translation.md>)
-                            - [x] [layer 8] 0003 Our national repository
+                            - [x] [layer 8] [shared] 0003 Our national repository
 
                               [A] [translation](<0001 Common DSW Knowledge Model [6f6241d9]/0006 Preserving data [d5b27482]/0001 Specify a list of data sets you will be producing [4e0c1edf]/0005 Will this data set be published [a063da1c]/0002 Yes [8d1b07a7]/0001 Specify where you will distribute this data from [81d3095e]/0001 What repository will this data be stored in [80a682bd]/0003 Our national repository [fb96d008]/translation.md>)
-                            - [x] [layer 8] 0004 Our institutional repository
+                            - [x] [layer 8] [shared] 0004 Our institutional repository
 
                               [A] [translation](<0001 Common DSW Knowledge Model [6f6241d9]/0006 Preserving data [d5b27482]/0001 Specify a list of data sets you will be producing [4e0c1edf]/0005 Will this data set be published [a063da1c]/0002 Yes [8d1b07a7]/0001 Specify where you will distribute this data from [81d3095e]/0001 What repository will this data be stored in [80a682bd]/0004 Our institutional repository [df0b2ee3]/translation.md>)
                             - [x] [layer 8] 0005 A special-purpose repository for the project
@@ -4657,20 +4657,20 @@
 
                                   [Q] [translation](<0001 Common DSW Knowledge Model [6f6241d9]/0006 Preserving data [d5b27482]/0001 Specify a list of data sets you will be producing [4e0c1edf]/0005 Will this data set be published [a063da1c]/0002 Yes [8d1b07a7]/0001 Specify where you will distribute this data from [81d3095e]/0001 What repository will this data be stored in [80a682bd]/0005 A special-purpose repository for the project [afd9f4d5]/0001 Did you arrange for system administration (at least security... [f691ad73]/translation.md>)
 
-                                    - [ ] [layer 10] 0001 Yes
+                                    - [ ] [layer 10] [shared] 0001 Yes
 
                                       [A] [translation](<0001 Common DSW Knowledge Model [6f6241d9]/0006 Preserving data [d5b27482]/0001 Specify a list of data sets you will be producing [4e0c1edf]/0005 Will this data set be published [a063da1c]/0002 Yes [8d1b07a7]/0001 Specify where you will distribute this data from [81d3095e]/0001 What repository will this data be stored in [80a682bd]/0005 A special-purpose repository for the project [afd9f4d5]/0001 Did you arrange for system administration (at least security... [f691ad73]/0001 Yes [d2c01a84]/translation.md>)
-                                    - [ ] [layer 10] 0002 Not yet
+                                    - [ ] [layer 10] [shared] 0002 Not yet
 
                                       [A] [translation](<0001 Common DSW Knowledge Model [6f6241d9]/0006 Preserving data [d5b27482]/0001 Specify a list of data sets you will be producing [4e0c1edf]/0005 Will this data set be published [a063da1c]/0002 Yes [8d1b07a7]/0001 Specify where you will distribute this data from [81d3095e]/0001 What repository will this data be stored in [80a682bd]/0005 A special-purpose repository for the project [afd9f4d5]/0001 Did you arrange for system administration (at least security... [f691ad73]/0002 Not yet [4dd69e44]/translation.md>)
                                 - [ ] [layer 9] 0002 Will you be able to support this repository for a sufficiently long time
 
                                   [Q] [translation](<0001 Common DSW Knowledge Model [6f6241d9]/0006 Preserving data [d5b27482]/0001 Specify a list of data sets you will be producing [4e0c1edf]/0005 Will this data set be published [a063da1c]/0002 Yes [8d1b07a7]/0001 Specify where you will distribute this data from [81d3095e]/0001 What repository will this data be stored in [80a682bd]/0005 A special-purpose repository for the project [afd9f4d5]/0002 Will you be able to support this repository for a sufficiently long time [f83a9afd]/translation.md>)
 
-                                    - [ ] [layer 10] 0001 Yes
+                                    - [ ] [layer 10] [shared] 0001 Yes
 
                                       [A] [translation](<0001 Common DSW Knowledge Model [6f6241d9]/0006 Preserving data [d5b27482]/0001 Specify a list of data sets you will be producing [4e0c1edf]/0005 Will this data set be published [a063da1c]/0002 Yes [8d1b07a7]/0001 Specify where you will distribute this data from [81d3095e]/0001 What repository will this data be stored in [80a682bd]/0005 A special-purpose repository for the project [afd9f4d5]/0002 Will you be able to support this repository for a sufficiently long time [f83a9afd]/0001 Yes [714e0a22]/translation.md>)
-                                    - [x] [layer 10] 0002 No
+                                    - [x] [layer 10] [shared] 0002 No
 
                                       [A] [translation](<0001 Common DSW Knowledge Model [6f6241d9]/0006 Preserving data [d5b27482]/0001 Specify a list of data sets you will be producing [4e0c1edf]/0005 Will this data set be published [a063da1c]/0002 Yes [8d1b07a7]/0001 Specify where you will distribute this data from [81d3095e]/0001 What repository will this data be stored in [80a682bd]/0005 A special-purpose repository for the project [afd9f4d5]/0002 Will you be able to support this repository for a sufficiently long time [f83a9afd]/0002 No [dc921fac]/translation.md>)
                                 - [ ] [layer 9] 0003 What is the service level you will be offering to users of the data...
@@ -4712,7 +4712,7 @@
 
                           [Q] [translation](<0001 Common DSW Knowledge Model [6f6241d9]/0006 Preserving data [d5b27482]/0001 Specify a list of data sets you will be producing [4e0c1edf]/0005 Will this data set be published [a063da1c]/0002 Yes [8d1b07a7]/0001 Specify where you will distribute this data from [81d3095e]/0003 Licenses under which this distribution of the data set will be available [3d89e23d]/translation.md>)
 
-                            - [x] [layer 8] 0001 RDMkit on Licensing
+                            - [x] [layer 8] [shared] 0001 RDMkit on Licensing
 
                               [R] [translation](<0001 Common DSW Knowledge Model [6f6241d9]/0006 Preserving data [d5b27482]/0001 Specify a list of data sets you will be producing [4e0c1edf]/0005 Will this data set be published [a063da1c]/0002 Yes [8d1b07a7]/0001 Specify where you will distribute this data from [81d3095e]/0003 Licenses under which this distribution of the data set will be available [3d89e23d]/0001 RDMkit on Licensing [ae5e819c]/translation.md>)
                             - [ ] [layer 8] 0002 Starting date
@@ -4732,7 +4732,7 @@
 
                                   [A] [translation](<0001 Common DSW Knowledge Model [6f6241d9]/0006 Preserving data [d5b27482]/0001 Specify a list of data sets you will be producing [4e0c1edf]/0005 Will this data set be published [a063da1c]/0002 Yes [8d1b07a7]/0001 Specify where you will distribute this data from [81d3095e]/0003 Licenses under which this distribution of the data set will be available [3d89e23d]/0003 Under what license will the data set be made available [ca0f9465]/0003 They will be available under some restrictions [734d5f4e]/translation.md>)
 
-                                    - [ ] [layer 10] 0001 What conditions
+                                    - [ ] [layer 10] [shared] 0001 What conditions
 
                                       [Q] [translation](<0001 Common DSW Knowledge Model [6f6241d9]/0006 Preserving data [d5b27482]/0001 Specify a list of data sets you will be producing [4e0c1edf]/0005 Will this data set be published [a063da1c]/0002 Yes [8d1b07a7]/0001 Specify where you will distribute this data from [81d3095e]/0003 Licenses under which this distribution of the data set will be available [3d89e23d]/0003 Under what license will the data set be made available [ca0f9465]/0003 They will be available under some restrictions [734d5f4e]/0001 What conditions [30426255]/translation.md>)
                                     - [ ] [layer 10] 0002 Link to the license text
@@ -4759,10 +4759,10 @@
 
                                       [Q] [translation](<0001 Common DSW Knowledge Model [6f6241d9]/0006 Preserving data [d5b27482]/0001 Specify a list of data sets you will be producing [4e0c1edf]/0005 Will this data set be published [a063da1c]/0002 Yes [8d1b07a7]/0001 Specify where you will distribute this data from [81d3095e]/0003 Licenses under which this distribution of the data set will be available [3d89e23d]/0003 Under what license will the data set be made available [ca0f9465]/0003 They will be available under some restrictions [734d5f4e]/0004 Will the conditions be published as part of open metadata [a572c436]/translation.md>)
 
-                                        - [x] [layer 11] 0001 No
+                                        - [x] [layer 11] [shared] 0001 No
 
                                           [A] [translation](<0001 Common DSW Knowledge Model [6f6241d9]/0006 Preserving data [d5b27482]/0001 Specify a list of data sets you will be producing [4e0c1edf]/0005 Will this data set be published [a063da1c]/0002 Yes [8d1b07a7]/0001 Specify where you will distribute this data from [81d3095e]/0003 Licenses under which this distribution of the data set will be available [3d89e23d]/0003 Under what license will the data set be made available [ca0f9465]/0003 They will be available under some restrictions [734d5f4e]/0004 Will the conditions be published as part of open metadata [a572c436]/0001 No [70e54988]/translation.md>)
-                                        - [ ] [layer 11] 0002 Yes
+                                        - [ ] [layer 11] [shared] 0002 Yes
 
                                           [A] [translation](<0001 Common DSW Knowledge Model [6f6241d9]/0006 Preserving data [d5b27482]/0001 Specify a list of data sets you will be producing [4e0c1edf]/0005 Will this data set be published [a063da1c]/0002 Yes [8d1b07a7]/0001 Specify where you will distribute this data from [81d3095e]/0003 Licenses under which this distribution of the data set will be available [3d89e23d]/0003 Under what license will the data set be made available [ca0f9465]/0003 They will be available under some restrictions [734d5f4e]/0004 Will the conditions be published as part of open metadata [a572c436]/0002 Yes [438aa606]/translation.md>)
                             - [x] [layer 8] 0004 FAIRCookbook on licensing
@@ -4772,10 +4772,10 @@
 
                           [Q] [translation](<0001 Common DSW Knowledge Model [6f6241d9]/0006 Preserving data [d5b27482]/0001 Specify a list of data sets you will be producing [4e0c1edf]/0005 Will this data set be published [a063da1c]/0002 Yes [8d1b07a7]/0001 Specify where you will distribute this data from [81d3095e]/0004 Will this data be assigned a persistent identifier [d21fdb06]/translation.md>)
 
-                            - [x] [layer 8] 0001 No
+                            - [x] [layer 8] [shared] 0001 No
 
                               [A] [translation](<0001 Common DSW Knowledge Model [6f6241d9]/0006 Preserving data [d5b27482]/0001 Specify a list of data sets you will be producing [4e0c1edf]/0005 Will this data set be published [a063da1c]/0002 Yes [8d1b07a7]/0001 Specify where you will distribute this data from [81d3095e]/0004 Will this data be assigned a persistent identifier [d21fdb06]/0001 No [7fed9f6d]/translation.md>)
-                            - [ ] [layer 8] 0002 Yes
+                            - [ ] [layer 8] [shared] 0002 Yes
 
                               [A] [translation](<0001 Common DSW Knowledge Model [6f6241d9]/0006 Preserving data [d5b27482]/0001 Specify a list of data sets you will be producing [4e0c1edf]/0005 Will this data set be published [a063da1c]/0002 Yes [8d1b07a7]/0001 Specify where you will distribute this data from [81d3095e]/0004 Will this data be assigned a persistent identifier [d21fdb06]/0002 Yes [1072923b]/translation.md>)
 
@@ -4796,29 +4796,29 @@
 
                                   [Q] [translation](<0001 Common DSW Knowledge Model [6f6241d9]/0006 Preserving data [d5b27482]/0001 Specify a list of data sets you will be producing [4e0c1edf]/0005 Will this data set be published [a063da1c]/0002 Yes [8d1b07a7]/0001 Specify where you will distribute this data from [81d3095e]/0004 Will this data be assigned a persistent identifier [d21fdb06]/0002 Yes [1072923b]/0002 Will the repository make sure the persistent identifier can be... [7f55274c]/translation.md>)
 
-                                    - [x] [layer 10] 0001 No
+                                    - [x] [layer 10] [shared] 0001 No
 
                                       [A] [translation](<0001 Common DSW Knowledge Model [6f6241d9]/0006 Preserving data [d5b27482]/0001 Specify a list of data sets you will be producing [4e0c1edf]/0005 Will this data set be published [a063da1c]/0002 Yes [8d1b07a7]/0001 Specify where you will distribute this data from [81d3095e]/0004 Will this data be assigned a persistent identifier [d21fdb06]/0002 Yes [1072923b]/0002 Will the repository make sure the persistent identifier can be... [7f55274c]/0001 No [51a6c4eb]/translation.md>)
-                                    - [ ] [layer 10] 0002 Yes
+                                    - [ ] [layer 10] [shared] 0002 Yes
 
                                       [A] [translation](<0001 Common DSW Knowledge Model [6f6241d9]/0006 Preserving data [d5b27482]/0001 Specify a list of data sets you will be producing [4e0c1edf]/0005 Will this data set be published [a063da1c]/0002 Yes [8d1b07a7]/0001 Specify where you will distribute this data from [81d3095e]/0004 Will this data be assigned a persistent identifier [d21fdb06]/0002 Yes [1072923b]/0002 Will the repository make sure the persistent identifier can be... [7f55274c]/0002 Yes [862e3a05]/translation.md>)
-                            - [x] [layer 8] 0003 RDMkit on Identifiers
+                            - [x] [layer 8] [shared] 0003 RDMkit on Identifiers
 
                               [R] [translation](<0001 Common DSW Knowledge Model [6f6241d9]/0006 Preserving data [d5b27482]/0001 Specify a list of data sets you will be producing [4e0c1edf]/0005 Will this data set be published [a063da1c]/0002 Yes [8d1b07a7]/0001 Specify where you will distribute this data from [81d3095e]/0004 Will this data be assigned a persistent identifier [d21fdb06]/0003 RDMkit on Identifiers [bdf3a93e]/translation.md>)
-                            - [x] [layer 8] 0004 FAIRCookbook on creating resolvable identifiers
+                            - [x] [layer 8] [shared] 0004 FAIRCookbook on creating resolvable identifiers
 
                               [R] [translation](<0001 Common DSW Knowledge Model [6f6241d9]/0006 Preserving data [d5b27482]/0001 Specify a list of data sets you will be producing [4e0c1edf]/0005 Will this data set be published [a063da1c]/0002 Yes [8d1b07a7]/0001 Specify where you will distribute this data from [81d3095e]/0004 Will this data be assigned a persistent identifier [d21fdb06]/0004 FAIRCookbook on creating resolvable identifiers [b0f4ce3b]/translation.md>)
                     - [ ] [layer 6] 0002 Will you be adding a reference to the published data to at least...
 
                       [Q] [translation](<0001 Common DSW Knowledge Model [6f6241d9]/0006 Preserving data [d5b27482]/0001 Specify a list of data sets you will be producing [4e0c1edf]/0005 Will this data set be published [a063da1c]/0002 Yes [8d1b07a7]/0002 Will you be adding a reference to the published data to at least... [46039bea]/translation.md>)
 
-                        - [x] [layer 7] 0001 No
+                        - [x] [layer 7] [shared] 0001 No
 
                           [A] [translation](<0001 Common DSW Knowledge Model [6f6241d9]/0006 Preserving data [d5b27482]/0001 Specify a list of data sets you will be producing [4e0c1edf]/0005 Will this data set be published [a063da1c]/0002 Yes [8d1b07a7]/0002 Will you be adding a reference to the published data to at least... [46039bea]/0001 No [0224af28]/translation.md>)
                         - [ ] [layer 7] 0002 No, the data will be stored in a repository that is the prime...
 
                           [A] [translation](<0001 Common DSW Knowledge Model [6f6241d9]/0006 Preserving data [d5b27482]/0001 Specify a list of data sets you will be producing [4e0c1edf]/0005 Will this data set be published [a063da1c]/0002 Yes [8d1b07a7]/0002 Will you be adding a reference to the published data to at least... [46039bea]/0002 No, the data will be stored in a repository that is the prime... [aaae5c5b]/translation.md>)
-                        - [ ] [layer 7] 0003 Yes
+                        - [ ] [layer 7] [shared] 0003 Yes
 
                           [A] [translation](<0001 Common DSW Knowledge Model [6f6241d9]/0006 Preserving data [d5b27482]/0001 Specify a list of data sets you will be producing [4e0c1edf]/0005 Will this data set be published [a063da1c]/0002 Yes [8d1b07a7]/0002 Will you be adding a reference to the published data to at least... [46039bea]/0003 Yes [9e39ea26]/translation.md>)
                         - [ ] [layer 7] 0004 What is a data catalog (Dataversity)
@@ -4850,10 +4850,10 @@
 
                       [Q] [translation](<0001 Common DSW Knowledge Model [6f6241d9]/0006 Preserving data [d5b27482]/0001 Specify a list of data sets you will be producing [4e0c1edf]/0005 Will this data set be published [a063da1c]/0002 Yes [8d1b07a7]/0004 Will there be different versions of this data over time [f99b1723]/translation.md>)
 
-                        - [x] [layer 7] 0001 No
+                        - [x] [layer 7] [shared] 0001 No
 
                           [A] [translation](<0001 Common DSW Knowledge Model [6f6241d9]/0006 Preserving data [d5b27482]/0001 Specify a list of data sets you will be producing [4e0c1edf]/0005 Will this data set be published [a063da1c]/0002 Yes [8d1b07a7]/0004 Will there be different versions of this data over time [f99b1723]/0001 No [41c0631f]/translation.md>)
-                        - [ ] [layer 7] 0002 Yes
+                        - [ ] [layer 7] [shared] 0002 Yes
 
                           [A] [translation](<0001 Common DSW Knowledge Model [6f6241d9]/0006 Preserving data [d5b27482]/0001 Specify a list of data sets you will be producing [4e0c1edf]/0005 Will this data set be published [a063da1c]/0002 Yes [8d1b07a7]/0004 Will there be different versions of this data over time [f99b1723]/0002 Yes [facde7e9]/translation.md>)
 
@@ -4871,14 +4871,14 @@
 
                       [Q] [translation](<0001 Common DSW Knowledge Model [6f6241d9]/0006 Preserving data [d5b27482]/0001 Specify a list of data sets you will be producing [4e0c1edf]/0005 Will this data set be published [a063da1c]/0002 Yes [8d1b07a7]/0005 Will a user of this data need specific software to be able to use it [1302cb21]/translation.md>)
 
-                        - [x] [layer 7] 0001 No
+                        - [x] [layer 7] [shared] 0001 No
 
                           [A] [translation](<0001 Common DSW Knowledge Model [6f6241d9]/0006 Preserving data [d5b27482]/0001 Specify a list of data sets you will be producing [4e0c1edf]/0005 Will this data set be published [a063da1c]/0002 Yes [8d1b07a7]/0005 Will a user of this data need specific software to be able to use it [1302cb21]/0001 No [5d7aa34b]/translation.md>)
 
                             - [ ] [layer 8] 0001 Why isn’t specialized software required
 
                               [Q] [translation](<0001 Common DSW Knowledge Model [6f6241d9]/0006 Preserving data [d5b27482]/0001 Specify a list of data sets you will be producing [4e0c1edf]/0005 Will this data set be published [a063da1c]/0002 Yes [8d1b07a7]/0005 Will a user of this data need specific software to be able to use it [1302cb21]/0001 No [5d7aa34b]/0001 Why isn’t specialized software required [14f7a766]/translation.md>)
-                        - [ ] [layer 7] 0002 Yes
+                        - [ ] [layer 7] [shared] 0002 Yes
 
                           [A] [translation](<0001 Common DSW Knowledge Model [6f6241d9]/0006 Preserving data [d5b27482]/0001 Specify a list of data sets you will be producing [4e0c1edf]/0005 Will this data set be published [a063da1c]/0002 Yes [8d1b07a7]/0005 Will a user of this data need specific software to be able to use it [1302cb21]/0002 Yes [371461b3]/translation.md>)
 
@@ -4886,7 +4886,7 @@
 
                               [Q] [translation](<0001 Common DSW Knowledge Model [6f6241d9]/0006 Preserving data [d5b27482]/0001 Specify a list of data sets you will be producing [4e0c1edf]/0005 Will this data set be published [a063da1c]/0002 Yes [8d1b07a7]/0005 Will a user of this data need specific software to be able to use it [1302cb21]/0002 Yes [371461b3]/0001 What software is needed to use the data [b8543a67]/translation.md>)
 
-                                - [x] [layer 9] 0001 Name
+                                - [x] [layer 9] [shared] 0001 Name
 
                                   [Q] [translation](<0001 Common DSW Knowledge Model [6f6241d9]/0006 Preserving data [d5b27482]/0001 Specify a list of data sets you will be producing [4e0c1edf]/0005 Will this data set be published [a063da1c]/0002 Yes [8d1b07a7]/0005 Will a user of this data need specific software to be able to use it [1302cb21]/0002 Yes [371461b3]/0001 What software is needed to use the data [b8543a67]/0001 Name [235b36a8]/translation.md>)
                                 - [x] [layer 9] 0002 PID for the software, or URL where the software can be found
@@ -4896,34 +4896,34 @@
 
                                   [Q] [translation](<0001 Common DSW Knowledge Model [6f6241d9]/0006 Preserving data [d5b27482]/0001 Specify a list of data sets you will be producing [4e0c1edf]/0005 Will this data set be published [a063da1c]/0002 Yes [8d1b07a7]/0005 Will a user of this data need specific software to be able to use it [1302cb21]/0002 Yes [371461b3]/0001 What software is needed to use the data [b8543a67]/0003 Will documentation for this software be included in the metadata [1cb559e7]/translation.md>)
 
-                                    - [x] [layer 10] 0001 No
+                                    - [x] [layer 10] [shared] 0001 No
 
                                       [A] [translation](<0001 Common DSW Knowledge Model [6f6241d9]/0006 Preserving data [d5b27482]/0001 Specify a list of data sets you will be producing [4e0c1edf]/0005 Will this data set be published [a063da1c]/0002 Yes [8d1b07a7]/0005 Will a user of this data need specific software to be able to use it [1302cb21]/0002 Yes [371461b3]/0001 What software is needed to use the data [b8543a67]/0003 Will documentation for this software be included in the metadata [1cb559e7]/0001 No [32e5e6df]/translation.md>)
 
-                                        - [ ] [layer 11] 0001 Why not
+                                        - [ ] [layer 11] [shared] 0001 Why not
 
                                           [Q] [translation](<0001 Common DSW Knowledge Model [6f6241d9]/0006 Preserving data [d5b27482]/0001 Specify a list of data sets you will be producing [4e0c1edf]/0005 Will this data set be published [a063da1c]/0002 Yes [8d1b07a7]/0005 Will a user of this data need specific software to be able to use it [1302cb21]/0002 Yes [371461b3]/0001 What software is needed to use the data [b8543a67]/0003 Will documentation for this software be included in the metadata [1cb559e7]/0001 No [32e5e6df]/0001 Why not [a18f00f4]/translation.md>)
-                                    - [ ] [layer 10] 0002 Yes
+                                    - [ ] [layer 10] [shared] 0002 Yes
 
                                       [A] [translation](<0001 Common DSW Knowledge Model [6f6241d9]/0006 Preserving data [d5b27482]/0001 Specify a list of data sets you will be producing [4e0c1edf]/0005 Will this data set be published [a063da1c]/0002 Yes [8d1b07a7]/0005 Will a user of this data need specific software to be able to use it [1302cb21]/0002 Yes [371461b3]/0001 What software is needed to use the data [b8543a67]/0003 Will documentation for this software be included in the metadata [1cb559e7]/0002 Yes [333991dc]/translation.md>)
                                 - [ ] [layer 9] 0004 Will this software (e.g. in open source code) be included
 
                                   [Q] [translation](<0001 Common DSW Knowledge Model [6f6241d9]/0006 Preserving data [d5b27482]/0001 Specify a list of data sets you will be producing [4e0c1edf]/0005 Will this data set be published [a063da1c]/0002 Yes [8d1b07a7]/0005 Will a user of this data need specific software to be able to use it [1302cb21]/0002 Yes [371461b3]/0001 What software is needed to use the data [b8543a67]/0004 Will this software (e.g. in open source code) be included [58307a1d]/translation.md>)
 
-                                    - [ ] [layer 10] 0001 Yes
+                                    - [ ] [layer 10] [shared] 0001 Yes
 
                                       [A] [translation](<0001 Common DSW Knowledge Model [6f6241d9]/0006 Preserving data [d5b27482]/0001 Specify a list of data sets you will be producing [4e0c1edf]/0005 Will this data set be published [a063da1c]/0002 Yes [8d1b07a7]/0005 Will a user of this data need specific software to be able to use it [1302cb21]/0002 Yes [371461b3]/0001 What software is needed to use the data [b8543a67]/0004 Will this software (e.g. in open source code) be included [58307a1d]/0001 Yes [6435fb68]/translation.md>)
-                                    - [x] [layer 10] 0002 No
+                                    - [x] [layer 10] [shared] 0002 No
 
                                       [A] [translation](<0001 Common DSW Knowledge Model [6f6241d9]/0006 Preserving data [d5b27482]/0001 Specify a list of data sets you will be producing [4e0c1edf]/0005 Will this data set be published [a063da1c]/0002 Yes [8d1b07a7]/0005 Will a user of this data need specific software to be able to use it [1302cb21]/0002 Yes [371461b3]/0001 What software is needed to use the data [b8543a67]/0004 Will this software (e.g. in open source code) be included [58307a1d]/0002 No [760b6af8]/translation.md>)
                     - [x] [layer 6] 0006 Are there qualified references to other data sets
 
                       [Q] [translation](<0001 Common DSW Knowledge Model [6f6241d9]/0006 Preserving data [d5b27482]/0001 Specify a list of data sets you will be producing [4e0c1edf]/0005 Will this data set be published [a063da1c]/0002 Yes [8d1b07a7]/0006 Are there qualified references to other data sets [f876a937]/translation.md>)
 
-                        - [x] [layer 7] 0001 No
+                        - [x] [layer 7] [shared] 0001 No
 
                           [A] [translation](<0001 Common DSW Knowledge Model [6f6241d9]/0006 Preserving data [d5b27482]/0001 Specify a list of data sets you will be producing [4e0c1edf]/0005 Will this data set be published [a063da1c]/0002 Yes [8d1b07a7]/0006 Are there qualified references to other data sets [f876a937]/0001 No [a044bac2]/translation.md>)
-                        - [ ] [layer 7] 0002 Yes
+                        - [ ] [layer 7] [shared] 0002 Yes
 
                           [A] [translation](<0001 Common DSW Knowledge Model [6f6241d9]/0006 Preserving data [d5b27482]/0001 Specify a list of data sets you will be producing [4e0c1edf]/0005 Will this data set be published [a063da1c]/0002 Yes [8d1b07a7]/0006 Are there qualified references to other data sets [f876a937]/0002 Yes [3699b746]/translation.md>)
 
@@ -4940,7 +4940,7 @@
                         - [x] [layer 7] 0003 FAIR principle I3
 
                           [R] [translation](<0001 Common DSW Knowledge Model [6f6241d9]/0006 Preserving data [d5b27482]/0001 Specify a list of data sets you will be producing [4e0c1edf]/0005 Will this data set be published [a063da1c]/0002 Yes [8d1b07a7]/0006 Are there qualified references to other data sets [f876a937]/0003 FAIR principle I3 [c57507b2]/translation.md>)
-                - [x] [layer 5] 0003 RDMkit on Data Preservation
+                - [x] [layer 5] [shared] 0003 RDMkit on Data Preservation
 
                   [R] [translation](<0001 Common DSW Knowledge Model [6f6241d9]/0006 Preserving data [d5b27482]/0001 Specify a list of data sets you will be producing [4e0c1edf]/0005 Will this data set be published [a063da1c]/0003 RDMkit on Data Preservation [92c92ca3]/translation.md>)
             - [x] [layer 4] 0006 How long will this data set be kept
@@ -4967,10 +4967,10 @@
 
               [Q] [translation](<0001 Common DSW Knowledge Model [6f6241d9]/0006 Preserving data [d5b27482]/0001 Specify a list of data sets you will be producing [4e0c1edf]/0007 Will the metadata be available even when the data no longer exists [3b3fbcc6]/translation.md>)
 
-                - [x] [layer 5] 0001 No
+                - [x] [layer 5] [shared] 0001 No
 
                   [A] [translation](<0001 Common DSW Knowledge Model [6f6241d9]/0006 Preserving data [d5b27482]/0001 Specify a list of data sets you will be producing [4e0c1edf]/0007 Will the metadata be available even when the data no longer exists [3b3fbcc6]/0001 No [b2eff435]/translation.md>)
-                - [ ] [layer 5] 0002 Yes
+                - [ ] [layer 5] [shared] 0002 Yes
 
                   [A] [translation](<0001 Common DSW Knowledge Model [6f6241d9]/0006 Preserving data [d5b27482]/0001 Specify a list of data sets you will be producing [4e0c1edf]/0007 Will the metadata be available even when the data no longer exists [3b3fbcc6]/0002 Yes [d21c32f1]/translation.md>)
                 - [ ] [layer 5] 0003 RDMkit on Documentation and Metadata
@@ -4980,32 +4980,32 @@
 
               [Q] [translation](<0001 Common DSW Knowledge Model [6f6241d9]/0006 Preserving data [d5b27482]/0001 Specify a list of data sets you will be producing [4e0c1edf]/0008 Does this dataset contain personal data [a1d76760]/translation.md>)
 
-                - [x] [layer 5] 0001 No
+                - [x] [layer 5] [shared] 0001 No
 
                   [A] [translation](<0001 Common DSW Knowledge Model [6f6241d9]/0006 Preserving data [d5b27482]/0001 Specify a list of data sets you will be producing [4e0c1edf]/0008 Does this dataset contain personal data [a1d76760]/0001 No [4b2a08c7]/translation.md>)
-                - [ ] [layer 5] 0002 Yes
+                - [ ] [layer 5] [shared] 0002 Yes
 
                   [A] [translation](<0001 Common DSW Knowledge Model [6f6241d9]/0006 Preserving data [d5b27482]/0001 Specify a list of data sets you will be producing [4e0c1edf]/0008 Does this dataset contain personal data [a1d76760]/0002 Yes [0cdc4817]/translation.md>)
-                - [x] [layer 5] 0003 RDMkit on Data Sensitivity
+                - [x] [layer 5] [shared] 0003 RDMkit on Data Sensitivity
 
                   [R] [translation](<0001 Common DSW Knowledge Model [6f6241d9]/0006 Preserving data [d5b27482]/0001 Specify a list of data sets you will be producing [4e0c1edf]/0008 Does this dataset contain personal data [a1d76760]/0003 RDMkit on Data Sensitivity [68a9e378]/translation.md>)
             - [ ] [layer 4] 0009 Does this dataset contain sensitive information
 
               [Q] [translation](<0001 Common DSW Knowledge Model [6f6241d9]/0006 Preserving data [d5b27482]/0001 Specify a list of data sets you will be producing [4e0c1edf]/0009 Does this dataset contain sensitive information [cc95b399]/translation.md>)
 
-                - [x] [layer 5] 0001 No
+                - [x] [layer 5] [shared] 0001 No
 
                   [A] [translation](<0001 Common DSW Knowledge Model [6f6241d9]/0006 Preserving data [d5b27482]/0001 Specify a list of data sets you will be producing [4e0c1edf]/0009 Does this dataset contain sensitive information [cc95b399]/0001 No [60de66a3]/translation.md>)
-                - [ ] [layer 5] 0002 Yes
+                - [ ] [layer 5] [shared] 0002 Yes
 
                   [A] [translation](<0001 Common DSW Knowledge Model [6f6241d9]/0006 Preserving data [d5b27482]/0001 Specify a list of data sets you will be producing [4e0c1edf]/0009 Does this dataset contain sensitive information [cc95b399]/0002 Yes [2686575d]/translation.md>)
-                - [x] [layer 5] 0003 RDMkit on Data Sensitivity
+                - [x] [layer 5] [shared] 0003 RDMkit on Data Sensitivity
 
                   [R] [translation](<0001 Common DSW Knowledge Model [6f6241d9]/0006 Preserving data [d5b27482]/0001 Specify a list of data sets you will be producing [4e0c1edf]/0009 Does this dataset contain sensitive information [cc95b399]/0003 RDMkit on Data Sensitivity [4302bc15]/translation.md>)
             - [ ] [layer 4] 0010 RDMkit on Collecting Data
 
               [R] [translation](<0001 Common DSW Knowledge Model [6f6241d9]/0006 Preserving data [d5b27482]/0001 Specify a list of data sets you will be producing [4e0c1edf]/0010 RDMkit on Collecting Data [d01dcf36]/translation.md>)
-            - [x] [layer 4] 0011 RDMkit on Data Preservation
+            - [x] [layer 4] [shared] 0011 RDMkit on Data Preservation
 
               [R] [translation](<0001 Common DSW Knowledge Model [6f6241d9]/0006 Preserving data [d5b27482]/0001 Specify a list of data sets you will be producing [4e0c1edf]/0011 RDMkit on Data Preservation [e20ad7f1]/translation.md>)
         - [ ] [layer 3] 0002 Will you be archiving data (using so-called 'cold storage') for...
@@ -5015,7 +5015,7 @@
             - [x] [layer 4] 0001 Will you be archiving your data in 'cold storage' after the project...
 
               [R] [translation](<0001 Common DSW Knowledge Model [6f6241d9]/0006 Preserving data [d5b27482]/0002 Will you be archiving data (using so-called 'cold storage') for... [d5784d24]/0001 Will you be archiving your data in 'cold storage' after the project... [7d1b6960]/translation.md>)
-            - [x] [layer 4] 0002 No
+            - [x] [layer 4] [shared] 0002 No
 
               [A] [translation](<0001 Common DSW Knowledge Model [6f6241d9]/0006 Preserving data [d5b27482]/0002 Will you be archiving data (using so-called 'cold storage') for... [d5784d24]/0002 No [a547dc69]/translation.md>)
 
@@ -5039,13 +5039,13 @@
 
                   [Q] [translation](<0001 Common DSW Knowledge Model [6f6241d9]/0006 Preserving data [d5b27482]/0002 Will you be archiving data (using so-called 'cold storage') for... [d5784d24]/0002 No [a547dc69]/0002 Can the original data be regenerated [b16e76a9]/translation.md>)
 
-                    - [x] [layer 6] 0001 No
+                    - [x] [layer 6] [shared] 0001 No
 
                       [A] [translation](<0001 Common DSW Knowledge Model [6f6241d9]/0006 Preserving data [d5b27482]/0002 Will you be archiving data (using so-called 'cold storage') for... [d5784d24]/0002 No [a547dc69]/0002 Can the original data be regenerated [b16e76a9]/0001 No [5e55c2ce]/translation.md>)
-                    - [ ] [layer 6] 0002 Yes
+                    - [ ] [layer 6] [shared] 0002 Yes
 
                       [A] [translation](<0001 Common DSW Knowledge Model [6f6241d9]/0006 Preserving data [d5b27482]/0002 Will you be archiving data (using so-called 'cold storage') for... [d5784d24]/0002 No [a547dc69]/0002 Can the original data be regenerated [b16e76a9]/0002 Yes [8d1f370f]/translation.md>)
-            - [ ] [layer 4] 0003 Yes
+            - [ ] [layer 4] [shared] 0003 Yes
 
               [A] [translation](<0001 Common DSW Knowledge Model [6f6241d9]/0006 Preserving data [d5b27482]/0002 Will you be archiving data (using so-called 'cold storage') for... [d5784d24]/0003 Yes [e81599af]/translation.md>)
 
@@ -5059,47 +5059,47 @@
                     - [x] [layer 6] 0002 Tape
 
                       [A] [translation](<0001 Common DSW Knowledge Model [6f6241d9]/0006 Preserving data [d5b27482]/0002 Will you be archiving data (using so-called 'cold storage') for... [d5784d24]/0003 Yes [e81599af]/0001 Will the archive be stored on disk or on tape [c2a38110]/0002 Tape [ebbe4ef1]/translation.md>)
-                    - [x] [layer 6] 0003 Other
+                    - [x] [layer 6] [shared] 0003 Other
 
                       [A] [translation](<0001 Common DSW Knowledge Model [6f6241d9]/0006 Preserving data [d5b27482]/0002 Will you be archiving data (using so-called 'cold storage') for... [d5784d24]/0003 Yes [e81599af]/0001 Will the archive be stored on disk or on tape [c2a38110]/0003 Other [45ad8d8d]/translation.md>)
                 - [x] [layer 5] 0002 Has it been established how long the archived data need to be kept...
 
                   [Q] [translation](<0001 Common DSW Knowledge Model [6f6241d9]/0006 Preserving data [d5b27482]/0002 Will you be archiving data (using so-called 'cold storage') for... [d5784d24]/0003 Yes [e81599af]/0002 Has it been established how long the archived data need to be kept... [2dd94cbc]/translation.md>)
 
-                    - [x] [layer 6] 0001 No
+                    - [x] [layer 6] [shared] 0001 No
 
                       [A] [translation](<0001 Common DSW Knowledge Model [6f6241d9]/0006 Preserving data [d5b27482]/0002 Will you be archiving data (using so-called 'cold storage') for... [d5784d24]/0003 Yes [e81599af]/0002 Has it been established how long the archived data need to be kept... [2dd94cbc]/0001 No [1d8e9897]/translation.md>)
-                    - [ ] [layer 6] 0002 Yes
+                    - [ ] [layer 6] [shared] 0002 Yes
 
                       [A] [translation](<0001 Common DSW Knowledge Model [6f6241d9]/0006 Preserving data [d5b27482]/0002 Will you be archiving data (using so-called 'cold storage') for... [d5784d24]/0003 Yes [e81599af]/0002 Has it been established how long the archived data need to be kept... [2dd94cbc]/0002 Yes [07fdfbfb]/translation.md>)
                 - [ ] [layer 5] 0003 Will the data still be understandable and reusable after a long time
 
                   [Q] [translation](<0001 Common DSW Knowledge Model [6f6241d9]/0006 Preserving data [d5b27482]/0002 Will you be archiving data (using so-called 'cold storage') for... [d5784d24]/0003 Yes [e81599af]/0003 Will the data still be understandable and reusable after a long time [e23201aa]/translation.md>)
 
-                    - [x] [layer 6] 0001 No
+                    - [x] [layer 6] [shared] 0001 No
 
                       [A] [translation](<0001 Common DSW Knowledge Model [6f6241d9]/0006 Preserving data [d5b27482]/0002 Will you be archiving data (using so-called 'cold storage') for... [d5784d24]/0003 Yes [e81599af]/0003 Will the data still be understandable and reusable after a long time [e23201aa]/0001 No [2e2460d5]/translation.md>)
-                    - [ ] [layer 6] 0002 Yes
+                    - [ ] [layer 6] [shared] 0002 Yes
 
                       [A] [translation](<0001 Common DSW Knowledge Model [6f6241d9]/0006 Preserving data [d5b27482]/0002 Will you be archiving data (using so-called 'cold storage') for... [d5784d24]/0003 Yes [e81599af]/0003 Will the data still be understandable and reusable after a long time [e23201aa]/0002 Yes [31de7c36]/translation.md>)
                 - [ ] [layer 5] 0004 Will the archive be stored in a remote location, protecting the...
 
                   [Q] [translation](<0001 Common DSW Knowledge Model [6f6241d9]/0006 Preserving data [d5b27482]/0002 Will you be archiving data (using so-called 'cold storage') for... [d5784d24]/0003 Yes [e81599af]/0004 Will the archive be stored in a remote location, protecting the... [41a8d19b]/translation.md>)
 
-                    - [x] [layer 6] 0001 No
+                    - [x] [layer 6] [shared] 0001 No
 
                       [A] [translation](<0001 Common DSW Knowledge Model [6f6241d9]/0006 Preserving data [d5b27482]/0002 Will you be archiving data (using so-called 'cold storage') for... [d5784d24]/0003 Yes [e81599af]/0004 Will the archive be stored in a remote location, protecting the... [41a8d19b]/0001 No [a15afda5]/translation.md>)
-                    - [ ] [layer 6] 0002 Yes
+                    - [ ] [layer 6] [shared] 0002 Yes
 
                       [A] [translation](<0001 Common DSW Knowledge Model [6f6241d9]/0006 Preserving data [d5b27482]/0002 Will you be archiving data (using so-called 'cold storage') for... [d5784d24]/0003 Yes [e81599af]/0004 Will the archive be stored in a remote location, protecting the... [41a8d19b]/0002 Yes [4bc5017e]/translation.md>)
                 - [ ] [layer 5] 0005 Will the archive need to be protected against loss or theft
 
                   [Q] [translation](<0001 Common DSW Knowledge Model [6f6241d9]/0006 Preserving data [d5b27482]/0002 Will you be archiving data (using so-called 'cold storage') for... [d5784d24]/0003 Yes [e81599af]/0005 Will the archive need to be protected against loss or theft [ed3d43ad]/translation.md>)
 
-                    - [x] [layer 6] 0001 No
+                    - [x] [layer 6] [shared] 0001 No
 
                       [A] [translation](<0001 Common DSW Knowledge Model [6f6241d9]/0006 Preserving data [d5b27482]/0002 Will you be archiving data (using so-called 'cold storage') for... [d5784d24]/0003 Yes [e81599af]/0005 Will the archive need to be protected against loss or theft [ed3d43ad]/0001 No [f312f518]/translation.md>)
-                    - [ ] [layer 6] 0002 Yes
+                    - [ ] [layer 6] [shared] 0002 Yes
 
                       [A] [translation](<0001 Common DSW Knowledge Model [6f6241d9]/0006 Preserving data [d5b27482]/0002 Will you be archiving data (using so-called 'cold storage') for... [d5784d24]/0003 Yes [e81599af]/0005 Will the archive need to be protected against loss or theft [ed3d43ad]/0002 Yes [29498f8c]/translation.md>)
 
@@ -5107,10 +5107,10 @@
 
                           [Q] [translation](<0001 Common DSW Knowledge Model [6f6241d9]/0006 Preserving data [d5b27482]/0002 Will you be archiving data (using so-called 'cold storage') for... [d5784d24]/0003 Yes [e81599af]/0005 Will the archive need to be protected against loss or theft [ed3d43ad]/0002 Yes [29498f8c]/0001 Is it clear who has physical access to the archives [7458c3bc]/translation.md>)
 
-                            - [x] [layer 8] 0001 No
+                            - [x] [layer 8] [shared] 0001 No
 
                               [A] [translation](<0001 Common DSW Knowledge Model [6f6241d9]/0006 Preserving data [d5b27482]/0002 Will you be archiving data (using so-called 'cold storage') for... [d5784d24]/0003 Yes [e81599af]/0005 Will the archive need to be protected against loss or theft [ed3d43ad]/0002 Yes [29498f8c]/0001 Is it clear who has physical access to the archives [7458c3bc]/0001 No [e9ab764f]/translation.md>)
-                            - [ ] [layer 8] 0002 Yes
+                            - [ ] [layer 8] [shared] 0002 Yes
 
                               [A] [translation](<0001 Common DSW Knowledge Model [6f6241d9]/0006 Preserving data [d5b27482]/0002 Will you be archiving data (using so-called 'cold storage') for... [d5784d24]/0003 Yes [e81599af]/0005 Will the archive need to be protected against loss or theft [ed3d43ad]/0002 Yes [29498f8c]/0001 Is it clear who has physical access to the archives [7458c3bc]/0002 Yes [7658b228]/translation.md>)
                         - [ ] [layer 7] 0002 Will the archive be encrypted
@@ -5120,13 +5120,13 @@
                             - [x] [layer 8] 0001 Has it been established who has access to the archive, and how fast
 
                               [R] [translation](<0001 Common DSW Knowledge Model [6f6241d9]/0006 Preserving data [d5b27482]/0002 Will you be archiving data (using so-called 'cold storage') for... [d5784d24]/0003 Yes [e81599af]/0005 Will the archive need to be protected against loss or theft [ed3d43ad]/0002 Yes [29498f8c]/0002 Will the archive be encrypted [2c797727]/0001 Has it been established who has access to the archive, and how fast [decf61b1]/translation.md>)
-                            - [x] [layer 8] 0002 No
+                            - [x] [layer 8] [shared] 0002 No
 
                               [A] [translation](<0001 Common DSW Knowledge Model [6f6241d9]/0006 Preserving data [d5b27482]/0002 Will you be archiving data (using so-called 'cold storage') for... [d5784d24]/0003 Yes [e81599af]/0005 Will the archive need to be protected against loss or theft [ed3d43ad]/0002 Yes [29498f8c]/0002 Will the archive be encrypted [2c797727]/0002 No [5e4bb06c]/translation.md>)
                             - [x] [layer 8] 0003 No, the data does not need protection
 
                               [A] [translation](<0001 Common DSW Knowledge Model [6f6241d9]/0006 Preserving data [d5b27482]/0002 Will you be archiving data (using so-called 'cold storage') for... [d5784d24]/0003 Yes [e81599af]/0005 Will the archive need to be protected against loss or theft [ed3d43ad]/0002 Yes [29498f8c]/0002 Will the archive be encrypted [2c797727]/0003 No, the data does not need protection [ad3ab129]/translation.md>)
-                            - [ ] [layer 8] 0004 Yes
+                            - [ ] [layer 8] [shared] 0004 Yes
 
                               [A] [translation](<0001 Common DSW Knowledge Model [6f6241d9]/0006 Preserving data [d5b27482]/0002 Will you be archiving data (using so-called 'cold storage') for... [d5784d24]/0003 Yes [e81599af]/0005 Will the archive need to be protected against loss or theft [ed3d43ad]/0002 Yes [29498f8c]/0002 Will the archive be encrypted [2c797727]/0004 Yes [2a127f74]/translation.md>)
 
@@ -5134,10 +5134,10 @@
 
                                   [Q] [translation](<0001 Common DSW Knowledge Model [6f6241d9]/0006 Preserving data [d5b27482]/0002 Will you be archiving data (using so-called 'cold storage') for... [d5784d24]/0003 Yes [e81599af]/0005 Will the archive need to be protected against loss or theft [ed3d43ad]/0002 Yes [29498f8c]/0002 Will the archive be encrypted [2c797727]/0004 Yes [2a127f74]/0001 Is it clear who has access to the key Also in case of a required... [905d4cda]/translation.md>)
 
-                                    - [x] [layer 10] 0001 No
+                                    - [x] [layer 10] [shared] 0001 No
 
                                       [A] [translation](<0001 Common DSW Knowledge Model [6f6241d9]/0006 Preserving data [d5b27482]/0002 Will you be archiving data (using so-called 'cold storage') for... [d5784d24]/0003 Yes [e81599af]/0005 Will the archive need to be protected against loss or theft [ed3d43ad]/0002 Yes [29498f8c]/0002 Will the archive be encrypted [2c797727]/0004 Yes [2a127f74]/0001 Is it clear who has access to the key Also in case of a required... [905d4cda]/0001 No [68a83934]/translation.md>)
-                                    - [ ] [layer 10] 0002 Yes
+                                    - [ ] [layer 10] [shared] 0002 Yes
 
                                       [A] [translation](<0001 Common DSW Knowledge Model [6f6241d9]/0006 Preserving data [d5b27482]/0002 Will you be archiving data (using so-called 'cold storage') for... [d5784d24]/0003 Yes [e81599af]/0005 Will the archive need to be protected against loss or theft [ed3d43ad]/0002 Yes [29498f8c]/0002 Will the archive be encrypted [2c797727]/0004 Yes [2a127f74]/0001 Is it clear who has access to the key Also in case of a required... [905d4cda]/0002 Yes [05e2cbc6]/translation.md>)
                 - [x] [layer 5] 0006 Has it been established who has access to the archive, and how fast
@@ -5147,10 +5147,10 @@
                     - [x] [layer 6] 0001 Will the archive be encrypted
 
                       [R] [translation](<0001 Common DSW Knowledge Model [6f6241d9]/0006 Preserving data [d5b27482]/0002 Will you be archiving data (using so-called 'cold storage') for... [d5784d24]/0003 Yes [e81599af]/0006 Has it been established who has access to the archive, and how fast [b7d9008e]/0001 Will the archive be encrypted [b0430030]/translation.md>)
-                    - [x] [layer 6] 0002 No
+                    - [x] [layer 6] [shared] 0002 No
 
                       [A] [translation](<0001 Common DSW Knowledge Model [6f6241d9]/0006 Preserving data [d5b27482]/0002 Will you be archiving data (using so-called 'cold storage') for... [d5784d24]/0003 Yes [e81599af]/0006 Has it been established who has access to the archive, and how fast [b7d9008e]/0002 No [dc7c7529]/translation.md>)
-                    - [ ] [layer 6] 0003 Yes
+                    - [ ] [layer 6] [shared] 0003 Yes
 
                       [A] [translation](<0001 Common DSW Knowledge Model [6f6241d9]/0006 Preserving data [d5b27482]/0002 Will you be archiving data (using so-called 'cold storage') for... [d5784d24]/0003 Yes [e81599af]/0006 Has it been established who has access to the archive, and how fast [b7d9008e]/0003 Yes [d748ea2b]/translation.md>)
 
@@ -5158,40 +5158,40 @@
 
                           [Q] [translation](<0001 Common DSW Knowledge Model [6f6241d9]/0006 Preserving data [d5b27482]/0002 Will you be archiving data (using so-called 'cold storage') for... [d5784d24]/0003 Yes [e81599af]/0006 Has it been established who has access to the archive, and how fast [b7d9008e]/0003 Yes [d748ea2b]/0001 Has it been established who can ask for a restore during the project [47559455]/translation.md>)
 
-                            - [x] [layer 8] 0001 No
+                            - [x] [layer 8] [shared] 0001 No
 
                               [A] [translation](<0001 Common DSW Knowledge Model [6f6241d9]/0006 Preserving data [d5b27482]/0002 Will you be archiving data (using so-called 'cold storage') for... [d5784d24]/0003 Yes [e81599af]/0006 Has it been established who has access to the archive, and how fast [b7d9008e]/0003 Yes [d748ea2b]/0001 Has it been established who can ask for a restore during the project [47559455]/0001 No [0591c012]/translation.md>)
-                            - [ ] [layer 8] 0002 Yes
+                            - [ ] [layer 8] [shared] 0002 Yes
 
                               [A] [translation](<0001 Common DSW Knowledge Model [6f6241d9]/0006 Preserving data [d5b27482]/0002 Will you be archiving data (using so-called 'cold storage') for... [d5784d24]/0003 Yes [e81599af]/0006 Has it been established who has access to the archive, and how fast [b7d9008e]/0003 Yes [d748ea2b]/0001 Has it been established who can ask for a restore during the project [47559455]/0002 Yes [c406aebf]/translation.md>)
                         - [x] [layer 7] 0002 If the data is voluminous, will the project be able to cope with...
 
                           [Q] [translation](<0001 Common DSW Knowledge Model [6f6241d9]/0006 Preserving data [d5b27482]/0002 Will you be archiving data (using so-called 'cold storage') for... [d5784d24]/0003 Yes [e81599af]/0006 Has it been established who has access to the archive, and how fast [b7d9008e]/0003 Yes [d748ea2b]/0002 If the data is voluminous, will the project be able to cope with... [3d837696]/translation.md>)
 
-                            - [x] [layer 8] 0001 No
+                            - [x] [layer 8] [shared] 0001 No
 
                               [A] [translation](<0001 Common DSW Knowledge Model [6f6241d9]/0006 Preserving data [d5b27482]/0002 Will you be archiving data (using so-called 'cold storage') for... [d5784d24]/0003 Yes [e81599af]/0006 Has it been established who has access to the archive, and how fast [b7d9008e]/0003 Yes [d748ea2b]/0002 If the data is voluminous, will the project be able to cope with... [3d837696]/0001 No [acf31ff1]/translation.md>)
-                            - [ ] [layer 8] 0002 Yes
+                            - [ ] [layer 8] [shared] 0002 Yes
 
                               [A] [translation](<0001 Common DSW Knowledge Model [6f6241d9]/0006 Preserving data [d5b27482]/0002 Will you be archiving data (using so-called 'cold storage') for... [d5784d24]/0003 Yes [e81599af]/0006 Has it been established who has access to the archive, and how fast [b7d9008e]/0003 Yes [d748ea2b]/0002 If the data is voluminous, will the project be able to cope with... [3d837696]/0002 Yes [dfb89c83]/translation.md>)
                         - [x] [layer 7] 0003 Has authority over the data been arranged for when the project is...
 
                           [Q] [translation](<0001 Common DSW Knowledge Model [6f6241d9]/0006 Preserving data [d5b27482]/0002 Will you be archiving data (using so-called 'cold storage') for... [d5784d24]/0003 Yes [e81599af]/0006 Has it been established who has access to the archive, and how fast [b7d9008e]/0003 Yes [d748ea2b]/0003 Has authority over the data been arranged for when the project is... [feb954c1]/translation.md>)
 
-                            - [x] [layer 8] 0001 No
+                            - [x] [layer 8] [shared] 0001 No
 
                               [A] [translation](<0001 Common DSW Knowledge Model [6f6241d9]/0006 Preserving data [d5b27482]/0002 Will you be archiving data (using so-called 'cold storage') for... [d5784d24]/0003 Yes [e81599af]/0006 Has it been established who has access to the archive, and how fast [b7d9008e]/0003 Yes [d748ea2b]/0003 Has authority over the data been arranged for when the project is... [feb954c1]/0001 No [79bf552f]/translation.md>)
-                            - [ ] [layer 8] 0002 Yes
+                            - [ ] [layer 8] [shared] 0002 Yes
 
                               [A] [translation](<0001 Common DSW Knowledge Model [6f6241d9]/0006 Preserving data [d5b27482]/0002 Will you be archiving data (using so-called 'cold storage') for... [d5784d24]/0003 Yes [e81599af]/0006 Has it been established who has access to the archive, and how fast [b7d9008e]/0003 Yes [d748ea2b]/0003 Has authority over the data been arranged for when the project is... [feb954c1]/0002 Yes [aad68118]/translation.md>)
                 - [x] [layer 5] 0007 Is the archived data changing over time, needing re-archival
 
                   [Q] [translation](<0001 Common DSW Knowledge Model [6f6241d9]/0006 Preserving data [d5b27482]/0002 Will you be archiving data (using so-called 'cold storage') for... [d5784d24]/0003 Yes [e81599af]/0007 Is the archived data changing over time, needing re-archival [c659c36f]/translation.md>)
 
-                    - [x] [layer 6] 0001 No
+                    - [x] [layer 6] [shared] 0001 No
 
                       [A] [translation](<0001 Common DSW Knowledge Model [6f6241d9]/0006 Preserving data [d5b27482]/0002 Will you be archiving data (using so-called 'cold storage') for... [d5784d24]/0003 Yes [e81599af]/0007 Is the archived data changing over time, needing re-archival [c659c36f]/0001 No [86e40411]/translation.md>)
-                    - [ ] [layer 6] 0002 Yes
+                    - [ ] [layer 6] [shared] 0002 Yes
 
                       [A] [translation](<0001 Common DSW Knowledge Model [6f6241d9]/0006 Preserving data [d5b27482]/0002 Will you be archiving data (using so-called 'cold storage') for... [d5784d24]/0003 Yes [e81599af]/0007 Is the archived data changing over time, needing re-archival [c659c36f]/0002 Yes [48d7128a]/translation.md>)
 
@@ -5212,20 +5212,20 @@
 
                           [Q] [translation](<0001 Common DSW Knowledge Model [6f6241d9]/0006 Preserving data [d5b27482]/0002 Will you be archiving data (using so-called 'cold storage') for... [d5784d24]/0003 Yes [e81599af]/0007 Is the archived data changing over time, needing re-archival [c659c36f]/0002 Yes [48d7128a]/0002 Will you be relying on these backups to recover from human error... [f6476ea3]/translation.md>)
 
-                            - [x] [layer 8] 0001 No
+                            - [x] [layer 8] [shared] 0001 No
 
                               [A] [translation](<0001 Common DSW Knowledge Model [6f6241d9]/0006 Preserving data [d5b27482]/0002 Will you be archiving data (using so-called 'cold storage') for... [d5784d24]/0003 Yes [e81599af]/0007 Is the archived data changing over time, needing re-archival [c659c36f]/0002 Yes [48d7128a]/0002 Will you be relying on these backups to recover from human error... [f6476ea3]/0001 No [6f307c89]/translation.md>)
-                            - [ ] [layer 8] 0002 Yes
+                            - [ ] [layer 8] [shared] 0002 Yes
 
                               [A] [translation](<0001 Common DSW Knowledge Model [6f6241d9]/0006 Preserving data [d5b27482]/0002 Will you be archiving data (using so-called 'cold storage') for... [d5784d24]/0003 Yes [e81599af]/0007 Is the archived data changing over time, needing re-archival [c659c36f]/0002 Yes [48d7128a]/0002 Will you be relying on these backups to recover from human error... [f6476ea3]/0002 Yes [899b6dc9]/translation.md>)
                 - [ ] [layer 5] 0008 Will your project require the archives to be available on-line
 
                   [Q] [translation](<0001 Common DSW Knowledge Model [6f6241d9]/0006 Preserving data [d5b27482]/0002 Will you be archiving data (using so-called 'cold storage') for... [d5784d24]/0003 Yes [e81599af]/0008 Will your project require the archives to be available on-line [87abded2]/translation.md>)
 
-                    - [x] [layer 6] 0001 No
+                    - [x] [layer 6] [shared] 0001 No
 
                       [A] [translation](<0001 Common DSW Knowledge Model [6f6241d9]/0006 Preserving data [d5b27482]/0002 Will you be archiving data (using so-called 'cold storage') for... [d5784d24]/0003 Yes [e81599af]/0008 Will your project require the archives to be available on-line [87abded2]/0001 No [bb1ba41d]/translation.md>)
-                    - [ ] [layer 6] 0002 Yes
+                    - [ ] [layer 6] [shared] 0002 Yes
 
                       [A] [translation](<0001 Common DSW Knowledge Model [6f6241d9]/0006 Preserving data [d5b27482]/0002 Will you be archiving data (using so-called 'cold storage') for... [d5784d24]/0003 Yes [e81599af]/0008 Will your project require the archives to be available on-line [87abded2]/0002 Yes [25b31312]/translation.md>)
 
@@ -5233,23 +5233,23 @@
 
                           [Q] [translation](<0001 Common DSW Knowledge Model [6f6241d9]/0006 Preserving data [d5b27482]/0002 Will you be archiving data (using so-called 'cold storage') for... [d5784d24]/0003 Yes [e81599af]/0008 Will your project require the archives to be available on-line [87abded2]/0002 Yes [25b31312]/0001 Will data integrity be guaranteed [b3caa015]/translation.md>)
 
-                            - [x] [layer 8] 0001 No
+                            - [x] [layer 8] [shared] 0001 No
 
                               [A] [translation](<0001 Common DSW Knowledge Model [6f6241d9]/0006 Preserving data [d5b27482]/0002 Will you be archiving data (using so-called 'cold storage') for... [d5784d24]/0003 Yes [e81599af]/0008 Will your project require the archives to be available on-line [87abded2]/0002 Yes [25b31312]/0001 Will data integrity be guaranteed [b3caa015]/0001 No [60ea11ca]/translation.md>)
-                            - [ ] [layer 8] 0002 Yes
+                            - [ ] [layer 8] [shared] 0002 Yes
 
                               [A] [translation](<0001 Common DSW Knowledge Model [6f6241d9]/0006 Preserving data [d5b27482]/0002 Will you be archiving data (using so-called 'cold storage') for... [d5784d24]/0003 Yes [e81599af]/0008 Will your project require the archives to be available on-line [87abded2]/0002 Yes [25b31312]/0001 Will data integrity be guaranteed [b3caa015]/0002 Yes [c5a2baff]/translation.md>)
                         - [ ] [layer 7] 0002 Is there an interface and a defined process for people to request...
 
                           [Q] [translation](<0001 Common DSW Knowledge Model [6f6241d9]/0006 Preserving data [d5b27482]/0002 Will you be archiving data (using so-called 'cold storage') for... [d5784d24]/0003 Yes [e81599af]/0008 Will your project require the archives to be available on-line [87abded2]/0002 Yes [25b31312]/0002 Is there an interface and a defined process for people to request... [86459c42]/translation.md>)
 
-                            - [x] [layer 8] 0001 No
+                            - [x] [layer 8] [shared] 0001 No
 
                               [A] [translation](<0001 Common DSW Knowledge Model [6f6241d9]/0006 Preserving data [d5b27482]/0002 Will you be archiving data (using so-called 'cold storage') for... [d5784d24]/0003 Yes [e81599af]/0008 Will your project require the archives to be available on-line [87abded2]/0002 Yes [25b31312]/0002 Is there an interface and a defined process for people to request... [86459c42]/0001 No [1ec0c5b1]/translation.md>)
-                            - [ ] [layer 8] 0002 Yes
+                            - [ ] [layer 8] [shared] 0002 Yes
 
                               [A] [translation](<0001 Common DSW Knowledge Model [6f6241d9]/0006 Preserving data [d5b27482]/0002 Will you be archiving data (using so-called 'cold storage') for... [d5784d24]/0003 Yes [e81599af]/0008 Will your project require the archives to be available on-line [87abded2]/0002 Yes [25b31312]/0002 Is there an interface and a defined process for people to request... [86459c42]/0002 Yes [01322e43]/translation.md>)
-            - [x] [layer 4] 0004 DMEG on Storage
+            - [x] [layer 4] [shared] 0004 DMEG on Storage
 
               [R] [translation](<0001 Common DSW Knowledge Model [6f6241d9]/0006 Preserving data [d5b27482]/0002 Will you be archiving data (using so-called 'cold storage') for... [d5784d24]/0004 DMEG on Storage [ed8502b4]/translation.md>)
         - [ ] [layer 3] 0003 Will you be archiving your data in 'cold storage' after the project...
@@ -5259,10 +5259,10 @@
             - [x] [layer 4] 0001 Will you be archiving data (using so-called 'cold storage') for...
 
               [R] [translation](<0001 Common DSW Knowledge Model [6f6241d9]/0006 Preserving data [d5b27482]/0003 Will you be archiving your data in 'cold storage' after the project... [f9d84278]/0001 Will you be archiving data (using so-called 'cold storage') for... [4edaeeb8]/translation.md>)
-            - [x] [layer 4] 0002 No
+            - [x] [layer 4] [shared] 0002 No
 
               [A] [translation](<0001 Common DSW Knowledge Model [6f6241d9]/0006 Preserving data [d5b27482]/0003 Will you be archiving your data in 'cold storage' after the project... [f9d84278]/0002 No [b6890d88]/translation.md>)
-            - [ ] [layer 4] 0003 Yes
+            - [ ] [layer 4] [shared] 0003 Yes
 
               [A] [translation](<0001 Common DSW Knowledge Model [6f6241d9]/0006 Preserving data [d5b27482]/0003 Will you be archiving your data in 'cold storage' after the project... [f9d84278]/0003 Yes [562a4823]/translation.md>)
 
@@ -5310,7 +5310,7 @@
 
                   [Q] [translation](<0001 Common DSW Knowledge Model [6f6241d9]/0006 Preserving data [d5b27482]/0003 Will you be archiving your data in 'cold storage' after the project... [f9d84278]/0003 Yes [562a4823]/0003 Can the archival period be extended [1a754b08]/translation.md>)
 
-                    - [x] [layer 6] 0001 No
+                    - [x] [layer 6] [shared] 0001 No
 
                       [A] [translation](<0001 Common DSW Knowledge Model [6f6241d9]/0006 Preserving data [d5b27482]/0003 Will you be archiving your data in 'cold storage' after the project... [f9d84278]/0003 Yes [562a4823]/0003 Can the archival period be extended [1a754b08]/0001 No [4c9c792f]/translation.md>)
 
@@ -5324,7 +5324,7 @@
                             - [x] [layer 8] 0002 The archival period is limited by budget
 
                               [A] [translation](<0001 Common DSW Knowledge Model [6f6241d9]/0006 Preserving data [d5b27482]/0003 Will you be archiving your data in 'cold storage' after the project... [f9d84278]/0003 Yes [562a4823]/0003 Can the archival period be extended [1a754b08]/0001 No [4c9c792f]/0001 Why will the archival period not be extended [e5f3081b]/0002 The archival period is limited by budget [cb6a4747]/translation.md>)
-                    - [ ] [layer 6] 0002 Yes
+                    - [ ] [layer 6] [shared] 0002 Yes
 
                       [A] [translation](<0001 Common DSW Knowledge Model [6f6241d9]/0006 Preserving data [d5b27482]/0003 Will you be archiving your data in 'cold storage' after the project... [f9d84278]/0003 Yes [562a4823]/0003 Can the archival period be extended [1a754b08]/0002 Yes [fc93bf39]/translation.md>)
 
@@ -5355,30 +5355,30 @@
 
                   [Q] [translation](<0001 Common DSW Knowledge Model [6f6241d9]/0006 Preserving data [d5b27482]/0003 Will you be archiving your data in 'cold storage' after the project... [f9d84278]/0003 Yes [562a4823]/0004 Will data formats of data in cold storage be upgraded if they... [553834d6]/translation.md>)
 
-                    - [x] [layer 6] 0001 No
+                    - [x] [layer 6] [shared] 0001 No
 
                       [A] [translation](<0001 Common DSW Knowledge Model [6f6241d9]/0006 Preserving data [d5b27482]/0003 Will you be archiving your data in 'cold storage' after the project... [f9d84278]/0003 Yes [562a4823]/0004 Will data formats of data in cold storage be upgraded if they... [553834d6]/0001 No [24782dc1]/translation.md>)
-                    - [ ] [layer 6] 0002 Yes
+                    - [ ] [layer 6] [shared] 0002 Yes
 
                       [A] [translation](<0001 Common DSW Knowledge Model [6f6241d9]/0006 Preserving data [d5b27482]/0003 Will you be archiving your data in 'cold storage' after the project... [f9d84278]/0003 Yes [562a4823]/0004 Will data formats of data in cold storage be upgraded if they... [553834d6]/0002 Yes [522019ce]/translation.md>)
                 - [ ] [layer 5] 0005 Will data be migrated regularly to more modern storage media (e.g...
 
                   [Q] [translation](<0001 Common DSW Knowledge Model [6f6241d9]/0006 Preserving data [d5b27482]/0003 Will you be archiving your data in 'cold storage' after the project... [f9d84278]/0003 Yes [562a4823]/0005 Will data be migrated regularly to more modern storage media (e.g... [5a192c70]/translation.md>)
 
-                    - [x] [layer 6] 0001 No
+                    - [x] [layer 6] [shared] 0001 No
 
                       [A] [translation](<0001 Common DSW Knowledge Model [6f6241d9]/0006 Preserving data [d5b27482]/0003 Will you be archiving your data in 'cold storage' after the project... [f9d84278]/0003 Yes [562a4823]/0005 Will data be migrated regularly to more modern storage media (e.g... [5a192c70]/0001 No [2bb32b88]/translation.md>)
-                    - [ ] [layer 6] 0002 Yes
+                    - [ ] [layer 6] [shared] 0002 Yes
 
                       [A] [translation](<0001 Common DSW Knowledge Model [6f6241d9]/0006 Preserving data [d5b27482]/0003 Will you be archiving your data in 'cold storage' after the project... [f9d84278]/0003 Yes [562a4823]/0005 Will data be migrated regularly to more modern storage media (e.g... [5a192c70]/0002 Yes [6a1acee5]/translation.md>)
         - [ ] [layer 3] 0004 Will any of the repositories you use charge you for their services
 
           [Q] [translation](<0001 Common DSW Knowledge Model [6f6241d9]/0006 Preserving data [d5b27482]/0004 Will any of the repositories you use charge you for their services [de23bb94]/translation.md>)
 
-            - [x] [layer 4] 0001 No
+            - [x] [layer 4] [shared] 0001 No
 
               [A] [translation](<0001 Common DSW Knowledge Model [6f6241d9]/0006 Preserving data [d5b27482]/0004 Will any of the repositories you use charge you for their services [de23bb94]/0001 No [172043dd]/translation.md>)
-            - [ ] [layer 4] 0002 Yes
+            - [ ] [layer 4] [shared] 0002 Yes
 
               [A] [translation](<0001 Common DSW Knowledge Model [6f6241d9]/0006 Preserving data [d5b27482]/0004 Will any of the repositories you use charge you for their services [de23bb94]/0002 Yes [fe8ed36b]/translation.md>)
 
@@ -5406,20 +5406,20 @@
 
           [Q] [translation](<0001 Common DSW Knowledge Model [6f6241d9]/0006 Preserving data [d5b27482]/0005 Are there any other recurring fees to keep data or documents available [4baf405e]/translation.md>)
 
-            - [x] [layer 4] 0001 No
+            - [x] [layer 4] [shared] 0001 No
 
               [A] [translation](<0001 Common DSW Knowledge Model [6f6241d9]/0006 Preserving data [d5b27482]/0005 Are there any other recurring fees to keep data or documents available [4baf405e]/0001 No [ccbe8121]/translation.md>)
-            - [ ] [layer 4] 0002 Yes
+            - [ ] [layer 4] [shared] 0002 Yes
 
               [A] [translation](<0001 Common DSW Knowledge Model [6f6241d9]/0006 Preserving data [d5b27482]/0005 Are there any other recurring fees to keep data or documents available [4baf405e]/0002 Yes [5951120f]/translation.md>)
         - [x] [layer 3] 0006 Did you budget for the time and effort it will take to prepare the...
 
           [Q] [translation](<0001 Common DSW Knowledge Model [6f6241d9]/0006 Preserving data [d5b27482]/0006 Did you budget for the time and effort it will take to prepare the... [13a7eeae]/translation.md>)
 
-            - [x] [layer 4] 0001 No
+            - [x] [layer 4] [shared] 0001 No
 
               [A] [translation](<0001 Common DSW Knowledge Model [6f6241d9]/0006 Preserving data [d5b27482]/0006 Did you budget for the time and effort it will take to prepare the... [13a7eeae]/0001 No [f765ae2f]/translation.md>)
-            - [ ] [layer 4] 0002 Yes
+            - [ ] [layer 4] [shared] 0002 Yes
 
               [A] [translation](<0001 Common DSW Knowledge Model [6f6241d9]/0006 Preserving data [d5b27482]/0006 Did you budget for the time and effort it will take to prepare the... [13a7eeae]/0002 Yes [db44d6ca]/translation.md>)
 
@@ -5430,7 +5430,7 @@
 
           [Q] [translation](<0001 Common DSW Knowledge Model [6f6241d9]/0006 Preserving data [d5b27482]/0007 Will you be making sure that blocks of data deposited in different... [92a10652]/translation.md>)
 
-            - [x] [layer 4] 0001 No
+            - [x] [layer 4] [shared] 0001 No
 
               [A] [translation](<0001 Common DSW Knowledge Model [6f6241d9]/0006 Preserving data [d5b27482]/0007 Will you be making sure that blocks of data deposited in different... [92a10652]/0001 No [2f7e45cd]/translation.md>)
             - [ ] [layer 4] 0002 Yes, all data sets will have links to the related data
@@ -5443,7 +5443,7 @@
 
               [A] [translation](<0001 Common DSW Knowledge Model [6f6241d9]/0006 Preserving data [d5b27482]/0007 Will you be making sure that blocks of data deposited in different... [92a10652]/0004 Yes, we have made other arrangements [6445c352]/translation.md>)
 
-                - [ ] [layer 5] 0001 What other arrangements
+                - [ ] [layer 5] [shared] 0001 What other arrangements
 
                   [Q] [translation](<0001 Common DSW Knowledge Model [6f6241d9]/0006 Preserving data [d5b27482]/0007 Will you be making sure that blocks of data deposited in different... [92a10652]/0004 Yes, we have made other arrangements [6445c352]/0001 What other arrangements [1accb605]/translation.md>)
         - [ ] [layer 3] 0008 Will reference data be created
@@ -5453,10 +5453,10 @@
             - [ ] [layer 4] 0001 What existing openly available standard reference data did you...
 
               [R] [translation](<0001 Common DSW Knowledge Model [6f6241d9]/0006 Preserving data [d5b27482]/0008 Will reference data be created [588ad032]/0001 What existing openly available standard reference data did you... [75f0120d]/translation.md>)
-            - [x] [layer 4] 0002 No
+            - [x] [layer 4] [shared] 0002 No
 
               [A] [translation](<0001 Common DSW Knowledge Model [6f6241d9]/0006 Preserving data [d5b27482]/0008 Will reference data be created [588ad032]/0002 No [1e28b25b]/translation.md>)
-            - [ ] [layer 4] 0003 Yes
+            - [ ] [layer 4] [shared] 0003 Yes
 
               [A] [translation](<0001 Common DSW Knowledge Model [6f6241d9]/0006 Preserving data [d5b27482]/0008 Will reference data be created [588ad032]/0003 Yes [bdf55011]/translation.md>)
 
@@ -5473,14 +5473,14 @@
 
                   [Q] [translation](<0001 Common DSW Knowledge Model [6f6241d9]/0006 Preserving data [d5b27482]/0008 Will reference data be created [588ad032]/0003 Yes [bdf55011]/0004 Will the reference data be made available under a standard license [13af8c24]/translation.md>)
 
-                    - [x] [layer 6] 0001 No
+                    - [x] [layer 6] [shared] 0001 No
 
                       [A] [translation](<0001 Common DSW Knowledge Model [6f6241d9]/0006 Preserving data [d5b27482]/0008 Will reference data be created [588ad032]/0003 Yes [bdf55011]/0004 Will the reference data be made available under a standard license [13af8c24]/0001 No [a23b0718]/translation.md>)
 
                         - [ ] [layer 7] 0001 What will the conditions for use be
 
                           [Q] [translation](<0001 Common DSW Knowledge Model [6f6241d9]/0006 Preserving data [d5b27482]/0008 Will reference data be created [588ad032]/0003 Yes [bdf55011]/0004 Will the reference data be made available under a standard license [13af8c24]/0001 No [a23b0718]/0001 What will the conditions for use be [210d40f0]/translation.md>)
-                    - [ ] [layer 6] 0002 Yes
+                    - [ ] [layer 6] [shared] 0002 Yes
 
                       [A] [translation](<0001 Common DSW Knowledge Model [6f6241d9]/0006 Preserving data [d5b27482]/0008 Will reference data be created [588ad032]/0003 Yes [bdf55011]/0004 Will the reference data be made available under a standard license [13af8c24]/0002 Yes [f8e70d3c]/translation.md>)
 
@@ -5497,14 +5497,14 @@
 
                   [Q] [translation](<0001 Common DSW Knowledge Model [6f6241d9]/0006 Preserving data [d5b27482]/0008 Will reference data be created [588ad032]/0003 Yes [bdf55011]/0005 Will the reference data be available from an existing repository [8cd74016]/translation.md>)
 
-                    - [ ] [layer 6] 0001 Yes
+                    - [ ] [layer 6] [shared] 0001 Yes
 
                       [A] [translation](<0001 Common DSW Knowledge Model [6f6241d9]/0006 Preserving data [d5b27482]/0008 Will reference data be created [588ad032]/0003 Yes [bdf55011]/0005 Will the reference data be available from an existing repository [8cd74016]/0001 Yes [48e497f3]/translation.md>)
 
-                        - [ ] [layer 7] 0001 Which repository
+                        - [ ] [layer 7] [shared] 0001 Which repository
 
                           [Q] [translation](<0001 Common DSW Knowledge Model [6f6241d9]/0006 Preserving data [d5b27482]/0008 Will reference data be created [588ad032]/0003 Yes [bdf55011]/0005 Will the reference data be available from an existing repository [8cd74016]/0001 Yes [48e497f3]/0001 Which repository [a41a57ef]/translation.md>)
-                    - [x] [layer 6] 0002 No
+                    - [x] [layer 6] [shared] 0002 No
 
                       [A] [translation](<0001 Common DSW Knowledge Model [6f6241d9]/0006 Preserving data [d5b27482]/0008 Will reference data be created [588ad032]/0003 Yes [bdf55011]/0005 Will the reference data be available from an existing repository [8cd74016]/0002 No [a6b78fe6]/translation.md>)
 
@@ -5519,24 +5519,24 @@
 
           [Q] [translation](<0001 Common DSW Knowledge Model [6f6241d9]/0007 Giving access to data [6be88f7c]/0001 Will you be working with the philosophy 'as open as possible' for... [6516eae1]/translation.md>)
 
-            - [ ] [layer 4] 0001 No
+            - [ ] [layer 4] [shared] 0001 No
 
               [A] [translation](<0001 Common DSW Knowledge Model [6f6241d9]/0007 Giving access to data [6be88f7c]/0001 Will you be working with the philosophy 'as open as possible' for... [6516eae1]/0001 No [ca5c002d]/translation.md>)
-            - [ ] [layer 4] 0002 Yes
+            - [ ] [layer 4] [shared] 0002 Yes
 
               [A] [translation](<0001 Common DSW Knowledge Model [6f6241d9]/0007 Giving access to data [6be88f7c]/0001 Will you be working with the philosophy 'as open as possible' for... [6516eae1]/0002 Yes [67a8f6e1]/translation.md>)
         - [ ] [layer 3] 0002 Will the data be accessible through a free and standardized access...
 
           [Q] [translation](<0001 Common DSW Knowledge Model [6f6241d9]/0007 Giving access to data [6be88f7c]/0002 Will the data be accessible through a free and standardized access... [3f3e9c5a]/translation.md>)
 
-            - [x] [layer 4] 0001 No
+            - [x] [layer 4] [shared] 0001 No
 
               [A] [translation](<0001 Common DSW Knowledge Model [6f6241d9]/0007 Giving access to data [6be88f7c]/0002 Will the data be accessible through a free and standardized access... [3f3e9c5a]/0001 No [19895d1b]/translation.md>)
 
-                - [ ] [layer 5] 0001 Why not
+                - [ ] [layer 5] [shared] 0001 Why not
 
                   [Q] [translation](<0001 Common DSW Knowledge Model [6f6241d9]/0007 Giving access to data [6be88f7c]/0002 Will the data be accessible through a free and standardized access... [3f3e9c5a]/0001 No [19895d1b]/0001 Why not [ecd0f420]/translation.md>)
-            - [ ] [layer 4] 0002 Yes
+            - [ ] [layer 4] [shared] 0002 Yes
 
               [A] [translation](<0001 Common DSW Knowledge Model [6f6241d9]/0007 Giving access to data [6be88f7c]/0002 Will the data be accessible through a free and standardized access... [3f3e9c5a]/0002 Yes [e6f8ae82]/translation.md>)
 
@@ -5547,7 +5547,7 @@
 
           [Q] [translation](<0001 Common DSW Knowledge Model [6f6241d9]/0007 Giving access to data [6be88f7c]/0003 Can all of your data become completely open over time [a549d10b]/translation.md>)
 
-            - [x] [layer 4] 0001 No
+            - [x] [layer 4] [shared] 0001 No
 
               [A] [translation](<0001 Common DSW Knowledge Model [6f6241d9]/0007 Giving access to data [6be88f7c]/0003 Can all of your data become completely open over time [a549d10b]/0001 No [b3739ebd]/translation.md>)
 
@@ -5555,7 +5555,7 @@
 
                   [Q] [translation](<0001 Common DSW Knowledge Model [6f6241d9]/0007 Giving access to data [6be88f7c]/0003 Can all of your data become completely open over time [a549d10b]/0001 No [b3739ebd]/0001 Are there other reasons why (some of your) data can not be... [c10f9098]/translation.md>)
 
-                    - [x] [layer 6] 0001 No
+                    - [x] [layer 6] [shared] 0001 No
 
                       [A] [translation](<0001 Common DSW Knowledge Model [6f6241d9]/0007 Giving access to data [6be88f7c]/0003 Can all of your data become completely open over time [a549d10b]/0001 No [b3739ebd]/0001 Are there other reasons why (some of your) data can not be... [c10f9098]/0001 No [0eeabfdc]/translation.md>)
                     - [ ] [layer 6] 0002 Yes, papers need to be submitted first
@@ -5572,7 +5572,7 @@
 
                   [Q] [translation](<0001 Common DSW Knowledge Model [6f6241d9]/0007 Giving access to data [6be88f7c]/0003 Can all of your data become completely open over time [a549d10b]/0001 No [b3739ebd]/0002 Are there business reasons why (some of your) data can not be... [85a9d872]/translation.md>)
 
-                    - [x] [layer 6] 0001 No
+                    - [x] [layer 6] [shared] 0001 No
 
                       [A] [translation](<0001 Common DSW Knowledge Model [6f6241d9]/0007 Giving access to data [6be88f7c]/0003 Can all of your data become completely open over time [a549d10b]/0001 No [b3739ebd]/0002 Are there business reasons why (some of your) data can not be... [85a9d872]/0001 No [c87ef228]/translation.md>)
                     - [ ] [layer 6] 0002 Yes, patents still need to be applied for
@@ -5589,10 +5589,10 @@
 
                   [Q] [translation](<0001 Common DSW Knowledge Model [6f6241d9]/0007 Giving access to data [6be88f7c]/0003 Can all of your data become completely open over time [a549d10b]/0001 No [b3739ebd]/0003 Are there legal reasons why (some of your) data can not be... [c010e830]/translation.md>)
 
-                    - [x] [layer 6] 0001 No
+                    - [x] [layer 6] [shared] 0001 No
 
                       [A] [translation](<0001 Common DSW Knowledge Model [6f6241d9]/0007 Giving access to data [6be88f7c]/0003 Can all of your data become completely open over time [a549d10b]/0001 No [b3739ebd]/0003 Are there legal reasons why (some of your) data can not be... [c010e830]/0001 No [31f2fcda]/translation.md>)
-                    - [ ] [layer 6] 0002 Yes
+                    - [ ] [layer 6] [shared] 0002 Yes
 
                       [A] [translation](<0001 Common DSW Knowledge Model [6f6241d9]/0007 Giving access to data [6be88f7c]/0003 Can all of your data become completely open over time [a549d10b]/0001 No [b3739ebd]/0003 Are there legal reasons why (some of your) data can not be... [c010e830]/0002 Yes [aac95530]/translation.md>)
 
@@ -5600,10 +5600,10 @@
 
                           [Q] [translation](<0001 Common DSW Knowledge Model [6f6241d9]/0007 Giving access to data [6be88f7c]/0003 Can all of your data become completely open over time [a549d10b]/0001 No [b3739ebd]/0003 Are there legal reasons why (some of your) data can not be... [c010e830]/0002 Yes [aac95530]/0001 Are there IP reasons why your data can not be open [a18d79d2]/translation.md>)
 
-                            - [x] [layer 8] 0001 No
+                            - [x] [layer 8] [shared] 0001 No
 
                               [A] [translation](<0001 Common DSW Knowledge Model [6f6241d9]/0007 Giving access to data [6be88f7c]/0003 Can all of your data become completely open over time [a549d10b]/0001 No [b3739ebd]/0003 Are there legal reasons why (some of your) data can not be... [c010e830]/0002 Yes [aac95530]/0001 Are there IP reasons why your data can not be open [a18d79d2]/0001 No [cad24d70]/translation.md>)
-                            - [ ] [layer 8] 0002 Yes
+                            - [ ] [layer 8] [shared] 0002 Yes
 
                               [A] [translation](<0001 Common DSW Knowledge Model [6f6241d9]/0007 Giving access to data [6be88f7c]/0003 Can all of your data become completely open over time [a549d10b]/0001 No [b3739ebd]/0003 Are there legal reasons why (some of your) data can not be... [c010e830]/0002 Yes [aac95530]/0001 Are there IP reasons why your data can not be open [a18d79d2]/0002 Yes [2ffa365d]/translation.md>)
 
@@ -5611,30 +5611,30 @@
 
                                   [Q] [translation](<0001 Common DSW Knowledge Model [6f6241d9]/0007 Giving access to data [6be88f7c]/0003 Can all of your data become completely open over time [a549d10b]/0001 No [b3739ebd]/0003 Are there legal reasons why (some of your) data can not be... [c010e830]/0002 Yes [aac95530]/0001 Are there IP reasons why your data can not be open [a18d79d2]/0002 Yes [2ffa365d]/0001 Will someone be given decision power to move documents or data to a... [c9ed4379]/translation.md>)
 
-                                    - [x] [layer 10] 0001 No
+                                    - [x] [layer 10] [shared] 0001 No
 
                                       [A] [translation](<0001 Common DSW Knowledge Model [6f6241d9]/0007 Giving access to data [6be88f7c]/0003 Can all of your data become completely open over time [a549d10b]/0001 No [b3739ebd]/0003 Are there legal reasons why (some of your) data can not be... [c010e830]/0002 Yes [aac95530]/0001 Are there IP reasons why your data can not be open [a18d79d2]/0002 Yes [2ffa365d]/0001 Will someone be given decision power to move documents or data to a... [c9ed4379]/0001 No [46f96ea2]/translation.md>)
-                                    - [ ] [layer 10] 0002 Yes
+                                    - [ ] [layer 10] [shared] 0002 Yes
 
                                       [A] [translation](<0001 Common DSW Knowledge Model [6f6241d9]/0007 Giving access to data [6be88f7c]/0003 Can all of your data become completely open over time [a549d10b]/0001 No [b3739ebd]/0003 Are there legal reasons why (some of your) data can not be... [c010e830]/0002 Yes [aac95530]/0001 Are there IP reasons why your data can not be open [a18d79d2]/0002 Yes [2ffa365d]/0001 Will someone be given decision power to move documents or data to a... [c9ed4379]/0002 Yes [8eff4cfd]/translation.md>)
                                 - [x] [layer 9] 0002 Is it clear who owns data and documents
 
                                   [Q] [translation](<0001 Common DSW Knowledge Model [6f6241d9]/0007 Giving access to data [6be88f7c]/0003 Can all of your data become completely open over time [a549d10b]/0001 No [b3739ebd]/0003 Are there legal reasons why (some of your) data can not be... [c010e830]/0002 Yes [aac95530]/0001 Are there IP reasons why your data can not be open [a18d79d2]/0002 Yes [2ffa365d]/0002 Is it clear who owns data and documents [b4f9916a]/translation.md>)
 
-                                    - [x] [layer 10] 0001 No
+                                    - [x] [layer 10] [shared] 0001 No
 
                                       [A] [translation](<0001 Common DSW Knowledge Model [6f6241d9]/0007 Giving access to data [6be88f7c]/0003 Can all of your data become completely open over time [a549d10b]/0001 No [b3739ebd]/0003 Are there legal reasons why (some of your) data can not be... [c010e830]/0002 Yes [aac95530]/0001 Are there IP reasons why your data can not be open [a18d79d2]/0002 Yes [2ffa365d]/0002 Is it clear who owns data and documents [b4f9916a]/0001 No [3de2edc2]/translation.md>)
-                                    - [ ] [layer 10] 0002 Yes
+                                    - [ ] [layer 10] [shared] 0002 Yes
 
                                       [A] [translation](<0001 Common DSW Knowledge Model [6f6241d9]/0007 Giving access to data [6be88f7c]/0003 Can all of your data become completely open over time [a549d10b]/0001 No [b3739ebd]/0003 Are there legal reasons why (some of your) data can not be... [c010e830]/0002 Yes [aac95530]/0001 Are there IP reasons why your data can not be open [a18d79d2]/0002 Yes [2ffa365d]/0002 Is it clear who owns data and documents [b4f9916a]/0002 Yes [fc008273]/translation.md>)
                         - [ ] [layer 7] 0002 Will you be allowing authenticated access to the data
 
                           [Q] [translation](<0001 Common DSW Knowledge Model [6f6241d9]/0007 Giving access to data [6be88f7c]/0003 Can all of your data become completely open over time [a549d10b]/0001 No [b3739ebd]/0003 Are there legal reasons why (some of your) data can not be... [c010e830]/0002 Yes [aac95530]/0002 Will you be allowing authenticated access to the data [55f03a4a]/translation.md>)
 
-                            - [x] [layer 8] 0001 No
+                            - [x] [layer 8] [shared] 0001 No
 
                               [A] [translation](<0001 Common DSW Knowledge Model [6f6241d9]/0007 Giving access to data [6be88f7c]/0003 Can all of your data become completely open over time [a549d10b]/0001 No [b3739ebd]/0003 Are there legal reasons why (some of your) data can not be... [c010e830]/0002 Yes [aac95530]/0002 Will you be allowing authenticated access to the data [55f03a4a]/0001 No [da8b25a9]/translation.md>)
-                            - [ ] [layer 8] 0002 Yes
+                            - [ ] [layer 8] [shared] 0002 Yes
 
                               [A] [translation](<0001 Common DSW Knowledge Model [6f6241d9]/0007 Giving access to data [6be88f7c]/0003 Can all of your data become completely open over time [a549d10b]/0001 No [b3739ebd]/0003 Are there legal reasons why (some of your) data can not be... [c010e830]/0002 Yes [aac95530]/0002 Will you be allowing authenticated access to the data [55f03a4a]/0002 Yes [18a46146]/translation.md>)
 
@@ -5642,20 +5642,20 @@
 
                                   [Q] [translation](<0001 Common DSW Knowledge Model [6f6241d9]/0007 Giving access to data [6be88f7c]/0003 Can all of your data become completely open over time [a549d10b]/0001 No [b3739ebd]/0003 Are there legal reasons why (some of your) data can not be... [c010e830]/0002 Yes [aac95530]/0002 Will you be allowing authenticated access to the data [55f03a4a]/0002 Yes [18a46146]/0001 Has auditing for the re-use been arranged [b7cb192b]/translation.md>)
 
-                                    - [x] [layer 10] 0001 No
+                                    - [x] [layer 10] [shared] 0001 No
 
                                       [A] [translation](<0001 Common DSW Knowledge Model [6f6241d9]/0007 Giving access to data [6be88f7c]/0003 Can all of your data become completely open over time [a549d10b]/0001 No [b3739ebd]/0003 Are there legal reasons why (some of your) data can not be... [c010e830]/0002 Yes [aac95530]/0002 Will you be allowing authenticated access to the data [55f03a4a]/0002 Yes [18a46146]/0001 Has auditing for the re-use been arranged [b7cb192b]/0001 No [651f3154]/translation.md>)
-                                    - [ ] [layer 10] 0002 Yes
+                                    - [ ] [layer 10] [shared] 0002 Yes
 
                                       [A] [translation](<0001 Common DSW Knowledge Model [6f6241d9]/0007 Giving access to data [6be88f7c]/0003 Can all of your data become completely open over time [a549d10b]/0001 No [b3739ebd]/0003 Are there legal reasons why (some of your) data can not be... [c010e830]/0002 Yes [aac95530]/0002 Will you be allowing authenticated access to the data [55f03a4a]/0002 Yes [18a46146]/0001 Has auditing for the re-use been arranged [b7cb192b]/0002 Yes [0f2324d2]/translation.md>)
                                 - [x] [layer 9] 0002 Are the criteria for application to access the data openly available
 
                                   [Q] [translation](<0001 Common DSW Knowledge Model [6f6241d9]/0007 Giving access to data [6be88f7c]/0003 Can all of your data become completely open over time [a549d10b]/0001 No [b3739ebd]/0003 Are there legal reasons why (some of your) data can not be... [c010e830]/0002 Yes [aac95530]/0002 Will you be allowing authenticated access to the data [55f03a4a]/0002 Yes [18a46146]/0002 Are the criteria for application to access the data openly available [c534c029]/translation.md>)
 
-                                    - [x] [layer 10] 0001 No
+                                    - [x] [layer 10] [shared] 0001 No
 
                                       [A] [translation](<0001 Common DSW Knowledge Model [6f6241d9]/0007 Giving access to data [6be88f7c]/0003 Can all of your data become completely open over time [a549d10b]/0001 No [b3739ebd]/0003 Are there legal reasons why (some of your) data can not be... [c010e830]/0002 Yes [aac95530]/0002 Will you be allowing authenticated access to the data [55f03a4a]/0002 Yes [18a46146]/0002 Are the criteria for application to access the data openly available [c534c029]/0001 No [b3d0fe1f]/translation.md>)
-                                    - [ ] [layer 10] 0002 Yes
+                                    - [ ] [layer 10] [shared] 0002 Yes
 
                                       [A] [translation](<0001 Common DSW Knowledge Model [6f6241d9]/0007 Giving access to data [6be88f7c]/0003 Can all of your data become completely open over time [a549d10b]/0001 No [b3739ebd]/0003 Are there legal reasons why (some of your) data can not be... [c010e830]/0002 Yes [aac95530]/0002 Will you be allowing authenticated access to the data [55f03a4a]/0002 Yes [18a46146]/0002 Are the criteria for application to access the data openly available [c534c029]/0002 Yes [c9509a79]/translation.md>)
                                 - [ ] [layer 9] 0003 Who will take care of authentication of potential users
@@ -5668,11 +5668,11 @@
                                     - [ ] [layer 10] 0002 We will use a single sign-on system such as edugain
 
                                       [A] [translation](<0001 Common DSW Knowledge Model [6f6241d9]/0007 Giving access to data [6be88f7c]/0003 Can all of your data become completely open over time [a549d10b]/0001 No [b3739ebd]/0003 Are there legal reasons why (some of your) data can not be... [c010e830]/0002 Yes [aac95530]/0002 Will you be allowing authenticated access to the data [55f03a4a]/0002 Yes [18a46146]/0003 Who will take care of authentication of potential users [278a8218]/0002 We will use a single sign-on system such as edugain [0c05f134]/translation.md>)
-                                    - [ ] [layer 10] 0003 We will make other arrangements
+                                    - [ ] [layer 10] [shared] 0003 We will make other arrangements
 
                                       [A] [translation](<0001 Common DSW Knowledge Model [6f6241d9]/0007 Giving access to data [6be88f7c]/0003 Can all of your data become completely open over time [a549d10b]/0001 No [b3739ebd]/0003 Are there legal reasons why (some of your) data can not be... [c010e830]/0002 Yes [aac95530]/0002 Will you be allowing authenticated access to the data [55f03a4a]/0002 Yes [18a46146]/0003 Who will take care of authentication of potential users [278a8218]/0003 We will make other arrangements [109e8083]/translation.md>)
 
-                                        - [ ] [layer 11] 0001 What other arrangements
+                                        - [ ] [layer 11] [shared] 0001 What other arrangements
 
                                           [Q] [translation](<0001 Common DSW Knowledge Model [6f6241d9]/0007 Giving access to data [6be88f7c]/0003 Can all of your data become completely open over time [a549d10b]/0001 No [b3739ebd]/0003 Are there legal reasons why (some of your) data can not be... [c010e830]/0002 Yes [aac95530]/0002 Will you be allowing authenticated access to the data [55f03a4a]/0002 Yes [18a46146]/0003 Who will take care of authentication of potential users [278a8218]/0003 We will make other arrangements [109e8083]/0001 What other arrangements [7b187628]/translation.md>)
                                 - [ ] [layer 9] 0004 Where will the data be stored
@@ -5705,11 +5705,11 @@
                                         - [ ] [layer 11] 0001 Which existing Data Access Committee
 
                                           [Q] [translation](<0001 Common DSW Knowledge Model [6f6241d9]/0007 Giving access to data [6be88f7c]/0003 Can all of your data become completely open over time [a549d10b]/0001 No [b3739ebd]/0003 Are there legal reasons why (some of your) data can not be... [c010e830]/0002 Yes [aac95530]/0002 Will you be allowing authenticated access to the data [55f03a4a]/0002 Yes [18a46146]/0005 Who will take care of authorization of potential users [23909308]/0003 We will make use of an existing data access committee [d010e09e]/0001 Which existing Data Access Committee [0de7232f]/translation.md>)
-                                    - [ ] [layer 10] 0004 We will make other arrangements
+                                    - [ ] [layer 10] [shared] 0004 We will make other arrangements
 
                                       [A] [translation](<0001 Common DSW Knowledge Model [6f6241d9]/0007 Giving access to data [6be88f7c]/0003 Can all of your data become completely open over time [a549d10b]/0001 No [b3739ebd]/0003 Are there legal reasons why (some of your) data can not be... [c010e830]/0002 Yes [aac95530]/0002 Will you be allowing authenticated access to the data [55f03a4a]/0002 Yes [18a46146]/0005 Who will take care of authorization of potential users [23909308]/0004 We will make other arrangements [f57960de]/translation.md>)
 
-                                        - [ ] [layer 11] 0001 What other arrangements
+                                        - [ ] [layer 11] [shared] 0001 What other arrangements
 
                                           [Q] [translation](<0001 Common DSW Knowledge Model [6f6241d9]/0007 Giving access to data [6be88f7c]/0003 Can all of your data become completely open over time [a549d10b]/0001 No [b3739ebd]/0003 Are there legal reasons why (some of your) data can not be... [c010e830]/0002 Yes [aac95530]/0002 Will you be allowing authenticated access to the data [55f03a4a]/0002 Yes [18a46146]/0005 Who will take care of authorization of potential users [23909308]/0004 We will make other arrangements [f57960de]/0001 What other arrangements [346003fa]/translation.md>)
                             - [x] [layer 8] 0003 RDMkit on Sharing Human Data
@@ -5719,10 +5719,10 @@
 
                           [Q] [translation](<0001 Common DSW Knowledge Model [6f6241d9]/0007 Giving access to data [6be88f7c]/0003 Can all of your data become completely open over time [a549d10b]/0001 No [b3739ebd]/0003 Are there legal reasons why (some of your) data can not be... [c010e830]/0002 Yes [aac95530]/0003 Are there privacy reasons why your data can not be open [019db0b3]/translation.md>)
 
-                            - [x] [layer 8] 0001 No
+                            - [x] [layer 8] [shared] 0001 No
 
                               [A] [translation](<0001 Common DSW Knowledge Model [6f6241d9]/0007 Giving access to data [6be88f7c]/0003 Can all of your data become completely open over time [a549d10b]/0001 No [b3739ebd]/0003 Are there legal reasons why (some of your) data can not be... [c010e830]/0002 Yes [aac95530]/0003 Are there privacy reasons why your data can not be open [019db0b3]/0001 No [b6dfc087]/translation.md>)
-                            - [ ] [layer 8] 0002 Yes
+                            - [ ] [layer 8] [shared] 0002 Yes
 
                               [A] [translation](<0001 Common DSW Knowledge Model [6f6241d9]/0007 Giving access to data [6be88f7c]/0003 Can all of your data become completely open over time [a549d10b]/0001 No [b3739ebd]/0003 Are there legal reasons why (some of your) data can not be... [c010e830]/0002 Yes [aac95530]/0003 Are there privacy reasons why your data can not be open [019db0b3]/0002 Yes [8a56768a]/translation.md>)
 
@@ -5730,7 +5730,7 @@
 
                                   [Q] [translation](<0001 Common DSW Knowledge Model [6f6241d9]/0007 Giving access to data [6be88f7c]/0003 Can all of your data become completely open over time [a549d10b]/0001 No [b3739ebd]/0003 Are there legal reasons why (some of your) data can not be... [c010e830]/0002 Yes [aac95530]/0003 Are there privacy reasons why your data can not be open [019db0b3]/0002 Yes [8a56768a]/0001 Are there restrictions on where the data need to be stored [754148c2]/translation.md>)
 
-                                    - [x] [layer 10] 0001 No
+                                    - [x] [layer 10] [shared] 0001 No
 
                                       [A] [translation](<0001 Common DSW Knowledge Model [6f6241d9]/0007 Giving access to data [6be88f7c]/0003 Can all of your data become completely open over time [a549d10b]/0001 No [b3739ebd]/0003 Are there legal reasons why (some of your) data can not be... [c010e830]/0002 Yes [aac95530]/0003 Are there privacy reasons why your data can not be open [019db0b3]/0002 Yes [8a56768a]/0001 Are there restrictions on where the data need to be stored [754148c2]/0001 No [6fd34203]/translation.md>)
                                     - [ ] [layer 10] 0002 Yes, they must stay in the EU
@@ -5746,10 +5746,10 @@
 
                                   [Q] [translation](<0001 Common DSW Knowledge Model [6f6241d9]/0007 Giving access to data [6be88f7c]/0003 Can all of your data become completely open over time [a549d10b]/0001 No [b3739ebd]/0003 Are there legal reasons why (some of your) data can not be... [c010e830]/0002 Yes [aac95530]/0003 Are there privacy reasons why your data can not be open [019db0b3]/0002 Yes [8a56768a]/0002 Could pseudonymization be used to make the data more openly available [a25b30f4]/translation.md>)
 
-                                    - [x] [layer 10] 0001 No
+                                    - [x] [layer 10] [shared] 0001 No
 
                                       [A] [translation](<0001 Common DSW Knowledge Model [6f6241d9]/0007 Giving access to data [6be88f7c]/0003 Can all of your data become completely open over time [a549d10b]/0001 No [b3739ebd]/0003 Are there legal reasons why (some of your) data can not be... [c010e830]/0002 Yes [aac95530]/0003 Are there privacy reasons why your data can not be open [019db0b3]/0002 Yes [8a56768a]/0002 Could pseudonymization be used to make the data more openly available [a25b30f4]/0001 No [5edeab6e]/translation.md>)
-                                    - [ ] [layer 10] 0002 Yes
+                                    - [ ] [layer 10] [shared] 0002 Yes
 
                                       [A] [translation](<0001 Common DSW Knowledge Model [6f6241d9]/0007 Giving access to data [6be88f7c]/0003 Can all of your data become completely open over time [a549d10b]/0001 No [b3739ebd]/0003 Are there legal reasons why (some of your) data can not be... [c010e830]/0002 Yes [aac95530]/0003 Are there privacy reasons why your data can not be open [019db0b3]/0002 Yes [8a56768a]/0002 Could pseudonymization be used to make the data more openly available [a25b30f4]/0002 Yes [49f268a6]/translation.md>)
 
@@ -5757,39 +5757,39 @@
 
                                           [Q] [translation](<0001 Common DSW Knowledge Model [6f6241d9]/0007 Giving access to data [6be88f7c]/0003 Can all of your data become completely open over time [a549d10b]/0001 No [b3739ebd]/0003 Are there legal reasons why (some of your) data can not be... [c010e830]/0002 Yes [aac95530]/0003 Are there privacy reasons why your data can not be open [019db0b3]/0002 Yes [8a56768a]/0002 Could pseudonymization be used to make the data more openly available [a25b30f4]/0002 Yes [49f268a6]/0001 Can you make use of an existing 'trusted third party' for... [5db6bd58]/translation.md>)
 
-                                            - [x] [layer 12] 0001 No
+                                            - [x] [layer 12] [shared] 0001 No
 
                                               [A] [translation](<0001 Common DSW Knowledge Model [6f6241d9]/0007 Giving access to data [6be88f7c]/0003 Can all of your data become completely open over time [a549d10b]/0001 No [b3739ebd]/0003 Are there legal reasons why (some of your) data can not be... [c010e830]/0002 Yes [aac95530]/0003 Are there privacy reasons why your data can not be open [019db0b3]/0002 Yes [8a56768a]/0002 Could pseudonymization be used to make the data more openly available [a25b30f4]/0002 Yes [49f268a6]/0001 Can you make use of an existing 'trusted third party' for... [5db6bd58]/0001 No [40be8b9d]/translation.md>)
-                                            - [ ] [layer 12] 0002 Yes
+                                            - [ ] [layer 12] [shared] 0002 Yes
 
                                               [A] [translation](<0001 Common DSW Knowledge Model [6f6241d9]/0007 Giving access to data [6be88f7c]/0003 Can all of your data become completely open over time [a549d10b]/0001 No [b3739ebd]/0003 Are there legal reasons why (some of your) data can not be... [c010e830]/0002 Yes [aac95530]/0003 Are there privacy reasons why your data can not be open [019db0b3]/0002 Yes [8a56768a]/0002 Could pseudonymization be used to make the data more openly available [a25b30f4]/0002 Yes [49f268a6]/0001 Can you make use of an existing 'trusted third party' for... [5db6bd58]/0002 Yes [041db1a8]/translation.md>)
                                 - [x] [layer 9] 0003 Could anonymization be used to make the data more openly available
 
                                   [Q] [translation](<0001 Common DSW Knowledge Model [6f6241d9]/0007 Giving access to data [6be88f7c]/0003 Can all of your data become completely open over time [a549d10b]/0001 No [b3739ebd]/0003 Are there legal reasons why (some of your) data can not be... [c010e830]/0002 Yes [aac95530]/0003 Are there privacy reasons why your data can not be open [019db0b3]/0002 Yes [8a56768a]/0003 Could anonymization be used to make the data more openly available [15ee1921]/translation.md>)
 
-                                    - [x] [layer 10] 0001 No
+                                    - [x] [layer 10] [shared] 0001 No
 
                                       [A] [translation](<0001 Common DSW Knowledge Model [6f6241d9]/0007 Giving access to data [6be88f7c]/0003 Can all of your data become completely open over time [a549d10b]/0001 No [b3739ebd]/0003 Are there legal reasons why (some of your) data can not be... [c010e830]/0002 Yes [aac95530]/0003 Are there privacy reasons why your data can not be open [019db0b3]/0002 Yes [8a56768a]/0003 Could anonymization be used to make the data more openly available [15ee1921]/0001 No [324dc2d9]/translation.md>)
-                                    - [ ] [layer 10] 0002 Yes
+                                    - [ ] [layer 10] [shared] 0002 Yes
 
                                       [A] [translation](<0001 Common DSW Knowledge Model [6f6241d9]/0007 Giving access to data [6be88f7c]/0003 Can all of your data become completely open over time [a549d10b]/0001 No [b3739ebd]/0003 Are there legal reasons why (some of your) data can not be... [c010e830]/0002 Yes [aac95530]/0003 Are there privacy reasons why your data can not be open [019db0b3]/0002 Yes [8a56768a]/0003 Could anonymization be used to make the data more openly available [15ee1921]/0002 Yes [c0d7df59]/translation.md>)
                                 - [x] [layer 9] 0004 Could you use data aggregation to make the data openly available
 
                                   [Q] [translation](<0001 Common DSW Knowledge Model [6f6241d9]/0007 Giving access to data [6be88f7c]/0003 Can all of your data become completely open over time [a549d10b]/0001 No [b3739ebd]/0003 Are there legal reasons why (some of your) data can not be... [c010e830]/0002 Yes [aac95530]/0003 Are there privacy reasons why your data can not be open [019db0b3]/0002 Yes [8a56768a]/0004 Could you use data aggregation to make the data openly available [69be6695]/translation.md>)
 
-                                    - [x] [layer 10] 0001 No
+                                    - [x] [layer 10] [shared] 0001 No
 
                                       [A] [translation](<0001 Common DSW Knowledge Model [6f6241d9]/0007 Giving access to data [6be88f7c]/0003 Can all of your data become completely open over time [a549d10b]/0001 No [b3739ebd]/0003 Are there legal reasons why (some of your) data can not be... [c010e830]/0002 Yes [aac95530]/0003 Are there privacy reasons why your data can not be open [019db0b3]/0002 Yes [8a56768a]/0004 Could you use data aggregation to make the data openly available [69be6695]/0001 No [94811bac]/translation.md>)
-                                    - [ ] [layer 10] 0002 Yes
+                                    - [ ] [layer 10] [shared] 0002 Yes
 
                                       [A] [translation](<0001 Common DSW Knowledge Model [6f6241d9]/0007 Giving access to data [6be88f7c]/0003 Can all of your data become completely open over time [a549d10b]/0001 No [b3739ebd]/0003 Are there legal reasons why (some of your) data can not be... [c010e830]/0002 Yes [aac95530]/0003 Are there privacy reasons why your data can not be open [019db0b3]/0002 Yes [8a56768a]/0004 Could you use data aggregation to make the data openly available [69be6695]/0002 Yes [1c1c557c]/translation.md>)
                                 - [x] [layer 9] 0005 Describe the procedure for users to access private data
 
                                   [Q] [translation](<0001 Common DSW Knowledge Model [6f6241d9]/0007 Giving access to data [6be88f7c]/0003 Can all of your data become completely open over time [a549d10b]/0001 No [b3739ebd]/0003 Are there legal reasons why (some of your) data can not be... [c010e830]/0002 Yes [aac95530]/0003 Are there privacy reasons why your data can not be open [019db0b3]/0002 Yes [8a56768a]/0005 Describe the procedure for users to access private data [ecca7dd6]/translation.md>)
-                            - [x] [layer 8] 0003 RDMkit on Data Sensitivity
+                            - [x] [layer 8] [shared] 0003 RDMkit on Data Sensitivity
 
                               [R] [translation](<0001 Common DSW Knowledge Model [6f6241d9]/0007 Giving access to data [6be88f7c]/0003 Can all of your data become completely open over time [a549d10b]/0001 No [b3739ebd]/0003 Are there legal reasons why (some of your) data can not be... [c010e830]/0002 Yes [aac95530]/0003 Are there privacy reasons why your data can not be open [019db0b3]/0003 RDMkit on Data Sensitivity [f22531ad]/translation.md>)
-            - [ ] [layer 4] 0002 Yes
+            - [ ] [layer 4] [shared] 0002 Yes
 
               [A] [translation](<0001 Common DSW Knowledge Model [6f6241d9]/0007 Giving access to data [6be88f7c]/0003 Can all of your data become completely open over time [a549d10b]/0002 Yes [8c33553c]/translation.md>)
         - [ ] [layer 3] 0004 Will you use temporary restrictions on the reuse of the data (embargo)
@@ -5816,14 +5816,14 @@
 
           [Q] [translation](<0001 Common DSW Knowledge Model [6f6241d9]/0007 Giving access to data [6be88f7c]/0005 Will metadata be available openly [12baa8af]/translation.md>)
 
-            - [x] [layer 4] 0001 No
+            - [x] [layer 4] [shared] 0001 No
 
               [A] [translation](<0001 Common DSW Knowledge Model [6f6241d9]/0007 Giving access to data [6be88f7c]/0005 Will metadata be available openly [12baa8af]/0001 No [1dc216a6]/translation.md>)
 
                 - [ ] [layer 5] 0001 Please explain why the metadata will not be openly available
 
                   [Q] [translation](<0001 Common DSW Knowledge Model [6f6241d9]/0007 Giving access to data [6be88f7c]/0005 Will metadata be available openly [12baa8af]/0001 No [1dc216a6]/0001 Please explain why the metadata will not be openly available [6b5a6334]/translation.md>)
-            - [ ] [layer 4] 0002 Yes
+            - [ ] [layer 4] [shared] 0002 Yes
 
               [A] [translation](<0001 Common DSW Knowledge Model [6f6241d9]/0007 Giving access to data [6be88f7c]/0005 Will metadata be available openly [12baa8af]/0002 Yes [cb148cc8]/translation.md>)
 
@@ -5831,17 +5831,17 @@
 
                   [Q] [translation](<0001 Common DSW Knowledge Model [6f6241d9]/0007 Giving access to data [6be88f7c]/0005 Will metadata be available openly [12baa8af]/0002 Yes [cb148cc8]/0001 Will metadata contain instructions how to get access to the data [26b2afa6]/translation.md>)
 
-                    - [x] [layer 6] 0001 No
+                    - [x] [layer 6] [shared] 0001 No
 
                       [A] [translation](<0001 Common DSW Knowledge Model [6f6241d9]/0007 Giving access to data [6be88f7c]/0005 Will metadata be available openly [12baa8af]/0002 Yes [cb148cc8]/0001 Will metadata contain instructions how to get access to the data [26b2afa6]/0001 No [0e1f21d5]/translation.md>)
-                    - [ ] [layer 6] 0002 Yes
+                    - [ ] [layer 6] [shared] 0002 Yes
 
                       [A] [translation](<0001 Common DSW Knowledge Model [6f6241d9]/0007 Giving access to data [6be88f7c]/0005 Will metadata be available openly [12baa8af]/0002 Yes [cb148cc8]/0001 Will metadata contain instructions how to get access to the data [26b2afa6]/0002 Yes [a7aaba0a]/translation.md>)
                 - [ ] [layer 5] 0002 Will the metadata be available in a form that can be harvested and...
 
                   [Q] [translation](<0001 Common DSW Knowledge Model [6f6241d9]/0007 Giving access to data [6be88f7c]/0005 Will metadata be available openly [12baa8af]/0002 Yes [cb148cc8]/0002 Will the metadata be available in a form that can be harvested and... [1270ea5a]/translation.md>)
 
-                    - [x] [layer 6] 0001 No
+                    - [x] [layer 6] [shared] 0001 No
 
                       [A] [translation](<0001 Common DSW Knowledge Model [6f6241d9]/0007 Giving access to data [6be88f7c]/0005 Will metadata be available openly [12baa8af]/0002 Yes [cb148cc8]/0002 Will the metadata be available in a form that can be harvested and... [1270ea5a]/0001 No [e3f7a89a]/translation.md>)
                     - [ ] [layer 6] 0002 Yes, by the repository repositories
@@ -5858,10 +5858,10 @@
 
           [Q] [translation](<0001 Common DSW Knowledge Model [6f6241d9]/0008 Other outputs [70cc627a]/0001 Are there any other outputs of your project that might be valuable... [426bdcb5]/translation.md>)
 
-            - [x] [layer 4] 0001 No
+            - [x] [layer 4] [shared] 0001 No
 
               [A] [translation](<0001 Common DSW Knowledge Model [6f6241d9]/0008 Other outputs [70cc627a]/0001 Are there any other outputs of your project that might be valuable... [426bdcb5]/0001 No [73cbb3bb]/translation.md>)
-            - [ ] [layer 4] 0002 Yes
+            - [ ] [layer 4] [shared] 0002 Yes
 
               [A] [translation](<0001 Common DSW Knowledge Model [6f6241d9]/0008 Other outputs [70cc627a]/0001 Are there any other outputs of your project that might be valuable... [426bdcb5]/0002 Yes [18060a91]/translation.md>)
 
@@ -5869,10 +5869,10 @@
 
                   [Q] [translation](<0001 Common DSW Knowledge Model [6f6241d9]/0008 Other outputs [70cc627a]/0001 Are there any other outputs of your project that might be valuable... [426bdcb5]/0002 Yes [18060a91]/0001 Are there any software packgages you will be publishing [8df5fdb2]/translation.md>)
 
-                    - [x] [layer 6] 0001 No
+                    - [x] [layer 6] [shared] 0001 No
 
                       [A] [translation](<0001 Common DSW Knowledge Model [6f6241d9]/0008 Other outputs [70cc627a]/0001 Are there any other outputs of your project that might be valuable... [426bdcb5]/0002 Yes [18060a91]/0001 Are there any software packgages you will be publishing [8df5fdb2]/0001 No [4bbc51bb]/translation.md>)
-                    - [ ] [layer 6] 0002 Yes
+                    - [ ] [layer 6] [shared] 0002 Yes
 
                       [A] [translation](<0001 Common DSW Knowledge Model [6f6241d9]/0008 Other outputs [70cc627a]/0001 Are there any other outputs of your project that might be valuable... [426bdcb5]/0002 Yes [18060a91]/0001 Are there any software packgages you will be publishing [8df5fdb2]/0002 Yes [f16b1a0b]/translation.md>)
 
@@ -5887,7 +5887,7 @@
 
                               [Q] [translation](<0001 Common DSW Knowledge Model [6f6241d9]/0008 Other outputs [70cc627a]/0001 Are there any other outputs of your project that might be valuable... [426bdcb5]/0002 Yes [18060a91]/0001 Are there any software packgages you will be publishing [8df5fdb2]/0002 Yes [f16b1a0b]/0001 Specify a list of software packages you will be publishing [1ae8d7b0]/0002 Will you be adding an open-source license [36938ca8]/translation.md>)
 
-                                - [x] [layer 9] 0001 No
+                                - [x] [layer 9] [shared] 0001 No
 
                                   [A] [translation](<0001 Common DSW Knowledge Model [6f6241d9]/0008 Other outputs [70cc627a]/0001 Are there any other outputs of your project that might be valuable... [426bdcb5]/0002 Yes [18060a91]/0001 Are there any software packgages you will be publishing [8df5fdb2]/0002 Yes [f16b1a0b]/0001 Specify a list of software packages you will be publishing [1ae8d7b0]/0002 Will you be adding an open-source license [36938ca8]/0001 No [d675443d]/translation.md>)
                                 - [ ] [layer 9] 0002 Yes, we have decided on an open source license
@@ -5910,20 +5910,20 @@
 
                               [Q] [translation](<0001 Common DSW Knowledge Model [6f6241d9]/0008 Other outputs [70cc627a]/0001 Are there any other outputs of your project that might be valuable... [426bdcb5]/0002 Yes [18060a91]/0001 Are there any software packgages you will be publishing [8df5fdb2]/0002 Yes [f16b1a0b]/0001 Specify a list of software packages you will be publishing [1ae8d7b0]/0004 Will this software be listed in a catalogue [3effd452]/translation.md>)
 
-                                - [x] [layer 9] 0001 No
+                                - [x] [layer 9] [shared] 0001 No
 
                                   [A] [translation](<0001 Common DSW Knowledge Model [6f6241d9]/0008 Other outputs [70cc627a]/0001 Are there any other outputs of your project that might be valuable... [426bdcb5]/0002 Yes [18060a91]/0001 Are there any software packgages you will be publishing [8df5fdb2]/0002 Yes [f16b1a0b]/0001 Specify a list of software packages you will be publishing [1ae8d7b0]/0004 Will this software be listed in a catalogue [3effd452]/0001 No [89e5e0fe]/translation.md>)
-                                - [ ] [layer 9] 0002 Yes
+                                - [ ] [layer 9] [shared] 0002 Yes
 
                                   [A] [translation](<0001 Common DSW Knowledge Model [6f6241d9]/0008 Other outputs [70cc627a]/0001 Are there any other outputs of your project that might be valuable... [426bdcb5]/0002 Yes [18060a91]/0001 Are there any software packgages you will be publishing [8df5fdb2]/0002 Yes [f16b1a0b]/0001 Specify a list of software packages you will be publishing [1ae8d7b0]/0004 Will this software be listed in a catalogue [3effd452]/0002 Yes [3a417eea]/translation.md>)
                 - [x] [layer 5] 0002 Are there any other outputs of your project, besides software, that...
 
                   [Q] [translation](<0001 Common DSW Knowledge Model [6f6241d9]/0008 Other outputs [70cc627a]/0001 Are there any other outputs of your project that might be valuable... [426bdcb5]/0002 Yes [18060a91]/0002 Are there any other outputs of your project, besides software, that... [ee81402b]/translation.md>)
 
-                    - [x] [layer 6] 0001 No
+                    - [x] [layer 6] [shared] 0001 No
 
                       [A] [translation](<0001 Common DSW Knowledge Model [6f6241d9]/0008 Other outputs [70cc627a]/0001 Are there any other outputs of your project that might be valuable... [426bdcb5]/0002 Yes [18060a91]/0002 Are there any other outputs of your project, besides software, that... [ee81402b]/0001 No [9912432b]/translation.md>)
-                    - [ ] [layer 6] 0002 Yes
+                    - [ ] [layer 6] [shared] 0002 Yes
 
                       [A] [translation](<0001 Common DSW Knowledge Model [6f6241d9]/0008 Other outputs [70cc627a]/0001 Are there any other outputs of your project that might be valuable... [426bdcb5]/0002 Yes [18060a91]/0002 Are there any other outputs of your project, besides software, that... [ee81402b]/0002 Yes [34eae7bf]/translation.md>)
 
@@ -5944,14 +5944,14 @@
 
                               [Q] [translation](<0001 Common DSW Knowledge Model [6f6241d9]/0008 Other outputs [70cc627a]/0001 Are there any other outputs of your project that might be valuable... [426bdcb5]/0002 Yes [18060a91]/0002 Are there any other outputs of your project, besides software, that... [ee81402b]/0002 Yes [34eae7bf]/0001 What other outputs are there besides software [82359337]/0004 Is this output available [04b92f1a]/translation.md>)
 
-                                - [x] [layer 9] 0001 No
+                                - [x] [layer 9] [shared] 0001 No
 
                                   [A] [translation](<0001 Common DSW Knowledge Model [6f6241d9]/0008 Other outputs [70cc627a]/0001 Are there any other outputs of your project that might be valuable... [426bdcb5]/0002 Yes [18060a91]/0002 Are there any other outputs of your project, besides software, that... [ee81402b]/0002 Yes [34eae7bf]/0001 What other outputs are there besides software [82359337]/0004 Is this output available [04b92f1a]/0001 No [370800f4]/translation.md>)
 
-                                    - [ ] [layer 10] 0001 Why not
+                                    - [ ] [layer 10] [shared] 0001 Why not
 
                                       [Q] [translation](<0001 Common DSW Knowledge Model [6f6241d9]/0008 Other outputs [70cc627a]/0001 Are there any other outputs of your project that might be valuable... [426bdcb5]/0002 Yes [18060a91]/0002 Are there any other outputs of your project, besides software, that... [ee81402b]/0002 Yes [34eae7bf]/0001 What other outputs are there besides software [82359337]/0004 Is this output available [04b92f1a]/0001 No [370800f4]/0001 Why not [5cf47d97]/translation.md>)
-                                - [ ] [layer 9] 0002 Yes
+                                - [ ] [layer 9] [shared] 0002 Yes
 
                                   [A] [translation](<0001 Common DSW Knowledge Model [6f6241d9]/0008 Other outputs [70cc627a]/0001 Are there any other outputs of your project that might be valuable... [426bdcb5]/0002 Yes [18060a91]/0002 Are there any other outputs of your project, besides software, that... [ee81402b]/0002 Yes [34eae7bf]/0001 What other outputs are there besides software [82359337]/0004 Is this output available [04b92f1a]/0002 Yes [fa8f66d3]/translation.md>)
 

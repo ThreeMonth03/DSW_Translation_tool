@@ -62,7 +62,10 @@ class TranslationOutlineRenderer:
         formatted_link = self.format_link_destination(relative_link)
         badge = self.event_type_badge(node.event_type)
         layer_badge = f"[layer {depth + 1}]"
-        lines.append(f"{indent}- [{node.checkbox}] {layer_badge} {node.display_label}")
+        shared_badge = " [shared]" if node.is_shared else ""
+        lines.append(
+            f"{indent}- [{node.checkbox}] {layer_badge}{shared_badge} {node.display_label}"
+        )
         lines.append("")
         lines.append(f"{link_indent}{badge} [{link_label}]({formatted_link})")
         if node.children:

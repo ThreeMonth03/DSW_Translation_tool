@@ -20,6 +20,8 @@ Is ease of development of the workflows an issue for you?
 
 ## text
 
+> Shared field: edit this translation in `shared_blocks.md`.
+
 ### Source (en)
 
 ~~~text

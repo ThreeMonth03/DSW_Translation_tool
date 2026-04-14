@@ -103,6 +103,7 @@ class TranslationOutlineBuilder:
             )
             own_translated_fields = self._count_translated_fields(snapshot)
             own_total_fields = len(node.get("fields", ()))
+            own_shared_fields = len(node.get("sharedFields", ()))
             built_nodes[entity_uuid] = OutlineNode(
                 entity_uuid=entity_uuid,
                 path=str(node["path"]),
@@ -111,6 +112,7 @@ class TranslationOutlineBuilder:
                 link_target=link_target,
                 own_translated_fields=own_translated_fields,
                 own_total_fields=own_total_fields,
+                own_shared_fields=own_shared_fields,
             )
 
         for entity_uuid, child_uuids in children_by_uuid.items():

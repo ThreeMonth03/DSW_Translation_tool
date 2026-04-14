@@ -12,6 +12,8 @@ from .po import (
 from .sync import SharedStringCandidate, SharedStringConflict, SharedStringSyncResult
 from .tree import (
     OutlineBuildResult,
+    SharedBlocksBuildResult,
+    SharedBlocksOutlineBuildResult,
     TranslationFieldState,
     TranslationStatusFolder,
     TranslationStatusReport,
@@ -35,6 +37,8 @@ __all__ = [
     "SharedStringCandidate",
     "SharedStringConflict",
     "SharedStringSyncResult",
+    "SharedBlocksBuildResult",
+    "SharedBlocksOutlineBuildResult",
     "TranslationFieldState",
     "TranslationStatusFolder",
     "TranslationStatusReport",

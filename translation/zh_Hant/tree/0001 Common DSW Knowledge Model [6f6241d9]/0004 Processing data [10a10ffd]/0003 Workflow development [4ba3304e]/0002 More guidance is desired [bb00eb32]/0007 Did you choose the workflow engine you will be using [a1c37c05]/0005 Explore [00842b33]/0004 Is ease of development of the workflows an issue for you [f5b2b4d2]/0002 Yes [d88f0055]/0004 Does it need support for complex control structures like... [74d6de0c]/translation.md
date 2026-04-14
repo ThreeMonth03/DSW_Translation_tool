@@ -20,6 +20,8 @@ Does it need support for complex control structures like conditionals and/or loo
 
 ## text
 
+> Shared field: edit this translation in `shared_blocks.md`.
+
 ### Source (en)
 
 ~~~text

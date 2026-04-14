@@ -22,6 +22,8 @@ class WorkflowContext:
         entries: Flattened PO entries.
         latest_by_uuid: Latest merged KM entities keyed by UUID.
         manifest: Exported manifest when a tree was written to disk.
+        shared_reference_keys: `(uuid, field)` keys that belong to a shared
+            PO block and should be edited via `shared_blocks.md`.
     """
 
     report: dict[str, Any]
@@ -30,6 +32,7 @@ class WorkflowContext:
     entries: list[PoEntry]
     latest_by_uuid: dict[str, dict[str, Any]]
     manifest: dict[str, Any] | None = None
+    shared_reference_keys: frozenset[tuple[str, str]] = frozenset()
 
     @property
     def model_metadata(self) -> dict[str, str | None]:
