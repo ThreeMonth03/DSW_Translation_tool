@@ -20,6 +20,8 @@ Please list all non-equipment data sets you will collect
 
 ## text
 
+> Shared field: edit this translation in `shared_blocks.md`.
+
 ### Source (en)
 
 ~~~text

@@ -36,7 +36,12 @@ make export-tree-force
 This rebuilds the collaboration tree under `translation/zh_Hant/tree` from the
 contents of `files/` and discards current tree content after confirmation.
 
-This step prepares the tree and refreshes `translation/zh_Hant/tree/outline.md`.
+This step prepares the tree and refreshes:
+
+- `translation/zh_Hant/tree/outline.md`
+- `translation/zh_Hant/tree/shared_blocks.md`
+- `translation/zh_Hant/tree/shared_blocks_outline.md`
+
 It does not refresh the generated PO or diff outputs. Those are refreshed later
 by `make sync`, `make tree-to-po`, or `make review-po`.
 
@@ -67,7 +72,9 @@ make sync-watch
 This seeds the local backup store under `translation/zh_Hant/backups/tree`,
 refreshes `translation/zh_Hant/builds/final_translated.po`, and also refreshes
 `translation/zh_Hant/reviews/final_translated.diff` and
-`translation/zh_Hant/tree/outline.md`.
+`translation/zh_Hant/tree/outline.md`, plus
+`translation/zh_Hant/tree/shared_blocks.md` and
+`translation/zh_Hant/tree/shared_blocks_outline.md`.
 
 It also updates other nodes that share the same original PO translation block.
 
@@ -92,6 +99,19 @@ Open `translation.md` and edit only the `Translation (zh_Hant)` blocks.
 - Do not rename folders.
 - Do not edit the `Source (en)` blocks unless you are intentionally fixing source text.
 - Do not type translated text outside the `~~~text` fences.
+
+If a field shows this machine-generated note:
+
+```text
+> Shared field: edit this translation in `shared_blocks.md`.
+```
+
+do not translate that field inside `translation.md`. Instead, open
+`translation/zh_Hant/tree/shared_blocks.md` and edit the matching shared block
+there. `make sync` will copy that shared translation back into every linked
+tree field. Shared nodes are also marked with `[shared]` inside
+`translation/zh_Hant/tree/outline.md`. For a compact progress overview, use
+`translation/zh_Hant/tree/shared_blocks_outline.md`.
 
 Each file keeps fields in a stable order such as:
 
@@ -139,6 +159,8 @@ This verifies that:
 - the checked-in tree and generated PO are still in sync
 - the checked-in diff matches the current PO review
 - the checked-in outline matches the current tree progress
+- the checked-in `shared_blocks.md` matches the current tree state
+- the checked-in `shared_blocks_outline.md` matches the current tree state
 
 In normal translation work, `make test-translation` should pass after
 `make sync` or `make sync-watch`.
@@ -254,7 +276,10 @@ This writes a folder tree that mirrors the knowledge-model structure.
 - Every node folder contains `_uuid.txt`.
 - Translatable fields are grouped into a single `translation.md` per folder.
 - The tree root also contains `outline.md` for hierarchy and progress browsing.
+- The tree root also contains `shared_blocks.md` for canonical shared PO-block translations.
+- The tree root also contains `shared_blocks_outline.md` for compact shared-block progress review.
 - Inside `translation.md`, each field is shown in a stable order such as `title -> label -> text -> advice`.
+- Shared fields in `translation.md` are marked with a note that redirects translators to `shared_blocks.md`.
 - The export root also contains `_translation_tree.json` for validation and re-import.
 - Re-running export preserves existing translations by default.
 

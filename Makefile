@@ -15,6 +15,8 @@ REPORT ?= $(OUTPUT_ROOT)/reports/final_report.json
 TREE_JSON ?= $(OUTPUT_ROOT)/reports/tree_snapshot.json
 REVIEW_DIFF ?= $(OUTPUT_ROOT)/reviews/final_translated.diff
 OUTLINE_MD ?= $(TREE_DIR)/outline.md
+SHARED_BLOCKS_MD ?= $(TREE_DIR)/shared_blocks.md
+SHARED_BLOCKS_OUTLINE_MD ?= $(TREE_DIR)/shared_blocks_outline.md
 REVIEW_FLAGS ?=
 STATUS_LIMIT ?= 5
 SYNC_GROUP ?= shared-block
@@ -40,10 +42,10 @@ help:
 	'  test              Run all pytest suites' \
 	'  test-infra        Run infrastructure/CLI pytest suites' \
 	'  test-translation  Run translation consistency pytest suites' \
-	'  export-tree       Export PO + model into $(TREE_DIR)' \
+	'  export-tree       Export PO + model into $(TREE_DIR) and refresh $(OUTLINE_MD) + $(SHARED_BLOCKS_MD) + $(SHARED_BLOCKS_OUTLINE_MD)' \
 	'  export-tree-force Force rebuild $(TREE_DIR) after confirmation' \
 	'  status            Show untranslated fields from $(TREE_DIR)' \
-	'  sync              Sync shared strings and refresh $(FINAL_PO) + $(REVIEW_DIFF) + $(OUTLINE_MD)' \
+	'  sync              Sync shared strings and refresh $(FINAL_PO) + $(REVIEW_DIFF) + $(OUTLINE_MD) + $(SHARED_BLOCKS_MD) + $(SHARED_BLOCKS_OUTLINE_MD)' \
 	'  sync-watch        Sync every $(SYNC_INTERVAL)s until stopped' \
 	'  tree-to-po        Build $(FINAL_PO) from $(TREE_DIR)' \
 	'  review-po         Review how $(FINAL_PO) differs from $(PO)' \
@@ -82,6 +84,8 @@ export-tree: venv
 		--po $(PO) \
 		--json $(MODEL) \
 		--out-dir $(TREE_DIR) \
+		--shared-blocks-out $(SHARED_BLOCKS_MD) \
+		--shared-blocks-outline-out $(SHARED_BLOCKS_OUTLINE_MD) \
 		--source-lang $(SOURCE_LANG) \
 		--target-lang $(TARGET_LANG)
 
@@ -90,6 +94,8 @@ export-tree-force: venv
 		--po $(PO) \
 		--json $(MODEL) \
 		--out-dir $(TREE_DIR) \
+		--shared-blocks-out $(SHARED_BLOCKS_MD) \
+		--shared-blocks-outline-out $(SHARED_BLOCKS_OUTLINE_MD) \
 		--source-lang $(SOURCE_LANG) \
 		--target-lang $(TARGET_LANG) \
 		--force
@@ -108,6 +114,8 @@ sync: venv
 		--out-po $(FINAL_PO) \
 		--diff-out $(REVIEW_DIFF) \
 		--outline-out $(OUTLINE_MD) \
+		--shared-blocks-out $(SHARED_BLOCKS_MD) \
+		--shared-blocks-outline-out $(SHARED_BLOCKS_OUTLINE_MD) \
 		--source-lang $(SOURCE_LANG) \
 		--target-lang $(TARGET_LANG) \
 		--group-by $(SYNC_GROUP)
@@ -119,6 +127,8 @@ sync-watch: venv
 		--out-po $(FINAL_PO) \
 		--diff-out $(REVIEW_DIFF) \
 		--outline-out $(OUTLINE_MD) \
+		--shared-blocks-out $(SHARED_BLOCKS_MD) \
+		--shared-blocks-outline-out $(SHARED_BLOCKS_OUTLINE_MD) \
 		--source-lang $(SOURCE_LANG) \
 		--target-lang $(TARGET_LANG) \
 		--group-by $(SYNC_GROUP) \

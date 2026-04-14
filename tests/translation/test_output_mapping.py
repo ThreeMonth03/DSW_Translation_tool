@@ -6,9 +6,12 @@ import shutil
 
 import pytest
 
+from dsw_translation_tool.shared_blocks import SharedBlocksCatalogParser
 from tests.helpers import (
     build_entry_map,
     build_outline_markdown,
+    build_shared_blocks_markdown,
+    build_shared_blocks_outline_markdown,
     corrupt_translation_by_appending_outside_fence,
     corrupt_translation_by_breaking_final_fence,
     inspect_translation_tree_disk_state,
@@ -217,8 +220,169 @@ def test_collaboration_outline_matches_current_tree_progress(
             "Run `make sync` to refresh the outline."
         )
         assert "- [x] [layer 1] 0001 Common DSW Knowledge Model" in recorded_outline
+        assert "[shared]" in recorded_outline
         assert "[KM] [uuid](" in recorded_outline
         assert "[Q] [translation](" in recorded_outline
+    finally:
+        generated_outline_path.unlink(missing_ok=True)
+
+
+def test_collaboration_shared_blocks_match_current_tree_state(
+    workflow,
+    po_path,
+    collaboration_tree_dir,
+    collaboration_shared_blocks_path,
+) -> None:
+    """Verify that checked-in shared-block markdown matches the current tree.
+
+    Args:
+        workflow: Workflow service fixture.
+        po_path: Fixture PO file path.
+        collaboration_tree_dir: Checked-in collaboration tree directory.
+        collaboration_shared_blocks_path: Checked-in shared-block markdown path.
+    """
+
+    assert collaboration_shared_blocks_path.exists(), (
+        "Missing collaboration shared-block markdown file: "
+        f"{collaboration_shared_blocks_path}\n"
+        "Run `make sync` or `make export-tree` before running translation tests."
+    )
+
+    generated_shared_blocks_path = collaboration_shared_blocks_path.with_name(
+        ".shared_blocks.test.generated.md"
+    )
+    try:
+        result = build_shared_blocks_markdown(
+            workflow=workflow,
+            tree_dir=collaboration_tree_dir,
+            original_po_path=po_path,
+            output_shared_blocks_path=generated_shared_blocks_path,
+        )
+        recorded_shared_blocks = collaboration_shared_blocks_path.read_text(encoding="utf-8")
+        assert recorded_shared_blocks == result.markdown_text, (
+            "Checked-in shared-block markdown does not match the current tree state.\n"
+            f"Shared-block file: {collaboration_shared_blocks_path}\n"
+            f"Generated file: {generated_shared_blocks_path}\n"
+            "Run `make sync` to refresh the shared-block markdown."
+        )
+        assert "# Shared Blocks" in recorded_shared_blocks
+        assert '<a id="group-' in recorded_shared_blocks
+        assert '-blocks"></a>' in recorded_shared_blocks
+        assert '-translation"></a>' in recorded_shared_blocks
+        assert "### Translation zh-Hant Group " in recorded_shared_blocks
+        assert "- Shared Key: `" in recorded_shared_blocks
+        assert "### Contexts" in recorded_shared_blocks
+        assert "  Context: " in recorded_shared_blocks
+        assert "  Path: " not in recorded_shared_blocks
+    finally:
+        generated_shared_blocks_path.unlink(missing_ok=True)
+
+
+def test_collaboration_shared_block_translations_are_fully_synchronized_in_tree(
+    workflow,
+    po_path,
+    collaboration_tree_dir,
+    collaboration_shared_blocks_path,
+) -> None:
+    """Verify every shared PO group matches every linked tree field.
+
+    Args:
+        workflow: Workflow service fixture.
+        po_path: Fixture PO file path.
+        collaboration_tree_dir: Checked-in collaboration tree directory.
+        collaboration_shared_blocks_path: Checked-in shared-block markdown path.
+    """
+
+    _, field_states = inspect_translation_tree_disk_state(
+        workflow=workflow,
+        tree_dir=collaboration_tree_dir,
+    )
+    shared_blocks_map = SharedBlocksCatalogParser().parse(str(collaboration_shared_blocks_path))
+    shared_blocks = [block for block in parse_po_blocks(po_path) if len(block.references) >= 2]
+    expected_group_keys = {
+        tuple((reference.uuid, reference.field) for reference in block.references)
+        for block in shared_blocks
+    }
+
+    assert set(shared_blocks_map) == expected_group_keys, (
+        "Shared-block markdown does not cover the same group set as the source PO.\n"
+        f"Missing groups: {sorted(expected_group_keys - set(shared_blocks_map))[:10]}\n"
+        f"Unexpected groups: {sorted(set(shared_blocks_map) - expected_group_keys)[:10]}"
+    )
+
+    for block in shared_blocks:
+        group_key = tuple((reference.uuid, reference.field) for reference in block.references)
+        canonical_translation = shared_blocks_map[group_key]
+        serialized_group_key = SharedBlocksCatalogParser.serialize_group_key(group_key)
+
+        for reference in block.references:
+            tree_key = (reference.uuid, reference.field)
+            assert tree_key in field_states, (
+                "Shared-block reference is missing from the collaboration tree.\n"
+                f"Group: {serialized_group_key}\n"
+                f"Missing tree key: {tree_key}"
+            )
+            actual_translation = field_states[tree_key].target_text
+            assert actual_translation == canonical_translation, (
+                "Shared-block translation is not synchronized across all linked tree "
+                "fields.\n"
+                f"Group: {serialized_group_key}\n"
+                f"Tree key: {tree_key}\n"
+                f"Canonical translation: {canonical_translation!r}\n"
+                f"Actual tree translation: {actual_translation!r}\n"
+                "Run `make sync` to re-apply the canonical shared-block translation."
+            )
+
+
+def test_collaboration_shared_blocks_outline_matches_current_tree_state(
+    workflow,
+    po_path,
+    collaboration_tree_dir,
+    collaboration_shared_blocks_outline_path,
+) -> None:
+    """Verify that checked-in shared-block outline matches the current tree.
+
+    Args:
+        workflow: Workflow service fixture.
+        po_path: Fixture PO file path.
+        collaboration_tree_dir: Checked-in collaboration tree directory.
+        collaboration_shared_blocks_outline_path: Checked-in shared-block
+            overview markdown path.
+    """
+
+    assert collaboration_shared_blocks_outline_path.exists(), (
+        "Missing collaboration shared-block outline markdown file: "
+        f"{collaboration_shared_blocks_outline_path}\n"
+        "Run `make sync` or `make export-tree` before running translation tests."
+    )
+
+    generated_outline_path = collaboration_shared_blocks_outline_path.with_name(
+        ".shared_blocks_outline.test.generated.md"
+    )
+    try:
+        result = build_shared_blocks_outline_markdown(
+            workflow=workflow,
+            tree_dir=collaboration_tree_dir,
+            original_po_path=po_path,
+            output_shared_blocks_outline_path=generated_outline_path,
+        )
+        recorded_outline = collaboration_shared_blocks_outline_path.read_text(encoding="utf-8")
+        assert recorded_outline == result.markdown_text, (
+            "Checked-in shared-block outline markdown does not match the current "
+            "tree state.\n"
+            f"Outline file: {collaboration_shared_blocks_outline_path}\n"
+            f"Generated file: {generated_outline_path}\n"
+            "Run `make sync` to refresh the shared-block outline."
+        )
+        assert "# Shared Blocks Outline" in recorded_outline
+        assert "## Untranslated" not in recorded_outline
+        assert "## Translated" not in recorded_outline
+        assert "- [x] Group " in recorded_outline or "- [ ] Group " in recorded_outline
+        assert "](<shared_blocks.md#translation-zh-hant-group-" in recorded_outline
+        assert "- [x] [Group " not in recorded_outline
+        assert "- [ ] [Group " not in recorded_outline
+        assert "refs=`" not in recorded_outline
+        assert "fields=`" not in recorded_outline
     finally:
         generated_outline_path.unlink(missing_ok=True)
 

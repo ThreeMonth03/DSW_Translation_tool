@@ -23,8 +23,12 @@ def test_export_tree_cli_generates_outline_inside_tree_directory(
     artifacts = CliArtifactPaths.from_workspace(
         workspace,
         outline_name="outline.md",
+        shared_blocks_name="shared_blocks.md",
+        shared_blocks_outline_name="shared_blocks_outline.md",
     )
     outline_path = artifacts.tree_dir / "outline.md"
+    shared_blocks_path = artifacts.tree_dir / "shared_blocks.md"
+    shared_blocks_outline_path = artifacts.tree_dir / "shared_blocks_outline.md"
 
     result = run_export_tree_cli(
         repo_root=repo_root,
@@ -36,7 +40,20 @@ def test_export_tree_cli_generates_outline_inside_tree_directory(
     assert_cli_success(result)
     assert f"Wrote translation tree to {artifacts.tree_dir}" in result.stdout
     assert f"Wrote outline markdown to {outline_path}" in result.stdout
+    assert f"Wrote shared-block markdown to {shared_blocks_path}" in result.stdout
+    assert (f"Wrote shared-block outline markdown to {shared_blocks_outline_path}") in result.stdout
     assert outline_path.exists()
+    assert shared_blocks_path.exists()
+    assert shared_blocks_outline_path.exists()
     outline_text = outline_path.read_text(encoding="utf-8")
+    shared_blocks_text = shared_blocks_path.read_text(encoding="utf-8")
+    shared_blocks_outline_text = shared_blocks_outline_path.read_text(encoding="utf-8")
     assert "### Common DSW Knowledge Model" in outline_text
     assert "[KM] [uuid](" in outline_text
+    assert "# Shared Blocks" in shared_blocks_text
+    assert "### Contexts" in shared_blocks_text
+    assert '-translation"></a>' in shared_blocks_text
+    assert "### Translation zh-Hant Group 0001" in shared_blocks_text
+    assert "# Shared Blocks Outline" in shared_blocks_outline_text
+    assert "- [x] Group 0001" in shared_blocks_outline_text
+    assert "(<shared_blocks.md#translation-zh-hant-group-0001>)" in shared_blocks_outline_text

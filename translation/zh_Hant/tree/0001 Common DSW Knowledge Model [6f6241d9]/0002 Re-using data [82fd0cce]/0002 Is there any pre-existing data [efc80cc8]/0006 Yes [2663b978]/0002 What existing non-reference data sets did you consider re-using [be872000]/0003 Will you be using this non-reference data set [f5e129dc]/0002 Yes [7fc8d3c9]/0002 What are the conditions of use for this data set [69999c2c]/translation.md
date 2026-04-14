@@ -20,6 +20,8 @@ What are the conditions of use for this data set?
 
 ## text
 
+> Shared field: edit this translation in `shared_blocks.md`.
+
 ### Source (en)
 
 ~~~text

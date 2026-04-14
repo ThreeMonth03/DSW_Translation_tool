@@ -19,6 +19,8 @@ from dsw_translation_tool import (
 DEFAULT_OUT_PO = str(DEFAULT_LAYOUT.final_po_path)
 DEFAULT_DIFF_OUT = str(DEFAULT_LAYOUT.diff_path)
 DEFAULT_OUTLINE_OUT = str(DEFAULT_LAYOUT.outline_path)
+DEFAULT_SHARED_BLOCKS_OUT = str(DEFAULT_LAYOUT.shared_blocks_path)
+DEFAULT_SHARED_BLOCKS_OUTLINE_OUT = str(DEFAULT_LAYOUT.shared_blocks_outline_path)
 
 
 def run_sync(args: Namespace) -> None:
@@ -37,6 +39,8 @@ def run_sync(args: Namespace) -> None:
         original_po_path=args.original_po,
         out_po_path=args.out_po,
         outline_out_path=resolve_outline_out_path(args),
+        shared_blocks_out_path=resolve_shared_blocks_out_path(args),
+        shared_blocks_outline_out_path=resolve_shared_blocks_outline_out_path(args),
         group_by=args.group_by,
     )
     diff_out = resolve_diff_out_path(args)
@@ -58,6 +62,10 @@ def run_sync(args: Namespace) -> None:
         print(f"  Output PO      : {result.output_po}")
     if result.output_outline:
         print(f"  Output outline : {result.output_outline}")
+    if result.output_shared_blocks:
+        print(f"  Output shared  : {result.output_shared_blocks}")
+    if result.output_shared_blocks_outline:
+        print(f"  Output shared-outline : {result.output_shared_blocks_outline}")
     if review is not None:
         print(f"  Output diff    : {diff_out}")
         print(f"  Msgstr only    : {review.msgstr_only}")
@@ -107,6 +115,19 @@ def build_argument_parser() -> argparse.ArgumentParser:
         "--outline-out",
         default=None,
         help="Optional markdown outline output path for tree progress review.",
+    )
+    parser.add_argument(
+        "--shared-blocks-out",
+        default=None,
+        help=(
+            "Optional shared-block markdown path used as input/output for "
+            "canonical shared translations."
+        ),
+    )
+    parser.add_argument(
+        "--shared-blocks-outline-out",
+        default=None,
+        help="Optional compact shared-block overview markdown output path.",
     )
     parser.add_argument("--source-lang", default=DEFAULT_SOURCE_LANG)
     parser.add_argument("--target-lang", default=DEFAULT_TARGET_LANG)
@@ -163,6 +184,40 @@ def resolve_outline_out_path(args: Namespace) -> str | None:
     if Path(args.tree_dir) == DEFAULT_LAYOUT.tree_dir:
         return DEFAULT_OUTLINE_OUT
     return str(Path(args.tree_dir) / "outline.md")
+
+
+def resolve_shared_blocks_out_path(args: Namespace) -> str | None:
+    """Resolve the shared-block markdown path for one sync run.
+
+    Args:
+        args: Parsed CLI arguments.
+
+    Returns:
+        Shared-block markdown path or `None`.
+    """
+
+    if args.shared_blocks_out:
+        return args.shared_blocks_out
+    if Path(args.tree_dir) == DEFAULT_LAYOUT.tree_dir:
+        return DEFAULT_SHARED_BLOCKS_OUT
+    return str(Path(args.tree_dir) / "shared_blocks.md")
+
+
+def resolve_shared_blocks_outline_out_path(args: Namespace) -> str | None:
+    """Resolve the shared-block outline markdown path for one sync run.
+
+    Args:
+        args: Parsed CLI arguments.
+
+    Returns:
+        Shared-block outline markdown path or `None`.
+    """
+
+    if args.shared_blocks_outline_out:
+        return args.shared_blocks_outline_out
+    if Path(args.tree_dir) == DEFAULT_LAYOUT.tree_dir:
+        return DEFAULT_SHARED_BLOCKS_OUTLINE_OUT
+    return str(Path(args.tree_dir) / "shared_blocks_outline.md")
 
 
 def main() -> None:

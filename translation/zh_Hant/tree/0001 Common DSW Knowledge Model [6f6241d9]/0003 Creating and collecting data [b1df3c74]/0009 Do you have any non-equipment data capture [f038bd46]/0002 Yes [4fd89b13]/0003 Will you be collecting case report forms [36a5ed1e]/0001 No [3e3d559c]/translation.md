@@ -6,6 +6,8 @@
 
 ## label
 
+> Shared field: edit this translation in `shared_blocks.md`.
+
 ### Source (en)
 
 ~~~text

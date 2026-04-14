@@ -20,6 +20,8 @@ Does the workflow engine need to support a particular compute back end you will 
 
 ## text
 
+> Shared field: edit this translation in `shared_blocks.md`.
+
 ### Source (en)
 
 ~~~text
