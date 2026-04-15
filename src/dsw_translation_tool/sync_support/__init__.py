@@ -5,9 +5,21 @@ from .execution import (
     SharedStringGroupProcessor,
 )
 from .grouping import SharedStringGroupBuilder
+from .watch import (
+    SyncWatchService,
+    SyncWatchSettings,
+    TranslationTreeWatchFilter,
+    WatchdogObserverStoppedError,
+    WatchdogUnavailableError,
+)
 
 __all__ = [
     "SharedStringGroupBuilder",
     "SharedStringGroupProcessingResult",
     "SharedStringGroupProcessor",
+    "SyncWatchService",
+    "SyncWatchSettings",
+    "TranslationTreeWatchFilter",
+    "WatchdogObserverStoppedError",
+    "WatchdogUnavailableError",
 ]

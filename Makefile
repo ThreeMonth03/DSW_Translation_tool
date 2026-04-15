@@ -20,7 +20,6 @@ SHARED_BLOCKS_OUTLINE_MD ?= $(TREE_DIR)/shared_blocks_outline.md
 REVIEW_FLAGS ?=
 STATUS_LIMIT ?= 5
 SYNC_GROUP ?= shared-block
-SYNC_INTERVAL ?= 10
 
 .PHONY: help venv install-dev install-hooks compile format format-check lint test test-infra test-translation export-tree export-tree-force status sync sync-watch tree-to-po review-po validate workflow
 
@@ -46,7 +45,7 @@ help:
 	'  export-tree-force Force rebuild $(TREE_DIR) after confirmation' \
 	'  status            Show untranslated fields from $(TREE_DIR)' \
 	'  sync              Sync shared strings and refresh $(FINAL_PO) + $(REVIEW_DIFF) + $(OUTLINE_MD) + $(SHARED_BLOCKS_MD) + $(SHARED_BLOCKS_OUTLINE_MD)' \
-	'  sync-watch        Sync every $(SYNC_INTERVAL)s until stopped' \
+	'  sync-watch        Watch editable inputs with watchdog' \
 	'  tree-to-po        Build $(FINAL_PO) from $(TREE_DIR)' \
 	'  review-po         Review how $(FINAL_PO) differs from $(PO)' \
 	'  validate          Validate $(FINAL_PO) against $(MODEL)' \
@@ -132,8 +131,7 @@ sync-watch: venv
 		--source-lang $(SOURCE_LANG) \
 		--target-lang $(TARGET_LANG) \
 		--group-by $(SYNC_GROUP) \
-		--watch \
-		--interval $(SYNC_INTERVAL)
+		--watch
 
 tree-to-po: venv
 	$(PYTHON) src/tree_to_po.py \
