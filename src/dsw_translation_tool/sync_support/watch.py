@@ -219,8 +219,7 @@ def create_watchdog_observer(
         from watchdog.observers import Observer
     except ImportError as error:
         raise WatchdogUnavailableError(
-            "watchdog is not installed. Use `make install-dev` before running "
-            "`make sync-watch`."
+            "watchdog is not installed. Use `make install-dev` before running `make sync-watch`."
         ) from error
 
     class _EventHandler(FileSystemEventHandler):
