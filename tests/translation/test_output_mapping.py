@@ -226,6 +226,7 @@ def test_collaboration_outline_matches_current_tree_progress(
     finally:
         generated_outline_path.unlink(missing_ok=True)
 
+
 def test_collaboration_shared_block_translations_are_fully_synchronized_in_tree(
     workflow,
     po_path,

@@ -158,10 +158,7 @@ def main() -> None:
             original_po_path=args.po,
             out_shared_blocks_root=shared_blocks_dir_out,
         )
-        print(
-            "Wrote shared-block directory to "
-            f"{shared_blocks_result.output_shared_blocks_root}"
-        )
+        print(f"Wrote shared-block directory to {shared_blocks_result.output_shared_blocks_root}")
         stale_shared_blocks_index = Path(args.out_dir) / "shared_blocks.md"
         stale_shared_blocks_outline = Path(args.out_dir) / "shared_blocks_outline.md"
         stale_shared_blocks_index.unlink(missing_ok=True)

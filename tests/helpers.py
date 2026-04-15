@@ -581,14 +581,11 @@ def update_shared_block_translation(
         f"Key: {SharedBlocksCatalogParser.serialize_group_key(group_key)}"
     )
     context_text = context_path.read_text(encoding="utf-8")
-    pattern = re.compile(
-        r"(?ms)^### Translation \(zh_Hant\)\n\n~~~text\n.*?\n~~~"
-    )
+    pattern = re.compile(r"(?ms)^### Translation \(zh_Hant\)\n\n~~~text\n.*?\n~~~")
     replacement = f"### Translation (zh_Hant)\n\n~~~text\n{target_text}\n~~~"
     updated_text, replacement_count = pattern.subn(replacement, context_text, count=1)
     assert replacement_count == 1, (
-        "Editable shared-block translation section was not found.\n"
-        f"File: {context_path}"
+        f"Editable shared-block translation section was not found.\nFile: {context_path}"
     )
     context_path.write_text(updated_text, encoding="utf-8")
 

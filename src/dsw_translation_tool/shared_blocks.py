@@ -299,10 +299,7 @@ class SharedBlocksCatalogParser:
         for group_key in sorted(expected_group_keys):
             context_path = self.group_context_path(shared_blocks_root, group_key)
             if not context_path.exists():
-                raise ValueError(
-                    "Missing shared-block context file.\n"
-                    f"File: {context_path}"
-                )
+                raise ValueError(f"Missing shared-block context file.\nFile: {context_path}")
             translations[group_key] = self._parse_translation_from_context(context_path)
         return translations
 
@@ -917,7 +914,10 @@ class SharedBlocksCatalogBuilder:
         for group_index, record in indexed_records:
             checkbox = "x" if record.is_translated else " "
             context_relative_path = os.path.relpath(
-                output_path.parent / SHARED_BLOCKS_DIRNAME / record.stable_id / SHARED_BLOCK_CONTEXT_FILENAME,
+                output_path.parent
+                / SHARED_BLOCKS_DIRNAME
+                / record.stable_id
+                / SHARED_BLOCK_CONTEXT_FILENAME,
                 output_path.parent,
             )
             translation_destination = TranslationOutlineRenderer.format_link_destination(
@@ -984,10 +984,7 @@ class SharedBlocksCatalogBuilder:
             "",
             f"- Status: [{'x' if record.is_translated else ' '}]",
             f"- Stable ID: `{record.stable_id}`",
-            (
-                "- Shared Key: "
-                f"`{SharedBlocksCatalogParser.serialize_group_key(record.group_key)}`"
-            ),
+            (f"- Shared Key: `{SharedBlocksCatalogParser.serialize_group_key(record.group_key)}`"),
             "",
             f"### Source ({self.source_lang})",
             "",
