@@ -1,0 +1,78 @@
+name: External Translation Auto Sync Template
+
+on:
+  schedule:
+    - cron: "0 1,13 * * *"
+  pull_request:
+    branches: [master]
+
+permissions:
+  contents: write
+
+concurrency:
+  group: >-
+    external-translation-auto-sync-${{ github.event_name == 'pull_request' &&
+    github.event.pull_request.head.ref || 'master' }}
+  cancel-in-progress: false
+
+env:
+  TOOLING_REPOSITORY: ThreeMonth03/DSW_Translation_tool
+  TOOLING_REF: master
+  TRANSLATION_ROOT: .
+
+jobs:
+  sync-writer:
+    if: >-
+      github.actor != 'github-actions[bot]' &&
+      (github.event_name == 'schedule' ||
+      github.event.pull_request.head.repo.full_name == github.repository)
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout translation repository
+        uses: actions/checkout@v4
+        with:
+          ref: >-
+            ${{ github.event_name == 'pull_request' &&
+            github.event.pull_request.head.ref || 'master' }}
+          path: translation-repo
+          fetch-depth: 0
+
+      - name: Checkout tooling repository
+        uses: actions/checkout@v4
+        with:
+          repository: ${{ env.TOOLING_REPOSITORY }}
+          ref: ${{ env.TOOLING_REF }}
+          path: tooling-repo
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.13"
+
+      - name: Install tooling dependencies
+        working-directory: tooling-repo
+        run: make install-dev BOOTSTRAP_PYTHON=python
+
+      # This helper may restore malformed translation.md / shared_blocks.md
+      # from origin/master once, then rerun sync. That keeps CI unblocked, but
+      # can overwrite malformed PR-branch edits.
+      - name: Sync, validate, and auto-commit translation artifacts
+        run: >-
+          tooling-repo/.venv/bin/python tooling-repo/src/ci_sync_commit.py
+          --host-repo "$GITHUB_WORKSPACE/translation-repo"
+          --tooling-repo "$GITHUB_WORKSPACE/tooling-repo"
+          --translation-root "${{ env.TRANSLATION_ROOT }}"
+          --target-ref "${{ github.event_name == 'pull_request' &&
+          github.event.pull_request.head.ref || 'master' }}"
+          --mode "${{ github.event_name }}"
+
+  skip-fork-pr:
+    if: >-
+      github.event_name == 'pull_request' &&
+      github.event.pull_request.head.repo.full_name != github.repository
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Explain fork PR skip policy
+        run: echo "Skipping auto-sync commit for fork pull requests."

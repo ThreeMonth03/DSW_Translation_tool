@@ -267,31 +267,45 @@ make test-infra
 make test-translation
 ```
 
-#### External Translation Repository CI
+#### Auto-Sync Writer Workflows
 
-The repository includes two GitHub Actions variants for running translation
-tests against a checked-in translation tree:
+The repository includes one active in-repo auto-sync workflow plus one
+copy-ready external template:
 
-- [.github/workflows/translation_external_check.yml](./.github/workflows/translation_external_check.yml)
-  is the in-repo self-check version used to validate this workflow logic while
-  developing the tooling itself. It runs automatically on `push` and
-  `pull_request`, and targets `translation/zh_Hant` inside this repository.
-- [.github/workflows/translation_external_repo_template.yml](./.github/workflows/translation_external_repo_template.yml)
-  is the copy-ready template for a dedicated translation-only repository.
+- [.github/workflows/translation_auto_sync.yml](./.github/workflows/translation_auto_sync.yml)
+  writes back to this repository's checked-in `translation/zh_Hant` tree.
+- [examples/github-actions/translation_external_auto_sync_template.yml](./examples/github-actions/translation_external_auto_sync_template.yml)
+  is the copy-ready auto-sync template for a dedicated translation-only
+  repository. It intentionally lives outside `.github/workflows/` so it does
+  not run inside this tooling repository.
 
-When copying the external template into another repository:
+Both workflows share the same policy:
 
-- keep `TOOLING_REPOSITORY: ThreeMonth03/DSW_Translation_tool` if this
-  repository remains the canonical tooling source
-- keep `TOOLING_REF: master` if that repository's default branch should define
-  the tested tooling version
-- change `TRANSLATION_ROOT` if the checked-in translation tree is not located at
-  the repository root
-- in a dedicated translation-only repository, `TRANSLATION_ROOT` will usually
-  be `.`
+- they run on `schedule` at Asia/Taipei `09:00` and `21:00`
+- they also run on `pull_request` targeting `master`
+- scheduled runs commit directly to `master`
+- PR runs commit only for same-repository branches
+- fork PRs are validated by the normal test workflows, but the auto-writer
+  skips any commit/push step
+- bot-authored follow-up PR events are skipped to avoid recursive sync commits
 
-The workflow uses `actions/checkout` for both repositories and points the
-tooling test suite at the external tree through `DSW_COLLAB_OUTPUT_ROOT`.
+The shared helper behind both workflows lives at
+[`src/ci_sync_commit.py`](./src/ci_sync_commit.py).
+
+The auto-sync writer is intentionally aggressive when a checked-in translation
+source file is malformed in CI:
+
+- if `translation.md` or `shared_blocks.md` cannot be parsed during sync and
+  there is no local backup available in the CI checkout, the helper restores
+  that file from `origin/master`
+- after restoring the file, the helper reruns sync exactly once
+- if validation still fails after that retry, the workflow stops and does not
+  commit anything
+
+This recovery policy is useful for keeping collaboration branches unblocked,
+but it can overwrite malformed edits from the PR branch. In other words, it is
+designed to recover the repository to the last known-good `master` state, not
+to salvage partially broken translator edits.
 
 #### Export Translation Tree
 

@@ -1,0 +1,64 @@
+name: Translation Auto Sync
+
+on:
+  schedule:
+    - cron: "0 1,13 * * *"
+  pull_request:
+    branches: [master]
+
+permissions:
+  contents: write
+
+concurrency:
+  group: >-
+    translation-auto-sync-${{ github.event_name == 'pull_request' &&
+    github.event.pull_request.head.ref || 'master' }}
+  cancel-in-progress: false
+
+jobs:
+  sync-writer:
+    if: >-
+      github.actor != 'github-actions[bot]' &&
+      (github.event_name == 'schedule' ||
+      github.event.pull_request.head.repo.full_name == github.repository)
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+        with:
+          ref: >-
+            ${{ github.event_name == 'pull_request' &&
+            github.event.pull_request.head.ref || 'master' }}
+          fetch-depth: 0
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.13"
+
+      - name: Install tooling dependencies
+        run: make install-dev BOOTSTRAP_PYTHON=python
+
+      # This helper may restore malformed translation.md / shared_blocks.md
+      # from origin/master once, then rerun sync. That keeps CI unblocked, but
+      # can overwrite malformed PR-branch edits.
+      - name: Sync, validate, and auto-commit translation artifacts
+        run: >-
+          .venv/bin/python src/ci_sync_commit.py
+          --host-repo "$GITHUB_WORKSPACE"
+          --tooling-repo "$GITHUB_WORKSPACE"
+          --translation-root "translation/zh_Hant"
+          --target-ref "${{ github.event_name == 'pull_request' &&
+          github.event.pull_request.head.ref || 'master' }}"
+          --mode "${{ github.event_name }}"
+
+  skip-fork-pr:
+    if: >-
+      github.event_name == 'pull_request' &&
+      github.event.pull_request.head.repo.full_name != github.repository
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Explain fork PR skip policy
+        run: echo "Skipping auto-sync commit for fork pull requests."
