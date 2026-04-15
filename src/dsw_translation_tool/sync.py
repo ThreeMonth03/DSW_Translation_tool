@@ -107,6 +107,11 @@ class SharedStringSynchronizer:
             fields_updated=processing_result.fields_updated,
             conflicts=tuple(processing_result.conflicts),
             output_po=output_po,
+            written_tree_paths=tuple(
+                str(snapshot.translation_path)
+                for snapshot in processing_result.pending_writes.values()
+                if snapshot.translation_path is not None
+            ),
         )
 
     def load_shared_block_translations(

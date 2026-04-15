@@ -55,6 +55,8 @@ class SharedStringSyncResult:
         output_shared_blocks: Generated shared-block markdown path when requested.
         output_shared_blocks_outline: Generated shared-block outline markdown path
             when requested.
+        written_tree_paths: Translation-tree markdown files rewritten during the
+            synchronization cycle.
     """
 
     groups_scanned: int
@@ -65,3 +67,4 @@ class SharedStringSyncResult:
     output_outline: str | None = None
     output_shared_blocks: str | None = None
     output_shared_blocks_outline: str | None = None
+    written_tree_paths: tuple[str, ...] = ()

@@ -15,6 +15,7 @@ from dsw_translation_tool import (
     DEFAULT_TARGET_LANG,
     TranslationWorkflowService,
 )
+from dsw_translation_tool.sync_support import SyncWatchService, SyncWatchSettings
 
 DEFAULT_OUT_PO = str(DEFAULT_LAYOUT.final_po_path)
 DEFAULT_DIFF_OUT = str(DEFAULT_LAYOUT.diff_path)
@@ -23,11 +24,34 @@ DEFAULT_SHARED_BLOCKS_OUT = str(DEFAULT_LAYOUT.shared_blocks_path)
 DEFAULT_SHARED_BLOCKS_OUTLINE_OUT = str(DEFAULT_LAYOUT.shared_blocks_outline_path)
 
 
-def run_sync(args: Namespace) -> None:
+def build_watch_service(args: Namespace) -> SyncWatchService:
+    """Build the watch-mode service for one CLI invocation.
+
+    Args:
+        args: Parsed CLI arguments.
+
+    Returns:
+        Configured watch service.
+    """
+
+    return SyncWatchService(
+        settings=SyncWatchSettings(
+            tree_dir=Path(args.tree_dir),
+            watch_shared_blocks=args.group_by == "shared-block",
+        ),
+        run_cycle=lambda: run_sync(args),
+        time_module=time,
+    )
+
+
+def run_sync(args: Namespace) -> set[Path]:
     """Run one shared-string synchronization pass.
 
     Args:
         args: Parsed CLI arguments.
+
+    Returns:
+        Set of filesystem paths written during the sync cycle.
     """
 
     workflow = TranslationWorkflowService(
@@ -52,6 +76,7 @@ def run_sync(args: Namespace) -> None:
             diff_out_path=diff_out,
         )
 
+    written_paths = {Path(path).resolve() for path in result.written_tree_paths}
     print("Shared String Sync")
     print(f"  Group mode     : {args.group_by}")
     print(f"  Groups scanned : {result.groups_scanned}")
@@ -60,18 +85,24 @@ def run_sync(args: Namespace) -> None:
     print(f"  Conflicts      : {len(result.conflicts)}")
     if result.output_po:
         print(f"  Output PO      : {result.output_po}")
+        written_paths.add(Path(result.output_po).resolve())
     if result.output_outline:
         print(f"  Output outline : {result.output_outline}")
+        written_paths.add(Path(result.output_outline).resolve())
     if result.output_shared_blocks:
         print(f"  Output shared  : {result.output_shared_blocks}")
+        written_paths.add(Path(result.output_shared_blocks).resolve())
     if result.output_shared_blocks_outline:
         print(f"  Output shared-outline : {result.output_shared_blocks_outline}")
+        written_paths.add(Path(result.output_shared_blocks_outline).resolve())
     if review is not None:
         print(f"  Output diff    : {diff_out}")
         print(f"  Msgstr only    : {review.msgstr_only}")
+        if diff_out:
+            written_paths.add(Path(diff_out).resolve())
 
     if not result.conflicts:
-        return
+        return written_paths
 
     print()
     print("First 5 Conflict Group(s)")
@@ -84,6 +115,8 @@ def run_sync(args: Namespace) -> None:
         print(f"    References   : {len(conflict.references)}")
         print(f"    Translations : {preview}")
         print()
+
+    return written_paths
 
 
 def build_argument_parser() -> argparse.ArgumentParser:
@@ -140,13 +173,7 @@ def build_argument_parser() -> argparse.ArgumentParser:
     parser.add_argument(
         "--watch",
         action="store_true",
-        help="Keep syncing on an interval until interrupted.",
-    )
-    parser.add_argument(
-        "--interval",
-        type=int,
-        default=10,
-        help="Watch interval in seconds. Used only with --watch.",
+        help="Keep syncing on filesystem changes until interrupted.",
     )
     return parser
 
@@ -231,14 +258,10 @@ def main() -> None:
             except ValueError as error:
                 raise SystemExit(str(error)) from error
             return
-        while True:
-            print(f"[sync] Running at {time.strftime('%Y-%m-%d %H:%M:%S')}")
-            try:
-                run_sync(args)
-            except ValueError as error:
-                print(f"[sync] Error: {error}")
-            print()
-            time.sleep(args.interval)
+        try:
+            build_watch_service(args).run()
+        except ValueError as error:
+            raise SystemExit(str(error)) from error
     except KeyboardInterrupt:
         print("Stopped shared-string watch mode.")
 

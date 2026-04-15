@@ -460,13 +460,14 @@ def test_sync_watch_reports_errors_without_exiting_the_loop(
         out_po="unused-final.po",
         diff_out="unused.diff",
         outline_out="unused-outline.md",
+        shared_blocks_out="unused-shared.md",
+        shared_blocks_outline_out="unused-shared-outline.md",
         source_lang="en",
         target_lang="zh_Hant",
         group_by="shared-block",
         watch=True,
-        interval=0,
     )
-    run_calls: list[int] = []
+    service_calls: list[str] = []
 
     class _Parser:
         """Minimal parser stub for watch-mode testing."""
@@ -476,26 +477,26 @@ def test_sync_watch_reports_errors_without_exiting_the_loop(
 
             return args
 
-    def fake_run_sync(_: Namespace) -> None:
-        """Simulate one failed cycle followed by watch shutdown."""
-
-        run_calls.append(1)
-        if len(run_calls) == 1:
-            raise ValueError("broken translation.md was restored")
-        raise KeyboardInterrupt
-
     monkeypatch.setattr(sync_shared_strings, "build_argument_parser", lambda: _Parser())
-    monkeypatch.setattr(sync_shared_strings, "run_sync", fake_run_sync)
-    monkeypatch.setattr(sync_shared_strings.time, "sleep", lambda _: None)
-    monkeypatch.setattr(
-        sync_shared_strings.time,
-        "strftime",
-        lambda _: "2026-04-09 18:00:00",
-    )
+
+    class _Service:
+        """Minimal watch-service stub that simulates one failed rerun."""
+
+        def run(self) -> None:
+            """Emit two watch cycles, then stop through keyboard interrupt."""
+
+            service_calls.append("run")
+            print("[sync] Running at 2026-04-09 18:00:00")
+            print("[sync] Error: broken translation.md was restored")
+            print()
+            print("[sync] Running at 2026-04-09 18:00:00")
+            raise KeyboardInterrupt
+
+    monkeypatch.setattr(sync_shared_strings, "build_watch_service", lambda _: _Service())
 
     sync_shared_strings.main()
 
     captured = capsys.readouterr()
-    assert run_calls == [1, 1]
+    assert service_calls == ["run"]
     assert "[sync] Error: broken translation.md was restored" in captured.out
     assert "Stopped shared-string watch mode." in captured.out

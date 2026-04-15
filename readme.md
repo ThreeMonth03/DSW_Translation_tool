@@ -91,6 +91,10 @@ outline file on each sync pass while you work. When a file is corrupt, watch
 mode reports the error, restores the last valid file when possible, and keeps
 running for the next pass.
 
+`make sync-watch` now uses `watchdog` as its single watch implementation.
+If the observer stops unexpectedly, the tool restarts the observer and keeps
+watching.
+
 #### 5. Edit Only `translation.md`
 
 Open `translation.md` and edit only the `Translation (zh_Hant)` blocks.
