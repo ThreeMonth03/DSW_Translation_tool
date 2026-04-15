@@ -19,7 +19,6 @@ class CliArtifactPaths:
         output_po: Optional generated PO output path.
         diff_path: Optional diff output path.
         outline_path: Optional outline markdown path.
-        shared_blocks_path: Optional shared-block markdown path.
         shared_blocks_outline_path: Optional shared-block outline markdown path.
     """
 
@@ -27,7 +26,6 @@ class CliArtifactPaths:
     output_po: Path | None = None
     diff_path: Path | None = None
     outline_path: Path | None = None
-    shared_blocks_path: Path | None = None
     shared_blocks_outline_path: Path | None = None
 
     @classmethod
@@ -37,7 +35,6 @@ class CliArtifactPaths:
         output_po_name: str | None = None,
         diff_name: str | None = None,
         outline_name: str | None = None,
-        shared_blocks_name: str | None = None,
         shared_blocks_outline_name: str | None = None,
         tree_name: str = "tree",
     ) -> "CliArtifactPaths":
@@ -48,8 +45,6 @@ class CliArtifactPaths:
             output_po_name: Optional PO filename placed under the workspace root.
             diff_name: Optional diff filename placed under the workspace root.
             outline_name: Optional outline filename placed under the workspace root.
-            shared_blocks_name: Optional shared-block filename placed under the
-                tree directory.
             shared_blocks_outline_name: Optional shared-block outline filename
                 placed under the tree directory.
             tree_name: Directory name to use for the translation tree.
@@ -63,15 +58,18 @@ class CliArtifactPaths:
             output_po=workspace / output_po_name if output_po_name else None,
             diff_path=workspace / diff_name if diff_name else None,
             outline_path=workspace / outline_name if outline_name else None,
-            shared_blocks_path=(
-                (workspace / tree_name / shared_blocks_name) if shared_blocks_name else None
-            ),
             shared_blocks_outline_path=(
                 (workspace / tree_name / shared_blocks_outline_name)
                 if shared_blocks_outline_name
                 else None
             ),
         )
+
+    @property
+    def shared_blocks_dir_path(self) -> Path:
+        """Return the canonical split shared-block directory path."""
+
+        return self.tree_dir / "shared_blocks"
 
 
 def assert_cli_success(result: subprocess.CompletedProcess[str]) -> None:
@@ -126,8 +124,7 @@ def run_export_tree_cli(
     model_path: Path,
     tree_dir: Path,
     outline_path: Path | None = None,
-    shared_blocks_path: Path | None = None,
-    shared_blocks_outline_path: Path | None = None,
+    shared_blocks_dir_path: Path | None = None,
 ) -> subprocess.CompletedProcess[str]:
     """Run the export-tree CLI script for one test scenario.
 
@@ -137,8 +134,7 @@ def run_export_tree_cli(
         model_path: KM model path.
         tree_dir: Destination tree directory.
         outline_path: Optional explicit outline output path.
-        shared_blocks_path: Optional explicit shared-block output path.
-        shared_blocks_outline_path: Optional explicit shared-block outline output path.
+        shared_blocks_dir_path: Optional explicit shared-block directory path.
 
     Returns:
         Completed subprocess result.
@@ -154,10 +150,8 @@ def run_export_tree_cli(
     ]
     if outline_path is not None:
         args.extend(["--outline-out", str(outline_path)])
-    if shared_blocks_path is not None:
-        args.extend(["--shared-blocks-out", str(shared_blocks_path)])
-    if shared_blocks_outline_path is not None:
-        args.extend(["--shared-blocks-outline-out", str(shared_blocks_outline_path)])
+    if shared_blocks_dir_path is not None:
+        args.extend(["--shared-blocks-dir-out", str(shared_blocks_dir_path)])
     return run_cli_script(repo_root, "src/po_json_tree.py", *args)
 
 
@@ -198,7 +192,7 @@ def run_sync_cli(
     output_po_path: Path,
     diff_path: Path | None = None,
     outline_path: Path | None = None,
-    shared_blocks_path: Path | None = None,
+    shared_blocks_dir_path: Path | None = None,
     shared_blocks_outline_path: Path | None = None,
     group_by: str | None = None,
 ) -> subprocess.CompletedProcess[str]:
@@ -211,7 +205,7 @@ def run_sync_cli(
         output_po_path: Generated PO output path.
         diff_path: Optional diff output path.
         outline_path: Optional outline markdown output path.
-        shared_blocks_path: Optional shared-block markdown output path.
+        shared_blocks_dir_path: Optional canonical shared-block directory path.
         shared_blocks_outline_path: Optional shared-block outline output path.
         group_by: Optional grouping strategy override.
 
@@ -231,8 +225,8 @@ def run_sync_cli(
         args.extend(["--diff-out", str(diff_path)])
     if outline_path is not None:
         args.extend(["--outline-out", str(outline_path)])
-    if shared_blocks_path is not None:
-        args.extend(["--shared-blocks-out", str(shared_blocks_path)])
+    if shared_blocks_dir_path is not None:
+        args.extend(["--shared-blocks-dir-out", str(shared_blocks_dir_path)])
     if shared_blocks_outline_path is not None:
         args.extend(["--shared-blocks-outline-out", str(shared_blocks_outline_path)])
     if group_by is not None:

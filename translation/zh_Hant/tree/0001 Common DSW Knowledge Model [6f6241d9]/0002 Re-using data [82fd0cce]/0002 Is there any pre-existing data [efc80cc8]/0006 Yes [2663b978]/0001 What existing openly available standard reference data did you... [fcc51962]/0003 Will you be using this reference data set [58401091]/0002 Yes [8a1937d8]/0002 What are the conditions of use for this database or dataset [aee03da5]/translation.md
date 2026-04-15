@@ -20,7 +20,7 @@ What are the conditions of use for this database or dataset?
 
 ## text
 
-> Shared field: edit this translation in `shared_blocks.md`.
+> Shared field: edit this translation in `shared_blocks/`.
 
 ### Source (en)
 

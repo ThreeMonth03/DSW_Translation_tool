@@ -20,7 +20,7 @@ Does the workflow engine need a developer GUI?
 
 ## text
 
-> Shared field: edit this translation in `shared_blocks.md`.
+> Shared field: edit this translation in `shared_blocks/`.
 
 ### Source (en)
 

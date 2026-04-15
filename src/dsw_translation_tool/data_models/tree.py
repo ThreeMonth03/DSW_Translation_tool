@@ -202,10 +202,27 @@ class SharedBlocksBuildResult:
     Args:
         markdown_text: Generated shared-block markdown.
         output_shared_blocks: Destination markdown path.
+        output_shared_blocks_root: Canonical shared-block directory path.
+        written_paths: All generated shared-block paths refreshed by the build.
     """
 
     markdown_text: str
     output_shared_blocks: Path
+    output_shared_blocks_root: Path
+    written_paths: tuple[Path, ...] = ()
+
+
+@dataclass(frozen=True)
+class SharedBlocksDirectoryBuildResult:
+    """Result of building the canonical split shared-block directory.
+
+    Args:
+        output_shared_blocks_root: Canonical shared-block directory path.
+        written_paths: All generated paths refreshed under the directory.
+    """
+
+    output_shared_blocks_root: Path
+    written_paths: tuple[Path, ...] = ()
 
 
 @dataclass(frozen=True)

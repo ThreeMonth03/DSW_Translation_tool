@@ -20,7 +20,7 @@ I can specify the number of files/subjects and the size of each
 
 ## advice
 
-> Shared field: edit this translation in `shared_blocks.md`.
+> Shared field: edit this translation in `shared_blocks/`.
 
 ### Source (en)
 

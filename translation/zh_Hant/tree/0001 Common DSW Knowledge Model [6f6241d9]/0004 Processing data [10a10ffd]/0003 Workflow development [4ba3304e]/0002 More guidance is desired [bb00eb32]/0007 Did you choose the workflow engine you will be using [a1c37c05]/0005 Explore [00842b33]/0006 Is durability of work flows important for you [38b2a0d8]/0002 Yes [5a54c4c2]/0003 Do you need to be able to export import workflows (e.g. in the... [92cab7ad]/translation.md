@@ -20,7 +20,7 @@ Do you need to be able to export/import workflows (e.g. in the Common Workflow L
 
 ## text
 
-> Shared field: edit this translation in `shared_blocks.md`.
+> Shared field: edit this translation in `shared_blocks/`.
 
 ### Source (en)
 

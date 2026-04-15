@@ -20,7 +20,7 @@ Do you need the workflow engine to be run high-throughput?
 
 ## text
 
-> Shared field: edit this translation in `shared_blocks.md`.
+> Shared field: edit this translation in `shared_blocks/`.
 
 ### Source (en)
 

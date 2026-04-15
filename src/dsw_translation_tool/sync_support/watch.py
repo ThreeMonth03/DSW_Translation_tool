@@ -9,6 +9,12 @@ from dataclasses import dataclass, field
 from pathlib import Path
 from typing import Protocol
 
+from ..constants import (
+    SHARED_BLOCK_CONTEXT_FILENAME,
+    SHARED_BLOCKS_DIRNAME,
+    TRANSLATION_FILENAME,
+)
+
 WATCHDOG_EVENT_TYPES = frozenset({"created", "modified", "moved", "deleted"})
 DEFAULT_DEBOUNCE_SECONDS = 0.75
 DEFAULT_SELF_WRITE_SUPPRESSION_SECONDS = 1.5
@@ -56,7 +62,8 @@ class SyncWatchSettings:
 
     Args:
         tree_dir: Translation tree root monitored by watch mode.
-        watch_shared_blocks: Whether `shared_blocks.md` should trigger sync.
+        watch_shared_blocks: Whether split shared-block `context.md` files
+            should trigger sync.
         debounce_seconds: Debounce window for collapsing burst file events.
         self_write_suppression_seconds: Window used to ignore tool-written files.
         observer_healthcheck_seconds: Queue timeout used to re-check observer
@@ -128,7 +135,6 @@ class TranslationTreeWatchFilter:
     def __init__(self, tree_dir: Path, watch_shared_blocks: bool = True):
         self.tree_dir = tree_dir.resolve()
         self.watch_shared_blocks = watch_shared_blocks
-        self.shared_blocks_path = (self.tree_dir / "shared_blocks.md").resolve()
         self.backups_root = (self.tree_dir.parent / "backups").resolve()
 
     def select_trigger_paths(
@@ -178,9 +184,14 @@ class TranslationTreeWatchFilter:
 
         if self._is_under_backups(relative_path):
             return None
-        if normalized == self.shared_blocks_path:
-            return normalized if self.watch_shared_blocks else None
-        if relative_path.name == "translation.md":
+        if (
+            self.watch_shared_blocks
+            and relative_path.name == SHARED_BLOCK_CONTEXT_FILENAME
+            and relative_path.parts
+            and relative_path.parts[0] == SHARED_BLOCKS_DIRNAME
+        ):
+            return normalized
+        if relative_path.name == TRANSLATION_FILENAME:
             return normalized
         return None
 

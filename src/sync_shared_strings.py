@@ -20,7 +20,7 @@ from dsw_translation_tool.sync_support import SyncWatchService, SyncWatchSetting
 DEFAULT_OUT_PO = str(DEFAULT_LAYOUT.final_po_path)
 DEFAULT_DIFF_OUT = str(DEFAULT_LAYOUT.diff_path)
 DEFAULT_OUTLINE_OUT = str(DEFAULT_LAYOUT.outline_path)
-DEFAULT_SHARED_BLOCKS_OUT = str(DEFAULT_LAYOUT.shared_blocks_path)
+DEFAULT_SHARED_BLOCKS_DIR_OUT = str(DEFAULT_LAYOUT.shared_blocks_dir)
 DEFAULT_SHARED_BLOCKS_OUTLINE_OUT = str(DEFAULT_LAYOUT.shared_blocks_outline_path)
 
 
@@ -63,7 +63,7 @@ def run_sync(args: Namespace) -> set[Path]:
         original_po_path=args.original_po,
         out_po_path=args.out_po,
         outline_out_path=resolve_outline_out_path(args),
-        shared_blocks_out_path=resolve_shared_blocks_out_path(args),
+        shared_blocks_root_path=resolve_shared_blocks_root_out_path(args),
         shared_blocks_outline_out_path=resolve_shared_blocks_outline_out_path(args),
         group_by=args.group_by,
     )
@@ -77,6 +77,7 @@ def run_sync(args: Namespace) -> set[Path]:
         )
 
     written_paths = {Path(path).resolve() for path in result.written_tree_paths}
+    written_paths.update(Path(path).resolve() for path in result.written_artifact_paths)
     print("Shared String Sync")
     print(f"  Group mode     : {args.group_by}")
     print(f"  Groups scanned : {result.groups_scanned}")
@@ -89,9 +90,6 @@ def run_sync(args: Namespace) -> set[Path]:
     if result.output_outline:
         print(f"  Output outline : {result.output_outline}")
         written_paths.add(Path(result.output_outline).resolve())
-    if result.output_shared_blocks:
-        print(f"  Output shared  : {result.output_shared_blocks}")
-        written_paths.add(Path(result.output_shared_blocks).resolve())
     if result.output_shared_blocks_outline:
         print(f"  Output shared-outline : {result.output_shared_blocks_outline}")
         written_paths.add(Path(result.output_shared_blocks_outline).resolve())
@@ -150,11 +148,11 @@ def build_argument_parser() -> argparse.ArgumentParser:
         help="Optional markdown outline output path for tree progress review.",
     )
     parser.add_argument(
-        "--shared-blocks-out",
+        "--shared-blocks-dir-out",
         default=None,
         help=(
-            "Optional shared-block markdown path used as input/output for "
-            "canonical shared translations."
+            "Optional canonical shared-block directory path used as the "
+            "input/output for shared translations."
         ),
     )
     parser.add_argument(
@@ -213,21 +211,21 @@ def resolve_outline_out_path(args: Namespace) -> str | None:
     return str(Path(args.tree_dir) / "outline.md")
 
 
-def resolve_shared_blocks_out_path(args: Namespace) -> str | None:
-    """Resolve the shared-block markdown path for one sync run.
+def resolve_shared_blocks_root_out_path(args: Namespace) -> str | None:
+    """Resolve the canonical shared-block directory path for one sync run.
 
     Args:
         args: Parsed CLI arguments.
 
     Returns:
-        Shared-block markdown path or `None`.
+        Canonical shared-block directory path or `None`.
     """
 
-    if args.shared_blocks_out:
-        return args.shared_blocks_out
+    if args.shared_blocks_dir_out:
+        return args.shared_blocks_dir_out
     if Path(args.tree_dir) == DEFAULT_LAYOUT.tree_dir:
-        return DEFAULT_SHARED_BLOCKS_OUT
-    return str(Path(args.tree_dir) / "shared_blocks.md")
+        return DEFAULT_SHARED_BLOCKS_DIR_OUT
+    return str(Path(args.tree_dir) / "shared_blocks")
 
 
 def resolve_shared_blocks_outline_out_path(args: Namespace) -> str | None:

@@ -20,7 +20,7 @@ Do you want your workflow engine to be professionally hosted by a specialized pa
 
 ## text
 
-> Shared field: edit this translation in `shared_blocks.md`.
+> Shared field: edit this translation in `shared_blocks/`.
 
 ### Source (en)
 

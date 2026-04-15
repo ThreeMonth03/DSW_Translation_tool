@@ -20,7 +20,7 @@ Do you need the same workflow to run next year? Durability against 'workflow dec
 
 ## text
 
-> Shared field: edit this translation in `shared_blocks.md`.
+> Shared field: edit this translation in `shared_blocks/`.
 
 ### Source (en)
 

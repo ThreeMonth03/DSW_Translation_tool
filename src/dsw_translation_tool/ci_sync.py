@@ -10,13 +10,18 @@ from dataclasses import dataclass
 from pathlib import Path
 from typing import Protocol
 
-from .constants import SHARED_BLOCKS_FILENAME, TRANSLATION_FILENAME
+from .constants import SHARED_BLOCK_CONTEXT_FILENAME, TRANSLATION_FILENAME
 from .layout import DEFAULT_PO_PATH, DEFAULT_SOURCE_LANG, DEFAULT_TARGET_LANG
 
 DEFAULT_SYNC_COMMIT_MESSAGE = "chore(sync): refresh translation artifacts"
 GITHUB_BOT_NAME = "github-actions[bot]"
 GITHUB_BOT_EMAIL = "41898282+github-actions[bot]@users.noreply.github.com"
-RESTORABLE_SYNC_FILENAMES = frozenset({TRANSLATION_FILENAME, SHARED_BLOCKS_FILENAME})
+RESTORABLE_SYNC_FILENAMES = frozenset(
+    {
+        TRANSLATION_FILENAME,
+        SHARED_BLOCK_CONTEXT_FILENAME,
+    }
+)
 SYNC_FILE_LINE_RE = re.compile(r"^File: (?P<path>.+)$", re.MULTILINE)
 
 
@@ -127,10 +132,10 @@ class CiSyncCommitConfig:
         return self.tree_dir / "outline.md"
 
     @property
-    def shared_blocks_path(self) -> Path:
-        """Return the canonical shared-block markdown path."""
+    def shared_blocks_dir(self) -> Path:
+        """Return the canonical split shared-block directory root."""
 
-        return self.tree_dir / "shared_blocks.md"
+        return self.tree_dir / "shared_blocks"
 
     @property
     def shared_blocks_outline_path(self) -> Path:
@@ -245,6 +250,7 @@ def run_ci_sync_commit(
         cwd=config.tooling_repo_dir,
         env={"DSW_COLLAB_OUTPUT_ROOT": str(config.translation_root_dir)},
         description="run translation tests",
+        echo_output=True,
     )
 
     if not _translation_root_has_tracked_changes(config, runner):
@@ -295,6 +301,7 @@ def _run_sync_with_origin_restore(
             _build_sync_command(config),
             cwd=config.tooling_repo_dir,
             description="sync translation artifacts",
+            echo_output=True,
         )
         return
     except CiSyncError as error:
@@ -312,6 +319,7 @@ def _run_sync_with_origin_restore(
         _build_sync_command(config),
         cwd=config.tooling_repo_dir,
         description="re-run sync translation artifacts after origin/master restore",
+        echo_output=True,
     )
 
 
@@ -338,8 +346,8 @@ def _build_sync_command(config: CiSyncCommitConfig) -> list[str]:
         str(config.diff_path),
         "--outline-out",
         str(config.outline_path),
-        "--shared-blocks-out",
-        str(config.shared_blocks_path),
+        "--shared-blocks-dir-out",
+        str(config.shared_blocks_dir),
         "--shared-blocks-outline-out",
         str(config.shared_blocks_outline_path),
         "--source-lang",
@@ -446,6 +454,11 @@ def _extract_origin_restore_candidate(
             continue
         if not _is_relative_to(candidate_path, config.translation_root_dir):
             continue
+        if candidate_path.name == SHARED_BLOCK_CONTEXT_FILENAME and not _is_relative_to(
+            candidate_path,
+            config.shared_blocks_dir,
+        ):
+            continue
         return candidate_path
     return None
 
@@ -500,6 +513,7 @@ def _run_checked(
     cwd: Path,
     description: str,
     env: Mapping[str, str] | None = None,
+    echo_output: bool = False,
 ) -> subprocess.CompletedProcess[str]:
     """Run one command and raise a readable error on failure.
 
@@ -509,6 +523,8 @@ def _run_checked(
         cwd: Working directory for the command.
         description: Human-readable operation description.
         env: Optional environment overrides.
+        echo_output: Whether stdout/stderr should be relayed to the current
+            process output stream.
 
     Returns:
         Completed process result.
@@ -518,6 +534,8 @@ def _run_checked(
     """
 
     result = runner(args, cwd=cwd, env=env)
+    if echo_output:
+        _print_process_output(result)
     if result.returncode == 0:
         return result
 
@@ -526,3 +544,16 @@ def _run_checked(
     if output:
         raise CiSyncError(f"Failed to {description}: {command}\n{output}")
     raise CiSyncError(f"Failed to {description}: {command}")
+
+
+def _print_process_output(result: subprocess.CompletedProcess[str]) -> None:
+    """Relay captured subprocess output to the current stdout/stderr.
+
+    Args:
+        result: Completed process whose output should be printed.
+    """
+
+    if result.stdout:
+        print(result.stdout, end="")
+    if result.stderr:
+        print(result.stderr, end="")

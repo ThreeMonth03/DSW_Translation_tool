@@ -20,7 +20,7 @@ Do work flows need to be run on remote computers?
 
 ## text
 
-> Shared field: edit this translation in `shared_blocks.md`.
+> Shared field: edit this translation in `shared_blocks/`.
 
 ### Source (en)
 

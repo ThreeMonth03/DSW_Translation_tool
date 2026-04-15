@@ -94,7 +94,7 @@ def build_watch_args() -> Namespace:
         out_po="unused-final.po",
         diff_out="unused.diff",
         outline_out="unused-outline.md",
-        shared_blocks_out="unused-shared.md",
+        shared_blocks_dir_out="unused-shared-dir",
         shared_blocks_outline_out="unused-shared-outline.md",
         source_lang="en",
         target_lang="zh_Hant",
@@ -305,13 +305,14 @@ def test_translation_tree_watch_filter_accepts_only_editable_inputs() -> None:
     registry = RecentWriteRegistry(suppression_seconds=1.5, time_source=lambda: 0.0)
 
     translation_path = tree_dir / "chapter" / "translation.md"
-    shared_blocks_path = tree_dir / "shared_blocks.md"
+    shared_blocks_context_path = tree_dir / "shared_blocks" / "abc123" / "context.md"
     trigger_paths = filter_service.select_trigger_paths(
         paths=(
             translation_path,
-            shared_blocks_path,
+            shared_blocks_context_path,
             tree_dir / "outline.md",
             tree_dir / "shared_blocks_outline.md",
+            tree_dir / "shared_blocks.md",
             tree_dir / "_translation_tree.json",
             tree_dir.parent / "builds" / "final_translated.po",
             tree_dir.parent / "reviews" / "final_translated.diff",
@@ -322,7 +323,7 @@ def test_translation_tree_watch_filter_accepts_only_editable_inputs() -> None:
 
     assert trigger_paths == (
         translation_path.resolve(),
-        shared_blocks_path.resolve(),
+        shared_blocks_context_path.resolve(),
     )
 
 

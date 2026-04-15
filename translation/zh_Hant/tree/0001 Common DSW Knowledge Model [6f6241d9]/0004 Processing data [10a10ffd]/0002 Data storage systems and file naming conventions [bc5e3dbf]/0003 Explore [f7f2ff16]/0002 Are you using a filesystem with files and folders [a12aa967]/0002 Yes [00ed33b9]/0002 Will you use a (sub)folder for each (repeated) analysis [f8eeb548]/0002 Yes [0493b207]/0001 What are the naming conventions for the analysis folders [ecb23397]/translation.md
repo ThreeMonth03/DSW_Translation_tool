@@ -20,7 +20,7 @@ What are the naming conventions for the analysis folders?
 
 ## text
 
-> Shared field: edit this translation in `shared_blocks.md`.
+> Shared field: edit this translation in `shared_blocks/`.
 
 ### Source (en)
 

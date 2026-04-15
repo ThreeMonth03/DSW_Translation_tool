@@ -171,7 +171,9 @@ def test_ci_sync_commit_stages_commits_and_pushes_tracked_translation_changes(
         target_ref="feature/shared-sync",
         mode="pull_request",
     )
-    runner = RecordingRunner(git_status_stdout=" M translation/zh_Hant/tree/shared_blocks.md\n")
+    runner = RecordingRunner(
+        git_status_stdout=" M translation/zh_Hant/tree/shared_blocks/abc123/context.md\n"
+    )
 
     committed = run_ci_sync_commit(config, runner=runner)
 
@@ -210,7 +212,7 @@ def test_ci_sync_commit_uses_repo_root_layout_for_external_translation_repo(
     assert str(config.host_repo_dir / "tree") in sync_command
     assert str(config.host_repo_dir / "builds" / "final_translated.po") in sync_command
     assert str(config.host_repo_dir / "reviews" / "final_translated.diff") in sync_command
-    assert str(config.host_repo_dir / "tree" / "shared_blocks.md") in sync_command
+    assert str(config.host_repo_dir / "tree" / "shared_blocks") in sync_command
     assert str(config.original_po_path) in sync_command
     translation_test_env = runner.calls[1]["env"]
     assert translation_test_env is not None
@@ -273,17 +275,17 @@ def test_ci_sync_commit_restores_broken_translation_markdown_from_origin_master(
     assert commands[2][1] == "src/sync_shared_strings.py"
 
 
-def test_ci_sync_commit_restores_broken_shared_blocks_markdown_from_origin_master(
+def test_ci_sync_commit_restores_broken_shared_block_translation_from_origin_master(
     workspace,
 ) -> None:
-    """Verify that CI restore retries sync after a broken `shared_blocks.md`.
+    """Verify that CI restore retries sync after a broken shared-block file.
 
     Args:
         workspace: Per-test temporary workspace fixture.
     """
 
     config = build_ci_sync_config(workspace)
-    broken_file = config.tree_dir / "shared_blocks.md"
+    broken_file = config.shared_blocks_dir / "abc123" / "context.md"
     runner = ScriptedRunner(
         [
             subprocess.CompletedProcess(
@@ -291,7 +293,8 @@ def test_ci_sync_commit_restores_broken_shared_blocks_markdown_from_origin_maste
                 1,
                 stdout="",
                 stderr=(
-                    "Invalid shared-block markdown and no valid backup was available.\n"
+                    "Invalid shared-block translation files and no valid backup "
+                    "was available.\n"
                     f"File: {broken_file}\n"
                     "Reason: malformed group"
                 ),
@@ -314,7 +317,7 @@ def test_ci_sync_commit_restores_broken_shared_blocks_markdown_from_origin_maste
         "origin/master",
         "--worktree",
         "--",
-        "translation/zh_Hant/tree/shared_blocks.md",
+        "translation/zh_Hant/tree/shared_blocks/abc123/context.md",
     ]
     assert commands[2][1] == "src/sync_shared_strings.py"
 
@@ -364,3 +367,42 @@ def test_ci_sync_commit_does_not_commit_when_translation_tests_fail_after_restor
     assert all(command[:2] != ["git", "add"] for command in commands)
     assert all(command[:2] != ["git", "commit"] for command in commands)
     assert all(command[:2] != ["git", "push"] for command in commands)
+
+
+def test_ci_sync_commit_prints_sync_and_translation_test_logs(
+    workspace,
+    capsys,
+) -> None:
+    """Verify that sync/test stdout and stderr are relayed to CI logs.
+
+    Args:
+        workspace: Per-test temporary workspace fixture.
+        capsys: Pytest output capture fixture.
+    """
+
+    config = build_ci_sync_config(workspace)
+    runner = ScriptedRunner(
+        [
+            subprocess.CompletedProcess(
+                ["sync"],
+                0,
+                stdout="Shared String Sync\nGroups updated : 1\n",
+                stderr="",
+            ),
+            subprocess.CompletedProcess(
+                ["pytest"],
+                0,
+                stdout="tests/translation/test_output_mapping.py .....\n",
+                stderr="translation-warning\n",
+            ),
+            subprocess.CompletedProcess(["git", "status"], 0, stdout="", stderr=""),
+        ]
+    )
+
+    committed = run_ci_sync_commit(config, runner=runner)
+
+    captured = capsys.readouterr()
+    assert committed is False
+    assert "Shared String Sync" in captured.out
+    assert "tests/translation/test_output_mapping.py" in captured.out
+    assert "translation-warning" in captured.out

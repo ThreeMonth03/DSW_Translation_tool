@@ -54,9 +54,10 @@ jobs:
         working-directory: tooling-repo
         run: make install-dev BOOTSTRAP_PYTHON=python
 
-      # This helper may restore malformed translation.md / shared_blocks.md
-      # from origin/master once, then rerun sync. That keeps CI unblocked, but
-      # can overwrite malformed PR-branch edits.
+      # This helper may restore malformed translation.md or one split
+      # shared_blocks/<group-id>/translation.txt file from origin/master once,
+      # then rerun sync. That keeps CI unblocked, but can overwrite malformed
+      # PR-branch edits.
       - name: Sync, validate, and auto-commit translation artifacts
         run: >-
           tooling-repo/.venv/bin/python tooling-repo/src/ci_sync_commit.py

@@ -3,6 +3,7 @@
 from __future__ import annotations
 
 import shutil
+from pathlib import Path
 
 import pytest
 
@@ -10,7 +11,6 @@ from dsw_translation_tool.shared_blocks import SharedBlocksCatalogParser
 from tests.helpers import (
     build_entry_map,
     build_outline_markdown,
-    build_shared_blocks_markdown,
     build_shared_blocks_outline_markdown,
     corrupt_translation_by_appending_outside_fence,
     corrupt_translation_by_breaking_final_fence,
@@ -226,63 +226,11 @@ def test_collaboration_outline_matches_current_tree_progress(
     finally:
         generated_outline_path.unlink(missing_ok=True)
 
-
-def test_collaboration_shared_blocks_match_current_tree_state(
-    workflow,
-    po_path,
-    collaboration_tree_dir,
-    collaboration_shared_blocks_path,
-) -> None:
-    """Verify that checked-in shared-block markdown matches the current tree.
-
-    Args:
-        workflow: Workflow service fixture.
-        po_path: Fixture PO file path.
-        collaboration_tree_dir: Checked-in collaboration tree directory.
-        collaboration_shared_blocks_path: Checked-in shared-block markdown path.
-    """
-
-    assert collaboration_shared_blocks_path.exists(), (
-        "Missing collaboration shared-block markdown file: "
-        f"{collaboration_shared_blocks_path}\n"
-        "Run `make sync` or `make export-tree` before running translation tests."
-    )
-
-    generated_shared_blocks_path = collaboration_shared_blocks_path.with_name(
-        ".shared_blocks.test.generated.md"
-    )
-    try:
-        result = build_shared_blocks_markdown(
-            workflow=workflow,
-            tree_dir=collaboration_tree_dir,
-            original_po_path=po_path,
-            output_shared_blocks_path=generated_shared_blocks_path,
-        )
-        recorded_shared_blocks = collaboration_shared_blocks_path.read_text(encoding="utf-8")
-        assert recorded_shared_blocks == result.markdown_text, (
-            "Checked-in shared-block markdown does not match the current tree state.\n"
-            f"Shared-block file: {collaboration_shared_blocks_path}\n"
-            f"Generated file: {generated_shared_blocks_path}\n"
-            "Run `make sync` to refresh the shared-block markdown."
-        )
-        assert "# Shared Blocks" in recorded_shared_blocks
-        assert '<a id="group-' in recorded_shared_blocks
-        assert '-blocks"></a>' in recorded_shared_blocks
-        assert '-translation"></a>' in recorded_shared_blocks
-        assert "### Translation zh-Hant Group " in recorded_shared_blocks
-        assert "- Shared Key: `" in recorded_shared_blocks
-        assert "### Contexts" in recorded_shared_blocks
-        assert "  Context: " in recorded_shared_blocks
-        assert "  Path: " not in recorded_shared_blocks
-    finally:
-        generated_shared_blocks_path.unlink(missing_ok=True)
-
-
 def test_collaboration_shared_block_translations_are_fully_synchronized_in_tree(
     workflow,
     po_path,
     collaboration_tree_dir,
-    collaboration_shared_blocks_path,
+    collaboration_shared_blocks_dir,
 ) -> None:
     """Verify every shared PO group matches every linked tree field.
 
@@ -290,19 +238,22 @@ def test_collaboration_shared_block_translations_are_fully_synchronized_in_tree(
         workflow: Workflow service fixture.
         po_path: Fixture PO file path.
         collaboration_tree_dir: Checked-in collaboration tree directory.
-        collaboration_shared_blocks_path: Checked-in shared-block markdown path.
+        collaboration_shared_blocks_dir: Checked-in shared-block directory path.
     """
 
     _, field_states = inspect_translation_tree_disk_state(
         workflow=workflow,
         tree_dir=collaboration_tree_dir,
     )
-    shared_blocks_map = SharedBlocksCatalogParser().parse(str(collaboration_shared_blocks_path))
     shared_blocks = [block for block in parse_po_blocks(po_path) if len(block.references) >= 2]
     expected_group_keys = {
         tuple((reference.uuid, reference.field) for reference in block.references)
         for block in shared_blocks
     }
+    shared_blocks_map = SharedBlocksCatalogParser().parse(
+        str(collaboration_shared_blocks_dir),
+        expected_group_keys=expected_group_keys,
+    )
 
     assert set(shared_blocks_map) == expected_group_keys, (
         "Shared-block markdown does not cover the same group set as the source PO.\n"
@@ -378,13 +329,22 @@ def test_collaboration_shared_blocks_outline_matches_current_tree_state(
         assert "## Untranslated" not in recorded_outline
         assert "## Translated" not in recorded_outline
         assert "- [x] Group " in recorded_outline or "- [ ] Group " in recorded_outline
-        assert "](<shared_blocks.md#translation-zh-hant-group-" in recorded_outline
+        assert "](<shared_blocks/" in recorded_outline
         assert "- [x] [Group " not in recorded_outline
         assert "- [ ] [Group " not in recorded_outline
         assert "refs=`" not in recorded_outline
         assert "fields=`" not in recorded_outline
     finally:
         generated_outline_path.unlink(missing_ok=True)
+
+
+def _read_directory_files(root: Path) -> dict[str, str]:
+    """Return a normalized snapshot of all files below one directory root."""
+
+    result: dict[str, str] = {}
+    for file_path in sorted(path for path in root.rglob("*") if path.is_file()):
+        result[file_path.relative_to(root).as_posix()] = file_path.read_text(encoding="utf-8")
+    return result
 
 
 def _po_block_skeleton(block) -> tuple[tuple[str, ...], str, bool]:

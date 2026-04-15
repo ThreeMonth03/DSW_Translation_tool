@@ -20,7 +20,7 @@ Specify what data sets you will acquire using measurement equipment
 
 ## text
 
-> Shared field: edit this translation in `shared_blocks.md`.
+> Shared field: edit this translation in `shared_blocks/`.
 
 ### Source (en)
 

@@ -20,7 +20,7 @@ Does the running of work flows need to be controlled via a GUI?
 
 ## text
 
-> Shared field: edit this translation in `shared_blocks.md`.
+> Shared field: edit this translation in `shared_blocks/`.
 
 ### Source (en)
 

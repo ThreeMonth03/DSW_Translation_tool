@@ -20,7 +20,7 @@ Can the work flow be annotated to make it understandable?
 
 ## text
 
-> Shared field: edit this translation in `shared_blocks.md`.
+> Shared field: edit this translation in `shared_blocks/`.
 
 ### Source (en)
 

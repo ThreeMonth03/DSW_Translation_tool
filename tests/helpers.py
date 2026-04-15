@@ -13,9 +13,8 @@ from pathlib import Path
 
 from dsw_translation_tool import TranslationWorkflowService
 from dsw_translation_tool.constants import (
+    LEGACY_SHARED_FIELD_NOTES,
     MANIFEST_NAME,
-    SHARED_BLOCKS_FILENAME,
-    SHARED_FIELD_NOTE,
     TRANSLATION_FILENAME,
     TREE_BACKUP_DIRNAME,
     UUID_FILENAME,
@@ -33,7 +32,10 @@ from dsw_translation_tool.data_models import (
     WorkflowContext,
 )
 from dsw_translation_tool.po import PoCatalogParser
-from dsw_translation_tool.shared_blocks import SharedBlocksCatalogParser
+from dsw_translation_tool.shared_blocks import (
+    SharedBlocksCatalogParser,
+    resolve_shared_blocks_root_path,
+)
 
 HEADER_UUID_PATTERN = re.compile(r"^- UUID: `(?P<uuid>[^`]+)`$")
 HEADER_EVENT_TYPE_PATTERN = re.compile(r"^- Event Type: `(?P<event_type>[^`]*)`$")
@@ -248,8 +250,9 @@ def field_section_contains_shared_note(markdown_text: str, field_name: str) -> b
         `True` when the field section contains the machine-generated note.
     """
 
+    note_pattern = "|".join(re.escape(note) for note in LEGACY_SHARED_FIELD_NOTES)
     section_pattern = re.compile(
-        rf"^## {re.escape(field_name)}\n\n(?P<note>{re.escape(SHARED_FIELD_NOTE)})\n",
+        rf"^## {re.escape(field_name)}\n\n(?P<note>{note_pattern})\n",
         re.MULTILINE,
     )
     return section_pattern.search(markdown_text) is not None
@@ -549,7 +552,7 @@ def run_shared_string_sync(
         tree_dir=str(tree_dir),
         original_po_path=str(original_po_path),
         out_po_path=str(output_po_path),
-        shared_blocks_out_path=str(tree_dir / SHARED_BLOCKS_FILENAME),
+        shared_blocks_root_path=str(tree_dir / "shared_blocks"),
         group_by="shared-block",
     )
 
@@ -559,41 +562,35 @@ def update_shared_block_translation(
     group_key: tuple[tuple[str, str], ...],
     target_text: str,
 ) -> None:
-    """Update one shared-block translation directly in markdown.
+    """Update one canonical shared-block translation directly on disk.
 
     Args:
-        shared_blocks_path: Shared-block markdown path.
+        shared_blocks_path: Canonical shared-block directory path.
         group_key: Structured group key identifying the target block.
         target_text: Replacement translated text.
-
-    Raises:
-        AssertionError: If the requested group is not present.
     """
 
-    serialized_key = SharedBlocksCatalogParser.serialize_group_key(group_key)
-    group_pattern = re.compile(
-        rf"(?P<prefix>- Shared Key: `{re.escape(serialized_key)}`\n+"
-        rf"(?:<a id=\"group-\d{{4}}-blocks\"></a>\n+)?"
-        rf"### Source \(en\)\n+~~~text\n.*?\n~~~\n+"
-        rf"(?:<a id=\"group-\d{{4}}-translation\"></a>\n+)?"
-        rf"(?:### Translation zh-Hant Group \d{{4}}\n+)?"
-        rf"### Translation \(zh_Hant\)\n+~~~text\n)"
-        rf"(?P<translation>.*?)"
-        rf"(?P<suffix>\n~~~)",
-        re.DOTALL,
+    shared_blocks_root = resolve_shared_blocks_root_path(shared_blocks_path)
+    context_path = SharedBlocksCatalogParser.group_context_path(
+        shared_blocks_root,
+        group_key,
     )
-    shared_blocks_text = shared_blocks_path.read_text(encoding="utf-8")
-    updated_text, replacement_count = group_pattern.subn(
-        lambda match: f"{match.group('prefix')}{target_text}{match.group('suffix')}",
-        shared_blocks_text,
-        count=1,
+    assert context_path.exists(), (
+        "Shared-block context file was not found.\n"
+        f"File: {context_path}\n"
+        f"Key: {SharedBlocksCatalogParser.serialize_group_key(group_key)}"
     )
+    context_text = context_path.read_text(encoding="utf-8")
+    pattern = re.compile(
+        r"(?ms)^### Translation \(zh_Hant\)\n\n~~~text\n.*?\n~~~"
+    )
+    replacement = f"### Translation (zh_Hant)\n\n~~~text\n{target_text}\n~~~"
+    updated_text, replacement_count = pattern.subn(replacement, context_text, count=1)
     assert replacement_count == 1, (
-        "Shared-block key was not found in markdown.\n"
-        f"File: {shared_blocks_path}\n"
-        f"Key: {serialized_key}"
+        "Editable shared-block translation section was not found.\n"
+        f"File: {context_path}"
     )
-    shared_blocks_path.write_text(updated_text, encoding="utf-8")
+    context_path.write_text(updated_text, encoding="utf-8")
 
 
 def future_timestamp(offset_seconds: float = 1.0) -> float:

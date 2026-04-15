@@ -23,7 +23,7 @@ class WorkflowContext:
         latest_by_uuid: Latest merged KM entities keyed by UUID.
         manifest: Exported manifest when a tree was written to disk.
         shared_reference_keys: `(uuid, field)` keys that belong to a shared
-            PO block and should be edited via `shared_blocks.md`.
+            PO block and should be edited via `tree/shared_blocks/`.
     """
 
     report: dict[str, Any]

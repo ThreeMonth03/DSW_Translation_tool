@@ -13,6 +13,7 @@ from .sync import SharedStringCandidate, SharedStringConflict, SharedStringSyncR
 from .tree import (
     OutlineBuildResult,
     SharedBlocksBuildResult,
+    SharedBlocksDirectoryBuildResult,
     SharedBlocksOutlineBuildResult,
     TranslationFieldState,
     TranslationStatusFolder,
@@ -38,6 +39,7 @@ __all__ = [
     "SharedStringConflict",
     "SharedStringSyncResult",
     "SharedBlocksBuildResult",
+    "SharedBlocksDirectoryBuildResult",
     "SharedBlocksOutlineBuildResult",
     "TranslationFieldState",
     "TranslationStatusFolder",

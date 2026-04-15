@@ -2,13 +2,11 @@
 
 from __future__ import annotations
 
-import re
 import shutil
 from argparse import Namespace
 
 import sync_shared_strings
 from tests.helpers import (
-    build_shared_blocks_markdown,
     corrupt_translation_by_appending_outside_fence,
     corrupt_translation_by_appending_to_event_type_header,
     corrupt_translation_by_breaking_final_fence,
@@ -120,14 +118,14 @@ def test_sync_cli_restores_file_when_fence_structure_is_broken(
     assert snapshot.translation_path.read_text(encoding="utf-8") == original_text
 
 
-def test_sync_cli_restores_shared_blocks_markdown_when_a_group_is_deleted(
+def test_sync_cli_restores_shared_block_translation_file_when_a_group_file_is_deleted(
     repo_root,
     workflow,
     po_path,
     model_path,
     workspace,
 ) -> None:
-    """Verify that sync restores `shared_blocks.md` after group deletion.
+    """Verify that sync restores one shared-block context file after deletion.
 
     Args:
         repo_root: Repository root fixture.
@@ -141,7 +139,6 @@ def test_sync_cli_restores_shared_blocks_markdown_when_a_group_is_deleted(
         workspace,
         output_po_name="invalid-shared-blocks.po",
         diff_name="invalid-shared-blocks.diff",
-        shared_blocks_name="shared_blocks.md",
         shared_blocks_outline_name="shared_blocks_outline.md",
     )
     export_tree_for_test(
@@ -150,23 +147,16 @@ def test_sync_cli_restores_shared_blocks_markdown_when_a_group_is_deleted(
         model_path=model_path,
         tree_dir=artifacts.tree_dir,
     )
-    assert artifacts.shared_blocks_path is not None
-    build_shared_blocks_markdown(
-        workflow=workflow,
-        tree_dir=artifacts.tree_dir,
-        original_po_path=po_path,
-        output_shared_blocks_path=artifacts.shared_blocks_path,
+    workflow.build_shared_blocks_directory(
+        tree_dir=str(artifacts.tree_dir),
+        original_po_path=str(po_path),
+        out_shared_blocks_root=str(artifacts.shared_blocks_dir_path),
     )
-    original_text = artifacts.shared_blocks_path.read_text(encoding="utf-8")
-    corrupted_text = re.sub(
-        r'\n<a id="group-0002"></a>\n## Group 0002\n.*?(?=\n<a id="group-0003"></a>\n## Group 0003\n)',
-        "\n",
-        original_text,
-        count=1,
-        flags=re.DOTALL,
-    )
-    assert corrupted_text != original_text
-    artifacts.shared_blocks_path.write_text(corrupted_text, encoding="utf-8")
+    context_files = sorted(artifacts.shared_blocks_dir_path.glob("*/context.md"))
+    assert context_files
+    deleted_context_path = context_files[1]
+    original_text = deleted_context_path.read_text(encoding="utf-8")
+    deleted_context_path.unlink()
 
     assert artifacts.output_po is not None
     result = run_sync_cli(
@@ -175,20 +165,20 @@ def test_sync_cli_restores_shared_blocks_markdown_when_a_group_is_deleted(
         original_po_path=po_path,
         output_po_path=artifacts.output_po,
         diff_path=artifacts.diff_path,
-        shared_blocks_path=artifacts.shared_blocks_path,
+        shared_blocks_dir_path=artifacts.shared_blocks_dir_path,
         shared_blocks_outline_path=artifacts.shared_blocks_outline_path,
     )
 
     assert result.returncode != 0
     assert (
-        "Invalid shared-block markdown was restored from the last known-good backup"
+        "Invalid shared-block context files were restored from the last known-good backup"
         in result.stderr
     )
-    assert str(artifacts.shared_blocks_path) in result.stderr
+    assert str(deleted_context_path) in result.stderr
     assert artifacts.output_po.exists() is False
     assert artifacts.diff_path is not None
     assert artifacts.diff_path.exists() is False
-    assert artifacts.shared_blocks_path.read_text(encoding="utf-8") == original_text
+    assert deleted_context_path.read_text(encoding="utf-8") == original_text
 
 
 def test_sync_cli_restores_file_when_event_type_header_is_corrupted(
@@ -460,7 +450,7 @@ def test_sync_watch_reports_errors_without_exiting_the_loop(
         out_po="unused-final.po",
         diff_out="unused.diff",
         outline_out="unused-outline.md",
-        shared_blocks_out="unused-shared.md",
+        shared_blocks_dir_out="unused-shared-dir",
         shared_blocks_outline_out="unused-shared-outline.md",
         source_lang="en",
         target_lang="zh_Hant",

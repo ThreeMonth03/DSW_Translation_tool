@@ -24,10 +24,16 @@ MANIFEST_NAME = "_translation_tree.json"
 UUID_FILENAME = "_uuid.txt"
 TRANSLATION_FILENAME = "translation.md"
 SHARED_BLOCKS_FILENAME = "shared_blocks.md"
+SHARED_BLOCKS_DIRNAME = "shared_blocks"
+SHARED_BLOCK_CONTEXT_FILENAME = "context.md"
 TRANSLATION_BACKUP_FILENAME = ".translation.md.bak"
 TREE_BACKUP_DIRNAME = "backups"
 FIELD_STATE_FILENAME = ".field-state.json"
-SHARED_FIELD_NOTE = "> Shared field: edit this translation in `shared_blocks.md`."
+SHARED_FIELD_NOTE = "> Shared field: edit this translation in `shared_blocks/`."
+LEGACY_SHARED_FIELD_NOTES = (
+    SHARED_FIELD_NOTE,
+    "> Shared field: edit this translation in `shared_blocks.md`.",
+)
 
 MAX_SEGMENT_TEXT_LENGTH = 72
 FIELD_EXPORT_ORDER = ("title", "label", "text", "advice", "description", "name", "url")

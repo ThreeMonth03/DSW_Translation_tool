@@ -2,15 +2,22 @@
 
 from __future__ import annotations
 
+import re
 from pathlib import Path
 
 from .data_models import (
     SharedStringSyncResult,
 )
 from .po import PoCatalogParser, PoCatalogWriter
-from .shared_blocks import SharedBlocksCatalogParser, resolve_shared_blocks_backup_path
+from .shared_blocks import (
+    SharedBlocksCatalogParser,
+    resolve_shared_blocks_backup_root,
+    resolve_shared_blocks_root_path,
+)
 from .sync_support import SharedStringGroupBuilder, SharedStringGroupProcessor
 from .tree import TranslationTreeRepository
+
+SYNC_FILE_LINE_RE = re.compile(r"^File: (?P<path>.+)$", re.MULTILINE)
 
 
 class SharedStringSynchronizer:
@@ -55,8 +62,8 @@ class SharedStringSynchronizer:
             tree_dir: Translation tree directory.
             original_po_path: Original PO file used as the grouping source.
             out_po_path: Optional output PO path to refresh after sync.
-            shared_blocks_path: Optional shared-block markdown path used as
-                the canonical source for shared-block synchronization.
+        shared_blocks_path: Optional canonical shared-block directory path used
+                as the source for shared-block synchronization.
             group_by: Grouping strategy for shared strings.
 
         Returns:
@@ -120,11 +127,11 @@ class SharedStringSynchronizer:
         shared_blocks_path: str | None,
         expected_group_keys: set[tuple[tuple[str, str], ...]],
     ) -> dict[tuple[tuple[str, str], ...], str]:
-        """Load shared-block translations from markdown when the file exists.
+        """Load canonical shared-block translations when the directory exists.
 
         Args:
             tree_dir: Translation tree root directory.
-            shared_blocks_path: Candidate shared-block markdown path.
+            shared_blocks_path: Candidate shared-block directory path.
             expected_group_keys: Structured shared-block group set expected from
                 the source PO.
 
@@ -135,42 +142,47 @@ class SharedStringSynchronizer:
         if not shared_blocks_path:
             return {}
         shared_blocks_file = Path(shared_blocks_path)
-        if not shared_blocks_file.exists():
+        shared_blocks_root = resolve_shared_blocks_root_path(shared_blocks_file)
+        if not shared_blocks_root.exists():
             restored_backup = self.restore_shared_blocks_backup(
+                shared_blocks_root=shared_blocks_root,
                 shared_blocks_path=shared_blocks_file,
                 tree_dir=tree_dir,
                 expected_group_keys=expected_group_keys,
             )
             if restored_backup is not None:
                 raise ValueError(
-                    "Missing shared-block markdown was restored from the last "
-                    f"known-good backup.\nFile: {shared_blocks_file}\n"
+                    "Missing shared-block context files were restored from the "
+                    f"last known-good backup.\nFile: {shared_blocks_root}\n"
                     f"Backup: {restored_backup}"
                 )
             return {}
         try:
-            translations = self.shared_blocks_parser.parse(str(shared_blocks_file))
-            self.validate_shared_block_translations(
-                translations=translations,
+            return self.shared_blocks_parser.parse(
+                str(shared_blocks_root),
                 expected_group_keys=expected_group_keys,
-                shared_blocks_path=str(shared_blocks_file),
             )
-            return translations
         except ValueError as error:
+            restore_path = self._extract_shared_blocks_restore_candidate(
+                error_message=str(error),
+                shared_blocks_root=shared_blocks_root,
+            )
             restored_backup = self.restore_shared_blocks_backup(
+                shared_blocks_root=shared_blocks_root,
                 shared_blocks_path=shared_blocks_file,
                 tree_dir=tree_dir,
                 expected_group_keys=expected_group_keys,
+                restore_path=restore_path,
             )
             if restored_backup is not None:
                 raise ValueError(
-                    "Invalid shared-block markdown was restored from the last "
-                    f"known-good backup.\nFile: {shared_blocks_file}\n"
+                    "Invalid shared-block context files were restored from the "
+                    f"last known-good backup.\nFile: {restore_path or shared_blocks_root}\n"
                     f"Backup: {restored_backup}\nReason: {error}"
                 ) from error
             raise ValueError(
-                "Invalid shared-block markdown and no valid backup was available.\n"
-                f"File: {shared_blocks_file}\nReason: {error}"
+                "Invalid shared-block context files and no valid backup was "
+                f"available.\nFile: {restore_path or shared_blocks_root}\nReason: {error}"
             ) from error
 
     def validate_shared_block_translations(
@@ -179,7 +191,7 @@ class SharedStringSynchronizer:
         expected_group_keys: set[tuple[tuple[str, str], ...]],
         shared_blocks_path: str,
     ) -> None:
-        """Validate that `shared_blocks.md` covers the full shared-block set.
+        """Validate that the shared-block directory covers the full group set.
 
         Args:
             translations: Parsed shared-block translation mapping.
@@ -213,49 +225,97 @@ class SharedStringSynchronizer:
             preview_lines.append(f"Unexpected groups: {unexpected_preview}")
         preview = "\n".join(preview_lines)
         raise ValueError(
-            "Shared-block markdown does not match the expected shared-group set.\n"
+            "Shared-block directory does not match the expected shared-group set.\n"
             f"File: {shared_blocks_path}\n{preview}"
         )
 
     def restore_shared_blocks_backup(
         self,
+        shared_blocks_root: Path,
         shared_blocks_path: Path,
         tree_dir: str,
         expected_group_keys: set[tuple[tuple[str, str], ...]],
+        restore_path: Path | None = None,
     ) -> Path | None:
-        """Restore `shared_blocks.md` from the last known-good backup.
+        """Restore split shared-block files from the last known-good backup.
 
         Args:
+            shared_blocks_root: Canonical shared-block directory root.
             shared_blocks_path: Shared-block markdown path to restore.
             tree_dir: Translation tree root directory.
             expected_group_keys: Structured shared-block group set expected
                 from the source PO.
+            restore_path: Optional specific path that should be restored.
 
         Returns:
             Backup path when restoration succeeded, otherwise `None`.
         """
 
-        backup_path = resolve_shared_blocks_backup_path(
+        backup_root = resolve_shared_blocks_backup_root(
             tree_repository=self.tree_repository,
             tree_dir=tree_dir,
         )
-        if not backup_path.exists():
+        if not backup_root.exists():
             return None
 
-        backup_text = backup_path.read_text(encoding="utf-8")
-        translations = self.shared_blocks_parser.parse_text(
-            backup_text,
-            str(backup_path),
+        translations = self.shared_blocks_parser.parse(
+            str(backup_root),
+            expected_group_keys=expected_group_keys,
         )
         self.validate_shared_block_translations(
             translations=translations,
             expected_group_keys=expected_group_keys,
-            shared_blocks_path=str(backup_path),
+            shared_blocks_path=str(backup_root),
         )
-        shared_blocks_path.parent.mkdir(parents=True, exist_ok=True)
-        shared_blocks_path.write_text(backup_text, encoding="utf-8")
-        backup_path.write_text(backup_text, encoding="utf-8")
-        return backup_path
+
+        if restore_path is None:
+            shared_blocks_root.parent.mkdir(parents=True, exist_ok=True)
+            if shared_blocks_root.exists():
+                for child in shared_blocks_root.iterdir():
+                    if child.is_dir():
+                        import shutil
+
+                        shutil.rmtree(child)
+                    else:
+                        child.unlink()
+            else:
+                shared_blocks_root.mkdir(parents=True, exist_ok=True)
+            for backup_file in backup_root.rglob("*"):
+                if backup_file.is_dir():
+                    continue
+                destination = shared_blocks_root / backup_file.relative_to(backup_root)
+                destination.parent.mkdir(parents=True, exist_ok=True)
+                destination.write_text(backup_file.read_text(encoding="utf-8"), encoding="utf-8")
+        else:
+            try:
+                relative_restore_path = restore_path.relative_to(shared_blocks_root)
+            except ValueError:
+                return None
+            backup_restore_path = backup_root / relative_restore_path
+            if not backup_restore_path.exists():
+                return None
+            restore_path.parent.mkdir(parents=True, exist_ok=True)
+            restore_path.write_text(
+                backup_restore_path.read_text(encoding="utf-8"),
+                encoding="utf-8",
+            )
+        return backup_root
+
+    @staticmethod
+    def _extract_shared_blocks_restore_candidate(
+        error_message: str,
+        shared_blocks_root: Path,
+    ) -> Path | None:
+        """Return one restorable shared-block file path from a parse error."""
+
+        for match in SYNC_FILE_LINE_RE.finditer(error_message):
+            candidate_path = Path(match.group("path").strip()).resolve()
+            try:
+                candidate_path.relative_to(shared_blocks_root)
+            except ValueError:
+                continue
+            return candidate_path
+        return None
 
     def expected_shared_block_group_keys(
         self,

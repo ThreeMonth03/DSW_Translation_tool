@@ -2,17 +2,26 @@
 
 from __future__ import annotations
 
+import hashlib
 import os
 import re
+import shutil
 from dataclasses import dataclass
 from pathlib import Path
 from typing import Any
 
-from .constants import MANIFEST_NAME, SHARED_BLOCKS_FILENAME, UUID_FILENAME
+from .constants import (
+    MANIFEST_NAME,
+    SHARED_BLOCK_CONTEXT_FILENAME,
+    SHARED_BLOCKS_DIRNAME,
+    SHARED_BLOCKS_FILENAME,
+    UUID_FILENAME,
+)
 from .data_models import (
     PoBlock,
     PoReference,
     SharedBlocksBuildResult,
+    SharedBlocksDirectoryBuildResult,
     SharedBlocksOutlineBuildResult,
     TreeFolderSnapshot,
 )
@@ -60,12 +69,14 @@ class SharedBlockRecord:
         source_text: Shared source-language text.
         translation_text: Canonical target-language translation.
         contexts: All linked tree contexts that share this block.
+        stable_id: Stable filesystem identifier used for the group directory.
     """
 
     group_key: tuple[tuple[str, str], ...]
     source_text: str
     translation_text: str
     contexts: tuple[SharedBlockContext, ...]
+    stable_id: str
 
     @property
     def is_translated(self) -> bool:
@@ -83,7 +94,7 @@ class SharedBlockRecord:
 
 
 class SharedBlocksCatalogParser:
-    """Parse `shared_blocks.md` into canonical group translations.
+    """Parse shared-block collaboration artifacts into canonical translations.
 
     Args:
         source_lang: Source language code used by the markdown template.
@@ -94,19 +105,32 @@ class SharedBlocksCatalogParser:
         self.source_lang = source_lang
         self.target_lang = target_lang
 
-    def parse(self, shared_blocks_path: str) -> dict[tuple[tuple[str, str], ...], str]:
-        """Parse one shared-block markdown file from disk.
+    def parse(
+        self,
+        shared_blocks_path: str,
+        expected_group_keys: set[tuple[tuple[str, str], ...]] | None = None,
+    ) -> dict[tuple[tuple[str, str], ...], str]:
+        """Parse shared-block canonical content from disk.
 
         Args:
-            shared_blocks_path: Markdown path to parse.
+            shared_blocks_path: Shared-block markdown path or canonical root
+                directory.
+            expected_group_keys: Optional expected shared-group set used for
+                stable directory parsing.
 
         Returns:
             Mapping from stable group keys to translated text.
         """
 
-        markdown_path = Path(shared_blocks_path)
-        markdown_text = markdown_path.read_text(encoding="utf-8")
-        return self.parse_text(markdown_text, str(markdown_path))
+        shared_blocks_location = Path(shared_blocks_path)
+        if shared_blocks_location.is_dir():
+            return self.parse_directory(
+                shared_blocks_root=shared_blocks_location,
+                expected_group_keys=expected_group_keys,
+            )
+
+        markdown_text = shared_blocks_location.read_text(encoding="utf-8")
+        return self.parse_text(markdown_text, str(shared_blocks_location))
 
     def parse_text(
         self,
@@ -229,6 +253,115 @@ class SharedBlocksCatalogParser:
 
         return translations
 
+    def parse_directory(
+        self,
+        shared_blocks_root: str | Path,
+        expected_group_keys: set[tuple[tuple[str, str], ...]] | None = None,
+    ) -> dict[tuple[tuple[str, str], ...], str]:
+        """Parse split shared-block canonical files from one directory root.
+
+        Args:
+            shared_blocks_root: Canonical shared-block directory root.
+            expected_group_keys: Optional expected shared-group set. When
+                provided, the parser reads the deterministic `context.md`
+                file for each expected group directly.
+
+        Returns:
+            Mapping from stable group keys to translated text.
+        """
+
+        root_path = Path(shared_blocks_root)
+        if expected_group_keys is not None:
+            return self._parse_expected_group_directory(root_path, expected_group_keys)
+
+        translations: dict[tuple[tuple[str, str], ...], str] = {}
+        for context_path in sorted(root_path.glob(f"*/{SHARED_BLOCK_CONTEXT_FILENAME}")):
+            group_key = self._parse_group_key_from_context(context_path)
+            translations[group_key] = self._parse_translation_from_context(context_path)
+        return translations
+
+    def _parse_expected_group_directory(
+        self,
+        shared_blocks_root: Path,
+        expected_group_keys: set[tuple[tuple[str, str], ...]],
+    ) -> dict[tuple[tuple[str, str], ...], str]:
+        """Parse deterministic split shared-block files for the expected groups.
+
+        Args:
+            shared_blocks_root: Canonical shared-block directory root.
+            expected_group_keys: Structured shared-group set expected by sync.
+
+        Returns:
+            Mapping from stable group keys to translated text.
+        """
+
+        translations: dict[tuple[tuple[str, str], ...], str] = {}
+        for group_key in sorted(expected_group_keys):
+            context_path = self.group_context_path(shared_blocks_root, group_key)
+            if not context_path.exists():
+                raise ValueError(
+                    "Missing shared-block context file.\n"
+                    f"File: {context_path}"
+                )
+            translations[group_key] = self._parse_translation_from_context(context_path)
+        return translations
+
+    def _parse_group_key_from_context(
+        self,
+        context_path: Path,
+    ) -> tuple[tuple[str, str], ...]:
+        """Parse one shared-group key from a generated `context.md` file.
+
+        Args:
+            context_path: Generated shared-block context markdown path.
+
+        Returns:
+            Structured group key.
+        """
+
+        for line in context_path.read_text(encoding="utf-8").splitlines():
+            match = SHARED_KEY_RE.fullmatch(line.strip())
+            if match is None:
+                continue
+            return self.deserialize_group_key(match.group("key"))
+        raise ValueError(
+            "Missing shared-block key metadata in generated context markdown.\n"
+            f"File: {context_path}"
+        )
+
+    def _parse_translation_from_context(self, context_path: Path) -> str:
+        """Parse the editable translation block from one canonical context file.
+
+        Args:
+            context_path: Canonical `context.md` path.
+
+        Returns:
+            Shared translation text without editor-added trailing blank lines.
+        """
+
+        lines = context_path.read_text(encoding="utf-8").splitlines()
+        if lines and lines[-1] == "":
+            lines = lines[:-1]
+        for index, line in enumerate(lines):
+            stripped = line.strip()
+            if stripped not in {
+                f"### Translation ({self.target_lang})",
+                f"### Current Translation ({self.target_lang})",
+            }:
+                continue
+            block_start = self._consume_blank_lines(lines, index + 1)
+            translation_text, _ = self._consume_fenced_block(
+                lines=lines,
+                index=block_start,
+                markdown_path=str(context_path),
+                role_label="translation",
+            )
+            return translation_text
+        raise ValueError(
+            "Missing editable translation block in shared-block context markdown.\n"
+            f"File: {context_path}"
+        )
+
     @staticmethod
     def serialize_group_key(group_key: tuple[tuple[str, str], ...]) -> str:
         """Serialize one group key into markdown metadata.
@@ -241,6 +374,48 @@ class SharedBlocksCatalogParser:
         """
 
         return " | ".join(f"{entity_uuid}:{field}" for entity_uuid, field in group_key)
+
+    @staticmethod
+    def stable_group_id(group_key: tuple[tuple[str, str], ...]) -> str:
+        """Return a deterministic filesystem-safe identifier for one group.
+
+        Args:
+            group_key: Structured `(uuid, field)` tuples.
+
+        Returns:
+            Stable hexadecimal identifier suitable for folder names.
+        """
+
+        serialized_key = SharedBlocksCatalogParser.serialize_group_key(group_key)
+        return hashlib.sha1(serialized_key.encode("utf-8")).hexdigest()[:12]
+
+    @classmethod
+    def group_dir_path(
+        cls,
+        shared_blocks_root: Path,
+        group_key: tuple[tuple[str, str], ...],
+    ) -> Path:
+        """Return the canonical directory for one shared-block group.
+
+        Args:
+            shared_blocks_root: Canonical shared-block directory root.
+            group_key: Structured group key.
+
+        Returns:
+            Canonical group directory path.
+        """
+
+        return shared_blocks_root / cls.stable_group_id(group_key)
+
+    @classmethod
+    def group_context_path(
+        cls,
+        shared_blocks_root: Path,
+        group_key: tuple[tuple[str, str], ...],
+    ) -> Path:
+        """Return the generated context markdown path for one group."""
+
+        return cls.group_dir_path(shared_blocks_root, group_key) / SHARED_BLOCK_CONTEXT_FILENAME
 
     @staticmethod
     def deserialize_group_key(serialized_key: str) -> tuple[tuple[str, str], ...]:
@@ -360,7 +535,7 @@ def resolve_shared_blocks_backup_path(
     tree_repository: TranslationTreeRepository,
     tree_dir: str | Path,
 ) -> Path:
-    """Return the local backup path for `shared_blocks.md`.
+    """Return the local backup path for generated `shared_blocks.md`.
 
     Args:
         tree_repository: Translation tree repository that owns the path service.
@@ -373,8 +548,36 @@ def resolve_shared_blocks_backup_path(
     return tree_repository.path_service.backup_root(tree_dir) / f"{SHARED_BLOCKS_FILENAME}.bak"
 
 
+def resolve_shared_blocks_root_path(shared_blocks_path: str | Path) -> Path:
+    """Return the canonical shared-block directory for one output path.
+
+    Args:
+        shared_blocks_path: Generated top-level shared-block markdown path or
+            canonical shared-block directory path.
+
+    Returns:
+        Canonical shared-block directory root.
+    """
+
+    markdown_path = Path(shared_blocks_path)
+    if markdown_path.suffix == ".md":
+        return markdown_path.with_suffix("")
+    if markdown_path.name == SHARED_BLOCKS_DIRNAME:
+        return markdown_path
+    return markdown_path / SHARED_BLOCKS_DIRNAME
+
+
+def resolve_shared_blocks_backup_root(
+    tree_repository: TranslationTreeRepository,
+    tree_dir: str | Path,
+) -> Path:
+    """Return the local backup directory for split shared-block files."""
+
+    return tree_repository.path_service.backup_root(tree_dir) / SHARED_BLOCKS_DIRNAME
+
+
 class SharedBlocksCatalogBuilder:
-    """Build `shared_blocks.md` from the current tree and original PO.
+    """Build shared-block collaboration artifacts from the current tree and PO.
 
     Args:
         tree_repository: Translation tree repository used to scan the tree.
@@ -416,6 +619,7 @@ class SharedBlocksCatalogBuilder:
         blocks = PoCatalogParser(original_po_path).parse_blocks()
         scan_result = self.tree_repository.scan(tree_dir)
         output_path = Path(output_shared_blocks_path)
+        shared_blocks_root = resolve_shared_blocks_root_path(output_path)
         records = self._build_records(
             blocks=blocks,
             manifest=manifest,
@@ -423,14 +627,73 @@ class SharedBlocksCatalogBuilder:
             output_path=output_path,
             folders_by_uuid=scan_result.folders_by_uuid,
         )
+        written_paths = self._write_group_files(
+            shared_blocks_root=shared_blocks_root,
+            records=records,
+        )
         markdown_text = self._render(records)
 
         output_path.parent.mkdir(parents=True, exist_ok=True)
         output_path.write_text(markdown_text, encoding="utf-8")
-        self._write_shared_blocks_backup(tree_dir=tree_dir, markdown_text=markdown_text)
+        written_paths.add(output_path)
+        self._write_shared_blocks_backup(
+            tree_dir=tree_dir,
+            markdown_text=markdown_text,
+            shared_blocks_root=shared_blocks_root,
+            records=records,
+        )
         return SharedBlocksBuildResult(
             markdown_text=markdown_text,
             output_shared_blocks=output_path,
+            output_shared_blocks_root=shared_blocks_root,
+            written_paths=tuple(sorted(written_paths, key=str)),
+        )
+
+    def build_directory(
+        self,
+        tree_dir: str,
+        original_po_path: str,
+        output_shared_blocks_root: str,
+    ) -> SharedBlocksDirectoryBuildResult:
+        """Build and persist only the canonical shared-block directory.
+
+        Args:
+            tree_dir: Translation tree directory.
+            original_po_path: Original PO used as the shared-block source.
+            output_shared_blocks_root: Destination shared-block directory path.
+
+        Returns:
+            Shared-block directory build result.
+        """
+
+        manifest = self.tree_repository.read_existing_manifest(tree_dir)
+        if manifest is None:
+            raise ValueError(f"Translation tree manifest not found in {tree_dir}/{MANIFEST_NAME}")
+
+        blocks = PoCatalogParser(original_po_path).parse_blocks()
+        scan_result = self.tree_repository.scan(tree_dir)
+        shared_blocks_root = Path(output_shared_blocks_root)
+        pseudo_index_path = shared_blocks_root.parent / SHARED_BLOCKS_FILENAME
+        records = self._build_records(
+            blocks=blocks,
+            manifest=manifest,
+            tree_dir=Path(tree_dir),
+            output_path=pseudo_index_path,
+            folders_by_uuid=scan_result.folders_by_uuid,
+        )
+        written_paths = self._write_group_files(
+            shared_blocks_root=shared_blocks_root,
+            records=records,
+        )
+        self._write_shared_blocks_backup(
+            tree_dir=tree_dir,
+            markdown_text=None,
+            shared_blocks_root=shared_blocks_root,
+            records=records,
+        )
+        return SharedBlocksDirectoryBuildResult(
+            output_shared_blocks_root=shared_blocks_root,
+            written_paths=tuple(sorted(written_paths, key=str)),
         )
 
     def build_outline(
@@ -464,7 +727,7 @@ class SharedBlocksCatalogBuilder:
             output_path=output_path,
             folders_by_uuid=scan_result.folders_by_uuid,
         )
-        markdown_text = self._render_outline(records)
+        markdown_text = self._render_outline(records, output_path=output_path)
 
         output_path.parent.mkdir(parents=True, exist_ok=True)
         output_path.write_text(markdown_text, encoding="utf-8")
@@ -514,6 +777,9 @@ class SharedBlocksCatalogBuilder:
                         folders_by_uuid=folders_by_uuid,
                     ),
                     contexts=contexts,
+                    stable_id=SharedBlocksCatalogParser.stable_group_id(
+                        tuple((reference.uuid, reference.field) for reference in block.references)
+                    ),
                 )
             )
 
@@ -583,71 +849,42 @@ class SharedBlocksCatalogBuilder:
         )
 
     def _render(self, records: list[SharedBlockRecord]) -> str:
-        """Render shared-block records into markdown text."""
+        """Render the generated shared-block index markdown."""
 
         lines = [
             "# Shared Blocks",
             "",
             (
-                "Edit only the `Translation "
-                f"({self.target_lang})` blocks below. `make sync` will propagate"
+                "This file is generated. Edit shared translations in "
+                f"`{SHARED_BLOCKS_DIRNAME}/<group-id>/{SHARED_BLOCK_CONTEXT_FILENAME}`."
             ),
-            "them into every linked shared tree field.",
             "",
         ]
 
         for index, record in enumerate(records, start=1):
             checkbox = "x" if record.is_translated else " "
+            context_link = TranslationOutlineRenderer.format_link_destination(
+                f"{SHARED_BLOCKS_DIRNAME}/{record.stable_id}/{SHARED_BLOCK_CONTEXT_FILENAME}"
+            )
+            source_preview = self._escape_markdown_link_text(self._preview_text(record.source_text))
             lines.extend(
                 [
-                    f'<a id="group-{index:04d}"></a>',
                     f"## Group {index:04d}",
                     "",
                     f"- Status: [{checkbox}]",
-                    f"- References: `{len(record.contexts)}`",
-                    (
-                        "- Shared Key: "
-                        f"`{SharedBlocksCatalogParser.serialize_group_key(record.group_key)}`"
-                    ),
-                    "",
-                    f'<a id="group-{index:04d}-blocks"></a>',
-                    "",
-                    f"### Source ({self.source_lang})",
-                    "",
-                    "~~~text",
-                    record.source_text,
-                    "~~~",
-                    "",
-                    f'<a id="group-{index:04d}-translation"></a>',
-                    "",
-                    self._translation_section_heading(index),
-                    "",
-                    f"### Translation ({self.target_lang})",
-                    "",
-                    "~~~text",
-                    record.translation_text,
-                    "~~~",
-                    "",
-                    "### Contexts",
+                    f"- [Open context]({context_link})",
+                    f"- {source_preview}",
                     "",
                 ]
             )
-            for context in record.contexts:
-                link_label = self._escape_markdown_link_text(context.label)
-                formatted_link = TranslationOutlineRenderer.format_link_destination(
-                    context.relative_link
-                )
-                lines.extend(
-                    [
-                        f"- {context.badge} [{link_label}]({formatted_link})",
-                        (f"  Context: {context.context_label} [{context.reference.field}]"),
-                        "",
-                    ]
-                )
 
         return "\n".join(lines).rstrip() + "\n"
 
-    def _render_outline(self, records: list[SharedBlockRecord]) -> str:
+    def _render_outline(
+        self,
+        records: list[SharedBlockRecord],
+        output_path: Path,
+    ) -> str:
         """Render shared-block records into compact overview markdown."""
 
         indexed_records = list(enumerate(records, start=1))
@@ -658,7 +895,7 @@ class SharedBlocksCatalogBuilder:
             "",
             (
                 "Review shared translation progress here. Edit the actual shared"
-                " translations in `shared_blocks.md`."
+                f" translations in `{SHARED_BLOCKS_DIRNAME}/`."
             ),
             "",
             f"- Total groups: `{len(records)}`",
@@ -666,26 +903,150 @@ class SharedBlocksCatalogBuilder:
             f"- Translated: `{translated_count}`",
             "",
         ]
-        self._render_outline_section(lines, indexed_records)
+        self._render_outline_section(lines, indexed_records, output_path=output_path)
         return "\n".join(lines).rstrip() + "\n"
 
     def _render_outline_section(
         self,
         lines: list[str],
         indexed_records: list[tuple[int, SharedBlockRecord]],
+        output_path: Path,
     ) -> None:
         """Render the shared-block outline in stable group order."""
 
         for group_index, record in indexed_records:
             checkbox = "x" if record.is_translated else " "
+            context_relative_path = os.path.relpath(
+                output_path.parent / SHARED_BLOCKS_DIRNAME / record.stable_id / SHARED_BLOCK_CONTEXT_FILENAME,
+                output_path.parent,
+            )
             translation_destination = TranslationOutlineRenderer.format_link_destination(
-                f"shared_blocks.md#{self._translation_section_fragment(group_index)}"
+                context_relative_path
             )
             source_preview = self._escape_markdown_link_text(self._preview_text(record.source_text))
             lines.append(f"- [{checkbox}] Group {group_index:04d}")
             lines.append("")
             lines.append(f"  [{source_preview}]({translation_destination})")
             lines.append("")
+
+    def _write_group_files(
+        self,
+        shared_blocks_root: Path,
+        records: list[SharedBlockRecord],
+    ) -> set[Path]:
+        """Write canonical per-group shared-block files.
+
+        Args:
+            shared_blocks_root: Canonical shared-block directory root.
+            records: Shared-block records to persist.
+
+        Returns:
+            Set of generated file paths.
+        """
+
+        shared_blocks_root.mkdir(parents=True, exist_ok=True)
+        expected_group_ids = {record.stable_id for record in records}
+        self._prune_stale_group_paths(shared_blocks_root, expected_group_ids)
+
+        written_paths: set[Path] = set()
+        for group_index, record in enumerate(records, start=1):
+            group_dir = shared_blocks_root / record.stable_id
+            group_dir.mkdir(parents=True, exist_ok=True)
+            self._prune_stale_group_member_paths(group_dir)
+
+            context_path = group_dir / SHARED_BLOCK_CONTEXT_FILENAME
+            context_path.write_text(
+                self._render_group_context(
+                    group_index=group_index,
+                    record=record,
+                    shared_blocks_root=shared_blocks_root,
+                ),
+                encoding="utf-8",
+            )
+            written_paths.add(context_path)
+        return written_paths
+
+    def _render_group_context(
+        self,
+        group_index: int,
+        record: SharedBlockRecord,
+        shared_blocks_root: Path,
+    ) -> str:
+        """Render one generated shared-block context markdown file."""
+
+        lines = [
+            f"# Group {group_index:04d}",
+            "",
+            (
+                f"> Edit only the `Translation ({self.target_lang})` block below. "
+                "Other sections are generated."
+            ),
+            "",
+            f"- Status: [{'x' if record.is_translated else ' '}]",
+            f"- Stable ID: `{record.stable_id}`",
+            (
+                "- Shared Key: "
+                f"`{SharedBlocksCatalogParser.serialize_group_key(record.group_key)}`"
+            ),
+            "",
+            f"### Source ({self.source_lang})",
+            "",
+            "~~~text",
+            record.source_text,
+            "~~~",
+            "",
+            f"### Translation ({self.target_lang})",
+            "",
+            "~~~text",
+            record.translation_text,
+            "~~~",
+            "",
+            "### Contexts",
+            "",
+        ]
+        group_dir = shared_blocks_root / record.stable_id
+        for context in record.contexts:
+            link_label = self._escape_markdown_link_text(context.label)
+            tree_root_relative_link = shared_blocks_root.parent / context.relative_link
+            context_relative_link = os.path.relpath(tree_root_relative_link, group_dir)
+            formatted_link = TranslationOutlineRenderer.format_link_destination(
+                context_relative_link
+            )
+            lines.extend(
+                [
+                    f"- {context.badge} [{link_label}]({formatted_link})",
+                    f"  Context: {context.context_label} [{context.reference.field}]",
+                    "",
+                ]
+            )
+        return "\n".join(lines).rstrip() + "\n"
+
+    @staticmethod
+    def _prune_stale_group_paths(shared_blocks_root: Path, expected_group_ids: set[str]) -> None:
+        """Remove stale generated group directories from the canonical root."""
+
+        for child in shared_blocks_root.iterdir():
+            if child.name in expected_group_ids:
+                continue
+            if child.is_dir():
+                shutil.rmtree(child)
+            else:
+                child.unlink()
+
+    @staticmethod
+    def _prune_stale_group_member_paths(group_dir: Path) -> None:
+        """Remove unexpected generated files from one group directory."""
+
+        expected_names = {
+            SHARED_BLOCK_CONTEXT_FILENAME,
+        }
+        for child in group_dir.iterdir():
+            if child.name in expected_names:
+                continue
+            if child.is_dir():
+                shutil.rmtree(child)
+            else:
+                child.unlink()
 
     @staticmethod
     def _preview_text(value: str, limit: int = 100) -> str:
@@ -793,33 +1154,45 @@ class SharedBlocksCatalogBuilder:
 
         return value.replace("\\", "\\\\").replace("[", "\\[").replace("]", "\\]")
 
-    @staticmethod
-    def _translation_section_heading(group_index: int) -> str:
-        """Return the unique translation-section heading for one group."""
-
-        return f"### Translation zh-Hant Group {group_index:04d}"
-
-    @staticmethod
-    def _translation_section_fragment(group_index: int) -> str:
-        """Return the markdown fragment for one translation-section heading."""
-
-        return f"translation-zh-hant-group-{group_index:04d}"
-
     def _write_shared_blocks_backup(
         self,
         tree_dir: str | Path,
-        markdown_text: str,
+        markdown_text: str | None,
+        shared_blocks_root: Path,
+        records: list[SharedBlockRecord],
     ) -> None:
-        """Persist a last-known-good backup of `shared_blocks.md`.
+        """Persist last-known-good backups of shared-block artifacts.
 
         Args:
             tree_dir: Translation tree root directory.
-            markdown_text: Valid shared-block markdown content.
+            markdown_text: Optional generated shared-block index markdown.
+            shared_blocks_root: Canonical shared-block directory root.
+            records: Shared-block records used to populate the backup tree.
         """
 
         backup_path = resolve_shared_blocks_backup_path(
             tree_repository=self.tree_repository,
             tree_dir=tree_dir,
         )
-        backup_path.parent.mkdir(parents=True, exist_ok=True)
-        backup_path.write_text(markdown_text, encoding="utf-8")
+        if markdown_text is not None:
+            backup_path.parent.mkdir(parents=True, exist_ok=True)
+            backup_path.write_text(markdown_text, encoding="utf-8")
+        backup_root = resolve_shared_blocks_backup_root(
+            tree_repository=self.tree_repository,
+            tree_dir=tree_dir,
+        )
+        backup_root.mkdir(parents=True, exist_ok=True)
+        expected_group_ids = {record.stable_id for record in records}
+        self._prune_stale_group_paths(backup_root, expected_group_ids)
+        for group_index, record in enumerate(records, start=1):
+            group_dir = backup_root / record.stable_id
+            group_dir.mkdir(parents=True, exist_ok=True)
+            self._prune_stale_group_member_paths(group_dir)
+            (group_dir / SHARED_BLOCK_CONTEXT_FILENAME).write_text(
+                self._render_group_context(
+                    group_index=group_index,
+                    record=record,
+                    shared_blocks_root=shared_blocks_root,
+                ),
+                encoding="utf-8",
+            )

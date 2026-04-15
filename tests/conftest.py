@@ -154,17 +154,17 @@ def collaboration_outline_path(collaboration_tree_dir: Path) -> Path:
 
 
 @pytest.fixture(scope="session")
-def collaboration_shared_blocks_path(collaboration_tree_dir: Path) -> Path:
-    """Return the checked-in shared-block markdown path for collaboration output.
+def collaboration_shared_blocks_dir(collaboration_tree_dir: Path) -> Path:
+    """Return the checked-in canonical shared-block directory path.
 
     Args:
         collaboration_tree_dir: Collaboration tree directory fixture.
 
     Returns:
-        Absolute shared-block markdown path to validate.
+        Absolute shared-block directory path to validate.
     """
 
-    return collaboration_tree_dir / "shared_blocks.md"
+    return collaboration_tree_dir / "shared_blocks"
 
 
 @pytest.fixture(scope="session")

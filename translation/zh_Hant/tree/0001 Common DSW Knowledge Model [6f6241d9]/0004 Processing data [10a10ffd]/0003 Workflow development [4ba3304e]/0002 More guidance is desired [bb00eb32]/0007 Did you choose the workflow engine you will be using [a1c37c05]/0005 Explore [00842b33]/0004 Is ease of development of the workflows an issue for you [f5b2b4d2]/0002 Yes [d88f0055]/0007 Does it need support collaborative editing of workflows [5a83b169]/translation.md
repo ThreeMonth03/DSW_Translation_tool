@@ -20,7 +20,7 @@ Does it need  support collaborative editing of workflows?
 
 ## text
 
-> Shared field: edit this translation in `shared_blocks.md`.
+> Shared field: edit this translation in `shared_blocks/`.
 
 ### Source (en)
 
