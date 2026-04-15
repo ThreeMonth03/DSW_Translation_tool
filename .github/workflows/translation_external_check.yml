@@ -1,0 +1,45 @@
+name: External Translation Check
+
+on:
+  push:
+  pull_request:
+
+env:
+  # This in-repo variant checks out the current repository again so we can
+  # validate the workflow against the exact commit under test.
+  TOOLING_REPOSITORY: ${{ github.repository }}
+  TOOLING_REF: ${{ github.sha }}
+  TRANSLATION_ROOT: translation/zh_Hant
+
+jobs:
+  translation-check:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout host repository
+        uses: actions/checkout@v4
+        with:
+          path: translation-repo
+
+      - name: Checkout tooling repository
+        uses: actions/checkout@v4
+        with:
+          repository: ${{ env.TOOLING_REPOSITORY }}
+          ref: ${{ env.TOOLING_REF }}
+          path: tooling-repo
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.13"
+
+      - name: Install tooling dependencies
+        working-directory: tooling-repo
+        run: make install-dev BOOTSTRAP_PYTHON=python
+
+      - name: Run translation unit tests against external root
+        working-directory: tooling-repo
+        env:
+          DSW_COLLAB_OUTPUT_ROOT: >-
+            ${{ github.workspace }}/translation-repo/${{ env.TRANSLATION_ROOT }}
+        run: make test-translation

@@ -263,6 +263,32 @@ make test-infra
 make test-translation
 ```
 
+#### External Translation Repository CI
+
+The repository includes two GitHub Actions variants for running translation
+tests against a checked-in translation tree:
+
+- [.github/workflows/translation_external_check.yml](./.github/workflows/translation_external_check.yml)
+  is the in-repo self-check version used to validate this workflow logic while
+  developing the tooling itself. It runs automatically on `push` and
+  `pull_request`, and targets `translation/zh_Hant` inside this repository.
+- [.github/workflows/translation_external_repo_template.yml](./.github/workflows/translation_external_repo_template.yml)
+  is the copy-ready template for a dedicated translation-only repository.
+
+When copying the external template into another repository:
+
+- keep `TOOLING_REPOSITORY: ThreeMonth03/DSW_Translation_tool` if this
+  repository remains the canonical tooling source
+- keep `TOOLING_REF: master` if that repository's default branch should define
+  the tested tooling version
+- change `TRANSLATION_ROOT` if the checked-in translation tree is not located at
+  the repository root
+- in a dedicated translation-only repository, `TRANSLATION_ROOT` will usually
+  be `.`
+
+The workflow uses `actions/checkout` for both repositories and points the
+tooling test suite at the external tree through `DSW_COLLAB_OUTPUT_ROOT`.
+
 #### Export Translation Tree
 
 ```shell
