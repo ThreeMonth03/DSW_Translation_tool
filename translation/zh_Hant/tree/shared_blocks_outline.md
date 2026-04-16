@@ -3,8 +3,8 @@
 Review shared translation progress here. Edit the actual shared translations in `shared_blocks/`.
 
 - Total groups: `74`
-- Untranslated: `38`
-- Translated: `36`
+- Untranslated: `37`
+- Translated: `37`
 
 - [x] Group 0001
 
@@ -270,7 +270,7 @@ Review shared translation progress here. Edit the actual shared translations in 
 
   [Yes, for actual computations, requiring high performance](<shared_blocks/4410ebd7fdb7/context.md>)
 
-- [ ] Group 0067
+- [x] Group 0067
 
   [Yes, has been taken care of](<shared_blocks/fc42c78c532b/context.md>)
 
