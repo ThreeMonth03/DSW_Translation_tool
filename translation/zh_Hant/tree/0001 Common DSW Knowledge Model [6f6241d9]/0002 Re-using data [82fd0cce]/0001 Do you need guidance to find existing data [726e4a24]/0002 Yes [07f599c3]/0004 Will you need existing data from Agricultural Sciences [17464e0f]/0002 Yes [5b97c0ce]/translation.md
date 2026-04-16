@@ -33,5 +33,5 @@ _We are interested to receive your expertise on this topic. You can use the feed
 ### Translation (zh_Hant)
 
 ~~~text
-_我們希望能收到您在此主題上的專業意見。若您有可供我們列出的相關資源，歡迎使用回饋按鈕與我們分享_
+_我們希望能收到您在此主題上的專業意見。若您有可供我們列出的相關資源，歡迎使用回饋按鈕與我們分享_1
 ~~~

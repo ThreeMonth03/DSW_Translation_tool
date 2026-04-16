@@ -3202,7 +3202,7 @@ msgstr "不，不需要"
 
 #: answer:1d6ba101-fd62-43c8-ab53-76bc31847f58:label
 msgid "No, participants in the project each have different collections of data and tools"
-msgstr ""
+msgstr "e2e2"
 
 #: answer:efe50d9c-4dc2-49c5-ae61-1dc8ff0d7655:label
 msgid "No, suitable public controlled vocabularies or ontologies exist for all of my data types"
@@ -6449,7 +6449,7 @@ msgstr ""
 #: answer:44dfd6cb-b3ce-41a4-bca8-9689be8df67c:label
 #: answer:be674d81-cadb-470a-acf9-7365175b533d:label
 msgid "Yes, has been taken care of"
-msgstr ""
+msgstr "3e3"
 
 #: answer:065a500b-53c0-487f-9096-00fd6f7234a6:label
 msgid "Yes, lets explore this"
@@ -6688,7 +6688,7 @@ msgstr ""
 #: answer:bb3a8a14-7f1c-4cb3-bfb3-67346191195a:advice
 #: answer:ea62d905-0751-49ac-b74e-3600280f867d:advice
 msgid "_We are interested to receive your expertise on this topic. You can use the feedback button if you have resources that we could list here_"
-msgstr "_我們希望能收到您在此主題上的專業意見。若您有可供我們列出的相關資源，歡迎使用回饋按鈕與我們分享_"
+msgstr "_我們希望能收到您在此主題上的專業意見。若您有可供我們列出的相關資源，歡迎使用回饋按鈕與我們分享_1"
 
 #: url-reference:27700b2e-3022-4c21-8d30-6d9968491d26:label
 msgid "chipster"

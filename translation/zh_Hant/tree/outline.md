@@ -1561,7 +1561,7 @@
 
                                       [Q] [translation](<0001 Common DSW Knowledge Model [6f6241d9]/0003 Creating and collecting data [b1df3c74]/0008 Will you be acquiring data using measurement equipment [f87c331d]/0002 Yes [e4ca2d31]/0001 Specify what data sets you will acquire using measurement equipment [f5fef09d]/0005 Is special care needed to get the raw data ready for processing [28b99b8e]/0002 Yes, lets explore this [065a500b]/0003 How will the raw data be transported [2e8d6e55]/0002 On physical media [8c9c3d59]/0001 Is sufficient writing and reading capacity available for the... [31da89a7]/translation.md>)
 
-                                        - [ ] [layer 11] [shared] 0001 Yes, has been taken care of
+                                        - [x] [layer 11] [shared] 0001 Yes, has been taken care of
 
                                           [A] [translation](<0001 Common DSW Knowledge Model [6f6241d9]/0003 Creating and collecting data [b1df3c74]/0008 Will you be acquiring data using measurement equipment [f87c331d]/0002 Yes [e4ca2d31]/0001 Specify what data sets you will acquire using measurement equipment [f5fef09d]/0005 Is special care needed to get the raw data ready for processing [28b99b8e]/0002 Yes, lets explore this [065a500b]/0003 How will the raw data be transported [2e8d6e55]/0002 On physical media [8c9c3d59]/0001 Is sufficient writing and reading capacity available for the... [31da89a7]/0001 Yes, has been taken care of [be674d81]/translation.md>)
                                 - [ ] [layer 9] 0003 Via the network
@@ -1572,7 +1572,7 @@
 
                                       [Q] [translation](<0001 Common DSW Knowledge Model [6f6241d9]/0003 Creating and collecting data [b1df3c74]/0008 Will you be acquiring data using measurement equipment [f87c331d]/0002 Yes [e4ca2d31]/0001 Specify what data sets you will acquire using measurement equipment [f5fef09d]/0005 Is special care needed to get the raw data ready for processing [28b99b8e]/0002 Yes, lets explore this [065a500b]/0003 How will the raw data be transported [2e8d6e55]/0003 Via the network [ca02196a]/0001 Is sufficient network capacity available [3d942d91]/translation.md>)
 
-                                        - [ ] [layer 11] [shared] 0001 Yes, has been taken care of
+                                        - [x] [layer 11] [shared] 0001 Yes, has been taken care of
 
                                           [A] [translation](<0001 Common DSW Knowledge Model [6f6241d9]/0003 Creating and collecting data [b1df3c74]/0008 Will you be acquiring data using measurement equipment [f87c331d]/0002 Yes [e4ca2d31]/0001 Specify what data sets you will acquire using measurement equipment [f5fef09d]/0005 Is special care needed to get the raw data ready for processing [28b99b8e]/0002 Yes, lets explore this [065a500b]/0003 How will the raw data be transported [2e8d6e55]/0003 Via the network [ca02196a]/0001 Is sufficient network capacity available [3d942d91]/0001 Yes, has been taken care of [44dfd6cb]/translation.md>)
                                 - [ ] [layer 9] [shared] 0004 RDMkit on Data Transfer
@@ -2801,7 +2801,7 @@
                     - [x] [layer 6] 0004 Anyone in the institute can read data, only project members can...
 
                       [A] [translation](<0001 Common DSW Knowledge Model [6f6241d9]/0004 Processing data [10a10ffd]/0001 Will you be using a shared working space to work with your data [72099c46]/0001 Yes [e7324e1a]/0004 How will access to the work space be controlled [80d403f3]/0004 Anyone in the institute can read data, only project members can... [b19ba76a]/translation.md>)
-            - [ ] [layer 4] 0002 No, participants in the project each have different collections of...
+            - [x] [layer 4] 0002 No, participants in the project each have different collections of...
 
               [A] [translation](<0001 Common DSW Knowledge Model [6f6241d9]/0004 Processing data [10a10ffd]/0001 Will you be using a shared working space to work with your data [72099c46]/0002 No, participants in the project each have different collections of... [1d6ba101]/translation.md>)
 
@@ -4255,7 +4255,9 @@
                                 - [x] [layer 9] 0001 No, we made our own ontologies for our work; concepts are not...
 
                                   [A] [translation](<0001 Common DSW Knowledge Model [6f6241d9]/0005 Interpreting data [83438863]/0001 List the data formats you will be using for interpretation and... [a797cab9]/0002 How is this data structured [87fe7235]/0003 Complex data, like a graph [d7911ab4]/0001 Are you representing the graph in RDF [46e07a92]/0002 Yes [3525f6f9]/0001 Are all the URIs in the RDF resolving to common ontologies [3196c225]/0001 No, we made our own ontologies for our work; concepts are not... [30a6e365]/translation.md>)
-     
+                                - [x] [layer 9] 0002 No, we exclusively refer to our own ontologies for some classes of...
+
+                                  [A] [translation](<0001 Common DSW Knowledge Model [6f6241d9]/0005 Interpreting data [83438863]/0001 List the data formats you will be using for interpretation and... [a797cab9]/0002 How is this data structured [87fe7235]/0003 Complex data, like a graph [d7911ab4]/0001 Are you representing the graph in RDF [46e07a92]/0002 Yes [3525f6f9]/0001 Are all the URIs in the RDF resolving to common ontologies [3196c225]/0002 No, we exclusively refer to our own ontologies for some classes of... [945aae79]/translation.md>)
                                 - [ ] [layer 9] 0003 Yes, (almost) all our concepts are either from common ontologies,...
 
                                   [A] [translation](<0001 Common DSW Knowledge Model [6f6241d9]/0005 Interpreting data [83438863]/0001 List the data formats you will be using for interpretation and... [a797cab9]/0002 How is this data structured [87fe7235]/0003 Complex data, like a graph [d7911ab4]/0001 Are you representing the graph in RDF [46e07a92]/0002 Yes [3525f6f9]/0001 Are all the URIs in the RDF resolving to common ontologies [3196c225]/0003 Yes, (almost) all our concepts are either from common ontologies,... [88f9fb7b]/translation.md>)

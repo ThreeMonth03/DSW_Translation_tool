@@ -3,8 +3,8 @@
 Review shared translation progress here. Edit the actual shared translations in `shared_blocks/`.
 
 - Total groups: `74`
-- Untranslated: `38`
-- Translated: `36`
+- Untranslated: `37`
+- Translated: `37`
 
 - [x] Group 0001
 
@@ -114,6 +114,19 @@ Review shared translation progress here. Edit the actual shared translations in 
 
   [No, all data processing will be done in the same environment (virtual research environment)](<shared_blocks/3ae1963eb9ad/context.md>)
 
+- [ ] Group 0028
+
+  [Not yet](<shared_blocks/00c2ac195191/context.md>)
+
+- [x] Group 0029
+
+  [Other](<shared_blocks/516162c10fbe/context.md>)
+
+- [x] Group 0030
+
+  [Other researchers working in the same field of research](<shared_blocks/6f329a93d127/context.md>)
+
+- [ ] Group 0031
 
   [Planned](<shared_blocks/cb358e599300/context.md>)
 
@@ -257,7 +270,7 @@ Review shared translation progress here. Edit the actual shared translations in 
 
   [Yes, for actual computations, requiring high performance](<shared_blocks/4410ebd7fdb7/context.md>)
 
-- [ ] Group 0067
+- [x] Group 0067
 
   [Yes, has been taken care of](<shared_blocks/fc42c78c532b/context.md>)
 

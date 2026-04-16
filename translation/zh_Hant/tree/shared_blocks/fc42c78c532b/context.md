@@ -2,7 +2,7 @@
 
 > Edit only the `Translation (zh_Hant)` block below. Other sections are generated.
 
-- Status: [ ]
+- Status: [x]
 - Stable ID: `fc42c78c532b`
 - Shared Key: `44dfd6cb-b3ce-41a4-bca8-9689be8df67c:label | be674d81-cadb-470a-acf9-7365175b533d:label`
 
