@@ -4255,9 +4255,7 @@
                                 - [x] [layer 9] 0001 No, we made our own ontologies for our work; concepts are not...
 
                                   [A] [translation](<0001 Common DSW Knowledge Model [6f6241d9]/0005 Interpreting data [83438863]/0001 List the data formats you will be using for interpretation and... [a797cab9]/0002 How is this data structured [87fe7235]/0003 Complex data, like a graph [d7911ab4]/0001 Are you representing the graph in RDF [46e07a92]/0002 Yes [3525f6f9]/0001 Are all the URIs in the RDF resolving to common ontologies [3196c225]/0001 No, we made our own ontologies for our work; concepts are not... [30a6e365]/translation.md>)
-                                - [x] [layer 9] 0002 No, we exclusively refer to our own ontologies for some classes of...
-
-                                  [A] [translation](<0001 Common DSW Knowledge Model [6f6241d9]/0005 Interpreting data [83438863]/0001 List the data formats you will be using for interpretation and... [a797cab9]/0002 How is this data structured [87fe7235]/0003 Complex data, like a graph [d7911ab4]/0001 Are you representing the graph in RDF [46e07a92]/0002 Yes [3525f6f9]/0001 Are all the URIs in the RDF resolving to common ontologies [3196c225]/0002 No, we exclusively refer to our own ontologies for some classes of... [945aae79]/translation.md>)
+     
                                 - [ ] [layer 9] 0003 Yes, (almost) all our concepts are either from common ontologies,...
 
                                   [A] [translation](<0001 Common DSW Knowledge Model [6f6241d9]/0005 Interpreting data [83438863]/0001 List the data formats you will be using for interpretation and... [a797cab9]/0002 How is this data structured [87fe7235]/0003 Complex data, like a graph [d7911ab4]/0001 Are you representing the graph in RDF [46e07a92]/0002 Yes [3525f6f9]/0001 Are all the URIs in the RDF resolving to common ontologies [3196c225]/0003 Yes, (almost) all our concepts are either from common ontologies,... [88f9fb7b]/translation.md>)
